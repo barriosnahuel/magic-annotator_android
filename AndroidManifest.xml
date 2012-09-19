@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nbempire.android.magicannotator"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="7" />
+
+    <!--
+	    Se definen características principales de la aplicación:
+		    android:icon: Es el icono que se visualizará en el launcher de Android. Debe estar en los recursos: @drawable en las 3 calidades que propone Android.				low quality (ldpi): tamaño, 36x36 px; resolución, 96 ppp; profundidad en bits, 32.
+				medium quality (mdpi): tamaño, 48x48 px; resolución, 96 ppp; profundidad en bits, 32.
+				high quality (hdpi): tamaño, 72x72 px; resolución, 71 ppp; profundidad en bits, 32.
+    -->
+    <application
+        android:icon="@drawable/icon_5matchs"
+        android:label="@string/app_name" >
+        <activity
+            android:name=".activity.ChooseGameActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.AboutActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ViewCurrentBugsActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChoosePlayersActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ViewTeamsActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChanchoAnnotatorActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TrucoAnnotatorActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.TuteAnnotatorActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.GenericAnnotatorActivity"
+            android:label="@string/app_name_gui_version" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/trucoAnnotator_labelDoTap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="@string/trucoAnnotator_labelDoTapOnYourTeamToAddScore"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    
+    <LinearLayout
+        android:id="@+id/trucoAnnotator_layoutTeam1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="65dip" >
+
+        <TextView
+            android:id="@+id/trucoAnnotator_labelTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dip"
+            android:text="@string/truco_team1_we"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/trucoAnnotator_scoreTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="70dip"
+            android:layout_marginTop="8dip"
+            android:text="@string/defaultInitialGameScore"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ToggleButton
+            android:id="@+id/trucoAnnotator_toggleTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dip"
+            android:focusable="false"
+            android:textOff="@string/truco_malas"
+            android:textOn="@string/truco_buenas" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/trucoAnnotator_layoutTeam2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/trucoAnnotator_layoutTeam1"
+        android:layout_marginTop="50dip" >
+
+        <TextView
+            android:id="@+id/trucoAnnotator_labelTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="8dip"
+            android:text="@string/truco_team2_them"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/trucoAnnotator_scoreTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="91dip"
+            android:layout_marginTop="8dip"
+            android:text="@string/defaultInitialGameScore"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ToggleButton
+            android:id="@+id/trucoAnnotator_toggleTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="150dip"
+            android:focusable="false"
+            android:textOff="@string/truco_malas"
+            android:textOn="@string/truco_buenas" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/trucoAnnotator_buttonNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:onClick="resetGame"
+        android:text="@string/trucoAnnotator_labelNewGame" />
+
+</RelativeLayout>

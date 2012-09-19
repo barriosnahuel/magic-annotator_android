@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TextView
+        android:id="@+id/tuteHand_chooseLoosersLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chooseLoosers"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@+id/tuteHand_finishHand_button"
+        android:layout_below="@+id/tuteHand_chooseLoosersLabel" >
+
+        <LinearLayout
+            android:id="@+id/tuteHand_looserPlayersScrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TableLayout
+                android:id="@+id/tuteHand_looserPlayersLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/tuteHand_finishHand_button"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:text="@string/endHand" />
+
+</RelativeLayout>

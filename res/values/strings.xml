@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MagicAnnotator</string>
+    <string name="app_name_gui">Magic Annotator</string>
+    <string name="app_name_gui_version">Magic Annotator v1.5.2</string>
+
+    <!-- Commons -->
+    <string name="commonLabel_OK">OK</string>
+    <string name="player">Jugador</string>
+    <string name="annotateHand">¡Anotar mano!</string>
+    <string name="play">Jugar!</string>
+    <string name="endHand">Terminar mano</string>
+    <string name="chooseLoosers">¿Quiénes perdieron?</string>
+    <string name="chooseLooser">¿Quién perdió?</string>
+    <string name="commonLabel_accept">Aceptar</string>
+    <string name="defaultInitialGameScore">0</string>
+    <string name="add">+</string>
+    <string name="substract">-</string>
+    <string name="gamename_otro">Otro</string>
+    <string name="commonLabel_someoneLost">perdió :(</string>
+
+    <!-- ChooseGameActivity -->
+    <string name="chooseGame_title">¿Qué vas a anotar?</string>
+
+    <string-array name="chooseGame_gamesValues">
+        <item>Chancho</item>
+        <!-- <item>Chinchon</item> -->
+        <!-- <item>Generala</item> -->
+        <!-- <item>Escoba de 15</item> -->
+        <item>Truco</item>
+        <item>Tute</item>
+        <item>Otro</item>
+    </string-array>
+
+    <string name="chooseGame_about">Acerca de</string>
+    <string name="chooseGame_viewCurrentBugs">Ver bugs</string>
+
+    <!-- ViewCurrentBugsActivity -->
+    <string name="viewCurrentBugs_title">Esta versión de la aplicación todavía cuenta con algunos errores que aún estamos resolviendo, así que para poder utilizarla bien:</string>
+    <string name="viewCurrentBugs_bug1"> - Cuanto estes anotando un partido de truco, no te asustes si no pasa nada si haces tap sobre el boton de BUENAS/MALAS, en realidad ese botón no debes presionarlo, es solo un indicador que no afecta en nada al anotador.</string>
+    <string name="viewCurrentBugs_bug2"></string>
+    <string name="viewCurrentBugs_bug3"></string>
+
+    <string-array name="viewCurrentBugs_bugsValues">
+        <!-- <item >* Cuando estes eligiendo los jugadores para algún juego, no rotes el teléfono o si tienes un telefono con teclado fisico, no lo abras ya que se borraran los cambios que hayas hecho.</item> -->
+    </string-array>
+
+    <!-- AboutActivity -->
+    <string name="about_title">Sobre esta aplicación:</string>
+    <string name="about_introduction">Esta aplicación fue creada por Nahuel Barrios con la idea de facilitar al usuario un anotador de puntos de distintos juegos.</string>
+    <string name="about_contact">Pueden contactarme por cualquier duda o para reportar algun error, a travez del sitio web del proyecto:</string>
+    <string name="about_projectUrl">http://code.google.com/p/magic-annotator</string>
+    <string name="about_greetings">¡Espero les sea util!</string>
+
+    <!-- ChoosePlayersActivity -->
+    <string name="choosePlayers_title">¿Quién juega?</string>
+    <string name="choosePlayers_newPlayer">Nuevo jugador</string>
+    <string name="choosePlayers_selected">Seleccionados:</string>
+    <string name="newplayer_createPlayer">¡Crear!</string>
+    <string name="newplayer_enterNickName">Introduzca el apodo:</string>
+    <string name="choosePlayers_makeTeams">Armar equipos</string>
+    <string name="choosePlayers_playerAlreadyExists">ya está creado!</string>
+
+    <string-array name="choosePlayers_playersValues">
+        <item>Andres</item>
+        <item>Clausi</item>
+        <item>Dani</item>
+        <item>Emi</item>
+        <item>Emi T.</item>
+        <item>Eri</item>
+        <item>Fabio</item>
+        <item>Fer</item>
+        <item>Franco</item>
+        <item>Gerard</item>
+        <item>Glen</item>
+        <item>Jona</item>
+        <item>Juli</item>
+        <item>Lea</item>
+        <item>Maro</item>
+        <item>Mati Z.</item>
+        <item>Mau</item>
+        <item>Melisa</item>
+        <item>Nahuel</item>
+        <item>Nicolas</item>
+        <item>Peto</item>
+        <item>Seba</item>
+        <item>Virgen</item>
+    </string-array>
+
+    <!-- ViewTeamsActivity -->
+    <string name="team1">Equipo 1</string>
+    <string name="team2">Equipo 2</string>
+    <string name="viewTeams_title">Equipos:</string>
+
+    <!-- GenericAnnotatorActivity -->
+    <string name="genericannotator_scores">Puntajes</string>
+
+    <!-- TrucoAnnotatorActivity -->
+    <string name="trucoAnnotator_doYouWannaThrowKings">¿Queres tirar los reyes?</string>
+    <string name="trucoAnnotator_throwKings">Tirar reyes</string>
+    <string name="trucoAnnotator_annotateNow">¡Anotar ahora!</string>
+    <string name="trucoAnnotator_youWin">¡Ganamos!</string>
+    <string name="trucoAnnotator_theyWin">Ganaron ellos :(</string>
+    <string name="trucoAnnotator_labelNewGame">Nuevo partido</string>
+    <string name="trucoAnnotator_labelResult">Resultado</string>
+    <string name="trucoAnnotator_labelDoTapOnYourTeamToAddScore">Haz tap sobre tu equipo para anotar puntos</string>
+    
+
+    <!-- TutePartialResultsActivity -->
+    <string name="tutePartialResults_addCapote">Agregar capote</string>
+    <string name="tutePartialResults_addTute">Agregar tute</string>
+    <string name="tutePartialResults_whoDidThat">¿Quién lo hizo?</string>
+    <string name="tutePartialResults_lostHands">Manos Perdidas</string>
+    <string name="tutePartialResults_lostHands_short">MP</string>
+    <string name="tutePartialResults_capotes">Capotes</string>
+    <string name="tutePartialResults_tutes">Tutes</string>
+
+    <!-- Truco -->
+    <string name="truco_buenas">BUENAS</string>
+    <string name="truco_malas">MALAS</string>
+    <string name="truco_team1_we">Nosotros</string>
+    <string name="truco_team2_them">Ellos</string>
+
+</resources>

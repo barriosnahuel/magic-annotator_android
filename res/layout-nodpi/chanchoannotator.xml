@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <GridView
+        android:id="@+id/chanchoAnnotator_playersGridView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/chanchoAnnotator_chooseLooserButton"
+        android:layout_alignParentTop="true"
+        android:numColumns="2" >
+    </GridView>
+
+    <Button
+        android:id="@+id/chanchoAnnotator_chooseLooserButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:onClick="openPlayersSelector"
+        android:text="@string/chooseLooser" />
+
+</RelativeLayout>

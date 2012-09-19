@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/choosePlayers_title"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/choosePlayers_newPlayer_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:onClick="openPlayerCreator"
+        android:text="@string/choosePlayers_newPlayer" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/choosePlayers_button_makeTeams"
+        android:layout_below="@+id/choosePlayers_newPlayer_button"
+        android:layout_centerHorizontal="true" >
+
+        <TableLayout
+            android:id="@+id/choosePlayers_playersLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+        </TableLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/choosePlayers_button_makeTeams"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/choosePlayers_makeTeams" />
+
+</RelativeLayout>
