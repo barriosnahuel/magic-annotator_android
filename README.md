@@ -1,5 +1,8 @@
 #####It's an utility Android application to help card's players to annotate some game's scores.
 
+#####Download it for free direct from your smartphone at:
+* https://play.google.com/store/apps/details?id=com.nbempire.android.magicannotator
+
 This firsts releases of the application let users to annotate scores of Chancho, Truco, Tute games, and now we've got a generic annotator that let users annotate all games!
 
 The MagicAnnotator also provides functionality to generate random teams when the selected number of players accept that.
