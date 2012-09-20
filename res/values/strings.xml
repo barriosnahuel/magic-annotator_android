@@ -3,7 +3,7 @@
 
     <string name="app_name">MagicAnnotator</string>
     <string name="app_name_gui">Magic Annotator</string>
-    <string name="app_name_gui_version">Magic Annotator v1.5.2</string>
+    <string name="app_name_gui_version">Magic Annotator v1.5.3</string>
 
     <!-- Commons -->
     <string name="commonLabel_OK">OK</string>

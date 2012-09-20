@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nbempire.android.magicannotator"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="1.5.3" >
 
     <uses-sdk
         android:minSdkVersion="7"
@@ -10,9 +10,11 @@
 
     <!--
 	    Se definen características principales de la aplicación:
-		    android:icon: Es el icono que se visualizará en el launcher de Android. Debe estar en los recursos: @drawable en las 3 calidades que propone Android.				low quality (ldpi): tamaño, 36x36 px; resolución, 96 ppp; profundidad en bits, 32.
+		    android:icon: Es el icono que se visualizará en el launcher de Android. Debe estar en los recursos: @drawable en las 3 calidades que propone Android.
+				low quality (ldpi): tamaño, 36x36 px; resolución, 96 ppp; profundidad en bits, 32.
 				medium quality (mdpi): tamaño, 48x48 px; resolución, 96 ppp; profundidad en bits, 32.
-				high quality (hdpi): tamaño, 72x72 px; resolución, 71 ppp; profundidad en bits, 32.
+				high quality (hdpi): tamaño, 72x72 px; resolución, 71 ppp; profundidad en bits, 32.
+
     -->
     <application
         android:icon="@drawable/icon_5matchs"
