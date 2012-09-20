@@ -47,7 +47,7 @@
     <string name="about_title">Sobre esta aplicación:</string>
     <string name="about_introduction">Esta aplicación fue creada por Nahuel Barrios con la idea de facilitar al usuario un anotador de puntos de distintos juegos.</string>
     <string name="about_contact">Pueden contactarme por cualquier duda o para reportar algun error, a travez del sitio web del proyecto:</string>
-    <string name="about_projectUrl">http://code.google.com/p/magic-annotator</string>
+    <string name="about_projectUrl">https://github.com/barriosnahuel/magicAnnotator</string>
     <string name="about_greetings">¡Espero les sea util!</string>
 
     <!-- ChoosePlayersActivity -->
