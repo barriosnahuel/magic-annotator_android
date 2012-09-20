@@ -3,7 +3,7 @@
 
     <string name="app_name">MagicAnnotator</string>
     <string name="app_name_gui">Magic Annotator</string>
-    <string name="app_name_gui_version">Magic Annotator v1.5.3</string>
+    <string name="app_name_gui_version">Magic Annotator v1.5.4</string>
 
     <!-- Commons -->
     <string name="commonLabel_OK">OK</string>
@@ -25,9 +25,6 @@
 
     <string-array name="chooseGame_gamesValues">
         <item>Chancho</item>
-        <!-- <item>Chinchon</item> -->
-        <!-- <item>Generala</item> -->
-        <!-- <item>Escoba de 15</item> -->
         <item>Truco</item>
         <item>Tute</item>
         <item>Otro</item>
@@ -63,29 +60,29 @@
     <string name="choosePlayers_playerAlreadyExists">ya está creado!</string>
 
     <string-array name="choosePlayers_playersValues">
-        <item>Andres</item>
-        <item>Clausi</item>
-        <item>Dani</item>
-        <item>Emi</item>
-        <item>Emi T.</item>
-        <item>Eri</item>
-        <item>Fabio</item>
-        <item>Fer</item>
-        <item>Franco</item>
-        <item>Gerard</item>
-        <item>Glen</item>
-        <item>Jona</item>
-        <item>Juli</item>
-        <item>Lea</item>
-        <item>Maro</item>
-        <item>Mati Z.</item>
-        <item>Mau</item>
-        <item>Melisa</item>
-        <item>Nahuel</item>
-        <item>Nicolas</item>
-        <item>Peto</item>
-        <item>Seba</item>
-        <item>Virgen</item>
+<!--         <item>Andres</item> -->
+<!--         <item>Clausi</item> -->
+<!--         <item>Dani</item> -->
+<!--         <item>Emi</item> -->
+<!--         <item>Emi T.</item> -->
+<!--         <item>Eri</item> -->
+<!--         <item>Fabio</item> -->
+<!--         <item>Fer</item> -->
+<!--         <item>Franco</item> -->
+<!--         <item>Gerard</item> -->
+<!--         <item>Glen</item> -->
+<!--         <item>Jona</item> -->
+<!--         <item>Juli</item> -->
+<!--         <item>Lea</item> -->
+<!--         <item>Maro</item> -->
+<!--         <item>Mati Z.</item> -->
+<!--         <item>Mau</item> -->
+<!--         <item>Melisa</item> -->
+<!--         <item>Nahuel</item> -->
+<!--         <item>Nicolas</item> -->
+<!--         <item>Peto</item> -->
+<!--         <item>Seba</item> -->
+<!--         <item>Virgen</item> -->
     </string-array>
 
     <!-- ViewTeamsActivity -->
