@@ -55,6 +55,10 @@
       <option name="m_reportCollectionMethods" value="true" />
       <option name="m_ignorePrivateMethods" value="false" />
     </inspection_tool>
+    <inspection_tool class="SerializableHasSerialVersionUIDField" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoreAnonymousInnerClasses" value="false" />
+      <option name="superClassString" value="" />
+    </inspection_tool>
     <inspection_tool class="SpellCheckingInspection" enabled="false" level="TYPO" enabled_by_default="false">
       <option name="processCode" value="true" />
       <option name="processLiterals" value="true" />
