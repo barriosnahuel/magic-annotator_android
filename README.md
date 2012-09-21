@@ -11,3 +11,5 @@ The MagicAnnotator also provides functionality to generate random teams when the
 * As we're still working hard on this firsts releases, we've got a known bug's list so we apologise of that.
 
 To view some of the applications screens please visist this https://www.facebook.com/media/set/?set=a.436472896377058.105100.100000430551896&type=1&l=83e36000c0
+
+Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>
