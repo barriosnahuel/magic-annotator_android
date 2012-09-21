@@ -3,11 +3,7 @@
  */
 package com.nbempire.android.magicannotator.activity;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,17 +12,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.EditText;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
-import android.widget.Toast;
-
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.Team;
@@ -41,14 +29,19 @@ import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 
 /**
  * TODO : JavaDoc : for ChoosePlayersActivity.
- * 
+ *
  * @author Nahuel Barrios.
  * @version 1.0.
  * @since 29/02/2012, 09:22:36.
  */
 public class ChoosePlayersActivity extends Activity {
 
-    private ArrayList<String> selectedPlayers = new ArrayList<String>();
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "ChoosePlayersActivity";
+
+    private ArrayList<String> selectedPlayers = new ArrayList<>();
 
     private PlayerService playerService = new PlayerServiceImpl();
 
@@ -56,7 +49,7 @@ public class ChoosePlayersActivity extends Activity {
 
     private static final String ALL_PLAYERS = "allPlayers";
 
-    private Set<CharSequence> players = new TreeSet<CharSequence>();
+    private Set<CharSequence> players = new TreeSet<>();
 
     private Game aGame;
 
@@ -91,14 +84,14 @@ public class ChoosePlayersActivity extends Activity {
         } else {
             // TODO : Delete : This line or context when begin using a DB.
             ArrayAdapter<CharSequence> playersAdapter = ArrayAdapter.createFromResource(this,
-                                                                                        R.array.choosePlayers_playersValues, 0);
+                                                                                               R.array.choosePlayers_playersValues, 0);
             for (int index = 0; index < playersAdapter.getCount(); index++) {
                 players.add(playersAdapter.getItem(index));
             }
         }
 
         this.loadDefaultPlayers(savedInstanceState == null ? new ArrayList<String>()
-                                                          : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
+                                        : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
 
         if (parameter instanceof Game) {
             this.addOnClickActionForMakeTeamsButton();
@@ -112,7 +105,7 @@ public class ChoosePlayersActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
 
-        ArrayList<String> toAdd = new ArrayList<String>();
+        ArrayList<String> toAdd = new ArrayList<>();
         Iterator<CharSequence> iterator = players.iterator();
         while (iterator.hasNext()) {
             toAdd.add(iterator.next().toString());
@@ -124,11 +117,9 @@ public class ChoosePlayersActivity extends Activity {
 
     /**
      * Cargo los jugadores dinámicamente.
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param selectedPlayersList
-     *            {@link List} de {@link String} con los jugadores ya seleccionados para ver cu�les
-     *            tengo que tildar.
+     *         {@link List} de {@link String} con los jugadores ya seleccionados para ver cu�les tengo que tildar.
      */
     private void loadDefaultPlayers(List<String> selectedPlayersList) {
         TableLayout playersLayout = (TableLayout) findViewById(R.id.choosePlayers_playersLayout);
@@ -138,7 +129,7 @@ public class ChoosePlayersActivity extends Activity {
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 
-            String playerName = ((CharSequence) iterator.next()).toString();
+            String playerName = (iterator.next()).toString();
             tableRow.addView(this.preparePlayerSelector(playerName, selectedPlayersList.contains(playerName)));
             playersLayout.addView(tableRow);
         }
@@ -146,11 +137,12 @@ public class ChoosePlayersActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for ChoosePlayersActivity.preparePlayerSelector()
-     * 
-     * @author Nahuel Barrios.
-     * @since 23/03/2012.
+     *
      * @param playerName
+     *
      * @return
+     *
+     * @since 1.0
      */
     private View preparePlayerSelector(String playerName, boolean checked) {
         CheckBox checkBox = new CheckBox(this);
@@ -168,46 +160,46 @@ public class ChoosePlayersActivity extends Activity {
                     selectedPlayers.remove(buttonView.getText().toString());
                 }
                 Toast.makeText(getApplicationContext(),
-                               getText(R.string.choosePlayers_selected).toString() + " " + selectedPlayers.size(),
-                               Toast.LENGTH_SHORT).show();
+                                      getText(R.string.choosePlayers_selected).toString() + " " + selectedPlayers.size(),
+                                      Toast.LENGTH_SHORT).show();
             }
         });
         return checkBox;
     }
 
     /**
-     * Método llamado desde la definición del layout para permitir al usuario crear un jugador
-     * nuevo, y de crearlo, agregarlo al listado ya tildado.
-     * 
-     * @author Nahuel Barrios.
+     * Método llamado desde la definición del layout para permitir al usuario crear un jugador nuevo, y de crearlo, agregarlo al listado ya
+     * tildado.
+     *
      * @param view
-     *            {@link View} desde la cuál se llamó a este método.
+     *         {@link View} desde la cuál se llamó a este método.
+     *
+     * @author Nahuel Barrios.
      */
     public void openPlayerCreator(View view) {
         final EditText input = new EditText(view.getContext());
 
         new AlertDialog.Builder(this).setTitle(R.string.newplayer_enterNickName).setView(input)
-                                     .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {
 
-                                         public void onClick(DialogInterface dialog, int whichButton) {
-                                             String newPlayerNickname = input.getText().toString();
-                                             if (newPlayerNickname.length() > 0) {
-                                                 if (!addCheckedDynamicPlayer(newPlayerNickname)) {
-                                                     Toast.makeText(getApplicationContext(),
-                                                                    newPlayerNickname
-                                                                            + " "
-                                                                            + getText(R.string.choosePlayers_playerAlreadyExists).toString(),
-                                                                    Toast.LENGTH_SHORT).show();
-                                                 }
-                                             }
-                                         }
-                                     }).show();
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String newPlayerNickname = input.getText().toString();
+                        if (newPlayerNickname.length() > 0) {
+                            if (!addCheckedDynamicPlayer(newPlayerNickname)) {
+                                Toast.makeText(getApplicationContext(),
+                                                      newPlayerNickname
+                                                              + " "
+                                                              + getText(R.string.choosePlayers_playerAlreadyExists).toString(),
+                                                      Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+                }).show();
     }
 
     /**
-     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for
-     * ChoosePlayersActivity.addOnClickActionForMakeTeamsButton()
-     * 
+     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for ChoosePlayersActivity.addOnClickActionForMakeTeamsButton()
+     *
      * @author Nahuel Barrios.
      * @since 22/03/2012.
      */
@@ -226,10 +218,9 @@ public class ChoosePlayersActivity extends Activity {
     }
 
     /**
-     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for
-     * ChoosePlayersActivity.addOnClickActionForMakeTeamsButton() TODO : Refactor : Sacar este
-     * método y dejar el nuevo.
-     * 
+     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for ChoosePlayersActivity.addOnClickActionForMakeTeamsButton() TODO :
+     * Refactor : Sacar este método y dejar el nuevo.
+     *
      * @author Nahuel Barrios.
      * @since 22/03/2012.
      */
@@ -252,15 +243,14 @@ public class ChoosePlayersActivity extends Activity {
                     nextIntentToShow.putExtra(AppParameter.GAME, aGame);
                     startActivity(nextIntentToShow);
                 } catch (UserException userException) {
-                    // TODO : Test : This exception;
-                    Log.e(this.getClass().getName(), userException.getMessage());
+                    Log.e(LOG_TAG, userException.getMessage());
 
                     AlertDialog winMessageAlertDialog = new AlertDialog.Builder(view.getContext()).create();
                     winMessageAlertDialog.setTitle(userException.getGuiMessage());
                     winMessageAlertDialog.setButton(getText(R.string.commonLabel_OK), new DialogInterface.OnClickListener() {
 
                         public void onClick(DialogInterface dialog, int which) {
-                            return;
+                            //  Do nothing.
                         }
                     });
                     winMessageAlertDialog.show();
@@ -270,15 +260,15 @@ public class ChoosePlayersActivity extends Activity {
     }
 
     /**
-     * Adds a new row to the table layout. This new row will show a checked checkbox containing as
-     * label the playerNickName parameter.
-     * 
+     * Adds a new row to the table layout. This new row will show a checked checkbox containing as label the playerNickName parameter.
+     *
+     * @param playerNickName
+     *         {@link String} with the player's nickname.
+     *
+     * @return {@link boolean} <code>true</code> if the player was added. <code>false</code> otherwise.
+     *
      * @author Nahuel Barrios.
      * @since 04/04/2012.
-     * @param playerNickName
-     *            {@link String} with the player's nickname.
-     * @return {@link boolean} <code>true</code> if the player was added. <code>false</code>
-     *         otherwise.
      */
     private boolean addCheckedDynamicPlayer(String playerNickName) {
         boolean added = players.add(playerNickName);
