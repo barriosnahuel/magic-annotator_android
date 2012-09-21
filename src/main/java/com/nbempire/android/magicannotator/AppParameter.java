@@ -6,11 +6,10 @@ package com.nbempire.android.magicannotator;
 import com.nbempire.android.magicannotator.domain.game.Game;
 
 /**
- * TODO : JavaDoc : for AppParameter.
+ * Abstract class to put app parameter keys.
  * 
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 23/03/2012, 07:05:38.
+ * @since 1.0
  */
 public abstract class AppParameter {
 

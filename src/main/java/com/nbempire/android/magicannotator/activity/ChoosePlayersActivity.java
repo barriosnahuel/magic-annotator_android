@@ -198,10 +198,9 @@ public class ChoosePlayersActivity extends Activity {
     }
 
     /**
-     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for ChoosePlayersActivity.addOnClickActionForMakeTeamsButton()
+     * Creates functionality for make teams button.
      *
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     * @since 1.1
      */
     private void addOnClickActionForMakeTeamsButtonNuevo() {
         ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {
@@ -218,11 +217,10 @@ public class ChoosePlayersActivity extends Activity {
     }
 
     /**
-     * Creo la acción para el botón armar equipos. TODO : JavaDoc : for ChoosePlayersActivity.addOnClickActionForMakeTeamsButton() TODO :
-     * Refactor : Sacar este método y dejar el nuevo.
+     * Creo la acción para el botón armar equipos.
+     * TODO : Refactor : Sacar este método y dejar el nuevo.
      *
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     * @since 1.0
      */
     private void addOnClickActionForMakeTeamsButton() {
         ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {

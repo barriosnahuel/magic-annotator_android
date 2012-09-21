@@ -3,6 +3,7 @@
  */
 package com.nbempire.android.magicannotator.service;
 
+import android.util.Log;
 import com.nbempire.android.magicannotator.GUIKeys;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
@@ -10,21 +11,22 @@ import com.nbempire.android.magicannotator.domain.game.Truco;
 import com.nbempire.android.magicannotator.domain.game.Tute;
 
 /**
- * TODO : JavaDoc : for GameFactory.
+ * Factory to creates an instance of games based on a specific gameKey.
  * 
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 01:53:59.
+ * @since 1.0
  */
 public abstract class GameFactory {
 
     /**
-     * TODO : JavaDoc : for GameFactory.getInstance()
-     * 
-     * @author Nahuel Barrios.
-     * @since 24/03/2012.
-     * @param gameName
-     * @return
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "GameFactory";
+
+    /**
+     * Creates an instance of games based on a specific gameKey.
+     * @param gameKey The key of a specific game.
+     * @return An instance of Game based on the specified gameKey.
      * @throws IllegalArgumentException
      */
     public static Game getInstance(String gameKey) throws IllegalArgumentException {
@@ -41,7 +43,7 @@ public abstract class GameFactory {
                 throw new IllegalArgumentException(GUIKeys.EXCEPTION_GAME_INVALID_GAME_KEY);
             }
         } catch (NullPointerException nullPointerException) {
-            // TODO : Exception : Terminate this exception log.
+            Log.e(LOG_TAG, "Selected game's key can't be null.");
             throw new IllegalArgumentException(GUIKeys.EXCEPTION_GAME_INVALID_GAME_KEY);
         }
 

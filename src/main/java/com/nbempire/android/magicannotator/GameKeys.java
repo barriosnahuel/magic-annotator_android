@@ -1,9 +1,10 @@
 package com.nbempire.android.magicannotator;
 
 /**
- * TODO : JavaDoc : for GameKeys.
+ * Abstract class to put here all game keys.
  * 
  * @author Nahuel Barrios.
+ * @since 1.0
  */
 public abstract class GameKeys {
 
