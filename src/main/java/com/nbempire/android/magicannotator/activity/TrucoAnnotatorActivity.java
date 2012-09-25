@@ -19,10 +19,9 @@ import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 
 /**
  * {@link Activity} para anotar el puntaje de un partido de truco.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 01/03/2012, 05:55:58.
+ * @since 0.1
  */
 public class TrucoAnnotatorActivity extends Activity {
 
@@ -43,11 +42,11 @@ public class TrucoAnnotatorActivity extends Activity {
 
         // Setteo las acciones para los elementos del equipo "nosotros"
         this.setActions(R.id.trucoAnnotator_scoreTeam1, R.id.trucoAnnotator_toggleTeam1, R.string.trucoAnnotator_youWin,
-                        R.id.trucoAnnotator_labelTeam1);
+                               R.id.trucoAnnotator_labelTeam1);
 
         // Setteo las acciones para los elementos del equipo "ellos"
         this.setActions(R.id.trucoAnnotator_scoreTeam2, R.id.trucoAnnotator_toggleTeam2, R.string.trucoAnnotator_theyWin,
-                        R.id.trucoAnnotator_labelTeam2);
+                               R.id.trucoAnnotator_labelTeam2);
     }
 
     @Override
@@ -65,40 +64,38 @@ public class TrucoAnnotatorActivity extends Activity {
     }
 
     /**
-     * Setteo las acciones para todo un equipo, ya sea nosotros o ellos, dependiendo de los ID de
-     * los resources.
-     * 
-     * @author Nahuel Barrios.
-     * @param teamScoreElementId
-     *            El ID del {@link TextView} donde se anotar� el score.
-     * @param teamToggleElementId
-     *            El ID del {@link ToggleButton} que indicar� si est�n en las buenas/malas.
-     * @param labelForWinnerTeamElementId
-     *            ID del recurso string que se utilizar� cuando gane el equipo.
-     * @param teamLabelElementId
-     *            El ID del {@link TextView} con el label del equipo en el cu�l se debe hacer tap
-     *            para sumar un punto.
+     * Setteo las acciones para todo un equipo, ya sea nosotros o ellos, dependiendo de los ID de los resources.
+     *
+     * @param teamScoreId
+     *         El ID del {@link TextView} donde se anotar� el score.
+     * @param teamToggleId
+     *         El ID del {@link ToggleButton} que indicar� si est�n en las buenas/malas.
+     * @param labelForWinnerTeamId
+     *         ID del recurso string que se utilizar� cuando gane el equipo.
+     * @param teamLabelId
+     *         El ID del {@link TextView} con el label del equipo en el cu�l se debe hacer tap para sumar un punto.
+     *
+     * @since 0.1
      */
-    private void setActions(int teamScoreElementId, int teamToggleElementId, int labelForWinnerTeamElementId,
-                            int teamLabelElementId) {
+    private void setActions(int teamScoreId, int teamToggleId, int labelForWinnerTeamId,
+                            int teamLabelId) {
 
-        TextView teamScore = (TextView) findViewById(teamScoreElementId);
-        teamScore.addTextChangedListener(new TrucoScoreListener((ToggleButton) findViewById(teamToggleElementId),
-                                                                getText(labelForWinnerTeamElementId)));
+        TextView teamScore = (TextView) findViewById(teamScoreId);
+        teamScore.addTextChangedListener(new TrucoScoreListener((ToggleButton) findViewById(teamToggleId),
+                                                                       getText(labelForWinnerTeamId)));
         TrucoScoreListener listener = new TrucoScoreListener(teamScore);
         teamScore.setOnTouchListener(listener);
 
-        TextView teamLabel = (TextView) findViewById(teamLabelElementId);
+        TextView teamLabel = (TextView) findViewById(teamLabelId);
         teamLabel.setOnTouchListener(listener);
 
-        ((ToggleButton) findViewById(teamToggleElementId)).setOnClickListener(new NoActionOnClickListener());
+        ((ToggleButton) findViewById(teamToggleId)).setOnClickListener(new NoActionOnClickListener());
     }
 
     /**
      * TODO : JavaDoc : for TrucoAnnotatorActivity.resetScores()
-     * 
-     * @author Nahuel Barrios.
-     * @since 08/03/2012.
+     *
+     * @since 0.1
      */
     public void resetGame(View view) {
         this.resetScoreFor(R.id.trucoAnnotator_scoreTeam1);
@@ -110,21 +107,21 @@ public class TrucoAnnotatorActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for TrucoAnnotatorActivity.resetGoodBadIndicator()
-     * 
-     * @author Nahuel Barrios.
-     * @since 08/03/2012.
-     * @param goodBadIndicatorElementId
+     *
+     * @param goodBadIndicatorId
+     *
+     * @since 0.1
      */
-    private void resetGoodBadIndicator(int goodBadIndicatorElementId) {
-        ((ToggleButton) findViewById(goodBadIndicatorElementId)).setChecked(false);
+    private void resetGoodBadIndicator(int goodBadIndicatorId) {
+        ((ToggleButton) findViewById(goodBadIndicatorId)).setChecked(false);
     }
 
     /**
      * TODO : JavaDoc : for TrucoAnnotatorActivity.resetScoreFor()
-     * 
-     * @author Nahuel Barrios.
-     * @since 08/03/2012.
+     *
      * @param teamScoreElementId
+     *
+     * @since 0.1
      */
     private void resetScoreFor(int teamScoreElementId) {
         ((TextView) findViewById(teamScoreElementId)).setText(this.getText(R.string.defaultInitialGameScore));
