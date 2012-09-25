@@ -1,5 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="">
-    <module2copyright />
+  <settings default="Nahuel Barrios">
+    <module2copyright>
+      <element module="Java files" copyright="Nahuel Barrios" />
+    </module2copyright>
   </settings>
 </component>
