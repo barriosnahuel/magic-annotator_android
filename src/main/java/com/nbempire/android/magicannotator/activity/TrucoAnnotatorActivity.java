@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.listener.NoActionOnClickListener;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 
 /**
@@ -41,12 +40,12 @@ public class TrucoAnnotatorActivity extends Activity {
         setContentView(R.layout.trucoannotator);
 
         // Setteo las acciones para los elementos del equipo "nosotros"
-        this.setActions(R.id.trucoAnnotator_scoreTeam1, R.id.trucoAnnotator_toggleTeam1, R.string.trucoAnnotator_youWin,
-                               R.id.trucoAnnotator_labelTeam1);
+        setActions(R.id.trucoAnnotator_scoreTeam1, R.string.trucoAnnotator_youWin,
+                          R.id.trucoAnnotator_labelTeam1);
 
         // Setteo las acciones para los elementos del equipo "ellos"
-        this.setActions(R.id.trucoAnnotator_scoreTeam2, R.id.trucoAnnotator_toggleTeam2, R.string.trucoAnnotator_theyWin,
-                               R.id.trucoAnnotator_labelTeam2);
+        setActions(R.id.trucoAnnotator_scoreTeam2, R.string.trucoAnnotator_theyWin,
+                          R.id.trucoAnnotator_labelTeam2);
     }
 
     @Override
@@ -68,8 +67,6 @@ public class TrucoAnnotatorActivity extends Activity {
      *
      * @param teamScoreId
      *         El ID del {@link TextView} donde se anotar� el score.
-     * @param teamToggleId
-     *         El ID del {@link ToggleButton} que indicar� si est�n en las buenas/malas.
      * @param labelForWinnerTeamId
      *         ID del recurso string que se utilizar� cuando gane el equipo.
      * @param teamLabelId
@@ -77,19 +74,15 @@ public class TrucoAnnotatorActivity extends Activity {
      *
      * @since 0.1
      */
-    private void setActions(int teamScoreId, int teamToggleId, int labelForWinnerTeamId,
+    private void setActions(int teamScoreId, int labelForWinnerTeamId,
                             int teamLabelId) {
 
         TextView teamScore = (TextView) findViewById(teamScoreId);
-        teamScore.addTextChangedListener(new TrucoScoreListener((ToggleButton) findViewById(teamToggleId),
-                                                                       getText(labelForWinnerTeamId)));
-        TrucoScoreListener listener = new TrucoScoreListener(teamScore);
+        TrucoScoreListener listener = new TrucoScoreListener(teamScore, getText(labelForWinnerTeamId));
         teamScore.setOnTouchListener(listener);
 
         TextView teamLabel = (TextView) findViewById(teamLabelId);
         teamLabel.setOnTouchListener(listener);
-
-        ((ToggleButton) findViewById(teamToggleId)).setOnClickListener(new NoActionOnClickListener());
     }
 
     /**
@@ -100,9 +93,6 @@ public class TrucoAnnotatorActivity extends Activity {
     public void resetGame(View view) {
         this.resetScoreFor(R.id.trucoAnnotator_scoreTeam1);
         this.resetScoreFor(R.id.trucoAnnotator_scoreTeam2);
-
-        this.resetGoodBadIndicator(R.id.trucoAnnotator_toggleTeam1);
-        this.resetGoodBadIndicator(R.id.trucoAnnotator_toggleTeam2);
     }
 
     /**

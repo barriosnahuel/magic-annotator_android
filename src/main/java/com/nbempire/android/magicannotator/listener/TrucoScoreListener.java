@@ -10,13 +10,10 @@ package com.nbempire.android.magicannotator.listener;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 import com.nbempire.android.magicannotator.R;
 
 /**
@@ -25,9 +22,7 @@ import com.nbempire.android.magicannotator.R;
  * @author Nahuel Barrios.
  * @since 0.1
  */
-public class TrucoScoreListener implements TextWatcher, OnTouchListener {
-
-    protected ToggleButton toggleButton;
+public class TrucoScoreListener implements OnTouchListener {
 
     protected String winMessageText;
 
@@ -35,64 +30,22 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.
+     * <p/>
      *
      * @param scoreToUpdate
      *         The TextView to update.
-     *
-     * @since 0.1
-     */
-    public TrucoScoreListener(TextView scoreToUpdate) {
-        this.scoreToUpdate = scoreToUpdate;
-    }
-
-    /**
-     * A constructor method for the {@link TrucoScoreListener} type.
-     *
-     * @param toggleButton
-     *         The ToggleButton.
      * @param winMessageText
      *         The message to show when one team win.
      *
      * @since 0.1
      */
-    public TrucoScoreListener(ToggleButton toggleButton, CharSequence winMessageText) {
+    public TrucoScoreListener(TextView scoreToUpdate, CharSequence winMessageText) {
         super();
-        this.toggleButton = toggleButton;
+        this.scoreToUpdate = scoreToUpdate;
         this.winMessageText = winMessageText.toString();
     }
 
-    public void afterTextChanged(Editable input) {
-        if (input.length() > 1) {
-            int value = Integer.valueOf(input.toString());
-            if (value < 15) {
-                if (toggleButton.isChecked()) {
-                    toggleButton.performClick();
-                }
-            } else if (!toggleButton.isChecked()) {
-                toggleButton.performClick();
-            }
-            if (value >= 30) {
-                AlertDialog winMessageAlertDialog = new AlertDialog.Builder(toggleButton.getContext()).create();
-                winMessageAlertDialog.setTitle(winMessageText);
-                winMessageAlertDialog.setButton(toggleButton.getContext().getText(R.string.commonLabel_OK),
-                                                       new DialogInterface.OnClickListener() {
-
-                                                           public void onClick(DialogInterface dialog, int which) {
-                                                               //  Do nothing.
-                                                           }
-                                                       });
-                winMessageAlertDialog.show();
-            }
-        }
-    }
-
-    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-    }
-
-    public void onTextChanged(CharSequence s, int start, int before, int count) {
-    }
-
-    public boolean onTouch(View arg0, MotionEvent arg1) {
+    public boolean onTouch(View view, MotionEvent event) {
         String currentValue = scoreToUpdate.getText().toString();
         String updatedValue;
         if (currentValue.length() == 0) {
@@ -101,8 +54,21 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
             updatedValue = Integer.toString(Integer.parseInt(currentValue) + 1);
         }
 
-        if (!updatedValue.equals("31")) {
+        int value = Integer.valueOf(updatedValue);
+        if (value <= 30) {
             scoreToUpdate.setText(updatedValue);
+            if (value == 30) {
+                AlertDialog winMessageAlertDialog = new AlertDialog.Builder(view.getContext()).create();
+                winMessageAlertDialog.setTitle(winMessageText);
+                winMessageAlertDialog.setButton(view.getContext().getText(R.string.commonLabel_OK),
+                                                       new DialogInterface.OnClickListener() {
+
+                                                           public void onClick(DialogInterface dialog, int which) {
+                                                               //  Do nothing.
+                                                           }
+                                                       });
+                winMessageAlertDialog.show();
+            }
         }
 
         return false;
