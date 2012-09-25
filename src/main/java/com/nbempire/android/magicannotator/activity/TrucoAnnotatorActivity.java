@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * TrucoAnnotatorActivity.java Created by: Nahuel Barrios: 01/03/2012, 05:55:58.
  */
@@ -8,7 +13,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.NoActionOnClickListener;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;

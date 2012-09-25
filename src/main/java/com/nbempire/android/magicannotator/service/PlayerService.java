@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * PlayerService.java Created by: Nahuel Barrios: 23/03/2012, 05:41:33.
  */

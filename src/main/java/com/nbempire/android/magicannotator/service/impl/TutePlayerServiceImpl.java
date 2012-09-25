@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * TutePlayerServiceImpl.java Created by: Nahuel Barrios: 11/04/2012, 00:20:17.
  */

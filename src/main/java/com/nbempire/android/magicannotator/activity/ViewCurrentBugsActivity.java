@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * ViewCurrentBugsActivity.java Created by: Nahuel Barrios: 14/04/2012, 09:42:04.
  */
@@ -10,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import com.nbempire.android.magicannotator.R;
 
 /**

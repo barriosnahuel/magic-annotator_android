@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * RandomGenerator.java Created by: Nahuel Barrios: 22/03/2012, 09:37:57.
  */

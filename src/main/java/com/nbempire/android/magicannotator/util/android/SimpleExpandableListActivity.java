@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 package com.nbempire.android.magicannotator.util.android;
 
 import java.util.ArrayList;
@@ -8,7 +13,6 @@ import java.util.Map;
 import android.app.ExpandableListActivity;
 import android.os.Bundle;
 import android.widget.SimpleExpandableListAdapter;
-
 import com.nbempire.android.magicannotator.util.ExpandableGroup;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 

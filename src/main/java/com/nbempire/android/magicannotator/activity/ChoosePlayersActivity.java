@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * ChoosePlayersActivity.java Created by: Nahuel Barrios: 29/02/2012, 09:22:36.
  */

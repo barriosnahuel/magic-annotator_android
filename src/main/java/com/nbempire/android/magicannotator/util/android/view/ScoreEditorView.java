@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 package com.nbempire.android.magicannotator.util.android.view;
 
 import android.content.Context;
@@ -9,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.nbempire.android.magicannotator.R;
 
 /**

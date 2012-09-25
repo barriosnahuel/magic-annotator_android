@@ -1,7 +1,11 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 package com.nbempire.android.magicannotator.service;
 
 import android.app.Activity;
-
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.activity.GenericAnnotatorActivity;

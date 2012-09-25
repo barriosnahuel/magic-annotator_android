@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * SimpleListAdapter.java Created by: Nahuel Barrios: 05/04/2012, 09:31:29.
  */

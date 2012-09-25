@@ -1,10 +1,14 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * AnnotatorFactory.java Created by: Nahuel Barrios: 05/04/2012, 08:11:12.
  */
 package com.nbempire.android.magicannotator.service;
 
 import android.app.Activity;
-
 import com.nbempire.android.magicannotator.activity.ChanchoAnnotatorActivity;
 import com.nbempire.android.magicannotator.activity.TrucoAnnotatorActivity;
 import com.nbempire.android.magicannotator.activity.TuteAnnotatorActivity;

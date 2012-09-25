@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 package com.nbempire.android.magicannotator.activity;
 
 import android.app.Activity;
@@ -12,7 +17,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
@@ -55,19 +59,19 @@ public class ChooseGameActivity extends Activity {
                         builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
                                .setCancelable(false)
                                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
-                                                  new DialogInterface.OnClickListener() {
+                                                         new DialogInterface.OnClickListener() {
 
-                                                      public void onClick(DialogInterface dialog, int id) {
-                                                          showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
-                                                      }
-                                                  })
+                                                             public void onClick(DialogInterface dialog, int id) {
+                                                                 showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
+                                                             }
+                                                         })
                                .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
-                                                  new DialogInterface.OnClickListener() {
+                                                         new DialogInterface.OnClickListener() {
 
-                                                      public void onClick(DialogInterface dialog, int id) {
-                                                          showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
-                                                      }
-                                                  });
+                                                             public void onClick(DialogInterface dialog, int id) {
+                                                                 showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
+                                                             }
+                                                         });
                         builder.show();
                     } else {
                         showNextActivity(theContext, ChoosePlayersActivity.class, aGame);

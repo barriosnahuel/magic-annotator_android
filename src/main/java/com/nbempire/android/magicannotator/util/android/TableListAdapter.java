@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * TableListAdapter.java Created by: Nahuel Barrios: 05/04/2012, 09:54:04.
  */
@@ -10,7 +15,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-
 import com.nbempire.android.magicannotator.R;
 
 /**

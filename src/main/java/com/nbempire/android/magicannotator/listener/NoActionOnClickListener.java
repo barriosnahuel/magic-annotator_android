@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * NoActionOnClickListener.java Created by: Nahuel Barrios: 03/03/2012, 08:14:32.
  */

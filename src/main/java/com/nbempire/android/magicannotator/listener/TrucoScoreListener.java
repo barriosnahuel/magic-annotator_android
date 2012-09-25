@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * TrucoScoreListener.java Created by: Nahuel Barrios: 01/03/2012, 08:56:40.
  */
@@ -13,7 +18,6 @@ import android.view.View.OnTouchListener;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
-
 import com.nbempire.android.magicannotator.R;
 
 /**
