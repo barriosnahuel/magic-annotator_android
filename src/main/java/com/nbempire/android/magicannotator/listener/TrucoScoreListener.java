@@ -9,6 +9,7 @@
 package com.nbempire.android.magicannotator.listener;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.view.MotionEvent;
 import android.view.View;
@@ -30,7 +31,6 @@ public class TrucoScoreListener implements OnTouchListener {
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.
-     * <p/>
      *
      * @param scoreToUpdate
      *         The TextView to update.
@@ -46,32 +46,37 @@ public class TrucoScoreListener implements OnTouchListener {
     }
 
     public boolean onTouch(View view, MotionEvent event) {
-        String currentValue = scoreToUpdate.getText().toString();
-        String updatedValue;
-        if (currentValue.length() == 0) {
-            updatedValue = "1";
-        } else {
-            updatedValue = Integer.toString(Integer.parseInt(currentValue) + 1);
-        }
+        int currentValue = Integer.valueOf(scoreToUpdate.getText().toString());
 
-        int value = Integer.valueOf(updatedValue);
-        if (value <= 30) {
-            scoreToUpdate.setText(updatedValue);
-            if (value == 30) {
-                AlertDialog winMessageAlertDialog = new AlertDialog.Builder(view.getContext()).create();
-                winMessageAlertDialog.setTitle(winMessageText);
-                winMessageAlertDialog.setButton(view.getContext().getText(R.string.commonLabel_OK),
-                                                       new DialogInterface.OnClickListener() {
+        if (currentValue < 30) {
+            int updatedValue = currentValue + 1;
+            scoreToUpdate.setText(String.valueOf(updatedValue));
 
-                                                           public void onClick(DialogInterface dialog, int which) {
-                                                               //  Do nothing.
-                                                           }
-                                                       });
-                winMessageAlertDialog.show();
+            if (updatedValue == 30) {
+                showWinMessageAlert(view.getContext());
             }
         }
 
         return false;
+    }
+
+    /**
+     * Show the alert message when the team wins.
+     *
+     * @param context
+     *         The view's context.
+     */
+    private void showWinMessageAlert(Context context) {
+        AlertDialog winMessageAlertDialog = new AlertDialog.Builder(context).create();
+        winMessageAlertDialog.setTitle(winMessageText);
+        winMessageAlertDialog.setButton(context.getText(R.string.commonLabel_OK),
+                                               new DialogInterface.OnClickListener() {
+
+                                                   public void onClick(DialogInterface dialog, int which) {
+                                                       //  Do nothing.
+                                                   }
+                                               });
+        winMessageAlertDialog.show();
     }
 
 }
