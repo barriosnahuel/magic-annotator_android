@@ -15,17 +15,15 @@ import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : JavaDoc : for TrucoScoreListener.
- * 
+ * Listener class to update scores of a Truco game.
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 01/03/2012, 08:56:40.
+ * @since 0.1
  */
 public class TrucoScoreListener implements TextWatcher, OnTouchListener {
 
@@ -37,21 +35,11 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param scoreToUpdate
-     * @since 03/03/2012.
-     */
-    public TrucoScoreListener(EditText scoreToUpdate) {
-        this.scoreToUpdate = scoreToUpdate;
-    }
-
-    /**
-     * A constructor method for the {@link TrucoScoreListener} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 08/03/2012.
-     * @param scoreToUpdate
+     *         The TextView to update.
+     *
+     * @since 0.1
      */
     public TrucoScoreListener(TextView scoreToUpdate) {
         this.scoreToUpdate = scoreToUpdate;
@@ -59,12 +47,13 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 01/03/2012.
+     *
      * @param toggleButton
-     * @param winButton
+     *         The ToggleButton.
      * @param winMessageText
+     *         The message to show when one team win.
+     *
+     * @since 0.1
      */
     public TrucoScoreListener(ToggleButton toggleButton, CharSequence winMessageText) {
         super();
@@ -86,12 +75,12 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
                 AlertDialog winMessageAlertDialog = new AlertDialog.Builder(toggleButton.getContext()).create();
                 winMessageAlertDialog.setTitle(winMessageText);
                 winMessageAlertDialog.setButton(toggleButton.getContext().getText(R.string.commonLabel_OK),
-                                                new DialogInterface.OnClickListener() {
+                                                       new DialogInterface.OnClickListener() {
 
-                                                    public void onClick(DialogInterface dialog, int which) {
-                                                        return;
-                                                    }
-                                                });
+                                                           public void onClick(DialogInterface dialog, int which) {
+                                                               //  Do nothing.
+                                                           }
+                                                       });
                 winMessageAlertDialog.show();
             }
         }
@@ -109,10 +98,10 @@ public class TrucoScoreListener implements TextWatcher, OnTouchListener {
         if (currentValue.length() == 0) {
             updatedValue = "1";
         } else {
-            updatedValue = new Integer(Integer.parseInt(currentValue) + 1).toString();
+            updatedValue = Integer.toString(Integer.parseInt(currentValue) + 1);
         }
 
-        if (!updatedValue.toString().equals("31")) {
+        if (!updatedValue.equals("31")) {
             scoreToUpdate.setText(updatedValue);
         }
 
