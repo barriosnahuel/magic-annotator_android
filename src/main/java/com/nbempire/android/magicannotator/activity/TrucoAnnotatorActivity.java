@@ -23,7 +23,7 @@ import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
  * {@link Activity} para anotar el puntaje de un partido de truco.
  *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 1
  */
 public class TrucoAnnotatorActivity extends Activity {
 
@@ -88,7 +88,7 @@ public class TrucoAnnotatorActivity extends Activity {
      * @param viewsIdToDisable
      *         List of Integer containing one element for each View to disable when one team wins.
      *
-     * @since 0.1
+     * @since 1
      */
     private void setActions(int teamScoreId, int labelForWinnerTeamId, int teamLabelId, List<Integer> viewsIdToDisable) {
 
@@ -108,7 +108,7 @@ public class TrucoAnnotatorActivity extends Activity {
     /**
      * Reset the entire activity by setting scores to zero and enabling all controls.
      *
-     * @since 0.1
+     * @since 1
      */
     public void resetGame(View view) {
         Log.d(LOG_TAG, "--> resetGame() from view: " + view.getId());
@@ -128,6 +128,8 @@ public class TrucoAnnotatorActivity extends Activity {
      *
      * @param viewsIdToEnable
      *         The view's ID to enable.
+     *
+     * @since 6
      */
     private void enableControls(List<Integer> viewsIdToEnable) {
         for (int eachViewId : viewsIdToEnable) {
@@ -141,7 +143,7 @@ public class TrucoAnnotatorActivity extends Activity {
      * @param teamScoreId
      *         The id of the team score to reset.
      *
-     * @since 0.1
+     * @since 1
      */
     private void resetScoreFor(int teamScoreId) {
         ((TextView) findViewById(teamScoreId)).setText(this.getText(R.string.defaultInitialGameScore));

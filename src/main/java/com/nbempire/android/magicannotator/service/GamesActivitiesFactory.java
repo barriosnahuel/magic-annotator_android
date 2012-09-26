@@ -12,17 +12,19 @@ import com.nbempire.android.magicannotator.activity.GenericAnnotatorActivity;
 
 /**
  * TODO : JavaDoc : for GamesActivitiesFactory.
- * 
+ *
  * @author Nahuel Barrios.
  */
 public abstract class GamesActivitiesFactory {
 
     /**
      * TODO : JavaDoc : for GamesActivitiesFactory.getInstance().
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param gameName
+     *
      * @return {@link Integer} -1 if there is no game that matchs the current gameName
+     *
+     * @author Nahuel Barrios.
      */
     public static int getGameKey(String gameName) {
         if (gameName.equals(GameKeys.GAME_NAME_OTRO)) {
@@ -33,11 +35,13 @@ public abstract class GamesActivitiesFactory {
 
     /**
      * TODO : JavaDoc : for GamesActivitiesFactory.getAnnotator().
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param gameKey
+     *
      * @return {@link Class<? extends Activity>}
+     *
      * @throws IllegalArgumentException
+     * @author Nahuel Barrios.
      */
     public static Class<? extends Activity> getAnnotator(int gameKey) throws IllegalArgumentException {
         switch (gameKey) {

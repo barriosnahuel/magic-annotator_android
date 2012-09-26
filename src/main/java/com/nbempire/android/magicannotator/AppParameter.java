@@ -12,9 +12,9 @@ import com.nbempire.android.magicannotator.domain.game.Game;
 
 /**
  * Abstract class to put app parameter keys.
- * 
+ *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public abstract class AppParameter {
 

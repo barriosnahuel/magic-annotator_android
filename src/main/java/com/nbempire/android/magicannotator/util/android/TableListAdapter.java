@@ -19,10 +19,9 @@ import com.nbempire.android.magicannotator.R;
 
 /**
  * TODO : JavaDoc : for TableListAdapter.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 05/04/2012, 09:54:04.
+ * @since 1
  */
 public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
 
@@ -33,11 +32,11 @@ public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
 
     /**
      * A constructor method for the {@link TableListAdapter} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 05/04/2012.
+     *
      * @param activity
      * @param values
+     *
+     * @since 1
      */
     public TableListAdapter(Activity activity, List<CharSequence> values, int numberOfColumns) {
         super(activity, values);

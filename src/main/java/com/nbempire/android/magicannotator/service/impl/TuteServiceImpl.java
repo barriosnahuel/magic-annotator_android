@@ -13,10 +13,9 @@ import com.nbempire.android.magicannotator.service.GameService;
 
 /**
  * TODO : JavaDoc : for TuteServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 02:24:01.
+ * @since 1
  */
 public class TuteServiceImpl extends GameServiceImpl implements GameService {
 

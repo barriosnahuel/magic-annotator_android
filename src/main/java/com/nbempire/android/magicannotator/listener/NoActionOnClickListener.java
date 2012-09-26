@@ -13,9 +13,9 @@ import android.view.View.OnClickListener;
 
 /**
  * Utility listener when no action is needed on click.
- * 
+ *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public class NoActionOnClickListener implements OnClickListener {
 

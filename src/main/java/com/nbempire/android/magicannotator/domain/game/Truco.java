@@ -10,10 +10,9 @@ package com.nbempire.android.magicannotator.domain.game;
 
 /**
  * TODO : JavaDoc : for Truco.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 04:48:03.
+ * @since 1
  */
 public class Truco extends Game {
 
@@ -24,9 +23,8 @@ public class Truco extends Game {
 
     /**
      * A constructor method for the {@link Truco} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 16/03/2012.
+     *
+     * @since 1
      */
     public Truco() {
         super(2, 2);

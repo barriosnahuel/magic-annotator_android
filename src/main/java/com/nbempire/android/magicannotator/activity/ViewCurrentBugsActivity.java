@@ -19,10 +19,9 @@ import com.nbempire.android.magicannotator.R;
 
 /**
  * TODO : JavaDoc : for ViewCurrentBugsActivity.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 14/04/2012, 09:42:04.
+ * @since 1
  */
 public class ViewCurrentBugsActivity extends Activity {
 
@@ -36,9 +35,8 @@ public class ViewCurrentBugsActivity extends Activity {
 
     /**
      * Cargo dinámicamente el listado de bugs en la GUI.
-     * 
-     * @author Nahuel Barrios.
-     * @since 14/04/2012.
+     *
+     * @since 1
      */
     private void loadBugs() {
         TableLayout bugsLayout = (TableLayout) findViewById(R.id.viewCurrentBugs_bugsLayout);

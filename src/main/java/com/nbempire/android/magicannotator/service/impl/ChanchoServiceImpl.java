@@ -11,7 +11,7 @@ import com.nbempire.android.magicannotator.service.GameService;
 
 /**
  * TODO : JavaDoc : for ChanchoServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
  */
 public class ChanchoServiceImpl extends GameServiceImpl implements GameService {

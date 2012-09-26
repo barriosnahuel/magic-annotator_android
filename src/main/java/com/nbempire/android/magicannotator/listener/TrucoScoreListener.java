@@ -23,7 +23,7 @@ import com.nbempire.android.magicannotator.R;
  * Listener class to update scores of a Truco game.
  *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 1
  */
 public class TrucoScoreListener implements OnTouchListener {
 
@@ -52,7 +52,7 @@ public class TrucoScoreListener implements OnTouchListener {
      * @param viewsToDisable
      *         List of Views to disable when one team wins.
      *
-     * @since 0.1
+     * @since 1
      */
     public TrucoScoreListener(TextView scoreToUpdate, CharSequence winMessageText, List<View> viewsToDisable) {
         this.scoreToUpdate = scoreToUpdate;
@@ -97,6 +97,8 @@ public class TrucoScoreListener implements OnTouchListener {
 
     /**
      * Disable each View from {@code viewsToDisable} by setting the {@code enabled} property as {@code false}.
+     *
+     * @since 6
      */
     private void disableLooserTeamControls() {
         for (View eachView : viewsToDisable) {

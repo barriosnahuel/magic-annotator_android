@@ -20,10 +20,9 @@ import android.widget.TextView;
 
 /**
  * TODO : JavaDoc : for SimpleListAdapter.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 05/04/2012, 09:31:29.
+ * @since 1
  */
 public class SimpleListAdapter extends BaseAdapter implements ListAdapter {
 
@@ -36,13 +35,13 @@ public class SimpleListAdapter extends BaseAdapter implements ListAdapter {
 
     /**
      * A constructor method for the {@link SimpleListAdapter} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 05/04/2012.
-     * @param activity
-     *            {@link Context} The activity where this adapter has to create its {@link View}s.
+     *
+     * @param context
+     *         {@link Context} The activity where this adapter has to create its {@link View}s.
      * @param values
-     *            {@link List} of {@link String}s to show in the grid.
+     *         {@link List} of {@link String}s to show in the grid.
+     *
+     * @since 1
      */
     public SimpleListAdapter(Activity context, List<CharSequence> values) {
         this.activity = context;
@@ -71,10 +70,10 @@ public class SimpleListAdapter extends BaseAdapter implements ListAdapter {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 05/04/2012.
+     *
      * @return the activity.
+     *
+     * @since 1
      */
     public Activity getActivity() {
         return activity;

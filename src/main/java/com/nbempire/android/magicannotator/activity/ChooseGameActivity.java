@@ -26,16 +26,17 @@ import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
 
 /**
  * TODO : JavaDoc : for ChooseGameActivity.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 01:13:50.
+ * @since 1
  */
 public class ChooseGameActivity extends Activity {
 
     private Intent nextIntentToShow;
 
-    /** Called when the activity is first created. */
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +44,7 @@ public class ChooseGameActivity extends Activity {
 
         ListView games = (ListView) findViewById(R.id.main_gamesListView);
         games.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseGame_gamesValues,
-                                                         android.R.layout.simple_list_item_1));
+                                                                android.R.layout.simple_list_item_1));
         games.setTextFilterEnabled(true);
 
         games.setOnItemClickListener(new OnItemClickListener() {
@@ -57,21 +58,21 @@ public class ChooseGameActivity extends Activity {
                     if (aGame.getClass().equals(Truco.class)) {
                         AlertDialog.Builder builder = new AlertDialog.Builder(theContext);
                         builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
-                               .setCancelable(false)
-                               .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
-                                                         new DialogInterface.OnClickListener() {
+                                .setCancelable(false)
+                                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
+                                                          new DialogInterface.OnClickListener() {
 
-                                                             public void onClick(DialogInterface dialog, int id) {
-                                                                 showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
-                                                             }
-                                                         })
-                               .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
-                                                         new DialogInterface.OnClickListener() {
+                                                              public void onClick(DialogInterface dialog, int id) {
+                                                                  showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
+                                                              }
+                                                          })
+                                .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
+                                                          new DialogInterface.OnClickListener() {
 
-                                                             public void onClick(DialogInterface dialog, int id) {
-                                                                 showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
-                                                             }
-                                                         });
+                                                              public void onClick(DialogInterface dialog, int id) {
+                                                                  showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
+                                                              }
+                                                          });
                         builder.show();
                     } else {
                         showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
@@ -88,8 +89,7 @@ public class ChooseGameActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param theContext
      * @param nextIntent
      * @param gameKey
@@ -102,8 +102,7 @@ public class ChooseGameActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param theContext
      * @param nextIntent
      * @param aGame
@@ -116,10 +115,10 @@ public class ChooseGameActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for ChooseGameActivity.openAboutActivity()
-     * 
-     * @author Nahuel Barrios.
-     * @since 14/04/2012.
+     *
      * @param view
+     *
+     * @since 1
      */
     public void openAboutActivity(View view) {
         startActivity(new Intent(view.getContext(), AboutActivity.class));
@@ -127,10 +126,10 @@ public class ChooseGameActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for ChooseGameActivity.openViewBugsActivity()
-     * 
-     * @author Nahuel Barrios.
-     * @since 14/04/2012.
+     *
      * @param view
+     *
+     * @since 1
      */
     public void openViewBugsActivity(View view) {
         startActivity(new Intent(view.getContext(), ViewCurrentBugsActivity.class));

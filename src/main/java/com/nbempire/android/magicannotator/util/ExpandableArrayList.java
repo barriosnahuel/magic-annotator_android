@@ -12,10 +12,9 @@ import java.util.ArrayList;
 
 /**
  * TODO : JavaDoc : for ExpandableArrayList.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 11:01:39.
+ * @since 1
  */
 public class ExpandableArrayList extends ArrayList<ExpandableGroup> implements ExpandableList {
 

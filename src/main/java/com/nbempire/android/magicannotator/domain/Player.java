@@ -14,10 +14,9 @@ import java.util.Map;
 
 /**
  * TODO : JavaDoc : for Player.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 09/03/2012, 03:33:15.
+ * @since 1
  */
 public class Player implements Serializable, Comparable<Player> {
 
@@ -32,10 +31,10 @@ public class Player implements Serializable, Comparable<Player> {
 
     /**
      * A constructor method for the {@link Player} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 16/03/2012.
+     *
      * @param nickName
+     *
+     * @since 1
      */
     public Player(String nickName) {
         this.nickName = nickName;
@@ -43,10 +42,10 @@ public class Player implements Serializable, Comparable<Player> {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 17/03/2012.
+     *
      * @return the nickName.
+     *
+     * @since 1
      */
     public String getNickName() {
         return nickName;
@@ -54,10 +53,10 @@ public class Player implements Serializable, Comparable<Player> {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 10/04/2012.
+     *
      * @return the scores.
+     *
+     * @since 1
      */
     public Map<String, Integer> getScores() {
         return scores;

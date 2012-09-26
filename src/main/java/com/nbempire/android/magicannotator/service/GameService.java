@@ -17,31 +17,32 @@ import com.nbempire.android.magicannotator.util.ExpandableList;
 
 /**
  * TODO : JavaDoc : for GameService.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 05:17:29.
+ * @since 1
  */
 public interface GameService {
 
     /**
      * TODO : JavaDoc : for GameService.makeTeams()
-     * 
-     * @author Nahuel Barrios.
-     * @since 20/03/2012.
+     *
      * @param players
+     *
      * @return
+     *
      * @throws UserException
+     * @since 1
      */
     public abstract List<Team> makeTeams(List<Player> players) throws UserException;
 
     /**
      * TODO : JavaDoc : for GameService.getExpandableTeams()
-     * 
-     * @author Nahuel Barrios.
-     * @since 24/03/2012.
+     *
      * @param teams
+     *
      * @return
+     *
+     * @since 1
      */
     public abstract ExpandableList getExpandableTeams(List<Team> teams);
 

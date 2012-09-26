@@ -36,8 +36,7 @@ import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
  * TODO : JavaDoc : for ChoosePlayersActivity.
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 29/02/2012, 09:22:36.
+ * @since 1
  */
 public class ChoosePlayersActivity extends Activity {
 
@@ -147,7 +146,7 @@ public class ChoosePlayersActivity extends Activity {
      *
      * @return
      *
-     * @since 1.0
+     * @since 1
      */
     private View preparePlayerSelector(String playerName, boolean checked) {
         CheckBox checkBox = new CheckBox(this);
@@ -205,7 +204,7 @@ public class ChoosePlayersActivity extends Activity {
     /**
      * Creates functionality for make teams button.
      *
-     * @since 1.1
+     * @since 1
      */
     private void addOnClickActionForMakeTeamsButtonNuevo() {
         ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {
@@ -222,10 +221,9 @@ public class ChoosePlayersActivity extends Activity {
     }
 
     /**
-     * Creo la acción para el botón armar equipos.
-     * TODO : Refactor : Sacar este método y dejar el nuevo.
+     * Creo la acción para el botón armar equipos. TODO : Refactor : Sacar este método y dejar el nuevo.
      *
-     * @since 1.0
+     * @since 1
      */
     private void addOnClickActionForMakeTeamsButton() {
         ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {
@@ -270,8 +268,7 @@ public class ChoosePlayersActivity extends Activity {
      *
      * @return {@link boolean} <code>true</code> if the player was added. <code>false</code> otherwise.
      *
-     * @author Nahuel Barrios.
-     * @since 04/04/2012.
+     * @since 1
      */
     private boolean addCheckedDynamicPlayer(String playerNickName) {
         boolean added = players.add(playerNickName);

@@ -12,7 +12,7 @@ package com.nbempire.android.magicannotator.domain.exception;
  * TODO : JavaDoc : for UserException.
  *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public class UserException extends Exception {
 
@@ -32,7 +32,7 @@ public class UserException extends Exception {
      * @param guiMessage
      *         {@link String} with message for user.
      *
-     * @since 1.0.
+     * @since 1
      */
     public UserException(String guiMessage) {
         super(guiMessage);
@@ -44,7 +44,7 @@ public class UserException extends Exception {
      *
      * @return the guiMessage.
      *
-     * @since 1.0
+     * @since 1
      */
     public String getGuiMessage() {
         return guiMessage;

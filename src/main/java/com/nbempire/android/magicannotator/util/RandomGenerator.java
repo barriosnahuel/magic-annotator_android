@@ -14,10 +14,9 @@ import java.util.List;
 
 /**
  * TODO : JavaDoc : for RandomGenerator.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 22/03/2012, 09:37:57.
+ * @since 1
  */
 public class RandomGenerator<T> implements Iterator<T> {
 
@@ -27,11 +26,11 @@ public class RandomGenerator<T> implements Iterator<T> {
 
     /**
      * A constructor method for the {@link RandomGenerator} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
      * @param values
-     *            {@link List} of values to get.
+     *         {@link List} of values to get.
+     *
+     * @since 1
      */
     public RandomGenerator(List<T> values) {
         super();
@@ -40,13 +39,14 @@ public class RandomGenerator<T> implements Iterator<T> {
 
     /**
      * TODO : JavaDoc : for RandomGenerator.generate()
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
      * @param minimum
      * @param maximum
+     *
      * @return
+     *
      * @throws IllegalArgumentException
+     * @since 1
      */
     public static int generate(int minimum, int maximum) throws IllegalArgumentException {
         if (minimum > maximum) {
@@ -74,10 +74,10 @@ public class RandomGenerator<T> implements Iterator<T> {
 
     /**
      * TODO : JavaDoc : for RandomGenerator.generateNextValue()
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
      * @return
+     *
+     * @since 1
      */
     private int generateNextValueForIteration() {
         return generate(0, numbers.size() - 1);

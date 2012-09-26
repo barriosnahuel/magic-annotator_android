@@ -25,7 +25,7 @@ import com.nbempire.android.magicannotator.util.android.TableListAdapter;
 
 /**
  * TODO : JavaDoc : for TuteAnnotatorActivity.
- * 
+ *
  * @author Nahuel Barrios.
  */
 public class TuteAnnotatorActivity extends Activity {
@@ -43,8 +43,7 @@ public class TuteAnnotatorActivity extends Activity {
     private Bundle scores;
 
     /**
-     * {@link String} key para trabajar con el {@link Bundle} para guardar la instancia de la
-     * {@link Activity}.
+     * {@link String} key para trabajar con el {@link Bundle} para guardar la instancia de la {@link Activity}.
      */
     private static final String SCORES_BUNDLE_KEY = "scores";
 
@@ -76,17 +75,17 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Actualiza la {@link GridView} que le pasamos como parámetro (en la que se ven los jugadores y
-     * sus puntajes), en base a los jugadores del atributo de clase {@link Game}. En base al
-     * parámetro forUpdate asignará el puntaje por default cuando se cree por primera vez la grilla,
-     * o utilizará los scores guardados.
-     * 
-     * @author Nahuel Barrios.
+     * Actualiza la {@link GridView} que le pasamos como parámetro (en la que se ven los jugadores y sus puntajes), en base a los jugadores
+     * del atributo de clase {@link Game}. En base al parámetro forUpdate asignará el puntaje por default cuando se cree por primera vez la
+     * grilla, o utilizará los scores guardados.
+     *
      * @param gridView
-     *            {@link GridView} que se va a actualizar.
+     *         {@link GridView} que se va a actualizar.
      * @param forUpdate
-     *            {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que
-     *            se completa. <code>false</code> cuando sea una actualización.
+     *         {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que se completa. <code>false</code> cuando sea
+     *         una actualización.
+     *
+     * @author Nahuel Barrios.
      */
     private void updateGrid(GridView gridView, boolean forUpdate) {
         if (!forUpdate) {
@@ -103,14 +102,14 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Prepara la lista necesaria de nombre de jugadores-puntajes para utilizar un
-     * {@link TableListAdapter}.
-     * 
-     * @author Nahuel Barrios.
+     * Prepara la lista necesaria de nombre de jugadores-puntajes para utilizar un {@link TableListAdapter}.
+     *
      * @param playersScores
-     *            {@link Bundle} con pares nombre del jugador-puntaje de los cuáles se va a armar el
-     *            {@link List} final.
+     *         {@link Bundle} con pares nombre del jugador-puntaje de los cuáles se va a armar el {@link List} final.
+     *
      * @return {@link List} de {@link CharSequence} con el resultado final.
+     *
+     * @author Nahuel Barrios.
      */
     private List<CharSequence> getValuesForGrid(Bundle playersScores) {
         List<CharSequence> result = new ArrayList<CharSequence>();
@@ -137,12 +136,12 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Método ejecutado desde el layout para abrir el selector de un jugador al que se le va a
-     * actualizar el puntaje.
-     * 
-     * @author Nahuel Barrios.
+     * Método ejecutado desde el layout para abrir el selector de un jugador al que se le va a actualizar el puntaje.
+     *
      * @param view
-     *            {@link View} la vista que llamó al método.
+     *         {@link View} la vista que llamó al método.
+     *
+     * @author Nahuel Barrios.
      */
     public void openPlayersSelector(View view) {
         final Context theContext = view.getContext();
@@ -175,12 +174,13 @@ public class TuteAnnotatorActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for TutePartialResultsActivity.addScoreFor()
-     * 
-     * @author Nahuel Barrios.
-     * @since 10/04/2012.
+     *
      * @param scoreToUpdate
      * @param choosenPlayerNickName
+     *
      * @return
+     *
+     * @since 1
      */
     private int addScoreFor(int scoreToUpdate, String choosenPlayerNickName) {
         String scoreKey = null;
@@ -202,12 +202,11 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Este método se ejecuta desde la defici�n del layout de esta actividad y es el encargado de
-     * cambiar la pestaña de anotar cada mano.
-     * 
-     * @author Nahuel Barrios.
-     * @since 05/04/2012.
+     * Este método se ejecuta desde la defici�n del layout de esta actividad y es el encargado de cambiar la pestaña de anotar cada mano.
+     *
      * @param view
+     *
+     * @since 1
      */
     public void playAnotherHand(View view) {
         AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(view.getContext());
@@ -246,16 +245,16 @@ public class TuteAnnotatorActivity extends Activity {
 
     /**
      * TODO : JavaDoc : for TuteAnnotatorActivity.updateScoreFor().
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param selectedLoosers
-     *            {@link void}
+     *
+     * @return
      */
     private List<String> updateScoreFor(List<String> selectedLoosers) {
         List<String> lostUsers = new ArrayList<String>();
         for (String eachPlayerNickname : selectedLoosers) {
             int updatedScore = this.addScoreFor(AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND,
-                                                eachPlayerNickname);
+                                                       eachPlayerNickname);
             if (updatedScore == 4) {
                 lostUsers.add(eachPlayerNickname);
             }

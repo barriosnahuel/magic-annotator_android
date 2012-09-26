@@ -17,12 +17,10 @@ import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : JavaDoc : for ScoreEditorView. Use example:
- * <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId"/>
- * Other use example passing the increment:
- * <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId"
- * increment="2" />
- * 
+ * TODO : JavaDoc : for ScoreEditorView. Use example: <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView
+ * android:id="@+id/anId"/> Other use example passing the increment: <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView
+ * android:id="@+id/anId" increment="2" />
+ *
  * @author Nahuel Barrios.
  */
 public class ScoreEditorView extends RelativeLayout {
@@ -34,10 +32,11 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * A constructor method for the {@link ScoreEditorView} type.
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param context
      * @param playerNickname
+     *
+     * @author Nahuel Barrios.
      */
     public ScoreEditorView(Context context, String playerNickname) {
         super(context);
@@ -47,7 +46,7 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * A constructor method for the {@link ScoreEditorView} type.
-     * 
+     *
      * @param context
      * @param attributes
      */
@@ -59,7 +58,7 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * A constructor method for the {@link ScoreEditorView} type.
-     * 
+     *
      * @param context
      * @param attributes
      * @param defStyle
@@ -71,7 +70,7 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * TODO : JavaDoc : for ScoreEditorView.initializeView().
-     * 
+     *
      * @param context
      * @param attributes
      */
@@ -86,7 +85,7 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * TODO : JavaDoc : for ScoreEditorView.initializeView().
-     * 
+     *
      * @param context
      * @param increment
      */
@@ -105,6 +104,7 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * TODO : JavaDoc : for ScoreEditorView.addOnTouchActions().
+     *
      * @param increment
      */
     public void addOnTouchActions(int increment) {
@@ -116,9 +116,9 @@ public class ScoreEditorView extends RelativeLayout {
     }
 
     /**
-     * TODO : JavaDoc : for ScoreEditorOnTouchListener. Pasar esta clase afuera y ver de refactorear
-     * la del truco pudiendole pasar a esta un validador.
-     * 
+     * TODO : JavaDoc : for ScoreEditorOnTouchListener. Pasar esta clase afuera y ver de refactorear la del truco pudiendole pasar a esta un
+     * validador.
+     *
      * @author Nahuel Barrios.
      */
     class ScoreEditorOnTouchListener implements OnTouchListener {
@@ -137,9 +137,10 @@ public class ScoreEditorView extends RelativeLayout {
 
         /**
          * A constructor method for the {@link ScoreEditorOnTouchListener} type.
-         * 
-         * @author Nahuel Barrios.
+         *
          * @param increment
+         *
+         * @author Nahuel Barrios.
          */
         public ScoreEditorOnTouchListener(int increment) {
             super();
@@ -149,10 +150,11 @@ public class ScoreEditorView extends RelativeLayout {
 
         /**
          * A constructor method for the {@link ScoreEditorOnTouchListener} type.
-         * 
-         * @author Nahuel Barrios.
+         *
          * @param increment
          * @param forSubstract
+         *
+         * @author Nahuel Barrios.
          */
         public ScoreEditorOnTouchListener(int increment, boolean forSubstract) {
             super();
@@ -180,9 +182,8 @@ public class ScoreEditorView extends RelativeLayout {
     }
 
     /**
-     * Actualiza el valor original en base al incremento que le pasamos. TODO : JavaDoc : for
-     * ScoreEditorView.updateScore().
-     * 
+     * Actualiza el valor original en base al incremento que le pasamos. TODO : JavaDoc : for ScoreEditorView.updateScore().
+     *
      * @param editText
      * @param value
      */
@@ -193,11 +194,13 @@ public class ScoreEditorView extends RelativeLayout {
 
     /**
      * Returns the absolute value of the hashCode() method.
-     * 
-     * @author Nahuel Barrios.
+     *
      * @param anObject
-     *            {@link Object} an object to get some unique property to use as an Id.
+     *         {@link Object} an object to get some unique property to use as an Id.
+     *
      * @return Positive {@link Integer} to use as an Id for an Android {@link View}.
+     *
+     * @author Nahuel Barrios.
      */
     private int generateViewId(Object anObject) {
         return Math.abs(anObject.hashCode());

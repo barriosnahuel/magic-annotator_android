@@ -12,10 +12,9 @@ import com.nbempire.android.magicannotator.GUIKeys;
 
 /**
  * TODO : JavaDoc : for TrucoServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 05:22:10.
+ * @since 1
  */
 public class TrucoServiceImpl extends GameServiceImpl {
 

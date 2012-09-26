@@ -12,7 +12,7 @@ package com.nbempire.android.magicannotator.domain.exception;
  * TODO : JavaDoc : for InvalidNumberOfSelectedPlayersException.
  *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public class InvalidNumberOfSelectedPlayersException extends UserException {
 
@@ -27,7 +27,7 @@ public class InvalidNumberOfSelectedPlayersException extends UserException {
      * @param guiMessage
      *         {@link String} with message for user.
      *
-     * @since 1.0
+     * @since 1
      */
     public InvalidNumberOfSelectedPlayersException(String guiMessage) {
         super(guiMessage);

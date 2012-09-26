@@ -24,10 +24,9 @@ import com.nbempire.android.magicannotator.util.RandomGenerator;
 
 /**
  * TODO : JavaDoc : for GameServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 05:21:36.
+ * @since 1
  */
 public abstract class GameServiceImpl implements GameService {
 
@@ -53,11 +52,12 @@ public abstract class GameServiceImpl implements GameService {
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.makeRandomTeams()
-     * 
-     * @author Nahuel Barrios.
-     * @since 28/03/2012.
+     *
      * @param players
+     *
      * @return
+     *
+     * @since 1
      */
     private List<Team> makeRandomTeams(List<Player> players) {
         List<Team> teams = new ArrayList<Team>();
@@ -89,48 +89,50 @@ public abstract class GameServiceImpl implements GameService {
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.getFirstTeamLabel()
-     * 
-     * @author Nahuel Barrios.
-     * @since 28/03/2012.
+     *
      * @return
+     *
+     * @since 1
      */
     protected abstract String getFirstTeamLabel();
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.getSecondTeamLabel()
-     * 
-     * @author Nahuel Barrios.
-     * @since 28/03/2012.
+     *
      * @return
+     *
+     * @since 1
      */
     protected abstract String getSecondTeamLabel();
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.getTeamPlayersLimit()
-     * 
-     * @author Nahuel Barrios.
-     * @since 28/03/2012.
+     *
      * @param numberOfSelectedPlayers
+     *
      * @return
+     *
+     * @since 1
      */
     protected abstract int getTeamPlayersLimit(int numberOfSelectedPlayers);
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.hasValidNumberOfSelectedPlayers()
-     * 
-     * @author Nahuel Barrios.
-     * @since 20/03/2012.
+     *
      * @param numberOfPlayers
+     *
      * @return
+     *
+     * @since 1
      */
     protected abstract boolean hasValidNumberOfSelectedPlayers(int numberOfPlayers);
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.getInvalidNumberOfSelectedPlayersExceptionMessage()
-     * 
-     * @author Nahuel Barrios.
-     * @since 20/03/2012.
+     *
      * @return
+     *
+     * @since 1
      */
     protected abstract String getInvalidNumberOfSelectedPlayersExceptionMessage();
 }

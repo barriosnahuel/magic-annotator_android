@@ -7,7 +7,7 @@ package com.nbempire.android.magicannotator.domain.game;
 
 /**
  * TODO : JavaDoc : for Chancho.
- * 
+ *
  * @author Nahuel Barrios.
  */
 public class Chancho extends Game {

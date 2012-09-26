@@ -12,10 +12,9 @@ import java.util.List;
 
 /**
  * TODO : JavaDoc : for ExpandableGroup.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 11:34:31.
+ * @since 1
  */
 public class ExpandableGroup {
 
@@ -30,10 +29,10 @@ public class ExpandableGroup {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 24/03/2012.
+     *
      * @return the label.
+     *
+     * @since 1
      */
     public String getLabel() {
         return label;
@@ -41,10 +40,10 @@ public class ExpandableGroup {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 24/03/2012.
+     *
      * @return the children.
+     *
+     * @since 1
      */
     public List<String> getChildren() {
         return children;

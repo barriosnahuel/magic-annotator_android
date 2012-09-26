@@ -14,38 +14,37 @@ import com.nbempire.android.magicannotator.domain.Player;
 
 /**
  * TODO : JavaDoc : for TutePlayerService.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 10/04/2012, 23:57:04.
+ * @since 1
  */
 public interface TutePlayerService extends PlayerService {
 
     /**
      * TODO : JavaDoc : for PlayerService.addCapote()
-     * 
-     * @author Nahuel Barrios.
-     * @since 10/04/2012.
+     *
      * @param aPlayer
+     *
+     * @since 1
      */
     public void addCapote(Player aPlayer);
 
     /**
      * TODO : JavaDoc : for TutePlayerService.addTute()
-     * 
-     * @author Nahuel Barrios.
-     * @since 11/04/2012.
+     *
      * @param aPlayer
+     *
+     * @since 1
      */
     public void addTute(Player aPlayer);
 
     /**
      * TODO : JavaDoc : for TutePlayerService.addLostHand()
-     * 
-     * @author Nahuel Barrios.
-     * @since 12/04/2012.
+     *
      * @param players
      * @param looserPlayers
+     *
+     * @since 1
      */
     public void addLostHand(List<Player> players, List<String> looserPlayers);
 

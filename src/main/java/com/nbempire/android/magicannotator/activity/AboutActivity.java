@@ -16,7 +16,7 @@ import com.nbempire.android.magicannotator.R;
  * Activity to prepare the about section. It only loads the layout.
  *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 1
  */
 public class AboutActivity extends Activity {
 

@@ -19,23 +19,23 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
 
 /**
  * Factory to get games activities as {@link Class} variables.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 05/04/2012, 08:11:12.
+ * @since 1
  */
 public class AnnotatorFactory {
 
     /**
      * TODO : JavaDoc : for AnnotatorFactory.get()
-     * 
-     * @author Nahuel Barrios.
-     * @since 05/04/2012.
+     *
      * @param aGame
+     *
      * @return {@link Class<? extends Activity>}
+     *
      * @throws IllegalArgumentException
-     * @throws {@link IllegalArgumentException} when there isn't any Activity for the input
-     *         {@link Game}..
+     * @throws {@link
+     *         IllegalArgumentException} when there isn't any Activity for the input {@link Game}..
+     * @since 1
      */
     public static Class<? extends Activity> getFor(Game aGame) throws IllegalArgumentException {
         if (aGame == null) {

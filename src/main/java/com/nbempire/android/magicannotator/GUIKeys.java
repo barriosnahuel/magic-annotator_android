@@ -10,9 +10,9 @@ package com.nbempire.android.magicannotator;
 
 /**
  * Abstract class to put here all GUI keys that can't be resources.
- * 
+ *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public abstract class GUIKeys {
 

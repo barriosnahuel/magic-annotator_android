@@ -15,10 +15,9 @@ import com.nbempire.android.magicannotator.domain.Team;
 
 /**
  * TODO : JavaDoc : for Game.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 04:42:50.
+ * @since 1
  */
 public abstract class Game implements Serializable {
 
@@ -35,12 +34,11 @@ public abstract class Game implements Serializable {
 
     /**
      * A constructor method for the {@link Game} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 16/03/2012.
-     * @param key
+     *
      * @param minimumTeams
      * @param maximumTeams
+     *
+     * @since 1
      */
     public Game(Integer minimumTeams, Integer maximumTeams) {
         super();
@@ -50,20 +48,20 @@ public abstract class Game implements Serializable {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 23/03/2012.
+     *
      * @return the teams.
+     *
+     * @since 1
      */
     public List<Team> getTeams() {
         return teams;
     }
 
     /**
-     * @author Nahuel Barrios.
-     * @since 23/03/2012.
      * @param teams
-     *            the teams to set.
+     *         the teams to set.
+     *
+     * @since 1
      */
     public void setTeams(List<Team> teams) {
         this.teams = teams;

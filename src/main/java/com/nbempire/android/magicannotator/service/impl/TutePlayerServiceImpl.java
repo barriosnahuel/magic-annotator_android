@@ -17,10 +17,9 @@ import com.nbempire.android.magicannotator.service.TutePlayerService;
 
 /**
  * TODO : JavaDoc : for TutePlayerServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 11/04/2012, 00:20:17.
+ * @since 1
  */
 public class TutePlayerServiceImpl extends PlayerServiceImpl implements TutePlayerService {
 
@@ -34,11 +33,11 @@ public class TutePlayerServiceImpl extends PlayerServiceImpl implements TutePlay
 
     /**
      * TODO : JavaDoc : for TutePlayerServiceImpl.addScoreFor()
-     * 
-     * @author Nahuel Barrios.
-     * @since 11/04/2012.
+     *
      * @param aPlayer
      * @param scoreKey
+     *
+     * @since 1
      */
     private void addScoreFor(Player aPlayer, String scoreKey) {
         Map<String, Integer> scores = aPlayer.getScores();
@@ -47,7 +46,7 @@ public class TutePlayerServiceImpl extends PlayerServiceImpl implements TutePlay
             updatedScore = scores.get(scoreKey) + 1;
         } catch (NullPointerException nullPointerException) {
             System.out.println("Jugador \"" + aPlayer.getNickName() + "\" no tiene el score \"" + scoreKey
-                               + "\" asignado, por lo tanto el primer valor es 1.");
+                                       + "\" asignado, por lo tanto el primer valor es 1.");
         }
         scores.put(scoreKey, updatedScore);
     }

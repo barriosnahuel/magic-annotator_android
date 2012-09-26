@@ -14,10 +14,9 @@ import java.util.List;
 
 /**
  * TODO : JavaDoc : for Team.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 04:41:55.
+ * @since 1
  */
 public class Team implements Serializable {
 
@@ -32,10 +31,10 @@ public class Team implements Serializable {
 
     /**
      * A constructor method for the {@link Team} type.
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
      * @param label
+     *
+     * @since 1
      */
     public Team(String label) {
         this.label = label;
@@ -43,20 +42,20 @@ public class Team implements Serializable {
 
     /**
      * TODO : JavaDoc : for Team.addPlayer()
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
      * @param aPlayer
+     *
+     * @since 1
      */
     public void addPlayer(Player aPlayer) {
         players.add(aPlayer);
     }
 
     /**
-     * @author Nahuel Barrios.
-     * @since 12/04/2012.
      * @param players
-     *            List<Player> the players to set.
+     *         List<Player> the players to set.
+     *
+     * @since 1
      */
     public void setPlayers(List<Player> players) {
         this.players = players;
@@ -64,10 +63,10 @@ public class Team implements Serializable {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 12/04/2012.
+     *
      * @return String the label.
+     *
+     * @since 1
      */
     public String getLabel() {
         return label;
@@ -75,10 +74,10 @@ public class Team implements Serializable {
 
     /**
      * Accessor for the attribute of the entity.
-     * 
-     * @author Nahuel Barrios.
-     * @since 12/04/2012.
+     *
      * @return List<Player> the players.
+     *
+     * @since 1
      */
     public List<Player> getPlayers() {
         return players;

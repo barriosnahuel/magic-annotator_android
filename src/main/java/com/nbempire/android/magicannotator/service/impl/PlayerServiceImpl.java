@@ -16,10 +16,9 @@ import com.nbempire.android.magicannotator.service.PlayerService;
 
 /**
  * TODO : JavaDoc : for PlayerServiceImpl.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 23/03/2012, 05:42:19.
+ * @since 1
  */
 public class PlayerServiceImpl implements PlayerService {
 

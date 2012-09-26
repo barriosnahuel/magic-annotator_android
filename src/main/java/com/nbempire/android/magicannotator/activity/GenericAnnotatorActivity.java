@@ -16,7 +16,7 @@ import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
 
 /**
  * TODO : JavaDoc : for GenericAnnotatorActivity.
- * 
+ *
  * @author Nahuel Barrios.
  */
 public class GenericAnnotatorActivity extends Activity {

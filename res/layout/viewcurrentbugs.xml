@@ -5,66 +5,66 @@
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/viewCurrentBugs_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/viewCurrentBugs_title"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TableLayout
-            android:id="@+id/viewCurrentBugs_bugsLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dip" >
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/viewCurrentBugs_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/viewCurrentBugs_title"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TableLayout
+                android:id="@+id/viewCurrentBugs_bugsLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dip">
 
             <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" >
+                    android:id="@+id/tableRow1"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
 
                 <TextView
-                    android:id="@+id/viewCurrentBugs_bug1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/viewCurrentBugs_bug1"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:id="@+id/viewCurrentBugs_bug1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/viewCurrentBugs_bug1"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
             </TableRow>
 
             <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="15dip" >
+                    android:id="@+id/tableRow2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="15dip">
 
                 <TextView
-                    android:id="@+id/viewCurrentBugs_bug2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/viewCurrentBugs_bug2"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:id="@+id/viewCurrentBugs_bug2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/viewCurrentBugs_bug2"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
             </TableRow>
 
             <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="15dip" >
+                    android:id="@+id/tableRow3"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="15dip">
 
                 <TextView
-                    android:id="@+id/viewCurrentBugs_bug3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/viewCurrentBugs_bug3"
-                    android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:id="@+id/viewCurrentBugs_bug3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/viewCurrentBugs_bug3"
+                        android:textAppearance="?android:attr/textAppearanceSmall" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

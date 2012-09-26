@@ -22,10 +22,9 @@ import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActi
 
 /**
  * TODO : JavaDoc : for MakeTeamsActivity.
- * 
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 29/02/2012, 10:34:20.
+ * @since 1
  */
 public class ViewTeamsActivity extends SimpleExpandableListActivity {
 
@@ -44,9 +43,8 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
 
     /**
      * Adds onClick funcionality to the "play" button. It starts the next activity to show.
-     * 
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     *
+     * @since 1
      */
     private void addOnClickActionForPlayButton() {
         Button play = (Button) findViewById(R.id.viewteams_button_play);

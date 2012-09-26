@@ -7,9 +7,9 @@ package com.nbempire.android.magicannotator;
 
 /**
  * Abstract class to put here all game keys.
- * 
+ *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public abstract class GameKeys {
 

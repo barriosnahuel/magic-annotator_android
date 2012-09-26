@@ -5,46 +5,46 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
     <TextView
-        android:id="@+id/main_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/chooseGame_title"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:id="@+id/main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/chooseGame_title"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <ListView
-        android:id="@+id/main_gamesListView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/main_bottomToolbarLayout"
-        android:layout_below="@+id/main_title" >
+            android:id="@+id/main_gamesListView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/main_bottomToolbarLayout"
+            android:layout_below="@+id/main_title">
     </ListView>
 
     <LinearLayout
-        android:id="@+id/main_bottomToolbarLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" >
+            android:id="@+id/main_bottomToolbarLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true">
 
         <Button
-            android:id="@+id/main_button1"
-            android:layout_width="160dip"
-            android:layout_height="wrap_content"
-            android:onClick="openAboutActivity"
-            android:text="@string/chooseGame_about" />
+                android:id="@+id/main_button1"
+                android:layout_width="160dip"
+                android:layout_height="wrap_content"
+                android:onClick="openAboutActivity"
+                android:text="@string/chooseGame_about" />
 
         <Button
-            android:id="@+id/main_button2"
-            android:layout_width="160dip"
-            android:layout_height="wrap_content"
-            android:onClick="openViewBugsActivity"
-            android:text="@string/chooseGame_viewCurrentBugs" />
+                android:id="@+id/main_button2"
+                android:layout_width="160dip"
+                android:layout_height="wrap_content"
+                android:onClick="openViewBugsActivity"
+                android:text="@string/chooseGame_viewCurrentBugs" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -10,19 +10,20 @@ import java.util.List;
 
 /**
  * Abstract class tu use as an utility class containing helper methods to work with Arrays
- * 
+ *
  * @author Nahuel Barrios.
  */
 public abstract class ArrayUtil {
 
     /**
-     * Returns an array of aList items in the same order than the {@link List}. TODO : JavaDoc : for
-     * ArrayUtil.toArray().
-     * 
-     * @author Nahuel Barrios.
+     * Returns an array of aList items in the same order than the {@link List}. TODO : JavaDoc : for ArrayUtil.toArray().
+     *
      * @param aList
-     *            {@link List} to transform.
+     *         {@link List} to transform.
+     *
      * @return {@link T[]} array of aList items in the same order than the {@link List}.
+     *
+     * @author Nahuel Barrios.
      */
     public static <T> T[] toArray(List<T> aList) {
         @SuppressWarnings("unchecked") T[] result = (T[]) Array.newInstance(aList.get(0).getClass(), 2);

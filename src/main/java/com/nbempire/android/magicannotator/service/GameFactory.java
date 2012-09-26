@@ -17,9 +17,9 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
 
 /**
  * Factory to creates an instance of games based on a specific gameKey.
- * 
+ *
  * @author Nahuel Barrios.
- * @since 1.0
+ * @since 1
  */
 public abstract class GameFactory {
 
@@ -30,8 +30,12 @@ public abstract class GameFactory {
 
     /**
      * Creates an instance of games based on a specific gameKey.
-     * @param gameKey The key of a specific game.
+     *
+     * @param gameKey
+     *         The key of a specific game.
+     *
      * @return An instance of Game based on the specified gameKey.
+     *
      * @throws IllegalArgumentException
      */
     public static Game getInstance(String gameKey) throws IllegalArgumentException {
