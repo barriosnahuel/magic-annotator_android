@@ -114,7 +114,6 @@
     <string name="trucoAnnotator_labelResult">Resultado</string>
     <string name="trucoAnnotator_labelDoTapOnYourTeamToAddScore">Haz tap sobre tu equipo para anotar puntos</string>
 
-
     <!-- TutePartialResultsActivity -->
     <string name="tutePartialResults_addCapote">Agregar capote</string>
     <string name="tutePartialResults_addTute">Agregar tute</string>
