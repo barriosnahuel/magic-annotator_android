@@ -32,14 +32,14 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_marginTop="125dip">
+            android:layout_marginTop="125dp">
 
         <TextView
                 android:id="@+id/trucoAnnotator_labelTeam1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dip"
-                android:layout_marginTop="8dip"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/truco_team1_we"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -47,8 +47,8 @@
                 android:id="@+id/trucoAnnotator_scoreTeam1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="60dip"
-                android:layout_marginTop="8dip"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/defaultInitialGameScore"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
@@ -59,14 +59,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/trucoAnnotator_layoutTeam1"
-            android:layout_marginTop="40dip">
+            android:layout_marginTop="40dp">
 
         <TextView
                 android:id="@+id/trucoAnnotator_labelTeam2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="31dip"
-                android:layout_marginTop="8dip"
+                android:layout_marginLeft="31dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/truco_team2_them"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -74,8 +74,8 @@
                 android:id="@+id/trucoAnnotator_scoreTeam2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="85dip"
-                android:layout_marginTop="8dip"
+                android:layout_marginLeft="122dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/defaultInitialGameScore"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
