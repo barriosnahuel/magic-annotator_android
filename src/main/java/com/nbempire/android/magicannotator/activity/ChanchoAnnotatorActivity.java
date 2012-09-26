@@ -83,8 +83,6 @@ public class ChanchoAnnotatorActivity extends Activity {
      * @param forUpdate
      *         {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que se completa. <code>false</code> cuando sea
      *         una actualización.
-     *
-     * @author Nahuel Barrios.
      */
     private void updateGrid(GridView gridView, boolean forUpdate) {
         if (!forUpdate) {
@@ -103,8 +101,6 @@ public class ChanchoAnnotatorActivity extends Activity {
      *         {@link Bundle} con pares nombre del jugador-puntaje de los cuáles se va a armar el {@link List} final.
      *
      * @return {@link List} de {@link CharSequence} con el resultado final.
-     *
-     * @author Nahuel Barrios.
      */
     private List<CharSequence> getValuesForGrid(Bundle playersScores) {
         List<CharSequence> result = new ArrayList<CharSequence>();
@@ -116,9 +112,7 @@ public class ChanchoAnnotatorActivity extends Activity {
             sortedSet.add(eachPlayerNickname);
         }
 
-        Iterator<String> iterator = sortedSet.iterator();
-        while (iterator.hasNext()) {
-            String eachKey = (String) iterator.next();
+        for (String eachKey : sortedSet) {
             result.add(eachKey);
             result.add(playersScores.getString(eachKey));
         }
@@ -131,16 +125,12 @@ public class ChanchoAnnotatorActivity extends Activity {
      *
      * @param view
      *         {@link View} la vista que llamó al método.
-     *
-     * @author Nahuel Barrios.
      */
     public void openPlayersSelector(View view) {
         AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(view.getContext());
 
         final List<String> possibleLoosers = new ArrayList<String>();
-        Iterator<String> iterator = scores.keySet().iterator();
-        while (iterator.hasNext()) {
-            String playerNickname = iterator.next();
+        for (String playerNickname : scores.keySet()) {
             if (!scores.get(playerNickname).equals(CHANCHO)) {
                 possibleLoosers.add(playerNickname);
             }
@@ -170,8 +160,6 @@ public class ChanchoAnnotatorActivity extends Activity {
      *         {@link String} con el nickname del jugador al que se le va a actualizar el puntaje.
      *
      * @return <code>true</code> cuando el jugador alcancó el puntaje máximo. <code>false</code> cuando puede seguir perdiendo manos.
-     *
-     * @author Nahuel Barrios.
      */
     private boolean updateScore(String playerNickname) {
         String currentScore = scores.getString(playerNickname);
@@ -196,20 +184,19 @@ public class ChanchoAnnotatorActivity extends Activity {
         }
 
         scores.putString(playerNickname, nextScore);
-        this.updateGrid(((GridView) findViewById(R.id.chanchoAnnotator_playersGridView)), true);
-        return this.perdioCompletamente(nextScore);
+        updateGrid(((GridView) findViewById(R.id.chanchoAnnotator_playersGridView)), true);
+        return isLooserOfTheGame(nextScore);
     }
 
     /**
-     * TODO : JavaDoc : for ChanchoAnnotatorActivity.perdioCompletamente().
+     * Evaluates when the current {@code score} is equals to the maximum permitted score.
      *
-     * @param nextScore
+     * @param score
+     *         String with the score to evaluate.
      *
-     * @return {@link boolean}
-     *
-     * @author Nahuel Barrios.
+     * @return {@code true} if the {@code score} is equals to the maximum permitted score. Otherwise {@code false}.
      */
-    private boolean perdioCompletamente(String nextScore) {
-        return nextScore.equals(CHANCHO);
+    private boolean isLooserOfTheGame(String score) {
+        return score.equals(CHANCHO);
     }
 }
