@@ -13,11 +13,10 @@ import android.os.Bundle;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : JavaDoc : for AboutActivity.
- * 
+ * Activity to prepare the about section. It only loads the layout.
+ *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 14/04/2012, 09:38:58.
+ * @since 0.1
  */
 public class AboutActivity extends Activity {
 
