@@ -51,6 +51,15 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/defaultInitialGameScore"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+                android:id="@+id/trucoAnnotator_substractButtonTeam1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:ems="2"
+                android:text="@string/substract"
+                android:onClick="substractScore" />
     </LinearLayout>
 
     <LinearLayout
@@ -78,6 +87,15 @@
                 android:layout_marginTop="8dp"
                 android:text="@string/defaultInitialGameScore"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+                android:id="@+id/trucoAnnotator_substractButtonTeam2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:ems="2"
+                android:text="@string/substract"
+                android:onClick="substractScore" />
     </LinearLayout>
 
     <Button

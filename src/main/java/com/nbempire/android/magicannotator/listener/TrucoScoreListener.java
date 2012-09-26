@@ -17,6 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.TextView;
+import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 
 /**
@@ -63,11 +64,11 @@ public class TrucoScoreListener implements OnTouchListener {
     public boolean onTouch(View view, MotionEvent event) {
         int currentValue = Integer.valueOf(scoreToUpdate.getText().toString());
 
-        if (currentValue < 30) {
-            int updatedValue = currentValue + 1;
+        if (currentValue < GameKeys.TRUCO_MAX_SCORE) {
+            int updatedValue = currentValue + GameKeys.TRUCO_INCREMENT;
             scoreToUpdate.setText(String.valueOf(updatedValue));
 
-            if (updatedValue == 30) {
+            if (updatedValue == GameKeys.TRUCO_MAX_SCORE) {
                 showWinMessageAlert(view.getContext());
                 disableLooserTeamControls();
             }

@@ -34,8 +34,8 @@ public final class R {
         public static final int basescrollview_headerRow = 0x7f060006;
         public static final int basescrollview_headerText = 0x7f060007;
         public static final int basescrollview_tableLayout = 0x7f060005;
-        public static final int button1 = 0x7f06002b;
-        public static final int button3 = 0x7f06002f;
+        public static final int button1 = 0x7f06002d;
+        public static final int button3 = 0x7f060031;
         public static final int chanchoAnnotator_chooseLooserButton = 0x7f060009;
         public static final int chanchoAnnotator_playersGridView = 0x7f060008;
         public static final int choosePlayers_button_makeTeams = 0x7f060011;
@@ -46,8 +46,8 @@ public final class R {
         public static final int gridView_cell_valuesLarge = 0x7f060018;
         public static final int gridView_cell_valuesMedium = 0x7f060017;
         public static final int gridView_cell_valuesSmall = 0x7f060016;
-        public static final int linearLayout1 = 0x7f06002a;
-        public static final int linearLayout3 = 0x7f06002e;
+        public static final int linearLayout1 = 0x7f06002c;
+        public static final int linearLayout3 = 0x7f060030;
         public static final int main_bottomToolbarLayout = 0x7f06000c;
         public static final int main_button1 = 0x7f06000d;
         public static final int main_button2 = 0x7f06000e;
@@ -58,9 +58,9 @@ public final class R {
         public static final int score = 0x7f06001a;
         public static final int scrollView1 = 0x7f060012;
         public static final int substractButton = 0x7f06001c;
-        public static final int tableRow1 = 0x7f060032;
-        public static final int tableRow2 = 0x7f060034;
-        public static final int tableRow3 = 0x7f060036;
+        public static final int tableRow1 = 0x7f060034;
+        public static final int tableRow2 = 0x7f060036;
+        public static final int tableRow3 = 0x7f060038;
         public static final int textView1 = 0x7f06000f;
         public static final int trucoAnnotator_buttonNewGame = 0x7f060024;
         public static final int trucoAnnotator_labelDoTap = 0x7f06001d;
@@ -71,20 +71,22 @@ public final class R {
         public static final int trucoAnnotator_layoutTeam2 = 0x7f060021;
         public static final int trucoAnnotator_scoreTeam1 = 0x7f060020;
         public static final int trucoAnnotator_scoreTeam2 = 0x7f060023;
-        public static final int tuteAnnotator_partialResults_gridView = 0x7f06002d;
-        public static final int tuteHand_chooseLoosersLabel = 0x7f060026;
-        public static final int tuteHand_finishHand_button = 0x7f060027;
-        public static final int tuteHand_looserPlayersLayout = 0x7f060029;
-        public static final int tuteHand_looserPlayersScrollView = 0x7f060028;
-        public static final int tutePartialResults_addTuteButton = 0x7f06002c;
-        public static final int viewCurrentBugs_bug1 = 0x7f060033;
-        public static final int viewCurrentBugs_bug2 = 0x7f060035;
-        public static final int viewCurrentBugs_bug3 = 0x7f060037;
-        public static final int viewCurrentBugs_bugsLayout = 0x7f060031;
-        public static final int viewCurrentBugs_title = 0x7f060030;
-        public static final int viewTeams_title = 0x7f060039;
-        public static final int viewteams_button_play = 0x7f060038;
-        public static final int whileLine1 = 0x7f06003a;
+        public static final int trucoAnnotator_substractButtonTeam1 = 0x7f060026;
+        public static final int trucoAnnotator_substractButtonTeam2 = 0x7f060027;
+        public static final int tuteAnnotator_partialResults_gridView = 0x7f06002f;
+        public static final int tuteHand_chooseLoosersLabel = 0x7f060028;
+        public static final int tuteHand_finishHand_button = 0x7f060029;
+        public static final int tuteHand_looserPlayersLayout = 0x7f06002b;
+        public static final int tuteHand_looserPlayersScrollView = 0x7f06002a;
+        public static final int tutePartialResults_addTuteButton = 0x7f06002e;
+        public static final int viewCurrentBugs_bug1 = 0x7f060035;
+        public static final int viewCurrentBugs_bug2 = 0x7f060037;
+        public static final int viewCurrentBugs_bug3 = 0x7f060039;
+        public static final int viewCurrentBugs_bugsLayout = 0x7f060033;
+        public static final int viewCurrentBugs_title = 0x7f060032;
+        public static final int viewTeams_title = 0x7f06003b;
+        public static final int viewteams_button_play = 0x7f06003a;
+        public static final int whileLine1 = 0x7f06003c;
     }
 
     public static final class layout {

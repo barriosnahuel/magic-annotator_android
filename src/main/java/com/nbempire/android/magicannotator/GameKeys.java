@@ -17,4 +17,7 @@ public abstract class GameKeys {
 
     public static final String GAME_NAME_OTRO = "Otro";
 
+    public static final int TRUCO_MAX_SCORE = 30;
+    public static final int TRUCO_INCREMENT = 1;
+    public static final int TRUCO_MAX_SCORE_WITHOUT_WIN = TRUCO_MAX_SCORE - TRUCO_INCREMENT;
 }

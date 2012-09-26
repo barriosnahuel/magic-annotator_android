@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 
@@ -41,6 +42,8 @@ public class TrucoAnnotatorActivity extends Activity {
      * Key para el score del equipo "Ellos", para controlar el giro del telefono.
      */
     private static final String SCORE_TEAM_2 = "scoreTeam2";
+    private static final String TEAM_1_STATUS = "team1Status";
+    private static final String TEAM_2_STATUS = "team2Status";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class TrucoAnnotatorActivity extends Activity {
         List<Integer> viewsToDisable = new ArrayList<Integer>();
         viewsToDisable.add(R.id.trucoAnnotator_labelTeam2);
         viewsToDisable.add(R.id.trucoAnnotator_scoreTeam2);
+        viewsToDisable.add(R.id.trucoAnnotator_substractButtonTeam2);
         setActions(R.id.trucoAnnotator_scoreTeam1, R.string.trucoAnnotator_youWin,
                           R.id.trucoAnnotator_labelTeam1, viewsToDisable);
 
@@ -58,6 +62,7 @@ public class TrucoAnnotatorActivity extends Activity {
         viewsToDisable.clear();
         viewsToDisable.add(R.id.trucoAnnotator_labelTeam1);
         viewsToDisable.add(R.id.trucoAnnotator_scoreTeam1);
+        viewsToDisable.add(R.id.trucoAnnotator_substractButtonTeam1);
         setActions(R.id.trucoAnnotator_scoreTeam2, R.string.trucoAnnotator_theyWin,
                           R.id.trucoAnnotator_labelTeam2, viewsToDisable);
     }
@@ -67,6 +72,9 @@ public class TrucoAnnotatorActivity extends Activity {
         super.onSaveInstanceState(outState);
         outState.putCharSequence(SCORE_TEAM_1, ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam1)).getText());
         outState.putCharSequence(SCORE_TEAM_2, ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam2)).getText());
+
+        outState.putBoolean(TEAM_1_STATUS, findViewById(R.id.trucoAnnotator_scoreTeam1).isEnabled());
+        outState.putBoolean(TEAM_2_STATUS, findViewById(R.id.trucoAnnotator_scoreTeam2).isEnabled());
     }
 
     @Override
@@ -74,6 +82,24 @@ public class TrucoAnnotatorActivity extends Activity {
         super.onRestoreInstanceState(savedInstanceState);
         ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam1)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_1));
         ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam2)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_2));
+
+        boolean isTeamEnabled = savedInstanceState.getBoolean(TEAM_1_STATUS);
+        if (!isTeamEnabled) {
+            List<Integer> controlsId = new ArrayList<Integer>();
+            controlsId.add(R.id.trucoAnnotator_labelTeam1);
+            controlsId.add(R.id.trucoAnnotator_scoreTeam1);
+            controlsId.add(R.id.trucoAnnotator_substractButtonTeam1);
+            disableControls(controlsId);
+        }
+
+        isTeamEnabled = savedInstanceState.getBoolean(TEAM_2_STATUS);
+        if (!isTeamEnabled) {
+            List<Integer> controlsId = new ArrayList<Integer>();
+            controlsId.add(R.id.trucoAnnotator_labelTeam2);
+            controlsId.add(R.id.trucoAnnotator_scoreTeam2);
+            controlsId.add(R.id.trucoAnnotator_substractButtonTeam2);
+            disableControls(controlsId);
+        }
     }
 
     /**
@@ -115,25 +141,88 @@ public class TrucoAnnotatorActivity extends Activity {
         resetScoreFor(R.id.trucoAnnotator_scoreTeam1);
         resetScoreFor(R.id.trucoAnnotator_scoreTeam2);
 
-        List<Integer> viewsIdToEnable = new ArrayList<Integer>();
-        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam1);
-        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam2);
-        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam1);
-        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam2);
-        enableControls(viewsIdToEnable);
+        enableAllControls();
     }
 
     /**
-     * Set enabled=true to each control from {@code viewsIdToEnable} even if they are already enabled.
+     * Substracts one point to the corresponding team score depending on the {@code callerView}.
      *
-     * @param viewsIdToEnable
-     *         The view's ID to enable.
+     * @param callerView
+     *         The view that has called this method.
      *
      * @since 6
      */
-    private void enableControls(List<Integer> viewsIdToEnable) {
-        for (int eachViewId : viewsIdToEnable) {
-            findViewById(eachViewId).setEnabled(true);
+    public void substractScore(View callerView) {
+        int teamScoreToSubstractId = -1;
+
+        switch (callerView.getId()) {
+            case R.id.trucoAnnotator_substractButtonTeam1:
+                teamScoreToSubstractId = R.id.trucoAnnotator_scoreTeam1;
+                break;
+            case R.id.trucoAnnotator_substractButtonTeam2:
+                teamScoreToSubstractId = R.id.trucoAnnotator_scoreTeam2;
+                break;
+        }
+
+        if (teamScoreToSubstractId != -1) {
+            TextView textView = (TextView) findViewById(teamScoreToSubstractId);
+            int currentScore = Integer.parseInt(textView.getText().toString());
+
+            if (currentScore != Integer.parseInt(getText(R.string.defaultInitialGameScore).toString())) {
+                int updatedScore = currentScore - GameKeys.TRUCO_INCREMENT;
+
+                Log.d(LOG_TAG, "Updating score to: " + updatedScore);
+                textView.setText(String.valueOf(updatedScore));
+
+                if (updatedScore == GameKeys.TRUCO_MAX_SCORE_WITHOUT_WIN) {
+                    enableAllControls();
+                }
+            }
+        }
+
+    }
+
+    /**
+     * Set enabled=true to each control from both teams even if they are already enabled.
+     *
+     * @since 6
+     */
+    private void enableAllControls() {
+        List<Integer> viewsIdToEnable = new ArrayList<Integer>();
+        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam1);
+        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam2);
+        viewsIdToEnable.add(R.id.trucoAnnotator_substractButtonTeam1);
+        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam1);
+        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam2);
+        viewsIdToEnable.add(R.id.trucoAnnotator_substractButtonTeam2);
+        setControlsStatus(viewsIdToEnable, true);
+    }
+
+    /**
+     * Set enabled=false to each control from the specified List.
+     *
+     * @param controlsId
+     *         List of int with Views IDs.
+     *
+     * @since 6
+     */
+    private void disableControls(List<Integer> controlsId) {
+        setControlsStatus(controlsId, false);
+    }
+
+    /**
+     * Set the enabled attribute of the corresponding Views from the {@code controlsId} List based on the {@code enabled} parameter.
+     *
+     * @param controlsId
+     *         List of int with Views IDs.
+     * @param enabled
+     *         {@code true} to enable controls. {@code false} to disable them.
+     *
+     * @since 6
+     */
+    private void setControlsStatus(List<Integer> controlsId, boolean enabled) {
+        for (int eachViewId : controlsId) {
+            findViewById(eachViewId).setEnabled(enabled);
         }
     }
 
