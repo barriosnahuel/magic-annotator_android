@@ -8,11 +8,14 @@
  */
 package com.nbempire.android.magicannotator.activity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 
@@ -23,6 +26,11 @@ import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
  * @since 0.1
  */
 public class TrucoAnnotatorActivity extends Activity {
+
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "TrucoAnnotatorActivity";
 
     /**
      * Key para el score del equipo "Nosotros", para controlar el giro del telefono.
@@ -40,12 +48,18 @@ public class TrucoAnnotatorActivity extends Activity {
         setContentView(R.layout.trucoannotator);
 
         // Setteo las acciones para los elementos del equipo "nosotros"
+        List<Integer> viewsToDisable = new ArrayList<Integer>();
+        viewsToDisable.add(R.id.trucoAnnotator_labelTeam2);
+        viewsToDisable.add(R.id.trucoAnnotator_scoreTeam2);
         setActions(R.id.trucoAnnotator_scoreTeam1, R.string.trucoAnnotator_youWin,
-                          R.id.trucoAnnotator_labelTeam1);
+                          R.id.trucoAnnotator_labelTeam1, viewsToDisable);
 
         // Setteo las acciones para los elementos del equipo "ellos"
+        viewsToDisable.clear();
+        viewsToDisable.add(R.id.trucoAnnotator_labelTeam1);
+        viewsToDisable.add(R.id.trucoAnnotator_scoreTeam1);
         setActions(R.id.trucoAnnotator_scoreTeam2, R.string.trucoAnnotator_theyWin,
-                          R.id.trucoAnnotator_labelTeam2);
+                          R.id.trucoAnnotator_labelTeam2, viewsToDisable);
     }
 
     @Override
@@ -71,14 +85,20 @@ public class TrucoAnnotatorActivity extends Activity {
      *         ID del recurso string que se utilizar� cuando gane el equipo.
      * @param teamLabelId
      *         El ID del {@link TextView} con el label del equipo en el cu�l se debe hacer tap para sumar un punto.
+     * @param viewsIdToDisable
+     *         List of Integer containing one element for each View to disable when one team wins.
      *
      * @since 0.1
      */
-    private void setActions(int teamScoreId, int labelForWinnerTeamId,
-                            int teamLabelId) {
+    private void setActions(int teamScoreId, int labelForWinnerTeamId, int teamLabelId, List<Integer> viewsIdToDisable) {
+
+        List<View> viewsToDisable = new ArrayList<View>();
+        for (int eachViewId : viewsIdToDisable) {
+            viewsToDisable.add(findViewById(eachViewId));
+        }
 
         TextView teamScore = (TextView) findViewById(teamScoreId);
-        TrucoScoreListener listener = new TrucoScoreListener(teamScore, getText(labelForWinnerTeamId));
+        TrucoScoreListener listener = new TrucoScoreListener(teamScore, getText(labelForWinnerTeamId), viewsToDisable);
         teamScore.setOnTouchListener(listener);
 
         TextView teamLabel = (TextView) findViewById(teamLabelId);
@@ -86,35 +106,45 @@ public class TrucoAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for TrucoAnnotatorActivity.resetScores()
+     * Reset the entire activity by setting scores to zero and enabling all controls.
      *
      * @since 0.1
      */
     public void resetGame(View view) {
-        this.resetScoreFor(R.id.trucoAnnotator_scoreTeam1);
-        this.resetScoreFor(R.id.trucoAnnotator_scoreTeam2);
+        Log.d(LOG_TAG, "--> resetGame() from view: " + view.getId());
+        resetScoreFor(R.id.trucoAnnotator_scoreTeam1);
+        resetScoreFor(R.id.trucoAnnotator_scoreTeam2);
+
+        List<Integer> viewsIdToEnable = new ArrayList<Integer>();
+        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam1);
+        viewsIdToEnable.add(R.id.trucoAnnotator_labelTeam2);
+        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam1);
+        viewsIdToEnable.add(R.id.trucoAnnotator_scoreTeam2);
+        enableControls(viewsIdToEnable);
     }
 
     /**
-     * TODO : JavaDoc : for TrucoAnnotatorActivity.resetGoodBadIndicator()
+     * Set enabled=true to each control from {@code viewsIdToEnable} even if they are already enabled.
      *
-     * @param goodBadIndicatorId
-     *
-     * @since 0.1
+     * @param viewsIdToEnable
+     *         The view's ID to enable.
      */
-    private void resetGoodBadIndicator(int goodBadIndicatorId) {
-        ((ToggleButton) findViewById(goodBadIndicatorId)).setChecked(false);
+    private void enableControls(List<Integer> viewsIdToEnable) {
+        for (int eachViewId : viewsIdToEnable) {
+            findViewById(eachViewId).setEnabled(true);
+        }
     }
 
     /**
-     * TODO : JavaDoc : for TrucoAnnotatorActivity.resetScoreFor()
+     * Reset the score for the specified {@code teamScoreId}.
      *
-     * @param teamScoreElementId
+     * @param teamScoreId
+     *         The id of the team score to reset.
      *
      * @since 0.1
      */
-    private void resetScoreFor(int teamScoreElementId) {
-        ((TextView) findViewById(teamScoreElementId)).setText(this.getText(R.string.defaultInitialGameScore));
+    private void resetScoreFor(int teamScoreId) {
+        ((TextView) findViewById(teamScoreId)).setText(this.getText(R.string.defaultInitialGameScore));
     }
 
 }

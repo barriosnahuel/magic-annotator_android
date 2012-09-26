@@ -8,6 +8,8 @@
  */
 package com.nbempire.android.magicannotator.listener;
 
+import java.util.List;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -25,9 +27,20 @@ import com.nbempire.android.magicannotator.R;
  */
 public class TrucoScoreListener implements OnTouchListener {
 
-    protected String winMessageText;
+    /**
+     * The message to show when one team win.
+     */
+    private String winMessageText;
 
-    protected TextView scoreToUpdate;
+    /**
+     * The TextView to update.
+     */
+    private TextView scoreToUpdate;
+
+    /**
+     * List of Views to disable when one team wins.
+     */
+    private List<View> viewsToDisable;
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.
@@ -36,13 +49,15 @@ public class TrucoScoreListener implements OnTouchListener {
      *         The TextView to update.
      * @param winMessageText
      *         The message to show when one team win.
+     * @param viewsToDisable
+     *         List of Views to disable when one team wins.
      *
      * @since 0.1
      */
-    public TrucoScoreListener(TextView scoreToUpdate, CharSequence winMessageText) {
-        super();
+    public TrucoScoreListener(TextView scoreToUpdate, CharSequence winMessageText, List<View> viewsToDisable) {
         this.scoreToUpdate = scoreToUpdate;
         this.winMessageText = winMessageText.toString();
+        this.viewsToDisable = viewsToDisable;
     }
 
     public boolean onTouch(View view, MotionEvent event) {
@@ -54,6 +69,7 @@ public class TrucoScoreListener implements OnTouchListener {
 
             if (updatedValue == 30) {
                 showWinMessageAlert(view.getContext());
+                disableLooserTeamControls();
             }
         }
 
@@ -77,6 +93,15 @@ public class TrucoScoreListener implements OnTouchListener {
                                                    }
                                                });
         winMessageAlertDialog.show();
+    }
+
+    /**
+     * Disable each View from {@code viewsToDisable} by setting the {@code enabled} property as {@code false}.
+     */
+    private void disableLooserTeamControls() {
+        for (View eachView : viewsToDisable) {
+            eachView.setEnabled(false);
+        }
     }
 
 }
