@@ -42,7 +42,7 @@ public abstract class GameFactory {
         try {
             if (gameKey.equals("Chancho")) {
                 return new Chancho();
-            } else if (gameKey.equals("Otro")) {
+            } else if (gameKey.equals("Otro") || gameKey.equals("Supermercado")) {
                 return null;
             } else if (gameKey.equals("Truco")) {
                 return new Truco();

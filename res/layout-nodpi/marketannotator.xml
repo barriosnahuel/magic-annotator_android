@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~ No se reconocerá ningún tipo de garantía.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+    <TextView
+            android:id="@+id/marketAnnotator_headerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/myMarketList"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ScrollView android:id="@+id/marketAnnotator_scrollView"
+                android:layout_above="@+id/marketAnnotator_addButton"
+                android:layout_below="@+id/marketAnnotator_headerText"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+        <TableLayout
+                android:id="@+id/marketAnnotator_itemsLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal">
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <Button
+            android:id="@+id/marketAnnotator_addButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="@string/plus"
+            android:onClick="openMarketItemCreator" />
+
+</RelativeLayout>
+

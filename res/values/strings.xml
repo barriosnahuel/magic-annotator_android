@@ -19,9 +19,10 @@
     <string name="chooseLooser">¿Quién perdió?</string>
     <string name="commonLabel_accept">Aceptar</string>
     <string name="defaultInitialGameScore">0</string>
-    <string name="add">+</string>
+    <string name="plus">+</string>
     <string name="substract">-</string>
     <string name="gamename_otro">Otro</string>
+    <string name="gamename_market">Supermercado</string>
     <string name="commonLabel_someoneLost">perdió :(</string>
 
     <!-- ChooseGameActivity -->
@@ -29,6 +30,7 @@
 
     <string-array name="chooseGame_gamesValues">
         <item>Chancho</item>
+        <item>Supermercado</item>
         <item>Truco</item>
         <item>Tute</item>
         <item>Otro</item>
@@ -113,5 +115,10 @@
     <string name="truco_malas">MALAS</string>
     <string name="truco_team1_we">Nosotros</string>
     <string name="truco_team2_them">Ellos</string>
+
+    <!-- MarketAnnotatorActivity -->
+    <string name="myMarketList">Mi lista del super</string>
+    <string name="whatDoYouNeed">"Qué necesitas?"</string>
+    <string name="add">"Agregar"</string>
 
 </resources>

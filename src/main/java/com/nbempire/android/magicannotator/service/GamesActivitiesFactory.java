@@ -29,6 +29,8 @@ public abstract class GamesActivitiesFactory {
     public static int getGameKey(String gameName) {
         if (gameName.equals(GameKeys.GAME_NAME_OTRO)) {
             return R.string.gamename_otro;
+        } else if (gameName.equals(GameKeys.GAME_NAME_MARKET)) {
+            return R.string.gamename_market;
         }
         return -1;
     }

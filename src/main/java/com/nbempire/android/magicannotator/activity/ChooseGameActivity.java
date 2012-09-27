@@ -80,7 +80,14 @@ public class ChooseGameActivity extends Activity {
                 } else {
                     // el juego es null, entonces estoy en Otro y tengo que hacerlo de la forma
                     // correcta
-                    showNextActivity(theContext, ChoosePlayersActivity.class, GamesActivitiesFactory.getGameKey(selectedItemKey));
+
+                    if (selectedItemKey.equals(getText(R.string.gamename_market))) {
+                        showNextActivity(theContext, MarketAnnotatorActivity.class);
+                    } else {
+                        showNextActivity(theContext, ChoosePlayersActivity.class, GamesActivitiesFactory.getGameKey(selectedItemKey));
+                    }
+
+
                 }
 
             }
@@ -92,11 +99,27 @@ public class ChooseGameActivity extends Activity {
      *
      * @param theContext
      * @param nextIntent
+     *
+     * @since 8
+     */
+    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent) {
+        showNextActivity(theContext, nextIntent, -1);
+    }
+
+    /**
+     * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
+     *
+     * @param theContext
+     * @param nextIntent
      * @param gameKey
+     *
+     * @since 1
      */
     public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, int gameKey) {
         nextIntentToShow = new Intent(theContext, nextIntent);
-        nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
+        if (gameKey != -1) {
+            nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
+        }
         startActivity(nextIntentToShow);
     }
 

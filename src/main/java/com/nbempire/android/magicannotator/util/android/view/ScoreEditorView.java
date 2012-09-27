@@ -49,30 +49,6 @@ public class ScoreEditorView extends RelativeLayout {
     }
 
     /**
-     * A constructor method for the {@link ScoreEditorView} type.
-     *
-     * @param context
-     * @param attributes
-     */
-    public ScoreEditorView(Context context, AttributeSet attributes) {
-        super(context, attributes);
-
-        initializeView(context, attributes);
-    }
-
-    /**
-     * A constructor method for the {@link ScoreEditorView} type.
-     *
-     * @param context
-     * @param attributes
-     * @param defStyle
-     */
-    public ScoreEditorView(Context context, AttributeSet attributes, int defStyle) {
-        super(context, attributes, defStyle);
-        initializeView(context, attributes);
-    }
-
-    /**
      * TODO : JavaDoc : for ScoreEditorView.initializeView().
      *
      * @param context
@@ -101,7 +77,7 @@ public class ScoreEditorView extends RelativeLayout {
         textView.setText(playerNickname);
 
         EditText editText = (EditText) findViewById(R.id.score);
-        editText.setId(generateViewId(playerNickname));
+        editText.setId(ViewsUtil.generateViewId(playerNickname));
 
         addOnTouchActions(increment);
     }
@@ -171,7 +147,7 @@ public class ScoreEditorView extends RelativeLayout {
                         newValue = increment * -1;
                     }
 
-                    updateScore((EditText) findViewById(generateViewId(playerNickname)), newValue);
+                    updateScore((EditText) findViewById(ViewsUtil.generateViewId(playerNickname)), newValue);
                     break;
                 default:
                     break;
@@ -190,18 +166,6 @@ public class ScoreEditorView extends RelativeLayout {
     private void updateScore(EditText editText, int value) {
         String currentValue = editText.getText().toString();
         editText.setText(Integer.toString(Integer.parseInt(currentValue) + value));
-    }
-
-    /**
-     * Returns the absolute value of the hashCode() method.
-     *
-     * @param anObject
-     *         {@link Object} an object to get some unique property to use as an Id.
-     *
-     * @return Positive {@link Integer} to use as an Id for an Android {@link View}.
-     */
-    private int generateViewId(Object anObject) {
-        return Math.abs(anObject.hashCode());
     }
 
 }
