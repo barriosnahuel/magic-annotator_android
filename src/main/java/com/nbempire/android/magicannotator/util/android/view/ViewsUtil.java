@@ -9,13 +9,20 @@
  */
 package com.nbempire.android.magicannotator.util.android.view;
 
+import android.util.Log;
+
 /**
- * TODO : Javadoc for ViewsUtil
+ * Abstract utility class to help developer work with Views.
  *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 8
  */
-public class ViewsUtil {
+public abstract class ViewsUtil {
+
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "ViewsUtil";
 
     /**
      * Returns the absolute value of the hashCode() method.
@@ -24,8 +31,11 @@ public class ViewsUtil {
      *         {@link Object} an object to get some unique property to use as an Id.
      *
      * @return Positive {@link Integer} to use as an Id for an Android {@link android.view.View}.
+     *
+     * @since 1
      */
     public static int generateViewId(Object anObject) {
+        Log.d(LOG_TAG, "Generating viewId for: " + anObject.toString());
         return Math.abs(anObject.hashCode());
     }
 

@@ -81,7 +81,7 @@ public class MarketItem extends RelativeLayout {
         addButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(LOG_TAG, "Adding number of items for item: " + itemName);
+                Log.d(LOG_TAG, "Adding number of items, for item: " + itemName);
                 TextView itemCount = (TextView) findViewById(textViewId);
                 itemCount.setText(String.valueOf(Integer.parseInt(itemCount.getText().toString()) + 1));
             }
@@ -91,7 +91,7 @@ public class MarketItem extends RelativeLayout {
         substractButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(LOG_TAG, "Substracting number of items for item: " + itemName);
+                Log.d(LOG_TAG, "Substracting number of items, for item: " + itemName);
                 TextView itemCount = (TextView) findViewById(textViewId);
                 itemCount.setText(String.valueOf(Integer.parseInt(itemCount.getText().toString()) - 1));
             }

@@ -21,7 +21,7 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 
 /**
- * {@link Activity} para anotar el puntaje de un partido de truco.
+ * {@link Activity} To annotate the score of a Truco game.
  *
  * @author Nahuel Barrios.
  * @since 1

@@ -15,6 +15,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -24,14 +25,24 @@ import com.nbempire.android.magicannotator.util.android.view.MarketItem;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
 /**
+ * {@link Activity} To annotate a market list with things to buy.
+ *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 8
  */
 public class MarketAnnotatorActivity extends Activity {
+
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "MarketAnnotatorActivity";
 
     private static final String BUNDLE_KEY_ITEMS = "items";
     private static final String BUNDLE_KEY_ITEMS_VALUES = "itemsValues";
 
+    /**
+     * The items that are in the GUI.
+     */
     private ArrayList<String> items = new ArrayList<String>();
 
     @Override
@@ -39,15 +50,13 @@ public class MarketAnnotatorActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.marketannotator);
 
-        items.add("pescado");
-        items.add("fideos");
-        items.add("coca 2litros");
-        items.add("picada");
-        items.add("picad12451r");
-        items.add("picadafsfa");
-        items.add("picadaasfagasgadg");
-
-        addItemsToView(items);
+        if (savedInstanceState != null) {
+            Log.d(LOG_TAG, "Creating Activity from savedInstanceState.");
+            items = savedInstanceState.getStringArrayList(BUNDLE_KEY_ITEMS);
+            addItemsToView(items);
+        } else {
+            Log.d(LOG_TAG, "Creating Activity from first time.");
+        }
     }
 
     @Override
@@ -60,7 +69,9 @@ public class MarketAnnotatorActivity extends Activity {
         ArrayList<String> itemsValues = savedInstanceState.getStringArrayList(BUNDLE_KEY_ITEMS_VALUES);
 
         for (int index = 0; index < items.size(); index++) {
-            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(items.get(index) + MarketItem.TEXT_VIEW_ID_SUFFIX));
+            String item = items.get(index);
+            Log.d(LOG_TAG, "Updating item: " + item);
+            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item + MarketItem.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(itemsValues.get(index));
         }
     }
@@ -88,6 +99,8 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @param callerView
      *         The caller View.
+     *
+     * @since 8
      */
     public void openMarketItemCreator(View callerView) {
 
@@ -98,8 +111,10 @@ public class MarketAnnotatorActivity extends Activity {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String item = input.getText().toString();
+                        Log.d(LOG_TAG, "User input: " + item);
                         if (item.length() > 0) {
                             addItemsToView(item);
+                            items.add(item);
                         }
                     }
                 }).show();
@@ -110,10 +125,13 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @param items
      *         The items to add to the GUI.
+     *
+     * @since 8
      */
     private void addItemsToView(ArrayList<String> items) {
         TableLayout layout = (TableLayout) findViewById(R.id.marketAnnotator_itemsLayout);
         for (String eachItem : items) {
+            Log.d(LOG_TAG, "Adding item: " + eachItem + ", to the GUI.");
             layout.addView(new MarketItem(layout.getContext(), eachItem));
         }
     }
@@ -123,12 +141,13 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @param item
      *         The item to add to the GUI.
+     *
+     * @since 8
      */
     private void addItemsToView(String item) {
         ArrayList<String> itemsList = new ArrayList<String>();
         itemsList.add(item);
         addItemsToView(itemsList);
     }
-
 
 }
