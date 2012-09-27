@@ -82,7 +82,12 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
+     * Open the AlertDialog to let the user create a new item.
+     * <p/>
+     * Sets the functionality to add the item to the GUI with its checkbox.
+     *
      * @param callerView
+     *         The caller View.
      */
     public void openMarketItemCreator(View callerView) {
 
