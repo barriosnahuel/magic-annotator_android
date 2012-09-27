@@ -45,7 +45,7 @@ public class ChoosePlayersActivity extends Activity {
      */
     private static final String LOG_TAG = "ChoosePlayersActivity";
 
-    private ArrayList<String> selectedPlayers = new ArrayList<>();
+    private ArrayList<String> selectedPlayers = new ArrayList<String>();
 
     private PlayerService playerService = new PlayerServiceImpl();
 
@@ -53,7 +53,7 @@ public class ChoosePlayersActivity extends Activity {
 
     private static final String ALL_PLAYERS = "allPlayers";
 
-    private Set<CharSequence> players = new TreeSet<>();
+    private Set<CharSequence> players = new TreeSet<CharSequence>();
 
     private Game aGame;
 
@@ -109,7 +109,7 @@ public class ChoosePlayersActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
 
-        ArrayList<String> toAdd = new ArrayList<>();
+        ArrayList<String> toAdd = new ArrayList<String>();
         Iterator<CharSequence> iterator = players.iterator();
         while (iterator.hasNext()) {
             toAdd.add(iterator.next().toString());
