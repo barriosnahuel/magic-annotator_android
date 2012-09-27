@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="10dp"
-            android:text="@string/defaultInitialGameScore"
+            android:text="@string/marketItem_initialNumberOfItems"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button

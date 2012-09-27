@@ -24,6 +24,7 @@
     <string name="gamename_otro">Otro</string>
     <string name="gamename_market">Supermercado</string>
     <string name="commonLabel_someoneLost">perdió :(</string>
+    <string name="marketItem_initialNumberOfItems">1</string>
 
     <!-- ChooseGameActivity -->
     <string name="chooseGame_title">¿Qué vas a anotar?</string>
