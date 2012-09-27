@@ -22,7 +22,7 @@
     <string name="plus">+</string>
     <string name="substract">-</string>
     <string name="gamename_otro">Otro</string>
-    <string name="gamename_market">Supermercado</string>
+    <string name="gamename_market">Lista del supermercado</string>
     <string name="commonLabel_someoneLost">perdió :(</string>
     <string name="marketItem_initialNumberOfItems">1</string>
 
@@ -31,7 +31,7 @@
 
     <string-array name="chooseGame_gamesValues">
         <item>Chancho</item>
-        <item>Supermercado</item>
+        <item>Lista del supermercado</item>
         <item>Truco</item>
         <item>Tute</item>
         <item>Otro</item>

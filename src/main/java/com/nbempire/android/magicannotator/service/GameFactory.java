@@ -10,6 +10,7 @@ package com.nbempire.android.magicannotator.service;
 
 import android.util.Log;
 import com.nbempire.android.magicannotator.GUIKeys;
+import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
@@ -37,12 +38,13 @@ public abstract class GameFactory {
      * @return An instance of Game based on the specified gameKey.
      *
      * @throws IllegalArgumentException
+     * @since 1
      */
     public static Game getInstance(String gameKey) throws IllegalArgumentException {
         try {
             if (gameKey.equals("Chancho")) {
                 return new Chancho();
-            } else if (gameKey.equals("Otro") || gameKey.equals("Supermercado")) {
+            } else if (gameKey.equals(GameKeys.GAME_NAME_OTHER) || gameKey.equals(GameKeys.GAME_NAME_MARKET)) {
                 return null;
             } else if (gameKey.equals("Truco")) {
                 return new Truco();
