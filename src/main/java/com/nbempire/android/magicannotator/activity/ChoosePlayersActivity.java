@@ -8,7 +8,10 @@
  */
 package com.nbempire.android.magicannotator.activity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -33,7 +36,7 @@ import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 
 /**
- * TODO : JavaDoc : for ChoosePlayersActivity.
+ * Activity to let users select which players are going to play.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -110,9 +113,8 @@ public class ChoosePlayersActivity extends Activity {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
 
         ArrayList<String> toAdd = new ArrayList<String>();
-        Iterator<CharSequence> iterator = players.iterator();
-        while (iterator.hasNext()) {
-            toAdd.add(iterator.next().toString());
+        for (CharSequence eachPlayer : players) {
+            toAdd.add(eachPlayer.toString());
         }
 
         outState.putStringArrayList(ALL_PLAYERS, toAdd);
@@ -128,23 +130,25 @@ public class ChoosePlayersActivity extends Activity {
     private void loadDefaultPlayers(List<String> selectedPlayersList) {
         TableLayout playersLayout = (TableLayout) findViewById(R.id.choosePlayers_playersLayout);
 
-        Iterator<CharSequence> iterator = players.iterator();
-        while (iterator.hasNext()) {
+        for (CharSequence eachPlayer : players) {
             TableRow tableRow = new TableRow(this);
             tableRow.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 
-            String playerName = (iterator.next()).toString();
+            String playerName = eachPlayer.toString();
             tableRow.addView(this.preparePlayerSelector(playerName, selectedPlayersList.contains(playerName)));
             playersLayout.addView(tableRow);
         }
     }
 
     /**
-     * TODO : JavaDoc : for ChoosePlayersActivity.preparePlayerSelector()
+     * Creates a checkbox and set its status (checked or not) based on {@code checked} parameter.
      *
      * @param playerName
+     *         String with the name of the player to put in the checkbox.
+     * @param checked
+     *         Boolean value with {@code true} if the player has to be checked. {@code false} if not.
      *
-     * @return
+     * @return The View ready to add to the GUI.
      *
      * @since 1
      */
@@ -178,7 +182,7 @@ public class ChoosePlayersActivity extends Activity {
      * @param view
      *         {@link View} desde la cuál se llamó a este método.
      *
-     * @author Nahuel Barrios.
+     * @since 1
      */
     public void openPlayerCreator(View view) {
         final EditText input = new EditText(view.getContext());
@@ -207,7 +211,7 @@ public class ChoosePlayersActivity extends Activity {
      * @since 1
      */
     private void addOnClickActionForMakeTeamsButtonNuevo() {
-        ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
                 Intent nextIntentToShow = new Intent(view.getContext(), GamesActivitiesFactory.getAnnotator(gameKey));
@@ -226,7 +230,7 @@ public class ChoosePlayersActivity extends Activity {
      * @since 1
      */
     private void addOnClickActionForMakeTeamsButton() {
-        ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
                 try {
@@ -275,7 +279,7 @@ public class ChoosePlayersActivity extends Activity {
         if (added) {
             TableLayout playersLayout = (TableLayout) findViewById(R.id.choosePlayers_playersLayout);
             TableRow tableRow = new TableRow(playersLayout.getContext());
-            tableRow.addView(this.preparePlayerSelector(playerNickName, true));
+            tableRow.addView(preparePlayerSelector(playerNickName, true));
             playersLayout.addView(tableRow);
         }
         return added;
