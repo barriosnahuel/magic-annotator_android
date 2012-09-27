@@ -39,12 +39,6 @@
                 android:onClick="openAboutActivity"
                 android:text="@string/chooseGame_about" />
 
-        <Button
-                android:id="@+id/main_button2"
-                android:layout_width="160dip"
-                android:layout_height="wrap_content"
-                android:onClick="openViewBugsActivity"
-                android:text="@string/chooseGame_viewCurrentBugs" />
     </LinearLayout>
 
 </RelativeLayout>

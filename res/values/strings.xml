@@ -35,21 +35,6 @@
     </string-array>
 
     <string name="chooseGame_about">Acerca de</string>
-    <string name="chooseGame_viewCurrentBugs">Ver bugs</string>
-
-    <!-- ViewCurrentBugsActivity -->
-    <string name="viewCurrentBugs_title">Esta versión de la aplicación todavía cuenta con algunos errores que aún estamos resolviendo, así
-        que para poder utilizarla bien:
-    </string>
-    <string name="viewCurrentBugs_bug1">- Cuanto estes anotando un partido de truco, no te asustes si no pasa nada si haces tap sobre el
-        boton de BUENAS/MALAS, en realidad ese botón no debes presionarlo, es solo un indicador que no afecta en nada al anotador.
-    </string>
-    <string name="viewCurrentBugs_bug2"></string>
-    <string name="viewCurrentBugs_bug3"></string>
-
-    <string-array name="viewCurrentBugs_bugsValues">
-        <!-- <item >* Cuando estes eligiendo los jugadores para algún juego, no rotes el teléfono o si tienes un telefono con teclado fisico, no lo abras ya que se borraran los cambios que hayas hecho.</item> -->
-    </string-array>
 
     <!-- AboutActivity -->
     <string name="about_title">Sobre esta aplicación:</string>

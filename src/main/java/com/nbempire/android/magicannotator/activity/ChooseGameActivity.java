@@ -123,15 +123,4 @@ public class ChooseGameActivity extends Activity {
     public void openAboutActivity(View view) {
         startActivity(new Intent(view.getContext(), AboutActivity.class));
     }
-
-    /**
-     * TODO : JavaDoc : for ChooseGameActivity.openViewBugsActivity()
-     *
-     * @param view
-     *
-     * @since 1
-     */
-    public void openViewBugsActivity(View view) {
-        startActivity(new Intent(view.getContext(), ViewCurrentBugsActivity.class));
-    }
 }
