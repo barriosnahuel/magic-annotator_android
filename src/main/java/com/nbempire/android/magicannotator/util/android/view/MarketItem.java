@@ -20,10 +20,10 @@ import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : Javadoc for MaketItem
+ * GUI entity class to use with the {@code marketitem.xml} layout because it does its functionality.
  *
  * @author Nahuel Barrios.
- * @since 0.1
+ * @since 8
  */
 public class MarketItem extends RelativeLayout {
 
@@ -42,6 +42,8 @@ public class MarketItem extends RelativeLayout {
      *         {@code Context} for example the context of a {@code TableLayout} view.
      * @param itemName
      *         String with the item name to put in the checkbox. It also be used to use as preffix for the generated view's ID.
+     *
+     * @since 8
      */
     public MarketItem(Context context, String itemName) {
         super(context);
@@ -60,6 +62,8 @@ public class MarketItem extends RelativeLayout {
      *         {@code Context} for example the context of a {@code TableLayout} view.
      * @param itemName
      *         String with the item name to put in the checkbox. It also be used to use as preffix for the generated view's ID.
+     *
+     * @since 8
      */
     private void initializeView(Context context, final String itemName) {
         LayoutInflater.from(context).inflate(R.layout.market_item, this, true);
