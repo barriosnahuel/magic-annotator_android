@@ -17,9 +17,15 @@ import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : JavaDoc : for ScoreEditorView. Use example: <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView
- * android:id="@+id/anId"/> Other use example passing the increment: <com.nbempire.android.magicannotator.util.android.view.ScoreEditorView
- * android:id="@+id/anId" increment="2" />
+ * TODO : JavaDoc : for ScoreEditorView.
+ * <p/>
+ * Use example in XML layout file:
+ * <p/>
+ * &lt;com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId"/&gt;
+ * <p/>
+ * Other use example passing the increment:
+ * <p/>
+ * &lt;com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId" increment="2" /&gt;
  *
  * @author Nahuel Barrios.
  */
@@ -35,13 +41,11 @@ public class ScoreEditorView extends RelativeLayout {
      *
      * @param context
      * @param playerNickname
-     *
-     * @author Nahuel Barrios.
      */
     public ScoreEditorView(Context context, String playerNickname) {
         super(context);
         this.playerNickname = playerNickname;
-        this.initializeView(context, null);
+        initializeView(context, null);
     }
 
     /**
@@ -53,7 +57,7 @@ public class ScoreEditorView extends RelativeLayout {
     public ScoreEditorView(Context context, AttributeSet attributes) {
         super(context, attributes);
 
-        this.initializeView(context, attributes);
+        initializeView(context, attributes);
     }
 
     /**
@@ -65,7 +69,7 @@ public class ScoreEditorView extends RelativeLayout {
      */
     public ScoreEditorView(Context context, AttributeSet attributes, int defStyle) {
         super(context, attributes, defStyle);
-        this.initializeView(context, attributes);
+        initializeView(context, attributes);
     }
 
     /**
@@ -80,7 +84,7 @@ public class ScoreEditorView extends RelativeLayout {
             attributes.getAttributeIntValue(null, "increment", increment);
         }
 
-        this.initializeView(context, increment);
+        initializeView(context, increment);
     }
 
     /**
@@ -99,7 +103,7 @@ public class ScoreEditorView extends RelativeLayout {
         EditText editText = (EditText) findViewById(R.id.score);
         editText.setId(generateViewId(playerNickname));
 
-        this.addOnTouchActions(increment);
+        addOnTouchActions(increment);
     }
 
     /**
@@ -139,8 +143,6 @@ public class ScoreEditorView extends RelativeLayout {
          * A constructor method for the {@link ScoreEditorOnTouchListener} type.
          *
          * @param increment
-         *
-         * @author Nahuel Barrios.
          */
         public ScoreEditorOnTouchListener(int increment) {
             super();
@@ -153,8 +155,6 @@ public class ScoreEditorView extends RelativeLayout {
          *
          * @param increment
          * @param forSubstract
-         *
-         * @author Nahuel Barrios.
          */
         public ScoreEditorOnTouchListener(int increment, boolean forSubstract) {
             super();
@@ -189,7 +189,7 @@ public class ScoreEditorView extends RelativeLayout {
      */
     private void updateScore(EditText editText, int value) {
         String currentValue = editText.getText().toString();
-        editText.setText(new Integer(Integer.parseInt(currentValue) + value).toString());
+        editText.setText(Integer.toString(Integer.parseInt(currentValue) + value));
     }
 
     /**
@@ -199,8 +199,6 @@ public class ScoreEditorView extends RelativeLayout {
      *         {@link Object} an object to get some unique property to use as an Id.
      *
      * @return Positive {@link Integer} to use as an Id for an Android {@link View}.
-     *
-     * @author Nahuel Barrios.
      */
     private int generateViewId(Object anObject) {
         return Math.abs(anObject.hashCode());
