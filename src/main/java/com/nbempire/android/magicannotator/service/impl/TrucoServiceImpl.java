@@ -39,8 +39,8 @@ public class TrucoServiceImpl extends GameServiceImpl {
     }
 
     @Override
-    protected int getTeamPlayersLimit(int numberOfSelectedPlayers) {
-        return numberOfSelectedPlayers / 2;
+    protected int getTeamPlayersLimit(int selectedPlayers) {
+        return selectedPlayers / 2;
     }
 
 }

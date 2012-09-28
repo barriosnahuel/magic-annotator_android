@@ -40,11 +40,11 @@ public class TuteServiceImpl extends GameServiceImpl implements GameService {
     }
 
     @Override
-    protected int getTeamPlayersLimit(int numberOfSelectedPlayers) {
+    protected int getTeamPlayersLimit(int selectedPlayers) {
         int limit = 6;
-        if (numberOfSelectedPlayers == 7 || numberOfSelectedPlayers == 8) {
+        if (selectedPlayers == 7 || selectedPlayers == 8) {
             limit = 4;
-        } else if (numberOfSelectedPlayers == 9 || numberOfSelectedPlayers == 10) {
+        } else if (selectedPlayers == 9 || selectedPlayers == 10) {
             limit = 5;
         }
         return limit;

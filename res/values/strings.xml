@@ -85,8 +85,6 @@
     </string-array>
 
     <!-- ViewTeamsActivity -->
-    <string name="team1">Equipo 1</string>
-    <string name="team2">Equipo 2</string>
     <string name="viewTeams_title">Equipos:</string>
 
     <!-- GenericAnnotatorActivity -->

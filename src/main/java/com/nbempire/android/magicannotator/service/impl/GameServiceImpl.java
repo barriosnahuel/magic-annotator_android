@@ -69,7 +69,7 @@ public abstract class GameServiceImpl implements GameService {
 
         int limit = this.getTeamPlayersLimit(players.size());
         for (int counter = 1; generator.hasNext(); counter++) {
-            Player player = (Player) generator.next();
+            Player player = generator.next();
             if (counter <= limit) {
                 firstGroup.addPlayer(player);
             } else {
@@ -108,13 +108,13 @@ public abstract class GameServiceImpl implements GameService {
     /**
      * TODO : JavaDoc : for GameServiceImpl.getTeamPlayersLimit()
      *
-     * @param numberOfSelectedPlayers
+     * @param selectedPlayers
      *
      * @return
      *
      * @since 1
      */
-    protected abstract int getTeamPlayersLimit(int numberOfSelectedPlayers);
+    protected abstract int getTeamPlayersLimit(int selectedPlayers);
 
     /**
      * TODO : JavaDoc : for GameServiceImpl.hasValidNumberOfSelectedPlayers()

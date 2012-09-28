@@ -63,7 +63,7 @@ public class Player implements Serializable, Comparable<Player> {
     }
 
     public int compareTo(Player another) {
-        return this.getNickName().compareTo(another.getNickName());
+        return nickName.compareTo(another.nickName);
     }
 
     @Override
