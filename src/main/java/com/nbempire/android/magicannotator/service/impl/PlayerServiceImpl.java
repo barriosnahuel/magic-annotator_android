@@ -38,13 +38,4 @@ public class PlayerServiceImpl implements PlayerService {
         return result;
     }
 
-    public Player getPlayer(List<Player> players, String nickName) {
-        for (Player eachPlayer : players) {
-            if (eachPlayer.getNickName().equals(nickName)) {
-                return eachPlayer;
-            }
-        }
-        return null;
-    }
-
 }

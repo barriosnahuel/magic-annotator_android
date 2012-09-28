@@ -63,7 +63,6 @@ public abstract class SimpleExpandableListActivity extends ExpandableListActivit
         for (ExpandableGroup eachGroup : expandableList) {
             Map<String, String> currentGroupMap = new HashMap<String, String>();
             currentGroupMap.put(ITEM_NAME, eachGroup.getLabel());
-            // currentChildMap.put(ITEM_DESCRIPTION, "la descripción...");
             groupData.add(currentGroupMap);
 
             List<Map<String, String>> children = new ArrayList<Map<String, String>>();
@@ -72,7 +71,6 @@ public abstract class SimpleExpandableListActivity extends ExpandableListActivit
                 Map<String, String> currentChildMap = new HashMap<String, String>();
                 children.add(currentChildMap);
                 currentChildMap.put(ITEM_NAME, each);
-                // currentChildMap.put(ITEM_DESCRIPTION, "la descripción...");
             }
             childData.add(children);
         }

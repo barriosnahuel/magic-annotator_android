@@ -24,9 +24,10 @@ import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
 
 /**
- * TODO : JavaDoc : for TuteAnnotatorActivity.
+ * Android Activity for the Tute annotator.
  *
  * @author Nahuel Barrios.
+ * @since 1
  */
 public class TuteAnnotatorActivity extends Activity {
 
@@ -85,7 +86,7 @@ public class TuteAnnotatorActivity extends Activity {
      *         {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que se completa. <code>false</code> cuando sea
      *         una actualización.
      *
-     * @author Nahuel Barrios.
+     * @since 1
      */
     private void updateGrid(GridView gridView, boolean forUpdate) {
         if (!forUpdate) {
@@ -109,7 +110,7 @@ public class TuteAnnotatorActivity extends Activity {
      *
      * @return {@link List} de {@link CharSequence} con el resultado final.
      *
-     * @author Nahuel Barrios.
+     * @since 1
      */
     private List<CharSequence> getValuesForGrid(Bundle playersScores) {
         List<CharSequence> result = new ArrayList<CharSequence>();
@@ -123,9 +124,7 @@ public class TuteAnnotatorActivity extends Activity {
             sortedSet.add(eachPlayerNickname);
         }
 
-        Iterator<String> iterator = sortedSet.iterator();
-        while (iterator.hasNext()) {
-            String eachPlayer = (String) iterator.next();
+        for (String eachPlayer : sortedSet) {
             result.add(eachPlayer);
             result.add(playersScores.getBundle(eachPlayer).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_LOST_HAND));
             result.add(playersScores.getBundle(eachPlayer).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_CAPOTE));
@@ -141,7 +140,7 @@ public class TuteAnnotatorActivity extends Activity {
      * @param view
      *         {@link View} la vista que llamó al método.
      *
-     * @author Nahuel Barrios.
+     * @since 1
      */
     public void openPlayersSelector(View view) {
         final Context theContext = view.getContext();
@@ -176,14 +175,14 @@ public class TuteAnnotatorActivity extends Activity {
      * TODO : JavaDoc : for TutePartialResultsActivity.addScoreFor()
      *
      * @param scoreToUpdate
-     * @param choosenPlayerNickName
+     * @param selectedNickName
      *
      * @return
      *
      * @since 1
      */
-    private int addScoreFor(int scoreToUpdate, String choosenPlayerNickName) {
-        String scoreKey = null;
+    private int addScoreFor(int scoreToUpdate, String selectedNickName) {
+        String scoreKey;
         switch (scoreToUpdate) {
             case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND:
                 scoreKey = AppParameter.TUTE_PLAYER_SCORE_LOST_HAND;
@@ -196,8 +195,8 @@ public class TuteAnnotatorActivity extends Activity {
                 break;
         }
 
-        Integer updatedScore = Integer.parseInt(scores.getBundle(choosenPlayerNickName).getString(scoreKey)) + 1;
-        scores.getBundle(choosenPlayerNickName).putCharSequence(scoreKey, updatedScore.toString());
+        Integer updatedScore = Integer.parseInt(scores.getBundle(selectedNickName).getString(scoreKey)) + 1;
+        scores.getBundle(selectedNickName).putCharSequence(scoreKey, updatedScore.toString());
         return updatedScore;
     }
 
@@ -249,6 +248,8 @@ public class TuteAnnotatorActivity extends Activity {
      * @param selectedLoosers
      *
      * @return
+     *
+     * @since 1
      */
     private List<String> updateScoreFor(List<String> selectedLoosers) {
         List<String> lostUsers = new ArrayList<String>();

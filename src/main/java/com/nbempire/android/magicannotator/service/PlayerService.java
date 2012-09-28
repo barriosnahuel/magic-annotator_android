@@ -13,7 +13,7 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.Player;
 
 /**
- * TODO : JavaDoc : for PlayerService.
+ * Service type for the {@link Player} entity.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -21,37 +21,27 @@ import com.nbempire.android.magicannotator.domain.Player;
 public interface PlayerService {
 
     /**
-     * TODO : JavaDoc : for PlayerService.parsePlayers()
+     * Creates a List of Players based on {@code playersToParse} parameter.
      *
      * @param playersToParse
+     *         List containing the player's name.
      *
-     * @return
+     * @return List of Players based on {@code playersToParse} parameter.
      *
      * @since 1
      */
     public List<Player> parsePlayers(List<String> playersToParse);
 
     /**
-     * TODO : JavaDoc : for PlayerService.getExpandablePlayers()
+     * Creates a List of Strings based on {@code players} parameter. It will use the player's nickname attribute.
      *
      * @param players
+     *         List of players to transform.
      *
-     * @return
+     * @return List of Strings based on {@code players} parameter.
      *
      * @since 1
      */
     public List<String> getExpandablePlayers(List<Player> players);
-
-    /**
-     * TODO : JavaDoc : for PlayerService.getPlayer()
-     *
-     * @param players
-     * @param nickName
-     *
-     * @return {@link Player}.
-     *
-     * @since 1
-     */
-    public Player getPlayer(List<Player> players, String nickName);
 
 }

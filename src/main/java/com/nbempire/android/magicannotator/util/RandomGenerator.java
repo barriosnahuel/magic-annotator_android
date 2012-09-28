@@ -50,14 +50,14 @@ public class RandomGenerator<T> implements Iterator<T> {
      * @throws IllegalArgumentException
      * @since 1
      */
-    public static int generate(int minimum, int maximum) throws IllegalArgumentException {
-        int returnValue;
+    public static double generate(int minimum, int maximum) throws IllegalArgumentException {
+        double returnValue;
         if (minimum > maximum) {
-            throw new IllegalArgumentException("El valor mínimo debe ser < que el valor máximo.");
+            throw new IllegalArgumentException("Minimum value has to be less than the maximum one.");
         } else if (minimum == maximum) {
             returnValue = minimum;
         } else {
-            returnValue = (int) (minimum + (Math.random() * maximum));
+            returnValue = minimum + (Math.random() * maximum);
         }
         return returnValue;
     }
@@ -67,7 +67,7 @@ public class RandomGenerator<T> implements Iterator<T> {
     }
 
     public T next() {
-        position = this.generateNextValueForIteration();
+        position = generateNextValueForIteration();
         T result = numbers.get(position);
         this.remove();
         return result;
@@ -78,14 +78,16 @@ public class RandomGenerator<T> implements Iterator<T> {
     }
 
     /**
-     * Generates the next random value into a iteration.
+     * Generates the next random value into a iteration. Sets the minimum value to zero and the maximum to the size of the current List in
+     * the iteration.
      *
      * @return Random value between zero and the size of the {@code numbers} type attribute.
      *
      * @since 1
      */
     private int generateNextValueForIteration() {
-        return generate(0, numbers.size() - 1);
+        //noinspection NumericCastThatLosesPrecision
+        return (int) generate(0, numbers.size() - 1);
     }
 
 }

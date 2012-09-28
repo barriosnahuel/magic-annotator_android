@@ -10,9 +10,10 @@ import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.service.GameService;
 
 /**
- * TODO : JavaDoc : for ChanchoServiceImpl.
+ * Implementation of GameServiceImpl service. It provides the functionality to handle Chancho game's events.
  *
  * @author Nahuel Barrios.
+ * @since 1
  */
 public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
@@ -23,11 +24,11 @@ public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected String getSecondTeamLabel() {
-        return null;
+        return "";
     }
 
     @Override
-    protected int getTeamPlayersLimit(int numberOfSelectedPlayers) {
+    protected int getTeamPlayersLimit(int selectedPlayers) {
         return GameKeys.CHANCHO_MAX_PLAYERS;
     }
 

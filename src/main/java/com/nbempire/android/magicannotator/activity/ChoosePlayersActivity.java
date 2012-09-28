@@ -60,7 +60,7 @@ public class ChoosePlayersActivity extends Activity {
 
     private Game aGame;
 
-    int gameKey = -1;
+    private int gameKey = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

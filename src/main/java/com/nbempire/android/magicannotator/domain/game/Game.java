@@ -22,7 +22,7 @@ import com.nbempire.android.magicannotator.domain.Team;
 public abstract class Game implements Serializable {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
     private static final long serialVersionUID = 4849356274653494152L;
 
