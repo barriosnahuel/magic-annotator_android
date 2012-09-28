@@ -22,7 +22,7 @@ public class InvalidNumberOfSelectedPlayersException extends UserException {
     private static final long serialVersionUID = -5977853697613041011L;
 
     /**
-     * A constructor method for the {@link InvalidNumberOfSelectedPlayersException} type.
+     * A constructor method for the type.
      *
      * @param guiMessage
      *         {@link String} with message for user.

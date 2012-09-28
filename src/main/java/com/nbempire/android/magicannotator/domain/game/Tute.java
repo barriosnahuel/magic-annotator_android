@@ -22,7 +22,7 @@ public class Tute extends Game {
     private static final long serialVersionUID = 466068820888804391L;
 
     /**
-     * A constructor method for the {@link Tute} type.
+     * A constructor method for the type.
      *
      * @since 1
      */

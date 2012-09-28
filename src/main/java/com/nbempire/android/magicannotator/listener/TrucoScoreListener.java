@@ -44,7 +44,7 @@ public class TrucoScoreListener implements OnTouchListener {
     private final List<View> viewsToDisable;
 
     /**
-     * A constructor method for the {@link TrucoScoreListener} type.
+     * A constructor method for the type.
      *
      * @param scoreToUpdate
      *         The TextView to update.

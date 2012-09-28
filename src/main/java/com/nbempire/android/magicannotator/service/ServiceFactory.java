@@ -31,8 +31,8 @@ public abstract class ServiceFactory {
      *
      * @return {@link GameService}.
      *
-     * @throws {@link
-     *         IllegalArgumentException} when there isn't any Service for the input {@link Game}.
+     * @throws IllegalArgumentException
+     *         when there isn't any Service for the input {@link Game}.
      * @since 1
      */
     public static GameService getInstance(Game aGame) throws IllegalArgumentException {

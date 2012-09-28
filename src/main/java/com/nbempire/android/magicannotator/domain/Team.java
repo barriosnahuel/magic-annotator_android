@@ -36,7 +36,7 @@ public class Team implements Serializable {
     private List<Player> players = new ArrayList<Player>();
 
     /**
-     * A constructor method for the {@link Team} type.
+     * A constructor method for the type.
      *
      * @param label
      *         The team's label.

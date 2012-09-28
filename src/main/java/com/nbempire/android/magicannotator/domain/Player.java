@@ -28,7 +28,7 @@ public class Player implements Serializable, Comparable<Player> {
     private String nickName;
 
     /**
-     * A constructor method for the {@link Player} type.
+     * A constructor method for the type.
      *
      * @param nickName
      *         The player's nick name.

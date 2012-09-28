@@ -33,7 +33,7 @@ public abstract class Game implements Serializable {
     protected Integer maximumTeams;
 
     /**
-     * A constructor method for the {@link Game} type.
+     * A constructor method for the Game type.
      *
      * @param minimumTeams
      * @param maximumTeams

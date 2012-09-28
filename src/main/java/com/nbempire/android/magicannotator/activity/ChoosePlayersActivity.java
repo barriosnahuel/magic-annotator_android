@@ -270,7 +270,7 @@ public class ChoosePlayersActivity extends Activity {
      * @param playerNickName
      *         {@link String} with the player's nickname.
      *
-     * @return {@link boolean} <code>true</code> if the player was not added. <code>false</code> otherwise.
+     * @return {@link boolean} {@code true} if the player was not added. {@code false} otherwise.
      *
      * @since 1
      */

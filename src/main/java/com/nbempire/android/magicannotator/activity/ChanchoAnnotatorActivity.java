@@ -74,15 +74,15 @@ public class ChanchoAnnotatorActivity extends Activity {
     }
 
     /**
-     * Actualiza la {@link GridView} que le pasamos como parámetro (en la que se ven los jugadores y sus puntajes), en base a los jugadores
-     * del atributo de clase {@link Game}. En base al parámetro forUpdate asignará el puntaje por default cuando se cree por primera vez la
-     * grilla, o utilizará los scores guardados.
+     * Actualiza la {@link GridView} que le pasamos como par&aacute;metro (en la que se ven los jugadores y sus puntajes), en base a los
+     * jugadores del atributo de clase {@link Game}. En base al par&aacute;metro forUpdate asignar&aacute; el puntaje por default cuando se
+     * cree por primera vez la grilla, o utilizar&aacute; los scores guardados.
      *
      * @param gridView
      *         {@link GridView} que se va a actualizar.
      * @param forUpdate
-     *         {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que se completa. <code>false</code> cuando sea
-     *         una actualización.
+     *         {@link Boolean} indicando en {@code true} que la grilla es la primera vez que se completa. {@code false} cuando sea una
+     *         actualizaci&oacute;n.
      */
     private void updateGrid(GridView gridView, boolean forUpdate) {
         if (!forUpdate) {
@@ -159,7 +159,7 @@ public class ChanchoAnnotatorActivity extends Activity {
      * @param playerNickname
      *         {@link String} con el nickname del jugador al que se le va a actualizar el puntaje.
      *
-     * @return <code>true</code> cuando el jugador alcancó el puntaje máximo. <code>false</code> cuando puede seguir perdiendo manos.
+     * @return {@code true} cuando el jugador alcancó el puntaje máximo. {@code false} cuando puede seguir perdiendo manos.
      */
     private boolean updateScore(String playerNickname) {
         String currentScore = scores.getString(playerNickname);

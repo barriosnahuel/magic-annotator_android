@@ -27,7 +27,7 @@ public class UserException extends Exception {
     private final String guiMessage;
 
     /**
-     * A constructor method for the {@link UserException} type.
+     * A constructor method for the type.
      *
      * @param guiMessage
      *         {@link String} with message for user.

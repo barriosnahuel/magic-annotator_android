@@ -40,7 +40,7 @@ public class ScoreEditorView extends RelativeLayout {
     private static final int DEFAULT_INCREMENT = 1;
 
     /**
-     * A constructor method for the {@link ScoreEditorView} type.
+     * A constructor method for the type.
      *
      * @param context
      *         The view's context.
@@ -54,7 +54,7 @@ public class ScoreEditorView extends RelativeLayout {
     }
 
     /**
-     * A constructor method for the {@link ScoreEditorView} type.
+     * A constructor method for the type.
      *
      * @param context
      *         The view's context.
@@ -101,7 +101,7 @@ public class ScoreEditorView extends RelativeLayout {
         private int increment = 1;
 
         /**
-         * A constructor method for the {@link ScoreEditorOnTouchListener} type.
+         * A constructor method for the type.
          *
          * @param increment
          *         The increment used to add scores.
@@ -112,7 +112,7 @@ public class ScoreEditorView extends RelativeLayout {
         }
 
         /**
-         * A constructor method for the {@link ScoreEditorOnTouchListener} type.
+         * A constructor method for the type.
          *
          * @param increment
          *         The increment used to add/substract scores depending on the value of {@code forSubstract} parameter.

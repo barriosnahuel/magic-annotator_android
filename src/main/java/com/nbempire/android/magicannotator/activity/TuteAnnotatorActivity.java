@@ -83,8 +83,8 @@ public class TuteAnnotatorActivity extends Activity {
      * @param gridView
      *         {@link GridView} que se va a actualizar.
      * @param forUpdate
-     *         {@link Boolean} indicando en <code>true</code> que la grilla es la primera vez que se completa. <code>false</code> cuando sea
-     *         una actualización.
+     *         {@link Boolean} indicando en {@code true} que la grilla es la primera vez que se completa. {@code false} cuando sea una
+     *         actualización.
      *
      * @since 1
      */

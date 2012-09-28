@@ -31,7 +31,7 @@ public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
     private final int numberOfColumns;
 
     /**
-     * A constructor method for the {@link TableListAdapter} type.
+     * A constructor method for the type.
      *
      * @param activity
      * @param values

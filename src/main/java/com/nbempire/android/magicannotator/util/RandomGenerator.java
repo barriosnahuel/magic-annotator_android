@@ -25,7 +25,7 @@ public class RandomGenerator<T> implements Iterator<T> {
     private int position;
 
     /**
-     * A constructor method for the {@link RandomGenerator} type.
+     * A constructor method for the type.
      *
      * @param values
      *         {@link List} of values to get.

@@ -22,7 +22,7 @@ public class Truco extends Game {
     private static final long serialVersionUID = 5496148767009099679L;
 
     /**
-     * A constructor method for the {@link Truco} type.
+     * A constructor method for the type.
      *
      * @since 1
      */
