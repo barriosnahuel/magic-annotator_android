@@ -25,7 +25,9 @@ import com.nbempire.android.magicannotator.service.GameFactory;
 import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
 
 /**
- * TODO : JavaDoc : for ChooseGameActivity.
+ * Android Activity to let user choose the annotator to use.
+ * <p/>
+ * TODO : Refactor :  Rename type ChooseGameActivity because there isn't only games.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -95,10 +97,12 @@ public class ChooseGameActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
+     * Show {@code nextIntent} without setting any parameter to next activity.
      *
      * @param theContext
+     *         The context.
      * @param nextIntent
+     *         Next activity to show to the user.
      *
      * @since 8
      */
@@ -107,11 +111,14 @@ public class ChooseGameActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
+     * Show {@code nextIntent} to the user setting the {@code gameKey} parameter as a parameter to the next activity.
      *
      * @param theContext
+     *         The context.
      * @param nextIntent
+     *         Next activity to show to the user.
      * @param gameKey
+     *         Game's key parameter to the next activity.
      *
      * @since 1
      */
@@ -124,11 +131,14 @@ public class ChooseGameActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for ChooseGameActivity.showNextActivity().
+     * Show {@code nextIntent} to the user setting the {@code aGame} parameter as a parameter to the next activity.
      *
      * @param theContext
+     *         The context.
      * @param nextIntent
+     *         Next activity to show to the user.
      * @param aGame
+     *         The Game to pass as parameter to the next activity.
      */
     public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, Game aGame) {
         nextIntentToShow = new Intent(theContext, nextIntent);
@@ -137,13 +147,14 @@ public class ChooseGameActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for ChooseGameActivity.openAboutActivity()
+     * Open the AboutActivity. This method is called from the layout definition.
      *
-     * @param view
+     * @param callerView
+     *         View that called this method.
      *
      * @since 1
      */
-    public void openAboutActivity(View view) {
-        startActivity(new Intent(view.getContext(), AboutActivity.class));
+    public void openAboutActivity(View callerView) {
+        startActivity(new Intent(callerView.getContext(), AboutActivity.class));
     }
 }

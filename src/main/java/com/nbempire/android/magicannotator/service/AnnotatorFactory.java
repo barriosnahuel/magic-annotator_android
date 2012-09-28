@@ -26,33 +26,39 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
 public class AnnotatorFactory {
 
     /**
-     * TODO : JavaDoc : for AnnotatorFactory.get()
+     * Inspect which annotator activity has to return based on the specified {@code aGame} parameter.
      *
      * @param aGame
+     *         An instance of any Game.
      *
-     * @return {@link Class<? extends Activity>}
+     * @return The corresponding Activity to the specified {@code aGame}.
      *
      * @throws IllegalArgumentException
-     * @throws {@link
-     *         IllegalArgumentException} when there isn't any Activity for the input {@link Game}..
+     *         when there isn't any Activity for the input {@link Game}.
      * @since 1
      */
     public static Class<? extends Activity> getFor(Game aGame) throws IllegalArgumentException {
         if (aGame == null) {
-            throw new IllegalArgumentException("El juego no puede ser null.");
-        } else {
-            Class<? extends Game> gameClass = aGame.getClass();
-            if (gameClass.equals(Chancho.class)) {
-                return ChanchoAnnotatorActivity.class;
-            } else if (gameClass.equals(Truco.class)) {
-                return TrucoAnnotatorActivity.class;
-            } else if (gameClass.equals(Tute.class)) {
-                return TuteAnnotatorActivity.class;
-            } else {
-                throw new IllegalArgumentException("La actividad todavía no existe o no esta configurada correctamente.");
-            }
-
+            throw new IllegalArgumentException("Game must not be null.");
         }
+
+        Class<? extends Activity> annotatorActivity;
+
+        Class<? extends Game> gameClass = aGame.getClass();
+        if (gameClass.equals(Chancho.class)) {
+            annotatorActivity = ChanchoAnnotatorActivity.class;
+
+        } else if (gameClass.equals(Truco.class)) {
+            annotatorActivity = TrucoAnnotatorActivity.class;
+
+        } else if (gameClass.equals(Tute.class)) {
+            annotatorActivity = TuteAnnotatorActivity.class;
+
+        } else {
+            throw new IllegalArgumentException("La actividad todavía no existe o no esta configurada correctamente.");
+        }
+
+        return annotatorActivity;
     }
 
 }

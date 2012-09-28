@@ -11,39 +11,46 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.activity.GenericAnnotatorActivity;
 
 /**
- * TODO : JavaDoc : for GamesActivitiesFactory.
+ * Factory to get games keys and activities as based
  *
  * @author Nahuel Barrios.
+ * @since 1
  */
 public abstract class GamesActivitiesFactory {
 
     /**
-     * TODO : JavaDoc : for GamesActivitiesFactory.getInstance().
+     * Inspect which game key has to return based on the specified {@code gameName} parameter.
      *
      * @param gameName
+     *         The name of one game. It has to be unique for the app.
      *
      * @return {@link Integer} -1 if there is no game that matchs the current gameName
      *
-     * @author Nahuel Barrios.
+     * @since 1
      */
     public static int getGameKey(String gameName) {
+        int gameKey = -1;
         if (gameName.equals(GameKeys.GAME_NAME_OTHER)) {
-            return R.string.gamename_otro;
+            gameKey = R.string.gamename_otro;
+
         } else if (gameName.equals(GameKeys.GAME_NAME_MARKET)) {
-            return R.string.gamename_market;
+            gameKey = R.string.gamename_market;
         }
-        return -1;
+
+        return gameKey;
     }
 
     /**
-     * TODO : JavaDoc : for GamesActivitiesFactory.getAnnotator().
+     * Inspect which annotator activity has to return based on the specified {@code aGame} parameter.
      *
      * @param gameKey
+     *         A game id.
      *
-     * @return {@link Class<? extends Activity>}
+     * @return The corresponding games activities to the specified {@code gameKey}.
      *
      * @throws IllegalArgumentException
-     * @author Nahuel Barrios.
+     *         when there isn't any Activity for the specified {@code gameKey}.
+     * @since 1
      */
     public static Class<? extends Activity> getAnnotator(int gameKey) throws IllegalArgumentException {
         switch (gameKey) {

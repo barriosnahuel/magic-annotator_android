@@ -17,9 +17,9 @@ public abstract class Exceptions {
 
     public static final String INVALID_GAME_KEY = "Inexistent game's key.";
 
-    public static final String INVALID_NUMBER_SELECTED_PLAYERS_TUTE = "User must select between 3 and 12 players.";
+    public static final String INVALID_NUMBER_SELECTED_PLAYERS_TUTE = "Se deben seleccionar entre 3 y 12 jugadores.";
 
-    public static final String INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "User must select between 3 and 12 players.";
+    public static final String INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "Se deben seleccionar entre 3 y 12 jugadores.";
 
-    public static final String INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "User must select 2, 4 or 6 players.";
+    public static String INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "La cantidad de jugadores debe ser 2, 4 o 6.";
 }

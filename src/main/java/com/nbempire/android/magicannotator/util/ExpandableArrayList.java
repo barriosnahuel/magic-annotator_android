@@ -11,7 +11,7 @@ package com.nbempire.android.magicannotator.util;
 import java.util.ArrayList;
 
 /**
- * TODO : JavaDoc : for ExpandableArrayList.
+ * Utility type to
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class ExpandableArrayList extends ArrayList<ExpandableGroup> implements ExpandableList {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
     private static final long serialVersionUID = 5636705699608653062L;
 

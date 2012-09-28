@@ -6,7 +6,6 @@
 package com.nbempire.android.magicannotator.util.android.view;
 
 import android.content.Context;
-import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -24,10 +23,6 @@ import com.nbempire.android.magicannotator.R;
  * Use example in XML layout file:
  * <p/>
  * &lt;com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId"/&gt;
- * <p/>
- * Other use example passing the increment:
- * <p/>
- * &lt;com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId" increment="2" /&gt;
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -40,6 +35,11 @@ public class ScoreEditorView extends RelativeLayout {
     private final String playerNickname;
 
     /**
+     * The default increment used to add/substract scores.
+     */
+    private static final int DEFAULT_INCREMENT = 1;
+
+    /**
      * A constructor method for the {@link ScoreEditorView} type.
      *
      * @param context
@@ -50,32 +50,7 @@ public class ScoreEditorView extends RelativeLayout {
     public ScoreEditorView(Context context, String playerNickname) {
         super(context);
         this.playerNickname = playerNickname;
-        initializeView(context, null);
-    }
-
-    /**
-     * A constructor method for the {@link ScoreEditorView} type receiving XML attributes from the layout.
-     *
-     * @param context
-     *         The view's context.
-     * @param attributes
-     *         {@link AttributeSet} containing the XML attributes used defining the layout.
-     *         <p/>
-     *         E.g.:
-     *         <p/>
-     *         &lt;com.nbempire.android.magicannotator.util.android.view.ScoreEditorView android:id="@+id/anId" increment="2" /&gt;
-     *         <p/>
-     *         So if you do {@code attributes.getAttributeIntValue(null, increment, increment);} you wil get {@code 2}.
-     *         <p/>
-     *         Please note that the second parameter has to be the String literal {@code increment}.
-     */
-    private void initializeView(Context context, AttributeSet attributes) {
-        int increment = 1;
-        if (attributes != null) {
-            increment = attributes.getAttributeIntValue(null, "increment", increment);
-        }
-
-        initializeView(context, increment);
+        initializeView(context);
     }
 
     /**
@@ -83,10 +58,8 @@ public class ScoreEditorView extends RelativeLayout {
      *
      * @param context
      *         The view's context.
-     * @param increment
-     *         The increment used to add/substract scores.
      */
-    private void initializeView(Context context, int increment) {
+    private void initializeView(Context context) {
         LayoutInflater.from(context).inflate(R.layout.scoreeditor_horizontal, this, true);
 
         TextView textView = (TextView) findViewById(R.id.playerNickname);
@@ -96,7 +69,7 @@ public class ScoreEditorView extends RelativeLayout {
         EditText editText = (EditText) findViewById(R.id.score);
         editText.setId(ViewsUtil.generateViewId(playerNickname));
 
-        addOnTouchActions(increment);
+        addOnTouchActions(DEFAULT_INCREMENT);
     }
 
     /**
