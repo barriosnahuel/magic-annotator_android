@@ -9,11 +9,9 @@
 package com.nbempire.android.magicannotator.domain;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
- * TODO : JavaDoc : for Player.
+ * Entity type to represent a player of any game.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -21,18 +19,19 @@ import java.util.Map;
 public class Player implements Serializable, Comparable<Player> {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
-    private static final long serialVersionUID = 8589707208385445320L;
-
+    private static final long serialVersionUID = -7240272823346653241L;
+    /**
+     * The player's nick name.
+     */
     private String nickName;
-
-    private Map<String, Integer> scores = new HashMap<String, Integer>();
 
     /**
      * A constructor method for the {@link Player} type.
      *
      * @param nickName
+     *         The player's nick name.
      *
      * @since 1
      */
@@ -49,17 +48,6 @@ public class Player implements Serializable, Comparable<Player> {
      */
     public String getNickName() {
         return nickName;
-    }
-
-    /**
-     * Accessor for the attribute of the entity.
-     *
-     * @return the scores.
-     *
-     * @since 1
-     */
-    public Map<String, Integer> getScores() {
-        return scores;
     }
 
     public int compareTo(Player another) {

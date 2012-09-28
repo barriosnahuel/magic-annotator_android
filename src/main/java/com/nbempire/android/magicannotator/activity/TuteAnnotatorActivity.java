@@ -201,19 +201,18 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Este método se ejecuta desde la defici�n del layout de esta actividad y es el encargado de cambiar la pestaña de anotar cada mano.
+     * Method executed from the layout definition and it shows to the user the {@link AlertDialog} to select which players lost one hand.
      *
-     * @param view
+     * @param callerView
+     *         The View that called this method.
      *
      * @since 1
      */
-    public void playAnotherHand(View view) {
-        AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(view.getContext());
+    public void playAnotherHand(View callerView) {
+        AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(callerView.getContext());
 
         final List<String> possibleLoosers = new ArrayList<String>();
-        Iterator<String> iterator = scores.keySet().iterator();
-        while (iterator.hasNext()) {
-            String playerNickname = iterator.next();
+        for (String playerNickname : scores.keySet()) {
             if (!scores.getBundle(playerNickname).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_LOST_HAND).equals("4")) {
                 possibleLoosers.add(playerNickname);
             }

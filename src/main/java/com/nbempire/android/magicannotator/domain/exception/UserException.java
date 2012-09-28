@@ -9,7 +9,7 @@
 package com.nbempire.android.magicannotator.domain.exception;
 
 /**
- * TODO : JavaDoc : for UserException.
+ * Exception with a simple message to show to the user.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -24,7 +24,7 @@ public class UserException extends Exception {
     /**
      * {@link String} with message for user.
      */
-    protected String guiMessage;
+    private final String guiMessage;
 
     /**
      * A constructor method for the {@link UserException} type.

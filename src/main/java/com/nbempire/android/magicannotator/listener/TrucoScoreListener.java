@@ -31,17 +31,17 @@ public class TrucoScoreListener implements OnTouchListener {
     /**
      * The message to show when one team win.
      */
-    private String winMessageText;
+    private final String winMessageText;
 
     /**
      * The TextView to update.
      */
-    private TextView scoreToUpdate;
+    private final TextView scoreToUpdate;
 
     /**
      * List of Views to disable when one team wins.
      */
-    private List<View> viewsToDisable;
+    private final List<View> viewsToDisable;
 
     /**
      * A constructor method for the {@link TrucoScoreListener} type.

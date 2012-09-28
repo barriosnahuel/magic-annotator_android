@@ -37,7 +37,7 @@ public class ScoreEditorView extends RelativeLayout {
     /**
      * {@link String} El nombre del jugador que se va a mostrar vinculado con el puntaje.
      */
-    private String playerNickname;
+    private final String playerNickname;
 
     /**
      * A constructor method for the {@link ScoreEditorView} type.

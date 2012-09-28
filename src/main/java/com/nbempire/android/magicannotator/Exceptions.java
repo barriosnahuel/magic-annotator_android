@@ -21,5 +21,5 @@ public abstract class Exceptions {
 
     public static final String INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "User must select between 3 and 12 players.";
 
-    public static String INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "User must select 2, 4 or 6 players.";
+    public static final String INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "User must select 2, 4 or 6 players.";
 }

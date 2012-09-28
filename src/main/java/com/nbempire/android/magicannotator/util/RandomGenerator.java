@@ -50,7 +50,7 @@ public class RandomGenerator<T> implements Iterator<T> {
      * @throws IllegalArgumentException
      * @since 1
      */
-    public static double generate(int minimum, int maximum) throws IllegalArgumentException {
+    private static double generate(int minimum, int maximum) throws IllegalArgumentException {
         double returnValue;
         if (minimum > maximum) {
             throw new IllegalArgumentException("Minimum value has to be less than the maximum one.");

@@ -18,9 +18,9 @@ import java.util.List;
  */
 public class ExpandableGroup {
 
-    private String label;
+    private final String label;
 
-    private List<String> children;
+    private final List<String> children;
 
     public ExpandableGroup(String label, List<String> children) {
         this.label = label;

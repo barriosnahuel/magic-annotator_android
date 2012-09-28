@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TODO : JavaDoc : for Team.
+ * Entity type to represent a team.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -21,18 +21,25 @@ import java.util.List;
 public class Team implements Serializable {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
-    private static final long serialVersionUID = -4595719220845823746L;
+    private static final long serialVersionUID = 4246802248640324830L;
 
-    private String label;
+    /**
+     * The team's label.
+     */
+    private final String label;
 
+    /**
+     * Team's players.
+     */
     private List<Player> players = new ArrayList<Player>();
 
     /**
      * A constructor method for the {@link Team} type.
      *
      * @param label
+     *         The team's label.
      *
      * @since 1
      */
@@ -41,24 +48,15 @@ public class Team implements Serializable {
     }
 
     /**
-     * TODO : JavaDoc : for Team.addPlayer()
+     * Adds the specified Player to this team's players.
      *
      * @param aPlayer
+     *         A player to add to this team.
      *
      * @since 1
      */
     public void addPlayer(Player aPlayer) {
         players.add(aPlayer);
-    }
-
-    /**
-     * @param players
-     *         List<Player> the players to set.
-     *
-     * @since 1
-     */
-    public void setPlayers(List<Player> players) {
-        this.players = players;
     }
 
     /**

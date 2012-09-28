@@ -29,9 +29,9 @@ public class SimpleListAdapter extends BaseAdapter implements ListAdapter {
     /**
      * The activity where this adapter has to create its {@link View}s.
      */
-    private Activity activity;
+    private final Activity activity;
 
-    private List<CharSequence> values;
+    private final List<CharSequence> values;
 
     /**
      * A constructor method for the {@link SimpleListAdapter} type.
