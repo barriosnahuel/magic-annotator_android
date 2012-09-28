@@ -106,7 +106,7 @@ public class MarketAnnotatorActivity extends Activity {
 
         final EditText input = new EditText(callerView.getContext());
 
-        new AlertDialog.Builder(this).setTitle(R.string.whatDoYouNeed).setView(input)
+        new AlertDialog.Builder(this).setTitle(R.string.marketAnnotator_whatDoYouNeed).setView(input)
                 .setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
 
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -148,6 +148,21 @@ public class MarketAnnotatorActivity extends Activity {
         ArrayList<String> itemsList = new ArrayList<String>();
         itemsList.add(item);
         addItemsToView(itemsList);
+    }
+
+    /**
+     * Resets the annotator.
+     * <p/>
+     * This method is called from the layout definition.
+     *
+     * @param callerView
+     *         The view that called this method.
+     *
+     * @since 9
+     */
+    public void resetAnnotator(View callerView) {
+        items.clear();
+        onCreate(null);
     }
 
 }

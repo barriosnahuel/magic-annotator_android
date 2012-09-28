@@ -10,20 +10,21 @@
     <string name="app_name_gui">Magic Annotator</string>
 
     <!-- Commons -->
-    <string name="commonLabel_OK">OK</string>
-    <string name="player">Jugador</string>
+    <string name="add">"Agregar"</string>
     <string name="annotateHand">¡Anotar mano!</string>
-    <string name="play">Jugar!</string>
-    <string name="chooseLoosers">¿Quiénes perdieron?</string>
-    <string name="chooseLooser">¿Quién perdió?</string>
     <string name="commonLabel_accept">Aceptar</string>
+    <string name="commonLabel_OK">OK</string>
+    <string name="commonLabel_someoneLost">perdió :(</string>
+    <string name="chooseLooser">¿Quién perdió?</string>
+    <string name="chooseLoosers">¿Quiénes perdieron?</string>
     <string name="defaultInitialGameScore">0</string>
+    <string name="gamename_market">Lista del supermercado</string>
+    <string name="gamename_otro">Otro</string>
+    <string name="marketItem_initialNumberOfItems">1</string>
     <string name="plus">+</string>
     <string name="substract">-</string>
-    <string name="gamename_otro">Otro</string>
-    <string name="gamename_market">Lista del supermercado</string>
-    <string name="commonLabel_someoneLost">perdió :(</string>
-    <string name="marketItem_initialNumberOfItems">1</string>
+    <string name="play">Jugar!</string>
+    <string name="player">Jugador</string>
 
     <!-- ChooseGameActivity -->
     <string name="chooseGame_title">¿Qué vas a anotar?</string>
@@ -113,8 +114,8 @@
     <string name="truco_team2_them">Ellos</string>
 
     <!-- MarketAnnotatorActivity -->
-    <string name="myMarketList">Mi lista del super</string>
-    <string name="whatDoYouNeed">"Qué necesitas?"</string>
-    <string name="add">"Agregar"</string>
+    <string name="marketAnnotator_myMarketList">Mi lista del super</string>
+    <string name="marketAnnotator_whatDoYouNeed">"Qué necesitas?"</string>
+    <string name="marketAnnotator_delete">Borrar</string>
 
 </resources>
