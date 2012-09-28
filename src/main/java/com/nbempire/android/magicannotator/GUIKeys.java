@@ -29,20 +29,4 @@ public abstract class GUIKeys {
     // Common labels
     public static final String COMMON_SELECTED_PLAYERS = "Jugadores seleccionados";
 
-    // Sizes
-    public static final int EXPANDABLE_GROUP_LABEL_PADDING_LEFT = 36;
-
-    public static final float EXPANDABLE_GROUP_LABEL_SIZE = 20;
-
-    public static final int VIEW_CURRENT_BUGS_TEXT_SIZE_FOR_BUGS_DETAIL = 20;
-
-    // Exceptions
-    public static final String EXCEPTION_GAME_INVALID_GAME_KEY = "No se encontró ningún juego con esa key.";
-
-    public static final String EXCEPTION_GAME_INVALID_NUMBER_SELECTED_PLAYERS_TUTE = "Se deben seleccionar entre 3 y 12 jugadores.";
-
-    public static final String EXCEPTION_GAME_INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "Se deben seleccionar entre 3 y 12 jugadores.";
-
-    public static String EXCEPTION_GAME_INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "La cantidad de jugadores debe ser 2, 4 o 6.";
-
 }

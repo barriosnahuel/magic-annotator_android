@@ -8,6 +8,7 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
+import com.nbempire.android.magicannotator.Exceptions;
 import com.nbempire.android.magicannotator.GUIKeys;
 import com.nbempire.android.magicannotator.service.GameService;
 
@@ -26,7 +27,7 @@ public class TuteServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected String getInvalidNumberOfSelectedPlayersExceptionMessage() {
-        return GUIKeys.EXCEPTION_GAME_INVALID_NUMBER_SELECTED_PLAYERS_TUTE;
+        return Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_TUTE;
     }
 
     @Override

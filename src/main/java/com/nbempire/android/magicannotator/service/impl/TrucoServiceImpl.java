@@ -8,10 +8,11 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
+import com.nbempire.android.magicannotator.Exceptions;
 import com.nbempire.android.magicannotator.GUIKeys;
 
 /**
- * TODO : JavaDoc : for TrucoServiceImpl.
+ * Implementation of GameServiceImpl for Truco game.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -25,7 +26,7 @@ public class TrucoServiceImpl extends GameServiceImpl {
 
     @Override
     protected String getInvalidNumberOfSelectedPlayersExceptionMessage() {
-        return GUIKeys.EXCEPTION_GAME_INVALID_NUMBER_SELECTED_PLAYERS_TRUCO;
+        return Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_TRUCO;
     }
 
     @Override

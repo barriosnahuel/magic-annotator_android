@@ -14,7 +14,6 @@
     <string name="player">Jugador</string>
     <string name="annotateHand">¡Anotar mano!</string>
     <string name="play">Jugar!</string>
-    <string name="endHand">Terminar mano</string>
     <string name="chooseLoosers">¿Quiénes perdieron?</string>
     <string name="chooseLooser">¿Quién perdió?</string>
     <string name="commonLabel_accept">Aceptar</string>
@@ -110,8 +109,6 @@
     <string name="tutePartialResults_tutes">Tutes</string>
 
     <!-- Truco -->
-    <string name="truco_buenas">BUENAS</string>
-    <string name="truco_malas">MALAS</string>
     <string name="truco_team1_we">Nosotros</string>
     <string name="truco_team2_them">Ellos</string>
 

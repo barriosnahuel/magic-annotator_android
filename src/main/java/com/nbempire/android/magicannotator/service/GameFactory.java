@@ -9,7 +9,7 @@
 package com.nbempire.android.magicannotator.service;
 
 import android.util.Log;
-import com.nbempire.android.magicannotator.GUIKeys;
+import com.nbempire.android.magicannotator.Exceptions;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
@@ -51,11 +51,11 @@ public abstract class GameFactory {
             } else if (gameKey.equals("Tute")) {
                 return new Tute();
             } else {
-                throw new IllegalArgumentException(GUIKeys.EXCEPTION_GAME_INVALID_GAME_KEY);
+                throw new IllegalArgumentException(Exceptions.INVALID_GAME_KEY);
             }
         } catch (NullPointerException nullPointerException) {
             Log.e(LOG_TAG, "Selected game's key can't be null.");
-            throw new IllegalArgumentException(GUIKeys.EXCEPTION_GAME_INVALID_GAME_KEY);
+            throw new IllegalArgumentException(Exceptions.INVALID_GAME_KEY);
         }
 
     }
