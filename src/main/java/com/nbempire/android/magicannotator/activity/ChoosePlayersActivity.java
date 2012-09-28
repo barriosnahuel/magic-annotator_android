@@ -193,7 +193,7 @@ public class ChoosePlayersActivity extends Activity {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String newPlayerNickname = input.getText().toString();
                         if (newPlayerNickname.length() > 0) {
-                            if (!addCheckedDynamicPlayer(newPlayerNickname)) {
+                            if (addCheckedDynamicPlayer(newPlayerNickname)) {
                                 Toast.makeText(getApplicationContext(),
                                                       newPlayerNickname
                                                               + " "
@@ -270,7 +270,7 @@ public class ChoosePlayersActivity extends Activity {
      * @param playerNickName
      *         {@link String} with the player's nickname.
      *
-     * @return {@link boolean} <code>true</code> if the player was added. <code>false</code> otherwise.
+     * @return {@link boolean} <code>true</code> if the player was not added. <code>false</code> otherwise.
      *
      * @since 1
      */
@@ -282,7 +282,7 @@ public class ChoosePlayersActivity extends Activity {
             tableRow.addView(preparePlayerSelector(playerNickName, true));
             playersLayout.addView(tableRow);
         }
-        return added;
+        return !added;
     }
 
 }

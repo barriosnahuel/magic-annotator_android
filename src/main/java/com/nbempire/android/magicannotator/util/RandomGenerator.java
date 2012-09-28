@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * TODO : JavaDoc : for RandomGenerator.
+ * Utility type to generate random values.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -38,23 +38,28 @@ public class RandomGenerator<T> implements Iterator<T> {
     }
 
     /**
-     * TODO : JavaDoc : for RandomGenerator.generate()
+     * Generates a random int value between the specified limits {@code minimum} and {@code maximum}.
      *
      * @param minimum
+     *         The minimum value that can be returned.
      * @param maximum
+     *         The maximum value that can be returned.
      *
-     * @return
+     * @return Random value between the specified limits {@code minimum} and {@code maximum}.
      *
      * @throws IllegalArgumentException
      * @since 1
      */
     public static int generate(int minimum, int maximum) throws IllegalArgumentException {
+        int returnValue;
         if (minimum > maximum) {
             throw new IllegalArgumentException("El valor mínimo debe ser < que el valor máximo.");
         } else if (minimum == maximum) {
-            return minimum;
+            returnValue = minimum;
+        } else {
+            returnValue = (int) (minimum + (Math.random() * maximum));
         }
-        return minimum + (int) (Math.random() * maximum);
+        return returnValue;
     }
 
     public boolean hasNext() {
@@ -73,9 +78,9 @@ public class RandomGenerator<T> implements Iterator<T> {
     }
 
     /**
-     * TODO : JavaDoc : for RandomGenerator.generateNextValue()
+     * Generates the next random value into a iteration.
      *
-     * @return
+     * @return Random value between zero and the size of the {@code numbers} type attribute.
      *
      * @since 1
      */
