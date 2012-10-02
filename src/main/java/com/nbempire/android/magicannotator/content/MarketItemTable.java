@@ -24,6 +24,7 @@ public abstract class MarketItemTable {
     public static final String ID = "id";
 
     public static final String TABLE_NAME = "marketItems";
+    public static final String CHECKED = "checked";
 
 
     /**
@@ -33,9 +34,10 @@ public abstract class MarketItemTable {
      */
     public static String getCreateScript() {
         return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
-                       + ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                       + DESCRIPTION + " varchar, "
-                       + QUANTITY + " INT(3)" +
+                       + ID + " INTEGER PRIMARY KEY AUTOINCREMENT" +
+                       ", " + DESCRIPTION + " varchar" +
+                       ", " + QUANTITY + " INT(3)" +
+                       ", " + CHECKED + " INTEGER" +
                        ");";
     }
 
@@ -44,8 +46,16 @@ public abstract class MarketItemTable {
      *
      * @return
      */
-    public static String getInsertScript(String description, String quantity) {
-        return "INSERT INTO " + TABLE_NAME + " (" + DESCRIPTION + ", " + QUANTITY + ") VALUES ('" + description + "', '" + quantity + "')";
+    public static String getInsertScript(String description, String quantity, boolean checked) {
+        int checkedValue = 0;
+        if (checked) {
+            checkedValue = 1;
+        }
+        return "INSERT INTO " + TABLE_NAME +
+                       " (" + DESCRIPTION + ", " + QUANTITY + ", " + CHECKED + ")" +
+                       " VALUES ('" + description + "', " +
+                       "'" + quantity + "', " +
+                       checkedValue + ")";
     }
 
     /**
@@ -53,14 +63,20 @@ public abstract class MarketItemTable {
      *
      * @param id
      * @param quantity
+     * @param checked
      *
      * @return
      */
-    public static String getUpdateScript(int id, String quantity) {
-        return "UPDATE " + TABLE_NAME + " SET " + QUANTITY + "= " + quantity + " WHERE " + ID + "= " + id;
+    public static String getUpdateScript(int id, String quantity, boolean checked) {
+        int checkedValue = 0;
+        if (checked) {
+            checkedValue = 1;
+        }
+        return "UPDATE " + TABLE_NAME + " SET " + QUANTITY + "= " + quantity +
+                       ", " + CHECKED + "= " + checkedValue + " WHERE " + ID + "= " + id;
     }
 
-    public static String getDeleteScript() {
+    public static String getDropScript() {
         return "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
 }

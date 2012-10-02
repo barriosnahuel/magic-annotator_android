@@ -20,6 +20,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
@@ -27,6 +28,7 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.content.MagicAnnotatorDB;
 import com.nbempire.android.magicannotator.content.MarketItemTable;
 import com.nbempire.android.magicannotator.domain.MarketItem;
+import com.nbempire.android.magicannotator.util.android.db.SQLiteUtil;
 import com.nbempire.android.magicannotator.util.android.view.MarketItemView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
@@ -48,6 +50,9 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private List<MarketItem> items = new ArrayList<MarketItem>();
 
+    /**
+     * Application DB.
+     */
     private SQLiteDatabase magicAnnotatorDB;
 
     @Override
@@ -59,45 +64,42 @@ public class MarketAnnotatorActivity extends Activity {
         magicAnnotatorDB = openOrCreateDatabase(MagicAnnotatorDB.DB_NAME, MODE_PRIVATE, null);
 
         //  Creating table if not exists.
-        //magicAnnotatorDB.execSQL("DROP TABLE " + MarketItemTable.TABLE_NAME);
-        magicAnnotatorDB.execSQL(MarketItemTable.getCreateScript());
+
+        String scriptToExecute = MarketItemTable.getCreateScript();
+        Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
+        magicAnnotatorDB.execSQL(scriptToExecute);
 
         loadSavedItems(magicAnnotatorDB);
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        //  The system calls onRestoreInstanceState() only if there is a saved state to restore, so you do not need to check whether the
-        //  Bundle is null.
-
-
-        //  Always call the superclass so it can restore the view hierarchy
-        super.onRestoreInstanceState(savedInstanceState);
-
-        //  Here goes my code.
-        updateItemQuantities(items);
-    }
-
-
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        //  Here goes my code.
+    protected void onPause() {
+        super.onPause();
 
         for (MarketItem eachItem : items) {
             TextView itemCount = (TextView) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             eachItem.setQuantity(itemCount.getText().toString());
 
+            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
+                                                                                                                     .CHECK_BOX_ID_SUFFIX));
+            eachItem.setChecked(checkBox.isChecked());
+
             String scriptToExecute;
             if (eachItem.getId() == 0) {
-                scriptToExecute = MarketItemTable.getInsertScript(eachItem.getDescription(), eachItem.getQuantity());
+                scriptToExecute = MarketItemTable.getInsertScript(eachItem.getDescription(), eachItem.getQuantity(), eachItem.isChecked());
             } else {
-                scriptToExecute = MarketItemTable.getUpdateScript(eachItem.getId(), eachItem.getQuantity());
+                scriptToExecute = MarketItemTable.getUpdateScript(eachItem.getId(), eachItem.getQuantity(), eachItem.isChecked());
             }
+            Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
             magicAnnotatorDB.execSQL(scriptToExecute);
         }
+    }
 
-        //  Always call the superclass so it can save the view hierarchy state
-        super.onSaveInstanceState(outState);
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        updateItemQuantities(items);
     }
 
     /**
@@ -172,7 +174,7 @@ public class MarketAnnotatorActivity extends Activity {
         Log.d(LOG_TAG, "--> resetAnnotator from view: " + callerView.getId());
 
         items.clear();
-        //  TODO : Functionality : resetAnnotator by deleting all rows in table.
+        magicAnnotatorDB.execSQL(MarketItemTable.getDropScript());
         onCreate(null);
     }
 
@@ -192,6 +194,7 @@ public class MarketAnnotatorActivity extends Activity {
             MarketItem item = new MarketItem(cursor.getString(cursor.getColumnIndex(MarketItemTable.DESCRIPTION)));
             item.setQuantity(cursor.getString(cursor.getColumnIndex(MarketItemTable.QUANTITY)));
             item.setId(cursor.getInt(cursor.getColumnIndex(MarketItemTable.ID)));
+            item.setChecked(SQLiteUtil.getBooleanValue(cursor.getInt(cursor.getColumnIndex(MarketItemTable.CHECKED))));
 
             Log.d(LOG_TAG, "Loading item " + item.getDescription() + " with ID: " + item.getId() + " from DB.");
             items.add(item);
@@ -217,6 +220,12 @@ public class MarketAnnotatorActivity extends Activity {
 
             TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(item.getQuantity());
+
+            if (item.isChecked()) {
+                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView
+                                                                                                                     .CHECK_BOX_ID_SUFFIX));
+                checkBox.setChecked(true);
+            }
         }
     }
 

@@ -35,7 +35,7 @@ public class MagicAnnotatorDB extends SQLiteOpenHelper {
     /**
      * Name of the database file, or null for an in-memory database
      */
-    public static final String DB_NAME = "MagicAnnotator";
+    public static final String DB_NAME = "com.nbempire.android.magicannotator";
 
     /**
      * Constructor method for MagicAnnotatorDB type.
@@ -56,7 +56,7 @@ public class MagicAnnotatorDB extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldDBVersion, int newDBVersion) {
         Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
 
-        sqLiteDatabase.execSQL(MarketItemTable.getDeleteScript());
+        sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
         onCreate(sqLiteDatabase);
     }
 

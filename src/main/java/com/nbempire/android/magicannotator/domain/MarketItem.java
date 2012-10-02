@@ -36,6 +36,11 @@ public class MarketItem {
     private int id;
 
     /**
+     * Indicates with {@code true} when this item has the checkbox checked or {@code false} when not.
+     */
+    private boolean checked;
+
+    /**
      * A constructor method for the MarketItem type.
      *
      * @param description
@@ -127,5 +132,29 @@ public class MarketItem {
                        ", quantity='" + quantity + '\'' +
                        ", id=" + id +
                        '}';
+    }
+
+    /**
+     * Indicates with {@code true} when this item has the checkbox checked or {@code false} when not.
+     *
+     * @return {@code true} when this item is checked. Otherwise {@code false}.
+     *
+     * @since 10
+     */
+    public boolean isChecked() {
+        return checked;
+    }
+
+
+    /**
+     * Setter for the attribute of the entity.
+     *
+     * @param checked
+     *         the checked to set.
+     *
+     * @since 10
+     */
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }

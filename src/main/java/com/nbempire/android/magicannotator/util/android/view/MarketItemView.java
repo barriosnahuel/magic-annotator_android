@@ -33,7 +33,7 @@ public class MarketItemView extends RelativeLayout {
     private static final String LOG_TAG = "MarketItemView";
 
     public static final String TEXT_VIEW_ID_SUFFIX = "-textView";
-    private static final String CHECK_BOX_ID_SUFFIX = "-checkBox";
+    public static final String CHECK_BOX_ID_SUFFIX = "-checkBox";
 
     /**
      * Creates a new MarketItemView on the specified {@code context}.
