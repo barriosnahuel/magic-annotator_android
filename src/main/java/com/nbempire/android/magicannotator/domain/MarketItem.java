@@ -11,7 +11,7 @@ package com.nbempire.android.magicannotator.domain;
 import com.nbempire.android.magicannotator.GameKeys;
 
 /**
- * TODO : Javadoc for MarketItemView
+ * Entity type that represents an item on the market list annotator.
  *
  * @author Nahuel Barrios.
  * @since 10
@@ -29,7 +29,7 @@ public class MarketItem {
     private String quantity;
 
     /**
-     * Table ID.
+     * The entity ID.
      * <p/>
      * Default value is zero.
      */
