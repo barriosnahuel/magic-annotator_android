@@ -66,18 +66,6 @@ public class MarketItem {
     }
 
     /**
-     * Setter for the attribute of the entity.
-     *
-     * @param description
-     *         the description to set.
-     *
-     * @since 10
-     */
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /**
      * Accessor for the attribute of the entity.
      *
      * @return the quantity.
@@ -112,7 +100,6 @@ public class MarketItem {
         return id;
     }
 
-
     /**
      * Setter for the attribute of the entity.
      *
@@ -123,15 +110,6 @@ public class MarketItem {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return "MarketItem{" +
-                       "description='" + description + '\'' +
-                       ", quantity='" + quantity + '\'' +
-                       ", id=" + id +
-                       '}';
     }
 
     /**
@@ -156,5 +134,15 @@ public class MarketItem {
      */
     public void setChecked(boolean checked) {
         this.checked = checked;
+    }
+
+    @Override
+    public String toString() {
+        return "MarketItem{" +
+                       "description='" + description + '\'' +
+                       ", quantity='" + quantity + '\'' +
+                       ", id=" + id +
+                       ", checked=" + checked +
+                       '}';
     }
 }
