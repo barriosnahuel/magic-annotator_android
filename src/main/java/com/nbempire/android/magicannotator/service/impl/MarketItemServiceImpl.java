@@ -18,13 +18,24 @@ import com.nbempire.android.magicannotator.domain.MarketItem;
 import com.nbempire.android.magicannotator.service.MarketItemService;
 
 /**
+ * Implementation of MarketItemService for the MarketItem entity.
+ *
  * @author Nahuel Barrios.
  * @since 10
  */
 public class MarketItemServiceImpl implements MarketItemService {
 
+    /**
+     * DAO for the MarketItem entity.
+     */
     private MarketItemDao marketItemDao;
 
+    /**
+     * Constructor method for this MarketItemServiceImpl type.
+     *
+     * @param database
+     *         The {@link SQLiteDatabase} to access.
+     */
     public MarketItemServiceImpl(SQLiteDatabase database) {
         this.marketItemDao = new MarketItemDaoImpl(database);
     }

@@ -25,7 +25,7 @@ import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.content.MagicAnnotatorDB;
+import com.nbempire.android.magicannotator.content.MagicAnnotatorDBHelper;
 import com.nbempire.android.magicannotator.content.MarketItemTable;
 import com.nbempire.android.magicannotator.domain.MarketItem;
 import com.nbempire.android.magicannotator.service.MarketItemService;
@@ -63,7 +63,7 @@ public class MarketAnnotatorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marketannotator);
 
-        prepareDBSchemaAndDependencies(this);
+        prepareDBAndDependencies(this);
     }
 
     @Override
@@ -91,15 +91,16 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : Javadoc for prepareDBSchemaAndDependencies
+     * Instantiates the {@code magicAnnotatorDB} and all activity's dependencies.
      *
      * @param context
+     *         The activity Context.
      *
      * @since 10
      */
-    private void prepareDBSchemaAndDependencies(Context context) {
+    private void prepareDBAndDependencies(Context context) {
         //  Creates or opens an existing database
-        magicAnnotatorDB = context.openOrCreateDatabase(MagicAnnotatorDB.DB_NAME, MODE_PRIVATE, null);
+        magicAnnotatorDB = context.openOrCreateDatabase(MagicAnnotatorDBHelper.DB_NAME, MODE_PRIVATE, null);
 
         marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
 

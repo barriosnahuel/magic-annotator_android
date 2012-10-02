@@ -14,22 +14,25 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.MarketItem;
 
 /**
+ * Service for the MarketItem entity.
+ *
  * @author Nahuel Barrios.
  * @since 10
  */
 public interface MarketItemService {
 
     /**
-     * TODO : Javadoc for findAll
+     * Find all existing market items.
      *
-     * @return
+     * @return All existing market items.
      */
     List<MarketItem> findAll();
 
     /**
-     * TODO : Javadoc for saveOrUpdate
+     * Saves or updates the {@code item} based on its {@code id} attribute.
      *
      * @param item
+     *         The MarketItem to save/update.
      */
     void saveOrUpdate(MarketItem item);
 }

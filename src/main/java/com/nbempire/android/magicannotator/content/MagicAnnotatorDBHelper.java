@@ -14,12 +14,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * TODO : Javadoc for MagicAnnotatorDB
+ * TODO : Javadoc for MagicAnnotatorDBHelper
  *
  * @author Nahuel Barrios.
  * @since 10
  */
-public class MagicAnnotatorDB extends SQLiteOpenHelper {
+public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
 
     ///**
     // * Tag for class' log.
@@ -37,24 +37,27 @@ public class MagicAnnotatorDB extends SQLiteOpenHelper {
     public static final String DB_NAME = "com.nbempire.android.magicannotator";
 
     /**
-     * Constructor method for MagicAnnotatorDB type.
+     * Constructor method for MagicAnnotatorDBHelper type.
      *
      * @param context
      *         The context.
      */
-    public MagicAnnotatorDB(Context context) {
+    public MagicAnnotatorDBHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        //  TODO : Functionality : onCreate on MagicAnnotatorDB
-        //sqLiteDatabase.execSQL(MarketItemTable.getCreateScript());
+        //  TODO : Functionality : onCreate on MagicAnnotatorDBHelper
+        ////  Creates tables if not exists.
+        //String scriptToExecute = MarketItemTable.getCreateScript();
+        //Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
+        //sqLiteDatabase.execSQL(scriptToExecute);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldDBVersion, int newDBVersion) {
-        //  TODO : Functionality : onUpgrade on MagicAnnotatorDB
+        //  TODO : Functionality : onUpgrade on MagicAnnotatorDBHelper
         //Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
         //
         //sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
