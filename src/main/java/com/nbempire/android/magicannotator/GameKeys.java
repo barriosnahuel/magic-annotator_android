@@ -21,4 +21,9 @@ public abstract class GameKeys {
     public static final int TRUCO_MAX_SCORE = 30;
     public static final int TRUCO_INCREMENT = 1;
     public static final int TRUCO_MAX_SCORE_WITHOUT_WIN = TRUCO_MAX_SCORE - TRUCO_INCREMENT;
+
+    /**
+     * Default quantity for new items on the market list annotator.
+     */
+    public static final String MARKET_ITEM_INITIAL_QUANTITY = String.valueOf(1);
 }

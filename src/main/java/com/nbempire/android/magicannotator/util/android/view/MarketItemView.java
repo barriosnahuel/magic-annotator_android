@@ -25,18 +25,18 @@ import com.nbempire.android.magicannotator.R;
  * @author Nahuel Barrios.
  * @since 8
  */
-public class MarketItem extends RelativeLayout {
+public class MarketItemView extends RelativeLayout {
 
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "MarketItem";
+    private static final String LOG_TAG = "MarketItemView";
 
     public static final String TEXT_VIEW_ID_SUFFIX = "-textView";
     private static final String CHECK_BOX_ID_SUFFIX = "-checkBox";
 
     /**
-     * Creates a new MarketItem on the specified {@code context}.
+     * Creates a new MarketItemView on the specified {@code context}.
      *
      * @param context
      *         {@code Context} for example the context of a {@code TableLayout} view.
@@ -45,7 +45,7 @@ public class MarketItem extends RelativeLayout {
      *
      * @since 8
      */
-    public MarketItem(Context context, String itemName) {
+    public MarketItemView(Context context, String itemName) {
         super(context);
         initializeView(context, itemName);
     }
