@@ -10,6 +10,12 @@ package com.nbempire.android.magicannotator;
 public final class R {
     public static final class array {
         public static final int chooseGame_gamesValues = 0x7f050000;
+        /**
+         * <item>Andres</item> <item>Clausi</item> <item>Dani</item> <item>Emi</item> <item>Emi T.</item> <item>Eri</item>
+         * <item>Fabio</item> <item>Fer</item> <item>Franco</item> <item>Gerard</item> <item>Glen</item> <item>Jona</item> <item>Juli</item>
+         * <item>Lea</item> <item>Maro</item> <item>Mati Z.</item> <item>Mau</item> <item>Melisa</item> <item>Nahuel</item>
+         * <item>Nicolas</item> <item>Peto</item> <item>Seba</item> <item>Virgen</item>
+         */
         public static final int choosePlayers_playersValues = 0x7f050001;
     }
 
