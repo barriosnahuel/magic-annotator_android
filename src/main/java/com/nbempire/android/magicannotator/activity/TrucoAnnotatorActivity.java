@@ -171,7 +171,7 @@ public class TrucoAnnotatorActivity extends Activity {
             if (currentScore != Integer.parseInt(getText(R.string.defaultInitialGameScore).toString())) {
                 int updatedScore = currentScore - GameKeys.TRUCO_INCREMENT;
 
-                Log.d(LOG_TAG, "Updating score to: " + updatedScore);
+                Log.i(LOG_TAG, "Updating score to: " + updatedScore);
                 textView.setText(String.valueOf(updatedScore));
 
                 if (updatedScore == GameKeys.TRUCO_MAX_SCORE_WITHOUT_WIN) {
