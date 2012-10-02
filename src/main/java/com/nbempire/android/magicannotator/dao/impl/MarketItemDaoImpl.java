@@ -12,6 +12,7 @@ package com.nbempire.android.magicannotator.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -61,7 +62,7 @@ public class MarketItemDaoImpl implements MarketItemDao {
             item.setId(cursor.getInt(cursor.getColumnIndex(MarketItemTable.ID)));
             item.setChecked(SQLiteUtil.getBooleanValue(cursor.getInt(cursor.getColumnIndex(MarketItemTable.CHECKED))));
 
-            Log.d(LOG_TAG, "Getting " + item.getDescription() + "\twith ID: " + item.getId() + "\tfrom DB.");
+            Log.i(LOG_TAG, "Getting " + item.getDescription() + "\twith ID: " + item.getId() + "\tfrom DB.");
             items.add(item);
         }
 
@@ -70,13 +71,25 @@ public class MarketItemDaoImpl implements MarketItemDao {
 
     @Override
     public void saveOrUpdate(MarketItem item) {
-        String scriptToExecute;
+        ContentValues columnsAndValues = new ContentValues();
+        columnsAndValues.put(MarketItemTable.QUANTITY, item.getQuantity());
+        columnsAndValues.put(MarketItemTable.CHECKED, item.isChecked());
+
         if (item.getId() == 0) {
-            scriptToExecute = MarketItemTable.getInsertScript(item.getDescription(), item.getQuantity(), item.isChecked());
+            columnsAndValues.put(MarketItemTable.DESCRIPTION, item.getDescription());
+            long createdId = magicAnnotatorDB.insert(MarketItemTable.TABLE_NAME, "null", columnsAndValues);
+
+            if (createdId == -1) {
+                Log.e(LOG_TAG, "There was an error trying to save the MarketItem: " + item.getDescription());
+            } else {
+                Log.i(LOG_TAG, "Created MarketItem with ID: " + createdId);
+            }
+
         } else {
-            scriptToExecute = MarketItemTable.getUpdateScript(item.getId(), item.getQuantity(), item.isChecked());
+            int numberOfAffectedRows = magicAnnotatorDB.update(MarketItemTable.TABLE_NAME, columnsAndValues,
+                                                                      MarketItemTable.ID + "= " + item.getId(), null);
+
+            Log.i(LOG_TAG, "Updated " + numberOfAffectedRows + " MarketItems.");
         }
-        Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
-        magicAnnotatorDB.execSQL(scriptToExecute);
     }
 }

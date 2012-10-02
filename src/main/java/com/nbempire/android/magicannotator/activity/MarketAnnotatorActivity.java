@@ -14,6 +14,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -62,18 +63,15 @@ public class MarketAnnotatorActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marketannotator);
 
-        //  Creating database
-        magicAnnotatorDB = openOrCreateDatabase(MagicAnnotatorDB.DB_NAME, MODE_PRIVATE, null);
+        prepareDBSchemaAndDependencies(this);
+    }
 
-        marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
-
-        //  Creating table if not exists.
-        //  TODO : Refactor :  Put this create table script in main activity.
-        String scriptToExecute = MarketItemTable.getCreateScript();
-        Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
-        magicAnnotatorDB.execSQL(scriptToExecute);
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         loadSavedItems();
+        updateItemQuantities(items);
     }
 
     @Override
@@ -92,11 +90,24 @@ public class MarketAnnotatorActivity extends Activity {
         }
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    /**
+     * TODO : Javadoc for prepareDBSchemaAndDependencies
+     *
+     * @param context
+     *
+     * @since 10
+     */
+    private void prepareDBSchemaAndDependencies(Context context) {
+        //  Creates or opens an existing database
+        magicAnnotatorDB = context.openOrCreateDatabase(MagicAnnotatorDB.DB_NAME, MODE_PRIVATE, null);
 
-        updateItemQuantities(items);
+        marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
+
+        //  Creating table if not exists.
+        //  TODO : Refactor :  Put this create table script in main activity.
+        String scriptToExecute = MarketItemTable.getCreateScript();
+        Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
+        magicAnnotatorDB.execSQL(scriptToExecute);
     }
 
     /**
@@ -120,7 +131,7 @@ public class MarketAnnotatorActivity extends Activity {
                         String item = input.getText().toString();
                         Log.d(LOG_TAG, "User input: " + item);
                         if (item.length() > 0) {
-                            addItemsToView(item);
+                            addItemToView(item);
                             items.add(new MarketItem(item));
                         }
                     }
@@ -137,8 +148,9 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private void addItemsToView(List<MarketItem> items) {
         TableLayout layout = (TableLayout) findViewById(R.id.marketAnnotator_itemsLayout);
+
         for (MarketItem eachItem : items) {
-            Log.d(LOG_TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
+            Log.i(LOG_TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
             layout.addView(new MarketItemView(layout.getContext(), eachItem.getDescription()));
         }
     }
@@ -151,7 +163,7 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @since 8
      */
-    private void addItemsToView(String item) {
+    private void addItemToView(String item) {
         List<MarketItem> itemsList = new ArrayList<MarketItem>();
         itemsList.add(new MarketItem(item));
         addItemsToView(itemsList);
@@ -176,7 +188,7 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
-     * Load saved items from DB and add them to the GUI.
+     * Load saved items and add them to the GUI.
      *
      * @since 10
      */
@@ -199,7 +211,7 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private void updateItemQuantities(List<MarketItem> items) {
         for (MarketItem item : items) {
-            Log.d(LOG_TAG, "Updating item quantity: " + item.getDescription());
+            Log.i(LOG_TAG, "Updating item quantity: " + item.getDescription());
 
             TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(item.getQuantity());
