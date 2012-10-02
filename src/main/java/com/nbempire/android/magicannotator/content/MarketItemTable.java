@@ -17,6 +17,7 @@ public abstract class MarketItemTable {
 
     public static final String DESCRIPTION = "description";
     public static final String QUANTITY = "quantity";
+    public static final String CHECKED = "checked";
 
     /**
      * Auto-incremental column that starts at 1 by default.
@@ -24,13 +25,11 @@ public abstract class MarketItemTable {
     public static final String ID = "id";
 
     public static final String TABLE_NAME = "marketItems";
-    public static final String CHECKED = "checked";
-
 
     /**
-     * TODO : Javadoc for getCreateScript
+     * Script for create the table.
      *
-     * @return
+     * @return SQL Script to create the MarketItem table.
      */
     public static String getCreateScript() {
         return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
@@ -42,40 +41,10 @@ public abstract class MarketItemTable {
     }
 
     /**
-     * TODO : Javadoc for getInsertScript
+     * Creates a SQL script to drop this table.
      *
-     * @return
+     * @return SQL script to drop the MarketItem table.
      */
-    public static String getInsertScript(String description, String quantity, boolean checked) {
-        int checkedValue = 0;
-        if (checked) {
-            checkedValue = 1;
-        }
-        return "INSERT INTO " + TABLE_NAME +
-                       " (" + DESCRIPTION + ", " + QUANTITY + ", " + CHECKED + ")" +
-                       " VALUES ('" + description + "', " +
-                       "'" + quantity + "', " +
-                       checkedValue + ")";
-    }
-
-    /**
-     * TODO : Javadoc for getUpdateScript
-     *
-     * @param id
-     * @param quantity
-     * @param checked
-     *
-     * @return
-     */
-    public static String getUpdateScript(int id, String quantity, boolean checked) {
-        int checkedValue = 0;
-        if (checked) {
-            checkedValue = 1;
-        }
-        return "UPDATE " + TABLE_NAME + " SET " + QUANTITY + "= " + quantity +
-                       ", " + CHECKED + "= " + checkedValue + " WHERE " + ID + "= " + id;
-    }
-
     public static String getDropScript() {
         return "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
