@@ -15,7 +15,6 @@ import java.util.List;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,7 +27,8 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.content.MagicAnnotatorDB;
 import com.nbempire.android.magicannotator.content.MarketItemTable;
 import com.nbempire.android.magicannotator.domain.MarketItem;
-import com.nbempire.android.magicannotator.util.android.db.SQLiteUtil;
+import com.nbempire.android.magicannotator.service.MarketItemService;
+import com.nbempire.android.magicannotator.service.impl.MarketItemServiceImpl;
 import com.nbempire.android.magicannotator.util.android.view.MarketItemView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
@@ -50,6 +50,8 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private List<MarketItem> items = new ArrayList<MarketItem>();
 
+    private MarketItemService marketItemService;
+
     /**
      * Application DB.
      */
@@ -63,13 +65,15 @@ public class MarketAnnotatorActivity extends Activity {
         //  Creating database
         magicAnnotatorDB = openOrCreateDatabase(MagicAnnotatorDB.DB_NAME, MODE_PRIVATE, null);
 
-        //  Creating table if not exists.
+        marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
 
+        //  Creating table if not exists.
+        //  TODO : Refactor :  Put this create table script in main activity.
         String scriptToExecute = MarketItemTable.getCreateScript();
         Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
         magicAnnotatorDB.execSQL(scriptToExecute);
 
-        loadSavedItems(magicAnnotatorDB);
+        loadSavedItems();
     }
 
     @Override
@@ -84,14 +88,7 @@ public class MarketAnnotatorActivity extends Activity {
                                                                                                                      .CHECK_BOX_ID_SUFFIX));
             eachItem.setChecked(checkBox.isChecked());
 
-            String scriptToExecute;
-            if (eachItem.getId() == 0) {
-                scriptToExecute = MarketItemTable.getInsertScript(eachItem.getDescription(), eachItem.getQuantity(), eachItem.isChecked());
-            } else {
-                scriptToExecute = MarketItemTable.getUpdateScript(eachItem.getId(), eachItem.getQuantity(), eachItem.isChecked());
-            }
-            Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
-            magicAnnotatorDB.execSQL(scriptToExecute);
+            marketItemService.saveOrUpdate(eachItem);
         }
     }
 
@@ -181,24 +178,10 @@ public class MarketAnnotatorActivity extends Activity {
     /**
      * Load saved items from DB and add them to the GUI.
      *
-     * @param magicAnnotatorDB
-     *         The SQLiteDatabase to use.
-     *
      * @since 10
      */
-    private void loadSavedItems(SQLiteDatabase magicAnnotatorDB) {
-        Cursor cursor = magicAnnotatorDB.query(MarketItemTable.TABLE_NAME, null, null, null, null, null, null);
-        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-
-            //fetching from database and adding to arrayList
-            MarketItem item = new MarketItem(cursor.getString(cursor.getColumnIndex(MarketItemTable.DESCRIPTION)));
-            item.setQuantity(cursor.getString(cursor.getColumnIndex(MarketItemTable.QUANTITY)));
-            item.setId(cursor.getInt(cursor.getColumnIndex(MarketItemTable.ID)));
-            item.setChecked(SQLiteUtil.getBooleanValue(cursor.getInt(cursor.getColumnIndex(MarketItemTable.CHECKED))));
-
-            Log.d(LOG_TAG, "Loading item " + item.getDescription() + " with ID: " + item.getId() + " from DB.");
-            items.add(item);
-        }
+    private void loadSavedItems() {
+        items = marketItemService.findAll();
 
         if (!items.isEmpty()) {
             addItemsToView(items);
