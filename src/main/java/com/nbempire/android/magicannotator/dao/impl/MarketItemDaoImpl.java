@@ -87,7 +87,7 @@ public class MarketItemDaoImpl implements MarketItemDao {
 
         } else {
             int numberOfAffectedRows = magicAnnotatorDB.update(MarketItemTable.TABLE_NAME, columnsAndValues,
-                                                                      MarketItemTable.ID + "= " + item.getId(), null);
+                                                                      MarketItemTable.ID + "=?", new String[]{String.valueOf(item.getId())});
 
             Log.i(LOG_TAG, "Updated " + numberOfAffectedRows + " MarketItems.");
         }
