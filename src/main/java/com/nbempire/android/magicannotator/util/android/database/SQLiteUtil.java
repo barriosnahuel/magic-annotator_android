@@ -7,7 +7,7 @@
  * Created by: Nahuel Barrios.
  * On: 02/10/12 at 14:41hs.
  */
-package com.nbempire.android.magicannotator.util.android.db;
+package com.nbempire.android.magicannotator.util.android.database;
 
 /**
  * TODO : Javadoc for SQLiteUtil

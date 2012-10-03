@@ -19,7 +19,7 @@ import android.util.Log;
 import com.nbempire.android.magicannotator.dao.MarketItemDao;
 import com.nbempire.android.magicannotator.domain.MarketItem;
 import com.nbempire.android.magicannotator.storage.schema.MarketItemTable;
-import com.nbempire.android.magicannotator.util.android.db.SQLiteUtil;
+import com.nbempire.android.magicannotator.util.android.database.SQLiteUtil;
 
 /**
  * @author Nahuel Barrios.
