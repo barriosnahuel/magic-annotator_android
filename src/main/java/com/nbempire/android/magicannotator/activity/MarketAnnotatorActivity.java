@@ -16,7 +16,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,7 +25,6 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.content.MagicAnnotatorDBHelper;
-import com.nbempire.android.magicannotator.content.MarketItemTable;
 import com.nbempire.android.magicannotator.domain.MarketItem;
 import com.nbempire.android.magicannotator.service.MarketItemService;
 import com.nbempire.android.magicannotator.service.impl.MarketItemServiceImpl;
@@ -53,25 +51,22 @@ public class MarketAnnotatorActivity extends Activity {
 
     private MarketItemService marketItemService;
 
-    /**
-     * Application DB.
-     */
-    private SQLiteDatabase magicAnnotatorDB;
+    private MagicAnnotatorDBHelper magicAnnotatorDBHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.marketannotator);
-
-        prepareDBAndDependencies(this);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
+        initializeDependencies(this);
+
         loadSavedItems();
-        updateItemQuantities(items);
+        updateItemAttributes(items);
     }
 
     @Override
@@ -88,6 +83,10 @@ public class MarketAnnotatorActivity extends Activity {
 
             marketItemService.saveOrUpdate(eachItem);
         }
+
+        Log.i(LOG_TAG, "Closing MagicAnnotatorDBHelper...");
+        //  Close the DBHelper in onPause because of the Activities lifecycle and the OS may find a memory leak if it's not closed.
+        magicAnnotatorDBHelper.close();
     }
 
     /**
@@ -98,11 +97,9 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @since 10
      */
-    private void prepareDBAndDependencies(Context context) {
-        //  Creates or opens an existing database
-        magicAnnotatorDB = new MagicAnnotatorDBHelper(context).getWritableDatabase();
-
-        marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
+    private void initializeDependencies(Context context) {
+        magicAnnotatorDBHelper = new MagicAnnotatorDBHelper(context);
+        marketItemService = new MarketItemServiceImpl(magicAnnotatorDBHelper.getWritableDatabase());
     }
 
     /**
@@ -178,7 +175,7 @@ public class MarketAnnotatorActivity extends Activity {
         Log.d(LOG_TAG, "--> resetAnnotator from view: " + callerView.getId());
 
         items.clear();
-        magicAnnotatorDB.execSQL(MarketItemTable.getDropScript());
+        marketItemService.deleteAll();
         onCreate(null);
     }
 
@@ -192,7 +189,7 @@ public class MarketAnnotatorActivity extends Activity {
 
         if (!items.isEmpty()) {
             addItemsToView(items);
-            updateItemQuantities(items);
+            updateItemAttributes(items);
         }
     }
 
@@ -204,9 +201,9 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @since 10
      */
-    private void updateItemQuantities(List<MarketItem> items) {
+    private void updateItemAttributes(List<MarketItem> items) {
         for (MarketItem item : items) {
-            Log.i(LOG_TAG, "Updating item quantity: " + item.getDescription());
+            Log.i(LOG_TAG, "Updating item attributes for: " + item.getDescription());
 
             TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(item.getQuantity());

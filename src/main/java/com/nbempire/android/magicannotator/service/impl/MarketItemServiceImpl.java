@@ -28,7 +28,7 @@ public class MarketItemServiceImpl implements MarketItemService {
     /**
      * DAO for the MarketItem entity.
      */
-    private MarketItemDao marketItemDao;
+    private final MarketItemDao marketItemDao;
 
     /**
      * Constructor method for this MarketItemServiceImpl type.
@@ -48,5 +48,10 @@ public class MarketItemServiceImpl implements MarketItemService {
     @Override
     public void saveOrUpdate(MarketItem item) {
         marketItemDao.saveOrUpdate(item);
+    }
+
+    @Override
+    public void deleteAll() {
+        marketItemDao.deleteAll();
     }
 }

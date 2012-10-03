@@ -17,7 +17,7 @@ package com.nbempire.android.magicannotator.domain.game;
 public class Truco extends Game {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
     private static final long serialVersionUID = 5496148767009099679L;
 

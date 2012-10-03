@@ -17,7 +17,7 @@ package com.nbempire.android.magicannotator.domain.game;
 public class Tute extends Game {
 
     /**
-     * @author Nahuel Barrios.
+     * The serialVersionUID of this type.
      */
     private static final long serialVersionUID = 466068820888804391L;
 

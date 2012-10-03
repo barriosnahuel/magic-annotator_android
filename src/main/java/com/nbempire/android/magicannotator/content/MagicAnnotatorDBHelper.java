@@ -38,7 +38,7 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
     /**
      * Name of the database file, or null for an in-memory database
      */
-    public static final String DB_NAME = "com.nbempire.android.magicannotator";
+    private static final String DB_NAME = "com.nbempire.android.magicannotator";
 
     /**
      * Constructor method for MagicAnnotatorDBHelper type.

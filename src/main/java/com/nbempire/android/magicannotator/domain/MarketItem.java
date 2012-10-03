@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>. No se reconocerá ningún tipo de
- * garantía.
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
  */
 
 /**
@@ -21,7 +21,7 @@ public class MarketItem {
     /**
      * The item description.
      */
-    private String description;
+    private final String description;
 
     /**
      * Quantity of items for this item.

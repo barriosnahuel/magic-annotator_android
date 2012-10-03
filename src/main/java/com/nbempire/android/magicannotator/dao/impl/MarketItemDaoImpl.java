@@ -35,7 +35,7 @@ public class MarketItemDaoImpl implements MarketItemDao {
     /**
      * Application DB.
      */
-    private SQLiteDatabase magicAnnotatorDB;
+    private final SQLiteDatabase magicAnnotatorDB;
 
     /**
      * Constructor method for this DAO.
@@ -93,5 +93,11 @@ public class MarketItemDaoImpl implements MarketItemDao {
 
             Log.i(LOG_TAG, "Updated " + numberOfAffectedRows + " MarketItem with ID: " + item.getId());
         }
+    }
+
+    @Override
+    public void deleteAll() {
+        int deletedRows = magicAnnotatorDB.delete(MarketItemTable.TABLE_NAME, "1", null);
+        Log.i(LOG_TAG, "Deleted " + deletedRows + " rows.");
     }
 }

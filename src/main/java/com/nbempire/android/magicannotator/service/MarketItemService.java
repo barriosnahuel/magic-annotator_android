@@ -35,4 +35,9 @@ public interface MarketItemService {
      *         The MarketItem to save/update.
      */
     void saveOrUpdate(MarketItem item);
+
+    /**
+     * Delete all existing market items.
+     */
+    void deleteAll();
 }

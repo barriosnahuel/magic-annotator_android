@@ -32,4 +32,9 @@ public interface MarketItemDao {
      * @param item
      */
     void saveOrUpdate(MarketItem item);
+
+    /**
+     * Delete all existing market items.
+     */
+    void deleteAll();
 }
