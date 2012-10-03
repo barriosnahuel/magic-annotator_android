@@ -49,8 +49,14 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private List<MarketItem> items = new ArrayList<MarketItem>();
 
+    /**
+     * A service for the MarketItem entity.
+     */
     private MarketItemService marketItemService;
 
+    /**
+     * Helper for the magicAnnotator database.
+     */
     private MagicAnnotatorDBHelper magicAnnotatorDBHelper;
 
     @Override
