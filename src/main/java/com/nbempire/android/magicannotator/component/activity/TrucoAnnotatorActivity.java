@@ -6,7 +6,7 @@
 /**
  * TrucoAnnotatorActivity.java Created by: Nahuel Barrios: 01/03/2012, 05:55:58.
  */
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import java.util.ArrayList;
 import java.util.List;

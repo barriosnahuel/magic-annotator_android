@@ -3,7 +3,7 @@
  * No se reconocerá ningún tipo de garantía.
  */
 
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

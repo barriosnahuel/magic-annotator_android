@@ -6,7 +6,7 @@
 /**
  * ChoosePlayersActivity.java Created by: Nahuel Barrios: 29/02/2012, 09:22:36.
  */
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,6 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TableRow.LayoutParams;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.component.activity.ViewTeamsActivity;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.domain.game.Chancho;

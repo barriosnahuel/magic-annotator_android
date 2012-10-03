@@ -8,7 +8,7 @@ package com.nbempire.android.magicannotator.service;
 import android.app.Activity;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.activity.GenericAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.GenericAnnotatorActivity;
 
 /**
  * Factory to get games keys and activities as based

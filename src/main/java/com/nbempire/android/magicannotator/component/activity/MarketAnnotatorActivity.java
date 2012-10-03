@@ -7,7 +7,7 @@
  * Created by: Nahuel Barrios.
  * On: 27/09/12 at 10:55hs.
  */
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import java.util.ArrayList;
 import java.util.List;

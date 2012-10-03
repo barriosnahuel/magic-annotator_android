@@ -25,7 +25,7 @@
             android:icon="@drawable/icon"
             android:label="@string/app_name">
         <activity
-                android:name=".activity.ChooseGameActivity"
+                android:name=".component.activity.ChooseGameActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.ChoosePlayersActivity"
+                android:name=".component.activity.ChoosePlayersActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -55,35 +55,35 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.ChanchoAnnotatorActivity"
+                android:name=".component.activity.ChanchoAnnotatorActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.TrucoAnnotatorActivity"
+                android:name=".component.activity.TrucoAnnotatorActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.TuteAnnotatorActivity"
+                android:name=".component.activity.TuteAnnotatorActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.GenericAnnotatorActivity"
+                android:name=".component.activity.GenericAnnotatorActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.MarketAnnotatorActivity"
+                android:name=".component.activity.MarketAnnotatorActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

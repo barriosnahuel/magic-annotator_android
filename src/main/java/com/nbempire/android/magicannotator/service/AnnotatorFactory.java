@@ -9,9 +9,9 @@
 package com.nbempire.android.magicannotator.service;
 
 import android.app.Activity;
-import com.nbempire.android.magicannotator.activity.ChanchoAnnotatorActivity;
-import com.nbempire.android.magicannotator.activity.TrucoAnnotatorActivity;
-import com.nbempire.android.magicannotator.activity.TuteAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.ChanchoAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.TrucoAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.TuteAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;

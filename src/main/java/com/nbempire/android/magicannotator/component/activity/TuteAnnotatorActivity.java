@@ -3,7 +3,7 @@
  * No se reconocerá ningún tipo de garantía.
  */
 
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import java.util.*;
 
@@ -76,9 +76,9 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * Actualiza la {@link GridView} que le pasamos como parámetro (en la que se ven los jugadores y sus puntajes), en base a los jugadores
-     * del atributo de clase {@link Game}. En base al parámetro forUpdate asignará el puntaje por default cuando se cree por primera vez la
-     * grilla, o utilizará los scores guardados.
+     * Actualiza la {@link GridView} que le pasamos como parámetro (en la que se ven los jugadores y sus puntajes), en base a los jugadores del
+     * atributo de clase {@link Game}. En base al parámetro forUpdate asignará el puntaje por default cuando se cree por primera vez la grilla, o
+     * utilizará los scores guardados.
      *
      * @param gridView
      *         {@link GridView} que se va a actualizar.

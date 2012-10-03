@@ -3,7 +3,7 @@
  * No se reconocerá ningún tipo de garantía.
  */
 
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import java.util.*;
 
@@ -75,8 +75,8 @@ public class ChanchoAnnotatorActivity extends Activity {
 
     /**
      * Actualiza la {@link GridView} que le pasamos como par&aacute;metro (en la que se ven los jugadores y sus puntajes), en base a los
-     * jugadores del atributo de clase {@link Game}. En base al par&aacute;metro forUpdate asignar&aacute; el puntaje por default cuando se
-     * cree por primera vez la grilla, o utilizar&aacute; los scores guardados.
+     * jugadores del atributo de clase {@link Game}. En base al par&aacute;metro forUpdate asignar&aacute; el puntaje por default cuando se cree
+     * por primera vez la grilla, o utilizar&aacute; los scores guardados.
      *
      * @param gridView
      *         {@link GridView} que se va a actualizar.
