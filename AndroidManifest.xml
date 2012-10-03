@@ -48,7 +48,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.ViewTeamsActivity"
+                android:name=".component.activity.ViewTeamsActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

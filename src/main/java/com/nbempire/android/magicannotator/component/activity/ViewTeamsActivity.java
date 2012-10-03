@@ -6,7 +6,7 @@
 /**
  * MakeTeamsActivity.java Created by: Nahuel Barrios: 29/02/2012, 10:34:20.
  */
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
