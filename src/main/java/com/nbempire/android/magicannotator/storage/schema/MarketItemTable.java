@@ -7,7 +7,7 @@
  * Created by: Nahuel Barrios.
  * On: 02/10/12 at 11:10hs.
  */
-package com.nbempire.android.magicannotator.content;
+package com.nbempire.android.magicannotator.storage.schema;
 
 /**
  * @author Nahuel Barrios.

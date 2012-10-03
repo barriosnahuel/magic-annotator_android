@@ -7,12 +7,13 @@
  * Created by: Nahuel Barrios.
  * On: 02/10/12 at 11:05hs.
  */
-package com.nbempire.android.magicannotator.content;
+package com.nbempire.android.magicannotator.storage;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import com.nbempire.android.magicannotator.storage.schema.MarketItemTable;
 
 /**
  * SQLiteOpenHelper for the MagicAnnotator database. It should be used to get a database to work with.
