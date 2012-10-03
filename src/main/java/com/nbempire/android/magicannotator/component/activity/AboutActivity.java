@@ -6,7 +6,7 @@
 /**
  * AboutActivity.java Created by: Nahuel Barrios: 14/04/2012, 09:38:58.
  */
-package com.nbempire.android.magicannotator.activity;
+package com.nbempire.android.magicannotator.component.activity;
 
 import android.app.Activity;
 import android.os.Bundle;

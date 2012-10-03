@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-                android:name=".activity.AboutActivity"
+                android:name=".component.activity.AboutActivity"
                 android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

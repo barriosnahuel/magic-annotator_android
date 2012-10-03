@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.component.activity.AboutActivity;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
 import com.nbempire.android.magicannotator.service.GameFactory;
