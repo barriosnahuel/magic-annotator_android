@@ -100,15 +100,9 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private void prepareDBAndDependencies(Context context) {
         //  Creates or opens an existing database
-        magicAnnotatorDB = context.openOrCreateDatabase(MagicAnnotatorDBHelper.DB_NAME, MODE_PRIVATE, null);
+        magicAnnotatorDB = new MagicAnnotatorDBHelper(context).getWritableDatabase();
 
         marketItemService = new MarketItemServiceImpl(magicAnnotatorDB);
-
-        //  Creating table if not exists.
-        //  TODO : Refactor :  Put this create table script in main activity.
-        String scriptToExecute = MarketItemTable.getCreateScript();
-        Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
-        magicAnnotatorDB.execSQL(scriptToExecute);
     }
 
     /**

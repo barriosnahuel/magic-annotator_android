@@ -15,16 +15,21 @@ package com.nbempire.android.magicannotator.content;
  */
 public abstract class MarketItemTable {
 
-    public static final String DESCRIPTION = "description";
-    public static final String QUANTITY = "quantity";
-    public static final String CHECKED = "checked";
+    /**
+     * The name of the table.
+     */
+    public static final String TABLE_NAME = "marketItems";
+
+    //  Here goes the table columns...
 
     /**
      * Auto-incremental column that starts at 1 by default.
      */
     public static final String ID = "id";
 
-    public static final String TABLE_NAME = "marketItems";
+    public static final String DESCRIPTION = "description";
+    public static final String QUANTITY = "quantity";
+    public static final String CHECKED = "checked";
 
     /**
      * Script for create the table.

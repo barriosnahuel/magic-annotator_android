@@ -12,19 +12,23 @@ package com.nbempire.android.magicannotator.content;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
- * TODO : Javadoc for MagicAnnotatorDBHelper
+ * SQLiteOpenHelper for the MagicAnnotator database. It should be used to get a database to work with.
+ * <p/>
+ * It also performs the create statement for creating every table for the database and the upgrade proccess to take a previous database version
+ * to a newer one.
  *
  * @author Nahuel Barrios.
  * @since 10
  */
 public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
 
-    ///**
-    // * Tag for class' log.
-    // */
-    //private static final String LOG_TAG = "MagicAnnotatorDB";
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "MagicAnnotatorDB";
 
     /**
      * Current DB version.
@@ -48,20 +52,17 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        //  TODO : Functionality : onCreate on MagicAnnotatorDBHelper
-        ////  Creates tables if not exists.
-        //String scriptToExecute = MarketItemTable.getCreateScript();
-        //Log.d(LOG_TAG, "Executing SQL script: " + scriptToExecute);
-        //sqLiteDatabase.execSQL(scriptToExecute);
+        String scriptToExecute = MarketItemTable.getCreateScript();
+        Log.i(LOG_TAG, "Creating DB for first time from SQL script: " + scriptToExecute);
+        sqLiteDatabase.execSQL(scriptToExecute);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldDBVersion, int newDBVersion) {
-        //  TODO : Functionality : onUpgrade on MagicAnnotatorDBHelper
-        //Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
-        //
-        //sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
-        //onCreate(sqLiteDatabase);
+        Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
+
+        sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
+        onCreate(sqLiteDatabase);
     }
 
 

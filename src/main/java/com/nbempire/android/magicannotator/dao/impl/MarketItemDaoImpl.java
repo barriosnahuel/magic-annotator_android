@@ -56,8 +56,8 @@ public class MarketItemDaoImpl implements MarketItemDao {
         Cursor cursor = magicAnnotatorDB.query(MarketItemTable.TABLE_NAME, null, null, null, null, null, null);
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
 
-            //fetching from database and adding to arrayList
             MarketItem item = new MarketItem(cursor.getString(cursor.getColumnIndex(MarketItemTable.DESCRIPTION)));
+
             item.setQuantity(cursor.getString(cursor.getColumnIndex(MarketItemTable.QUANTITY)));
             item.setId(cursor.getInt(cursor.getColumnIndex(MarketItemTable.ID)));
             item.setChecked(SQLiteUtil.getBooleanValue(cursor.getInt(cursor.getColumnIndex(MarketItemTable.CHECKED))));
@@ -65,6 +65,8 @@ public class MarketItemDaoImpl implements MarketItemDao {
             Log.i(LOG_TAG, "Getting " + item.getDescription() + "\twith ID: " + item.getId() + "\tfrom DB.");
             items.add(item);
         }
+
+        //  TODO : Refactor : Should I close this Cursor object? Check startManagingCursor(cursor) method.
 
         return items;
     }
@@ -89,7 +91,7 @@ public class MarketItemDaoImpl implements MarketItemDao {
             int numberOfAffectedRows = magicAnnotatorDB.update(MarketItemTable.TABLE_NAME, columnsAndValues,
                                                                       MarketItemTable.ID + "=?", new String[]{String.valueOf(item.getId())});
 
-            Log.i(LOG_TAG, "Updated " + numberOfAffectedRows + " MarketItems.");
+            Log.i(LOG_TAG, "Updated " + numberOfAffectedRows + " MarketItem with ID: " + item.getId());
         }
     }
 }
