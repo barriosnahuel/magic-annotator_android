@@ -73,13 +73,13 @@ public class ChoosePlayersActivity extends Activity {
         if (parameter instanceof Game) {
             aGame = (Game) extras.getSerializable(AppParameter.GAME);
             if (aGame instanceof Chancho) {
-                ((Button) this.findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
+                ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
             }
         } else {
             gameKey = extras.getInt(AppParameter.GAME);
             switch (gameKey) {
                 case R.string.gamename_otro:
-                    ((Button) this.findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
+                    ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
                     break;
                 default:
                     break;
@@ -101,9 +101,9 @@ public class ChoosePlayersActivity extends Activity {
                                         : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
 
         if (parameter instanceof Game) {
-            this.addOnClickActionForMakeTeamsButton();
+            addOnClickActionForMakeTeamsButtonForGames();
         } else {
-            this.addOnClickActionForMakeTeamsButtonNuevo();
+            addOnClickActionForMakeTeamsButtonForNoGames();
         }
 
     }
@@ -135,7 +135,7 @@ public class ChoosePlayersActivity extends Activity {
             tableRow.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 
             String playerName = eachPlayer.toString();
-            tableRow.addView(this.preparePlayerSelector(playerName, selectedPlayersList.contains(playerName)));
+            tableRow.addView(preparePlayerSelector(playerName, selectedPlayersList.contains(playerName)));
             playersLayout.addView(tableRow);
         }
     }
@@ -210,26 +210,32 @@ public class ChoosePlayersActivity extends Activity {
      *
      * @since 1
      */
-    private void addOnClickActionForMakeTeamsButtonNuevo() {
+    private void addOnClickActionForMakeTeamsButtonForNoGames() {
         findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent nextIntentToShow = new Intent(view.getContext(), GamesActivitiesFactory.getAnnotator(gameKey));
+                if (selectedPlayers.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), getText(R.string.mustSelectAtLeastOne).toString(), Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent nextIntentToShow = new Intent(view.getContext(), GamesActivitiesFactory.getAnnotator(gameKey));
 
-                nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
-                nextIntentToShow.putExtra(AppParameter.PLAYERS, selectedPlayers);
+                    nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
+                    nextIntentToShow.putExtra(AppParameter.PLAYERS, selectedPlayers);
 
-                startActivity(nextIntentToShow);
+                    startActivity(nextIntentToShow);
+                }
             }
         });
     }
 
     /**
-     * Creo la acción para el botón armar equipos. TODO : Refactor : Sacar este método y dejar el nuevo.
+     * Creo la acción para el botón armar equipos.
+     * <p/>
+     * TODO : Refactor : Sacar este método y dejar el nuevo.
      *
      * @since 1
      */
-    private void addOnClickActionForMakeTeamsButton() {
+    private void addOnClickActionForMakeTeamsButtonForGames() {
         findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {

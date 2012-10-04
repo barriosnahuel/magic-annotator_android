@@ -25,6 +25,7 @@
     <string name="substract">-</string>
     <string name="play">Jugar!</string>
     <string name="player">Jugador</string>
+    <string name="mustSelectAtLeastOne">Se debe seleccionar al menos 1</string>
 
     <!-- ChooseGameActivity -->
     <string name="chooseGame_title">¿Qué vas a anotar?</string>
