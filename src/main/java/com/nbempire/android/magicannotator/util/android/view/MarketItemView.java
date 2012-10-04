@@ -93,7 +93,11 @@ public class MarketItemView extends RelativeLayout {
             public void onClick(View view) {
                 Log.d(LOG_TAG, "Substracting number of items, for item: " + itemName);
                 TextView itemCount = (TextView) findViewById(textViewId);
-                itemCount.setText(String.valueOf(Integer.parseInt(itemCount.getText().toString()) - 1));
+                int currentValue = Integer.parseInt(itemCount.getText().toString());
+                if (currentValue > 0) {
+                    itemCount.setText(String.valueOf(currentValue - 1));
+                }
+
             }
         });
     }
