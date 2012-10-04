@@ -41,8 +41,9 @@
 
     <!-- AboutActivity -->
     <string name="about_title">Sobre esta aplicación:</string>
-    <string name="about_introduction">Esta aplicación fue creada por Nahuel Barrios con la idea de facilitar al usuario un anotador de
-        puntos de distintos juegos.
+    <string name="about_introduction">Esta aplicación fue creada con la idea de facilitar al usuario de manera sencilla y efectiva la tarea de
+        anotar un partido de truco, de chancho, la lista de cosas que uno tiene que comprar cuando va al supermercado, o cualquier otro tipo de
+        anotación básica.
     </string>
     <string name="about_contact">Pueden contactarme por cualquier duda o para reportar algun error, a travez del sitio web del proyecto:
     </string>
