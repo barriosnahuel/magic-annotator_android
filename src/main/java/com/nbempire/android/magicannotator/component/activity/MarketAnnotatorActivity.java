@@ -18,6 +18,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -72,7 +75,7 @@ public class MarketAnnotatorActivity extends Activity {
         initializeDependencies(this);
 
         loadSavedItems();
-        updateItemAttributes(items);
+        updateItemAttributes(items, -1);
     }
 
     @Override
@@ -93,6 +96,26 @@ public class MarketAnnotatorActivity extends Activity {
         Log.i(LOG_TAG, "Closing MagicAnnotatorDBHelper...");
         //  Close the DBHelper in onPause because of the Activities lifecycle and the OS may find a memory leak if it's not closed.
         magicAnnotatorDBHelper.close();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.marketannotator, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        boolean showMenu = false;
+
+        switch (item.getItemId()) {
+            case R.id.marketAnnotatorMenuItem_updateQuantitiesToZero:
+                Log.d(LOG_TAG, "Updating all quantities to 0.");
+                updateItemAttributes(items, 0);
+                showMenu = true;
+        }
+        return showMenu;
     }
 
     /**
@@ -195,7 +218,7 @@ public class MarketAnnotatorActivity extends Activity {
 
         if (!items.isEmpty()) {
             addItemsToView(items);
-            updateItemAttributes(items);
+            updateItemAttributes(items, -1);
         }
     }
 
@@ -204,15 +227,21 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @param items
      *         The items to update.
+     * @param quantity
      *
      * @since 10
      */
-    private void updateItemAttributes(List<MarketItem> items) {
+    private void updateItemAttributes(List<MarketItem> items, int quantity) {
         for (MarketItem item : items) {
             Log.i(LOG_TAG, "Updating item attributes for: " + item.getDescription());
 
             TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
-            numberOfItems.setText(item.getQuantity());
+            if (quantity != -1) {
+                numberOfItems.setText(String.valueOf(quantity));
+            } else {
+                numberOfItems.setText(item.getQuantity());
+            }
+
 
             if (item.isChecked()) {
                 CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView

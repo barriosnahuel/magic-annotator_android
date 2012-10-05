@@ -119,5 +119,6 @@
     <string name="marketAnnotator_myMarketList">Mi lista del super</string>
     <string name="marketAnnotator_whatDoYouNeed">"Qué necesitas?"</string>
     <string name="marketAnnotator_delete">Borrar</string>
+    <string name="marketAnnotatorMenu_updateQuantitiesToZero">Poner cantidades en 0</string>
 
 </resources>
