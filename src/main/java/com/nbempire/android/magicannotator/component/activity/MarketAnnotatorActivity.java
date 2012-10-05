@@ -306,7 +306,7 @@ public class MarketAnnotatorActivity extends Activity {
      * @param quantity
      *         Value to update the {@code item}. If {@code -1} then this parameter will not be used and GUI's values will be used instead.
      *
-     * @since 11
+     * @since 12
      */
     private void updateItems(List<MarketItem> items, Boolean checked, int quantity) {
         for (MarketItem eachItem : items) {
@@ -325,7 +325,7 @@ public class MarketAnnotatorActivity extends Activity {
      * @param quantity
      *         Value to update the {@code item}. If {@code -1} then this parameter will not be used and GUI's values will be used instead.
      *
-     * @since 11
+     * @since 12
      */
     private void updateItem(MarketItem item, Boolean checked, int quantity) {
         CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.CHECK_BOX_ID_SUFFIX));
@@ -353,7 +353,7 @@ public class MarketAnnotatorActivity extends Activity {
      *         Value to update the {@code item}. It will be applied to all items. If {@code null} then this parameter will not be used and GUI's
      *         values will be used instead.
      *
-     * @since 11
+     * @since 12
      */
     private void updateItems(List<MarketItem> items, boolean checked) {
         updateItems(items, checked, -1);
@@ -369,7 +369,7 @@ public class MarketAnnotatorActivity extends Activity {
      *         Value to update the {@code item}. It will be applied to all items. If {@code -1} then this parameter will not be used and GUI's
      *         values will be used instead.
      *
-     * @since 11
+     * @since 12
      */
     private void updateItems(List<MarketItem> items, int quantity) {
         updateItems(items, null, quantity);
