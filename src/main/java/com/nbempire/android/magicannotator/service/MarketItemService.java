@@ -25,6 +25,8 @@ public interface MarketItemService {
      * Find all existing market items.
      *
      * @return All existing market items.
+     *
+     * @since 10
      */
     List<MarketItem> findAll();
 
@@ -33,11 +35,15 @@ public interface MarketItemService {
      *
      * @param item
      *         The MarketItem to save/update.
+     *
+     * @since 10
      */
     void saveOrUpdate(MarketItem item);
 
     /**
      * Delete all existing market items.
+     *
+     * @since 10
      */
     void deleteAll();
 }

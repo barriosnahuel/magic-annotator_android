@@ -48,15 +48,15 @@ public class ChoosePlayersActivity extends Activity {
      */
     private static final String LOG_TAG = "ChoosePlayersActivity";
 
-    private ArrayList<String> selectedPlayers = new ArrayList<String>();
+    private final ArrayList<String> selectedPlayers = new ArrayList<String>();
 
-    private PlayerService playerService = new PlayerServiceImpl();
+    private final PlayerService playerService = new PlayerServiceImpl();
 
     private static final String SELECTED_PLAYERS_KEY = "selectedPlayers";
 
     private static final String ALL_PLAYERS = "allPlayers";
 
-    private Set<CharSequence> players = new TreeSet<CharSequence>();
+    private final Set<CharSequence> players = new TreeSet<CharSequence>();
 
     private Game aGame;
 

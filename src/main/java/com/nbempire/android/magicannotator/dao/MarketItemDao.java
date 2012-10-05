@@ -14,27 +14,36 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.MarketItem;
 
 /**
+ * DAO for the MarketItem entity.
+ *
  * @author Nahuel Barrios.
  * @since 10
  */
 public interface MarketItemDao {
 
     /**
-     * TODO : Javadoc for findAll
+     * Find all existing market items.
      *
-     * @return
+     * @return All existing market items.
+     *
+     * @since 10
      */
     List<MarketItem> findAll();
 
     /**
-     * TODO : Javadoc for saveOrUpdate
+     * Saves or updates the {@code item} based on its {@code id} attribute.
      *
      * @param item
+     *         The MarketItem to save/update.
+     *
+     * @since 10
      */
     void saveOrUpdate(MarketItem item);
 
     /**
      * Delete all existing market items.
+     *
+     * @since 10
      */
     void deleteAll();
 }

@@ -33,7 +33,7 @@ public class Team implements Serializable {
     /**
      * Team's players.
      */
-    private List<Player> players = new ArrayList<Player>();
+    private final List<Player> players = new ArrayList<Player>();
 
     /**
      * A constructor method for the type.

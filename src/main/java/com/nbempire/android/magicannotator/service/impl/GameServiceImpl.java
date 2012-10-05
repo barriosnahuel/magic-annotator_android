@@ -30,7 +30,7 @@ import com.nbempire.android.magicannotator.util.RandomGenerator;
  */
 public abstract class GameServiceImpl implements GameService {
 
-    private PlayerService playerService = new PlayerServiceImpl();
+    private final PlayerService playerService = new PlayerServiceImpl();
 
     public List<Team> makeTeams(List<Player> players) throws UserException {
         if (!this.hasValidNumberOfSelectedPlayers(players.size())) {
