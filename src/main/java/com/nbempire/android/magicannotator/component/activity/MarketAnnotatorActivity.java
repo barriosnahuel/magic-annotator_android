@@ -75,7 +75,7 @@ public class MarketAnnotatorActivity extends Activity {
         initializeDependencies(this);
 
         loadSavedItems();
-        updateItemAttributes(items, -1);
+        updateItemsOnGUI(items);
     }
 
     @Override
@@ -111,9 +111,23 @@ public class MarketAnnotatorActivity extends Activity {
 
         switch (item.getItemId()) {
             case R.id.marketAnnotatorMenuItem_updateQuantitiesToZero:
-                Log.d(LOG_TAG, "Updating all quantities to 0.");
-                updateItemAttributes(items, 0);
+                Log.i(LOG_TAG, "Updating all quantities to 0.");
+                updateItems(items, 0);
+                updateItemsOnGUI(items);
                 showMenu = true;
+                break;
+            case R.id.marketAnnotatorMenuItem_checkAllItems:
+                Log.i(LOG_TAG, "Checking all items.");
+                updateItems(items, true);
+                updateItemsOnGUI(items);
+                showMenu = true;
+                break;
+            case R.id.marketAnnotatorMenuItem_uncheckAllItems:
+                Log.i(LOG_TAG, "Unchecking all items.");
+                updateItems(items, false);
+                updateItemsOnGUI(items);
+                showMenu = true;
+                break;
         }
         return showMenu;
     }
@@ -218,7 +232,7 @@ public class MarketAnnotatorActivity extends Activity {
 
         if (!items.isEmpty()) {
             addItemsToView(items);
-            updateItemAttributes(items, -1);
+            updateItemsOnGUI(items);
         }
     }
 
@@ -227,27 +241,58 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @param items
      *         The items to update.
-     * @param quantity
      *
      * @since 10
      */
-    private void updateItemAttributes(List<MarketItem> items, int quantity) {
-        for (MarketItem item : items) {
-            Log.i(LOG_TAG, "Updating item attributes for: " + item.getDescription());
+    private void updateItemsOnGUI(List<MarketItem> items) {
+        for (MarketItem eachItem : items) {
+            Log.i(LOG_TAG, "Updating item attributes for: " + eachItem.getDescription());
 
-            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
-            if (quantity != -1) {
-                numberOfItems.setText(String.valueOf(quantity));
-            } else {
-                numberOfItems.setText(item.getQuantity());
-            }
+            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+            numberOfItems.setText(eachItem.getQuantity());
 
-
-            if (item.isChecked()) {
-                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView
+            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
                                                                                                                      .CHECK_BOX_ID_SUFFIX));
-                checkBox.setChecked(true);
-            }
+            checkBox.setChecked(eachItem.isChecked());
+        }
+    }
+
+    /**
+     * Updates item's checked status.
+     *
+     * @param items
+     *         The items to update.
+     * @param checked
+     *         The value for the update. It will be applied to all items.
+     *
+     * @since 11
+     */
+    private void updateItems(List<MarketItem> items, boolean checked) {
+        for (MarketItem eachItem : items) {
+            TextView itemCount = (TextView) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+            eachItem.setQuantity(itemCount.getText().toString());
+
+            eachItem.setChecked(checked);
+        }
+    }
+
+    /**
+     * Updates item's quantities.
+     *
+     * @param items
+     *         The items to update.
+     * @param quantity
+     *         The value for the update. It will be applied to all items.
+     *
+     * @since 11
+     */
+    private void updateItems(List<MarketItem> items, int quantity) {
+        for (MarketItem eachItem : items) {
+            eachItem.setQuantity(String.valueOf(quantity));
+
+            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
+                                                                                                                     .CHECK_BOX_ID_SUFFIX));
+            eachItem.setChecked(checkBox.isChecked());
         }
     }
 

@@ -120,5 +120,7 @@
     <string name="marketAnnotator_whatDoYouNeed">"Qué necesitas?"</string>
     <string name="marketAnnotator_delete">Borrar</string>
     <string name="marketAnnotatorMenu_updateQuantitiesToZero">Poner cantidades en 0</string>
+    <string name="marketAnnotatorMenu_checkAllItems">Tildar todos</string>
+    <string name="marketAnnotatorMenu_uncheckAllItems">Destildar todos</string>
 
 </resources>
