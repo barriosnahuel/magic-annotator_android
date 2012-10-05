@@ -102,7 +102,41 @@ public class MarketAnnotatorActivity extends Activity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        return items.size() > 0;
+        int numberOfItems = items.size();
+        boolean showMenu = numberOfItems > 0;
+
+        if (showMenu) {
+            final int checkAllIndex = 0;
+            final int uncheckAllIndex = 1;
+
+            int checkedItems = 0;
+            for (MarketItem eachItem : items) {
+                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
+                                                                                                                         .CHECK_BOX_ID_SUFFIX));
+
+                if (checkBox.isChecked()) {
+                    checkedItems++;
+                } else {
+                    checkedItems--;
+                }
+            }
+
+            if (numberOfItems == checkedItems) {
+                Log.i(LOG_TAG, "Hide check");
+                menu.getItem(checkAllIndex).setVisible(false);
+                menu.getItem(uncheckAllIndex).setVisible(true);
+            } else if (numberOfItems == -checkedItems) {
+                Log.i(LOG_TAG, "Hide uncheck");
+                menu.getItem(checkAllIndex).setVisible(true);
+                menu.getItem(uncheckAllIndex).setVisible(false);
+            } else {
+                Log.i(LOG_TAG, "Don't hide nothing");
+                menu.getItem(checkAllIndex).setVisible(true);
+                menu.getItem(uncheckAllIndex).setVisible(true);
+            }
+        }
+
+        return showMenu;
     }
 
     @Override
