@@ -23,7 +23,7 @@ import com.nbempire.android.magicannotator.util.ExpandableList;
 import com.nbempire.android.magicannotator.util.RandomGenerator;
 
 /**
- * TODO : JavaDoc : for GameServiceImpl.
+ * Implementation of the GameService interface.
  *
  * @author Nahuel Barrios.
  * @since 1

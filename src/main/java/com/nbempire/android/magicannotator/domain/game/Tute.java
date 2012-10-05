@@ -9,7 +9,7 @@
 package com.nbempire.android.magicannotator.domain.game;
 
 /**
- * TODO : JavaDoc : for Tute.
+ * Entity type that represents the Tute game.
  *
  * @author Nahuel Barrios.
  * @since 1

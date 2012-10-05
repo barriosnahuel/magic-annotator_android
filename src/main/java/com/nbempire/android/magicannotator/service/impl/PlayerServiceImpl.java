@@ -15,7 +15,7 @@ import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.service.PlayerService;
 
 /**
- * TODO : JavaDoc : for PlayerServiceImpl.
+ * Implementation of the PlayerService interface.
  *
  * @author Nahuel Barrios.
  * @since 1

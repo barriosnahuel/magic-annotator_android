@@ -9,7 +9,7 @@
 package com.nbempire.android.magicannotator.domain.game;
 
 /**
- * TODO : JavaDoc : for Truco.
+ * Entity type that represents the Truco game.
  *
  * @author Nahuel Barrios.
  * @since 1

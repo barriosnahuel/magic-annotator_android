@@ -21,7 +21,7 @@ import com.nbempire.android.magicannotator.util.ExpandableList;
 import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActivity;
 
 /**
- * TODO : JavaDoc : for MakeTeamsActivity.
+ * Android activity to show the user the auto-generated teams.
  *
  * @author Nahuel Barrios.
  * @since 1

@@ -10,7 +10,7 @@
 package com.nbempire.android.magicannotator.util.android.database;
 
 /**
- * TODO : Javadoc for SQLiteUtil
+ * Utility abstract type to help the developer work with the SQLite database that Android provides.
  *
  * @author Nahuel Barrios.
  * @since 10

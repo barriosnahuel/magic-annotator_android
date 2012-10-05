@@ -16,7 +16,7 @@ import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 
 /**
- * TODO : JavaDoc : for GameService.
+ * Service for the Game entity.
  *
  * @author Nahuel Barrios.
  * @since 1

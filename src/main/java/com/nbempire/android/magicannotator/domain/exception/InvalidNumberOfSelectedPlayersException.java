@@ -9,7 +9,8 @@
 package com.nbempire.android.magicannotator.domain.exception;
 
 /**
- * TODO : JavaDoc : for InvalidNumberOfSelectedPlayersException.
+ * Exception that {@code extends} from {@link UserException} that indicates the user has selected an invalid number of players for a specific
+ * game.
  *
  * @author Nahuel Barrios.
  * @since 1
