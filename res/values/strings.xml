@@ -119,8 +119,8 @@
     <string name="marketAnnotator_myMarketList">Mi lista del super</string>
     <string name="marketAnnotator_whatDoYouNeed">"Qué necesitas?"</string>
     <string name="marketAnnotatorMenu_updateQuantitiesToZero">Poner cantidades en 0</string>
-    <string name="marketAnnotatorMenuItem_deleteAll">Borrar todos</string>
-    <string name="marketAnnotatorMenuItem_checkAllItems">Tildar todos</string>
-    <string name="marketAnnotatorMenuItem_uncheckAllItems">Destildar todos</string>
+    <string name="marketAnnotatorMenuItem_deleteAll">Borrar lista</string>
+    <string name="marketAnnotatorMenuItem_checkAllItems">Seleccionar todo</string>
+    <string name="marketAnnotatorMenuItem_uncheckAllItems">No seleccionar nada</string>
 
 </resources>
