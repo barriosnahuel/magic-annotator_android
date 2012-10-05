@@ -106,6 +106,11 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        return items.size() > 0;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         boolean showMenu = false;
         boolean updateGUI = true;
