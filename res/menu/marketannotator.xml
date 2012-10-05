@@ -8,8 +8,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/marketAnnotatorMenuItem_updateQuantitiesToZero"
           android:title="@string/marketAnnotatorMenu_updateQuantitiesToZero" />
+    <item android:id="@+id/marketAnnotatorMenuItem_deleteAll"
+          android:title="@string/marketAnnotatorMenuItem_deleteAll" />
     <item android:id="@+id/marketAnnotatorMenuItem_checkAllItems"
-          android:title="@string/marketAnnotatorMenu_checkAllItems" />
+          android:title="@string/marketAnnotatorMenuItem_checkAllItems" />
     <item android:id="@+id/marketAnnotatorMenuItem_uncheckAllItems"
-          android:title="@string/marketAnnotatorMenu_uncheckAllItems" />
+          android:title="@string/marketAnnotatorMenuItem_uncheckAllItems" />
+
 </menu>

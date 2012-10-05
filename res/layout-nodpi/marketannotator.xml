@@ -15,18 +15,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="7dp"
             android:text="@string/marketAnnotator_myMarketList"
             android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-            android:id="@+id/marketAnnotator_addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/marketAnnotator_delete"
-            android:onClick="resetAnnotator" />
 
     <ScrollView android:id="@+id/marketAnnotator_scrollView"
                 android:layout_above="@+id/marketAnnotator_addButton"

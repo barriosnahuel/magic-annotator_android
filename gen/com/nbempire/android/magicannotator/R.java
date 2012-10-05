@@ -45,13 +45,14 @@ public final class R {
         public static final int main_button1 = 0x7f07000c;
         public static final int main_gamesListView = 0x7f07000a;
         public static final int main_title = 0x7f070009;
-        public static final int marketAnnotatorMenuItem_checkAllItems = 0x7f070037;
-        public static final int marketAnnotatorMenuItem_uncheckAllItems = 0x7f070038;
+        public static final int marketAnnotatorMenuItem_checkAllItems = 0x7f070038;
+        public static final int marketAnnotatorMenuItem_deleteAll = 0x7f070037;
+        public static final int marketAnnotatorMenuItem_uncheckAllItems = 0x7f070039;
         public static final int marketAnnotatorMenuItem_updateQuantitiesToZero = 0x7f070036;
-        public static final int marketAnnotator_addButton = 0x7f07001b;
+        public static final int marketAnnotator_addButton = 0x7f07001c;
         public static final int marketAnnotator_headerText = 0x7f07001a;
         public static final int marketAnnotator_itemsLayout = 0x7f07001d;
-        public static final int marketAnnotator_scrollView = 0x7f07001c;
+        public static final int marketAnnotator_scrollView = 0x7f07001b;
         public static final int marketItem_addButton = 0x7f070018;
         public static final int marketItem_itemCount = 0x7f070017;
         public static final int marketItem_itemName = 0x7f070016;
@@ -140,10 +141,10 @@ public final class R {
          * GenericAnnotatorActivity
          */
         public static final int genericannotator_scores = 0x7f040021;
-        public static final int marketAnnotatorMenu_checkAllItems = 0x7f040037;
-        public static final int marketAnnotatorMenu_uncheckAllItems = 0x7f040038;
-        public static final int marketAnnotatorMenu_updateQuantitiesToZero = 0x7f040036;
-        public static final int marketAnnotator_delete = 0x7f040035;
+        public static final int marketAnnotatorMenuItem_checkAllItems = 0x7f040037;
+        public static final int marketAnnotatorMenuItem_deleteAll = 0x7f040036;
+        public static final int marketAnnotatorMenuItem_uncheckAllItems = 0x7f040038;
+        public static final int marketAnnotatorMenu_updateQuantitiesToZero = 0x7f040035;
         /**
          * MarketAnnotatorActivity
          */

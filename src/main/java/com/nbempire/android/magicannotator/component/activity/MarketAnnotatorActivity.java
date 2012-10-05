@@ -108,27 +108,35 @@ public class MarketAnnotatorActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         boolean showMenu = false;
+        boolean updateGUI = true;
 
         switch (item.getItemId()) {
             case R.id.marketAnnotatorMenuItem_updateQuantitiesToZero:
                 Log.i(LOG_TAG, "Updating all quantities to 0.");
                 updateItems(items, 0);
-                updateItemsOnGUI(items);
                 showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_checkAllItems:
                 Log.i(LOG_TAG, "Checking all items.");
                 updateItems(items, true);
-                updateItemsOnGUI(items);
                 showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_uncheckAllItems:
                 Log.i(LOG_TAG, "Unchecking all items.");
                 updateItems(items, false);
-                updateItemsOnGUI(items);
                 showMenu = true;
                 break;
+            case R.id.marketAnnotatorMenuItem_deleteAll:
+                resetAnnotator();
+                showMenu = true;
+                updateGUI = false;
+                break;
         }
+
+        if (showMenu && updateGUI) {
+            updateItemsOnGUI(items);
+        }
+
         return showMenu;
     }
 
@@ -209,14 +217,9 @@ public class MarketAnnotatorActivity extends Activity {
      * <p/>
      * This method is called from the layout definition.
      *
-     * @param callerView
-     *         The view that called this method.
-     *
      * @since 9
      */
-    public void resetAnnotator(View callerView) {
-        Log.d(LOG_TAG, "--> resetAnnotator from view: " + callerView.getId());
-
+    public void resetAnnotator() {
         items.clear();
         marketItemService.deleteAll();
         onCreate(null);
