@@ -17,6 +17,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -199,6 +200,7 @@ public class MarketAnnotatorActivity extends Activity {
      */
     public void openMarketItemCreator(View callerView) {
         final EditText input = new EditText(callerView.getContext());
+        input.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
         new AlertDialog.Builder(this).setTitle(R.string.marketAnnotator_whatDoYouNeed).setView(input)
                 .setPositiveButton(R.string.add, new DialogInterface.OnClickListener() {
