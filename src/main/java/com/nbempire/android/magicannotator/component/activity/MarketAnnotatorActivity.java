@@ -342,12 +342,14 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
-     * Updates item's checked status.
+     * Updates item's checked status from GUI's values or from the specified {@code checked} parameter. Parameter has more priority than GUI's
+     * value.
      *
      * @param items
      *         The items to update.
      * @param checked
-     *         The value for the update. It will be applied to all items.
+     *         Value to update the {@code item}. It will be applied to all items. If {@code null} then this parameter will not be used and GUI's
+     *         values will be used instead.
      *
      * @since 11
      */
@@ -356,12 +358,14 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
-     * Updates item's quantities.
+     * Updates item's quantities status from GUI's values or from the specified {@code quantity} parameter. Parameter has more priority than
+     * GUI's value.
      *
      * @param items
      *         The items to update.
      * @param quantity
-     *         The value for the update. It will be applied to all items.
+     *         Value to update the {@code item}. It will be applied to all items. If {@code -1} then this parameter will not be used and GUI's
+     *         values will be used instead.
      *
      * @since 11
      */
