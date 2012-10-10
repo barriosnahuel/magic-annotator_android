@@ -24,13 +24,15 @@ import com.nbempire.android.magicannotator.util.ExpandableList;
 public interface GameService {
 
     /**
-     * TODO : JavaDoc : for GameService.makeTeams()
+     * Make teams randomly based on the specified list of players.
      *
      * @param players
+     *         List of players to use for each team.
      *
-     * @return
+     * @return List of teams generated randomly with the specified players.
      *
      * @throws UserException
+     *         when the number of players is invalid for this Game.
      * @since 1
      */
     public abstract List<Team> makeTeams(List<Player> players) throws UserException;
