@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 import com.nbempire.android.magicannotator.storage.schema.MarketItemTable;
+import com.nbempire.android.magicannotator.storage.schema.PlayerTable;
 
 /**
  * SQLiteOpenHelper for the MagicAnnotator database. It should be used to get a database to work with.
@@ -34,7 +35,7 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
     /**
      * Current DB version.
      */
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     /**
      * Name of the database file, or null for an in-memory database
@@ -53,7 +54,7 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String scriptToExecute = MarketItemTable.getCreateScript();
+        String scriptToExecute = MarketItemTable.getCreateScript() + PlayerTable.getCreateScript();
         Log.i(LOG_TAG, "Creating DB for first time from SQL script: " + scriptToExecute);
         sqLiteDatabase.execSQL(scriptToExecute);
     }
@@ -62,7 +63,7 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldDBVersion, int newDBVersion) {
         Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
 
-        sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
+        sqLiteDatabase.execSQL(MarketItemTable.getDropScript() + PlayerTable.getDropScript());
         onCreate(sqLiteDatabase);
     }
 
