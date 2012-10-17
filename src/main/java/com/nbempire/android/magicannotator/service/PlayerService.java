@@ -44,4 +44,23 @@ public interface PlayerService {
      */
     public List<String> getExpandablePlayers(List<Player> players);
 
+    /**
+     * Find all existing players.
+     *
+     * @return All existing players.
+     *
+     * @since 13
+     */
+    List<Player> findAll();
+
+    /**
+     * Saves the {@code player}.
+     *
+     * @param player
+     *         The Player to save/update.
+     *
+     * @since 13
+     */
+    void save(Player player);
+
 }

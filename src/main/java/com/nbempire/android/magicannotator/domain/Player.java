@@ -22,6 +22,9 @@ public class Player implements Serializable, Comparable<Player> {
      * The serialVersionUID of this type.
      */
     private static final long serialVersionUID = -7240272823346653241L;
+
+    private int id;
+
     /**
      * The player's nick name.
      */
@@ -54,9 +57,34 @@ public class Player implements Serializable, Comparable<Player> {
         return nickName.compareTo(another.nickName);
     }
 
-    @Override
-    public String toString() {
-        return "Player [nickName=" + nickName + "]";
+    /**
+     * Accessor for the attribute of the entity.
+     *
+     * @return the id.
+     *
+     * @since 13
+     */
+    public int getId() {
+        return id;
     }
 
+    /**
+     * Setter for the attribute of the entity.
+     *
+     * @param id
+     *         the {@code id} to set.
+     *
+     * @since 13
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                       "id=" + id +
+                       ", nickName='" + nickName + '\'' +
+                       '}';
+    }
 }

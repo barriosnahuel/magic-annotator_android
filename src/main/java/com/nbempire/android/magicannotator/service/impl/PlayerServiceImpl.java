@@ -11,6 +11,9 @@ package com.nbempire.android.magicannotator.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.database.sqlite.SQLiteDatabase;
+import com.nbempire.android.magicannotator.dao.PlayerDao;
+import com.nbempire.android.magicannotator.dao.impl.PlayerDaoImpl;
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.service.PlayerService;
 
@@ -21,6 +24,32 @@ import com.nbempire.android.magicannotator.service.PlayerService;
  * @since 1
  */
 public class PlayerServiceImpl implements PlayerService {
+
+    /**
+     * DAO for the Player entity.
+     */
+    private PlayerDao playerDao;
+
+    /**
+     * Constructor method for this PlayerImpl type.
+     *
+     * @param database
+     *         The {@link android.database.sqlite.SQLiteDatabase} to access.
+     *
+     * @since 13
+     */
+    public PlayerServiceImpl(SQLiteDatabase database) {
+        this.playerDao = new PlayerDaoImpl(database);
+    }
+
+    /**
+     * Default constructor method for this PlayerImpl type.
+     *
+     * @since 13
+     */
+    public PlayerServiceImpl() {
+        //  Do nothing.
+    }
 
     public List<Player> parsePlayers(List<String> playersToParse) {
         List<Player> players = new ArrayList<Player>(playersToParse.size());
@@ -37,5 +66,16 @@ public class PlayerServiceImpl implements PlayerService {
         }
         return result;
     }
+
+    @Override
+    public List<Player> findAll() {
+        return playerDao.findAll();
+    }
+
+    @Override
+    public void save(Player player) {
+        playerDao.save(player);
+    }
+
 
 }
