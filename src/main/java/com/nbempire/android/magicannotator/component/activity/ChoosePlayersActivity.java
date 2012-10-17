@@ -15,6 +15,7 @@ import java.util.TreeSet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TableRow.LayoutParams;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
@@ -34,6 +36,7 @@ import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
 import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
+import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
 
 /**
  * Activity to let users select which players are going to play.
@@ -50,7 +53,10 @@ public class ChoosePlayersActivity extends Activity {
 
     private final ArrayList<String> selectedPlayers = new ArrayList<String>();
 
-    private final PlayerService playerService = new PlayerServiceImpl();
+    /**
+     * A service for the Player entity.
+     */
+    private PlayerService playerService;
 
     private static final String SELECTED_PLAYERS_KEY = "selectedPlayers";
 
@@ -66,6 +72,8 @@ public class ChoosePlayersActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chooseplayers);
+
+        initializeDependencies(this);
 
         Bundle extras = getIntent().getExtras();
         Object parameter = extras.get(AppParameter.GAME);
@@ -86,19 +94,13 @@ public class ChoosePlayersActivity extends Activity {
             }
         }
 
-        if (savedInstanceState != null) {
-            players.addAll(savedInstanceState.getStringArrayList(ALL_PLAYERS));
-        } else {
-            // TODO : Delete : This line or context when begin using a DB.
-            ArrayAdapter<CharSequence> playersAdapter = ArrayAdapter.createFromResource(this,
-                                                                                               R.array.choosePlayers_playersValues, 0);
-            for (int index = 0; index < playersAdapter.getCount(); index++) {
-                players.add(playersAdapter.getItem(index));
-            }
+        List<Player> savedPlayers = playerService.findAll();
+        for (Player eachSavedPlayer : savedPlayers) {
+            players.add(eachSavedPlayer.getNickName());
         }
 
-        this.loadDefaultPlayers(savedInstanceState == null ? new ArrayList<String>()
-                                        : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
+        loadDefaultPlayers(savedInstanceState == null ? new ArrayList<String>()
+                                   : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
 
         if (parameter instanceof Game) {
             addOnClickActionForMakeTeamsButtonForGames();
@@ -112,13 +114,19 @@ public class ChoosePlayersActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
 
-        ArrayList<String> toAdd = new ArrayList<String>();
-        for (CharSequence eachPlayer : players) {
-            toAdd.add(eachPlayer.toString());
-        }
-
-        outState.putStringArrayList(ALL_PLAYERS, toAdd);
         super.onSaveInstanceState(outState);
+    }
+
+    /**
+     * Instantiates the {@code magicAnnotatorDB} and all activity's dependencies.
+     *
+     * @param context
+     *         The activity Context.
+     *
+     * @since 13
+     */
+    private void initializeDependencies(Context context) {
+        playerService = new PlayerServiceImpl(new MagicAnnotatorDBHelper(context).getWritableDatabase());
     }
 
     /**
@@ -287,6 +295,8 @@ public class ChoosePlayersActivity extends Activity {
             TableRow tableRow = new TableRow(playersLayout.getContext());
             tableRow.addView(preparePlayerSelector(playerNickName, true));
             playersLayout.addView(tableRow);
+
+            playerService.save(new Player(playerNickName));
         }
         return !added;
     }
