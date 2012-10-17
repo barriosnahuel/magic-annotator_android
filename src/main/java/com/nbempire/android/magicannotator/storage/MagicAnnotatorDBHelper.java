@@ -54,8 +54,14 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String scriptToExecute = MarketItemTable.getCreateScript() + PlayerTable.getCreateScript();
-        Log.i(LOG_TAG, "Creating DB for first time from SQL script: " + scriptToExecute);
+        Log.i(LOG_TAG, "Creating DB for first time...");
+
+        String scriptToExecute = MarketItemTable.getCreateScript();
+        Log.d(LOG_TAG, "Executing script: " + scriptToExecute);
+        sqLiteDatabase.execSQL(scriptToExecute);
+
+        scriptToExecute = PlayerTable.getCreateScript();
+        Log.d(LOG_TAG, "Executing script: " + scriptToExecute);
         sqLiteDatabase.execSQL(scriptToExecute);
     }
 
@@ -63,7 +69,8 @@ public class MagicAnnotatorDBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldDBVersion, int newDBVersion) {
         Log.w(LOG_TAG, "Upgrading database from version " + oldDBVersion + " to " + newDBVersion + ", which will destroy all old data.");
 
-        sqLiteDatabase.execSQL(MarketItemTable.getDropScript() + PlayerTable.getDropScript());
+        sqLiteDatabase.execSQL(MarketItemTable.getDropScript());
+        sqLiteDatabase.execSQL(PlayerTable.getDropScript());
         onCreate(sqLiteDatabase);
     }
 
