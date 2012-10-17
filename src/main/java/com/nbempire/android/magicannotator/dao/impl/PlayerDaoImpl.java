@@ -83,4 +83,11 @@ public class PlayerDaoImpl implements PlayerDao {
         }
 
     }
+
+    @Override
+    public void deleteAll() {
+        String tableName = PlayerTable.TABLE_NAME;
+        int deletedRows = magicAnnotatorDB.delete(tableName, "1", null);
+        Log.i(LOG_TAG, "Deleted " + deletedRows + " rows from table " + tableName + " in DB.");
+    }
 }

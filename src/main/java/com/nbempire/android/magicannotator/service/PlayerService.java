@@ -63,4 +63,10 @@ public interface PlayerService {
      */
     void save(Player player);
 
+    /**
+     * Delete all existing players.
+     *
+     * @since 13
+     */
+    void deleteAll();
 }

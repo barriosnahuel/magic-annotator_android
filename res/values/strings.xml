@@ -59,6 +59,7 @@
     <string name="newplayer_enterNickName">Introduzca el apodo:</string>
     <string name="choosePlayers_makeTeams">Armar equipos</string>
     <string name="choosePlayers_playerAlreadyExists">ya está creado!</string>
+    <string name="choosePlayersMenuItem_deleteAll">Borrar todos</string>
 
     <!-- ViewTeamsActivity -->
     <string name="viewTeams_title">Equipos:</string>

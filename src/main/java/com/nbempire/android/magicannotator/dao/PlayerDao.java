@@ -38,4 +38,11 @@ public interface PlayerDao {
      * @since 13
      */
     void save(Player player);
+
+    /**
+     * Delete all existing players.
+     *
+     * @since 13
+     */
+    void deleteAll();
 }

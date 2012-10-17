@@ -20,6 +20,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
@@ -51,8 +53,6 @@ public class ChoosePlayersActivity extends Activity {
      */
     private static final String LOG_TAG = "ChoosePlayersActivity";
 
-    private ArrayList<String> selectedPlayers = new ArrayList<String>();
-
     /**
      * A service for the Player entity.
      */
@@ -61,6 +61,8 @@ public class ChoosePlayersActivity extends Activity {
     private static final String SELECTED_PLAYERS_KEY = "selectedPlayers";
 
     private final Set<CharSequence> players = new TreeSet<CharSequence>();
+
+    private ArrayList<String> selectedPlayers;
 
     private Game aGame;
 
@@ -75,15 +77,6 @@ public class ChoosePlayersActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chooseplayers);
-
-        selectedPlayers = savedInstanceState == null ? new ArrayList<String>() : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        initializeDependencies(this);
 
         Bundle extras = getIntent().getExtras();
         Object parameter = extras.get(AppParameter.GAME);
@@ -104,18 +97,23 @@ public class ChoosePlayersActivity extends Activity {
             }
         }
 
-        List<Player> savedPlayers = playerService.findAll();
-        for (Player eachSavedPlayer : savedPlayers) {
-            players.add(eachSavedPlayer.getNickName());
-        }
-
-        loadDefaultPlayers(selectedPlayers);
-
         if (parameter instanceof Game) {
             addOnClickActionForMakeTeamsButtonForGames();
         } else {
             addOnClickActionForMakeTeamsButtonForNoGames();
         }
+
+        initializeDependencies(this);
+
+        selectedPlayers = savedInstanceState == null ? new ArrayList<String>() : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY);
+        loadPlayers(selectedPlayers);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        initializeDependencies(this);
     }
 
     @Override
@@ -131,6 +129,30 @@ public class ChoosePlayersActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.chooseplayers, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Log.i(LOG_TAG, "User selected " + item.getTitle() + " option from the menu.");
+
+        switch (item.getItemId()) {
+            case R.id.choosePlayersMenuItem_deleteAll:
+                Log.i(LOG_TAG, "All players will be deleted from storage.");
+                playerService.deleteAll();
+                onCreate(null);
+                break;
+            default:
+                Log.e(LOG_TAG, "The menu item " + item.getTitle() + " has no action attached.");
+                break;
+        }
+
+        return true;
     }
 
     /**
@@ -152,7 +174,12 @@ public class ChoosePlayersActivity extends Activity {
      * @param selectedPlayersList
      *         {@link List} de {@link String} con los jugadores ya seleccionados para ver cu�les tengo que tildar.
      */
-    private void loadDefaultPlayers(List<String> selectedPlayersList) {
+    private void loadPlayers(List<String> selectedPlayersList) {
+        List<Player> savedPlayers = playerService.findAll();
+        for (Player eachSavedPlayer : savedPlayers) {
+            players.add(eachSavedPlayer.getNickName());
+        }
+
         TableLayout playersLayout = (TableLayout) findViewById(R.id.choosePlayers_playersLayout);
 
         for (CharSequence eachPlayer : players) {

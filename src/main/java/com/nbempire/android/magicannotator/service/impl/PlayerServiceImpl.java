@@ -77,5 +77,10 @@ public class PlayerServiceImpl implements PlayerService {
         playerDao.save(player);
     }
 
+    @Override
+    public void deleteAll() {
+        playerDao.deleteAll();
+    }
+
 
 }
