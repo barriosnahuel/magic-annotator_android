@@ -142,6 +142,8 @@ public class MarketAnnotatorActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.i(LOG_TAG, "User selected " + item.getTitle() + " option from the menu.");
+
         boolean showMenu = false;
         boolean updateGUI = true;
 
@@ -165,6 +167,9 @@ public class MarketAnnotatorActivity extends Activity {
                 resetAnnotator();
                 showMenu = true;
                 updateGUI = false;
+                break;
+            default:
+                Log.e(LOG_TAG, "The menu item " + item.getTitle() + " has no action attached.");
                 break;
         }
 
