@@ -51,7 +51,7 @@ public class ChoosePlayersActivity extends Activity {
      */
     private static final String LOG_TAG = "ChoosePlayersActivity";
 
-    private final ArrayList<String> selectedPlayers = new ArrayList<String>();
+    private ArrayList<String> selectedPlayers = new ArrayList<String>();
 
     /**
      * A service for the Player entity.
@@ -60,18 +60,28 @@ public class ChoosePlayersActivity extends Activity {
 
     private static final String SELECTED_PLAYERS_KEY = "selectedPlayers";
 
-    private static final String ALL_PLAYERS = "allPlayers";
-
     private final Set<CharSequence> players = new TreeSet<CharSequence>();
 
     private Game aGame;
 
     private int gameKey = -1;
 
+    /**
+     * The MagicAnnotator database.
+     */
+    private MagicAnnotatorDBHelper magicAnnotatorDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.chooseplayers);
+
+        selectedPlayers = savedInstanceState == null ? new ArrayList<String>() : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         initializeDependencies(this);
 
@@ -99,21 +109,27 @@ public class ChoosePlayersActivity extends Activity {
             players.add(eachSavedPlayer.getNickName());
         }
 
-        loadDefaultPlayers(savedInstanceState == null ? new ArrayList<String>()
-                                   : savedInstanceState.getStringArrayList(SELECTED_PLAYERS_KEY));
+        loadDefaultPlayers(selectedPlayers);
 
         if (parameter instanceof Game) {
             addOnClickActionForMakeTeamsButtonForGames();
         } else {
             addOnClickActionForMakeTeamsButtonForNoGames();
         }
+    }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.i(LOG_TAG, "Closing MagicAnnotatorDBHelper...");
+        //  Close the DBHelper in onPause because of the Activities lifecycle and the OS may find a memory leak if it's not closed.
+        magicAnnotatorDBHelper.close();
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putStringArrayList(SELECTED_PLAYERS_KEY, selectedPlayers);
-
         super.onSaveInstanceState(outState);
     }
 
@@ -126,7 +142,8 @@ public class ChoosePlayersActivity extends Activity {
      * @since 13
      */
     private void initializeDependencies(Context context) {
-        playerService = new PlayerServiceImpl(new MagicAnnotatorDBHelper(context).getWritableDatabase());
+        magicAnnotatorDBHelper = new MagicAnnotatorDBHelper(context);
+        playerService = new PlayerServiceImpl(magicAnnotatorDBHelper.getWritableDatabase());
     }
 
     /**
