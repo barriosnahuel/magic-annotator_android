@@ -30,7 +30,7 @@ public abstract class PlayerTable {
     /**
      * Auto-incremental column that starts at 1 by default.
      */
-    public static final String ID = "id";
+    public static final String ID = "_id";
 
     public static final String NICKNAME = "nickName";
 
