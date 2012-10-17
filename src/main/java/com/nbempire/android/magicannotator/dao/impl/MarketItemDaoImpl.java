@@ -97,7 +97,8 @@ public class MarketItemDaoImpl implements MarketItemDao {
 
     @Override
     public void deleteAll() {
-        int deletedRows = magicAnnotatorDB.delete(MarketItemTable.TABLE_NAME, "1", null);
-        Log.i(LOG_TAG, "Deleted " + deletedRows + " rows from DB.");
+        String tableName = MarketItemTable.TABLE_NAME;
+        int deletedRows = magicAnnotatorDB.delete(tableName, "1", null);
+        Log.i(LOG_TAG, "Deleted " + deletedRows + " rows from table " + tableName + " in DB.");
     }
 }
