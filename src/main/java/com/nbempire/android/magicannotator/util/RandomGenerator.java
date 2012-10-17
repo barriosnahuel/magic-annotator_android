@@ -78,8 +78,8 @@ public class RandomGenerator<T> implements Iterator<T> {
     }
 
     /**
-     * Generates the next random value into a iteration. Sets the minimum value to zero and the maximum to the size of the current List in
-     * the iteration.
+     * Generates the next random value into a iteration. Sets the minimum value to zero and the maximum to the size of the current List in the
+     * iteration.
      *
      * @return Random value between zero and the size of the {@code numbers} type attribute.
      *

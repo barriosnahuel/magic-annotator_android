@@ -17,8 +17,7 @@ import com.nbempire.android.magicannotator.R;
 
 /**
  * GUI entity type to use with the {@code scoreeditor_horizontal.xml} layout because it does its functionality. User can use it from layout
- * resources with or without setting the {@code increment} XML attribute. If you don't pass that attribute, its default value will be {@code
- * 1}.
+ * resources with or without setting the {@code increment} XML attribute. If you don't pass that attribute, its default value will be {@code 1}.
  * <p/>
  * Use example in XML layout file:
  * <p/>
@@ -147,8 +146,8 @@ public class ScoreEditorView extends RelativeLayout {
     /**
      * Add value of {@code increment} to the current value of the specified {@code editText}.
      * <p/>
-     * Please note that this method always add the {@code increment} value to the current value, so if you want to substract you will
-     * transform {@code increment} to the negative form.
+     * Please note that this method always add the {@code increment} value to the current value, so if you want to substract you will transform
+     * {@code increment} to the negative form.
      *
      * @param editText
      *         The editText to update.
