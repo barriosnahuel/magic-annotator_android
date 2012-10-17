@@ -35,6 +35,8 @@ public abstract class MarketItemTable {
      * Script for create the table.
      *
      * @return SQL Script to create the MarketItem table.
+     *
+     * @since 10
      */
     public static String getCreateScript() {
         return "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ("
@@ -49,8 +51,10 @@ public abstract class MarketItemTable {
      * Creates a SQL script to drop this table.
      *
      * @return SQL script to drop the MarketItem table.
+     *
+     * @since 10
      */
     public static String getDropScript() {
-        return "DROP TABLE IF EXISTS " + TABLE_NAME;
+        return "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
     }
 }
