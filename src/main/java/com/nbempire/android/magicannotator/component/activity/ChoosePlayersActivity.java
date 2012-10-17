@@ -145,6 +145,7 @@ public class ChoosePlayersActivity extends Activity {
             case R.id.choosePlayersMenuItem_deleteAll:
                 Log.i(LOG_TAG, "All players will be deleted from storage.");
                 playerService.deleteAll();
+                players.clear();
                 onCreate(null);
                 break;
             default:
@@ -209,7 +210,6 @@ public class ChoosePlayersActivity extends Activity {
         checkBox.setText(playerName);
         if (checked) {
             checkBox.setChecked(checked);
-            selectedPlayers.add(playerName);
         }
         checkBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -292,7 +292,6 @@ public class ChoosePlayersActivity extends Activity {
 
             public void onClick(View view) {
                 try {
-
                     List<Team> teams = ServiceFactory.getInstance(aGame).makeTeams(playerService.parsePlayers(selectedPlayers));
                     aGame.setTeams(teams);
 
@@ -340,6 +339,7 @@ public class ChoosePlayersActivity extends Activity {
             tableRow.addView(preparePlayerSelector(playerNickName, true));
             playersLayout.addView(tableRow);
 
+            selectedPlayers.add(playerNickName);
             playerService.save(new Player(playerNickName));
         }
         return !added;
