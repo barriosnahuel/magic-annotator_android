@@ -13,6 +13,8 @@
             android:minSdkVersion="7"
             android:targetSdkVersion="7" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <!--
 	    Se definen características principales de la aplicación:
 		    android:icon: Es el icono que se visualizará en el launcher de Android. Debe estar en los recursos: @drawable en las 3 calidades que propone Android.

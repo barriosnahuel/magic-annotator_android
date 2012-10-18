@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
 import android.widget.Toast;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.Player;
@@ -21,6 +22,7 @@ import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
+import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * {@link Activity} para anotar un partido de {@link Chancho}.
@@ -28,6 +30,11 @@ import com.nbempire.android.magicannotator.util.android.TableListAdapter;
  * @author Nahuel Barrios.
  */
 public class ChanchoAnnotatorActivity extends Activity {
+
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "ChanchoAnnotatorActivity";
 
     private static final String CHANCHO = "CHANCHO";
 
@@ -49,9 +56,10 @@ public class ChanchoAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.chanchoannotator);
 
-        aGame = (Game) this.getIntent().getExtras().getSerializable(AppParameter.GAME);
+        aGame = (Game) getIntent().getExtras().getSerializable(AppParameter.GAME);
 
         GridView grid = ((GridView) findViewById(R.id.chanchoAnnotator_playersGridView));
 

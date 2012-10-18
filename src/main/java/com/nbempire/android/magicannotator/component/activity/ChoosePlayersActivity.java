@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.*;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TableRow.LayoutParams;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.Player;
@@ -39,6 +40,7 @@ import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
+import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * Activity to let users select which players are going to play.
@@ -76,6 +78,7 @@ public class ChoosePlayersActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.chooseplayers);
 
         Bundle extras = getIntent().getExtras();

@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
@@ -19,6 +20,7 @@ import com.nbempire.android.magicannotator.service.AnnotatorFactory;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActivity;
+import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * Android activity to show the user the auto-generated teams.
@@ -28,8 +30,15 @@ import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActi
  */
 public class ViewTeamsActivity extends SimpleExpandableListActivity {
 
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "ViewTeamsActivity";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+
         Game aGame = (Game) this.getIntent().getExtras().getSerializable(AppParameter.GAME);
         ExpandableList expandable = ServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
 

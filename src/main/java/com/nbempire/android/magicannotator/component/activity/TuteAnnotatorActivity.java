@@ -16,12 +16,14 @@ import android.content.DialogInterface.OnMultiChoiceClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
+import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * Android Activity for the Tute annotator.
@@ -30,6 +32,11 @@ import com.nbempire.android.magicannotator.util.android.TableListAdapter;
  * @since 1
  */
 public class TuteAnnotatorActivity extends Activity {
+
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "TuteAnnotatorActivity";
 
     private static final int NUMBER_OF_COLUMNS = 4;
 
@@ -51,6 +58,7 @@ public class TuteAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.tutepartialresults);
 
         aGame = (Game) this.getIntent().getExtras().getSerializable(AppParameter.GAME);

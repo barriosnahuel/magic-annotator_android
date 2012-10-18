@@ -17,12 +17,14 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
 import com.nbempire.android.magicannotator.service.GameFactory;
 import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
+import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * Android Activity to let user choose the annotator to use.
@@ -34,7 +36,14 @@ import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
  */
 public class ChooseGameActivity extends Activity {
 
+    /**
+     * Tag for class' log.
+     */
+    private static final String LOG_TAG = "ChooseGameActivity";
+
     private Intent nextIntentToShow;
+
+    GoogleAnalyticsTracker tracker;
 
     /**
      * Called when the activity is first created.
@@ -42,6 +51,14 @@ public class ChooseGameActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        tracker = GoogleAnalyticsTracker.getInstance();
+
+        // Start the tracker with a dispatch interval (in seconds).
+        tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
+
+        tracker.trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+
         setContentView(R.layout.choosegame);
 
         ListView games = (ListView) findViewById(R.id.main_gamesListView);

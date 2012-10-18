@@ -18,6 +18,9 @@ import com.nbempire.android.magicannotator.domain.game.Game;
  */
 public abstract class AppParameter {
 
+    public static final String GA_KEY = "UA-35699309-1";
+    public static final int GA_DISPATCH_INTERVAL = 5;
+
     /**
      * The current {@link Game} that the user is creating.
      */
