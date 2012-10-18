@@ -8,7 +8,6 @@
  */
 package com.nbempire.android.magicannotator.service;
 
-import android.util.Log;
 import com.nbempire.android.magicannotator.Exceptions;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
@@ -23,11 +22,6 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
  * @since 1
  */
 public abstract class GameFactory {
-
-    /**
-     * Tag for class' log.
-     */
-    private static final String LOG_TAG = "GameFactory";
 
     /**
      * Creates an instance of games based on a specific gameKey.
@@ -54,7 +48,6 @@ public abstract class GameFactory {
                 throw new IllegalArgumentException(Exceptions.INVALID_GAME_KEY);
             }
         } catch (NullPointerException nullPointerException) {
-            Log.e(LOG_TAG, "Selected game's key can't be null.");
             throw new IllegalArgumentException(Exceptions.INVALID_GAME_KEY);
         }
 
