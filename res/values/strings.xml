@@ -48,6 +48,9 @@
     </string>
     <string name="about_contact">Pueden contactarme por cualquier duda o para reportar algun error, a travez del sitio web del proyecto:
     </string>
+    <string name="about_permissions">Los permisos de acceso a internet son únicamente para recuperar información de uso de la aplicación para
+        saber cuáles son los anotadores que más se usan y mejorarlos, en ningún momento se leera información privada.
+    </string>
     <string name="about_projectUrl">github.com/barriosnahuel/magicAnnotator</string>
     <string name="about_greetings">¡Espero les sea util!</string>
 
