@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * RandomGeneratorTest.java Created by: Nahuel Barrios: 22/03/2012, 09:39:57.
  */
@@ -13,8 +18,7 @@ import org.junit.Test;
  * This class is for test {@link RandomGeneratorTest} class using JUnit.
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 22/03/2012, 09:39:57.
+ * @since 1
  */
 public class RandomGeneratorTest {
 

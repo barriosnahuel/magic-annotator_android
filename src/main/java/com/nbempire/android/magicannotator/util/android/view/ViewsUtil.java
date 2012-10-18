@@ -9,8 +9,6 @@
  */
 package com.nbempire.android.magicannotator.util.android.view;
 
-import android.util.Log;
-
 /**
  * Abstract utility class to help developer work with Views.
  *
@@ -18,11 +16,6 @@ import android.util.Log;
  * @since 8
  */
 public abstract class ViewsUtil {
-
-    /**
-     * Tag for class' log.
-     */
-    private static final String LOG_TAG = "ViewsUtil";
 
     /**
      * Returns the absolute value of the hashCode() method.
@@ -35,7 +28,9 @@ public abstract class ViewsUtil {
      * @since 1
      */
     public static int generateViewId(Object anObject) {
-        Log.d(LOG_TAG, "Generating viewId for: " + anObject.toString());
+        if (anObject == null) {
+            throw new IllegalArgumentException("parameter musn't be null to generate an id.");
+        }
         return Math.abs(anObject.hashCode());
     }
 

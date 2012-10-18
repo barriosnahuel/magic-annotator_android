@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * ServiceFactoryTest.java Created by: Nahuel Barrios: 24/03/2012, 02:12:27.
  */

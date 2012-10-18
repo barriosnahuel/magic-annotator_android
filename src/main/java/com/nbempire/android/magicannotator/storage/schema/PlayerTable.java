@@ -9,11 +9,6 @@
  */
 package com.nbempire.android.magicannotator.storage.schema;
 
-/*
- * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
- */
-
 /**
  * @author Nahuel Barrios.
  * @since 13

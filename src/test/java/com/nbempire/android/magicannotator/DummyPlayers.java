@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * No se reconocerá ningún tipo de garantía.
+ */
+
 /**
  * DummyPlayers.java Created by: Nahuel Barrios: 16/03/2012, 04:51:22.
  */
