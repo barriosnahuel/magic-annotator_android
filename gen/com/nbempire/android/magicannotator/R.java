@@ -104,10 +104,11 @@ public final class R {
 
     public static final class string {
         public static final int about_contact = 0x7f040016;
-        public static final int about_greetings = 0x7f040019;
+        public static final int about_greetings = 0x7f04001a;
         public static final int about_introduction = 0x7f040015;
         public static final int about_permissions = 0x7f040017;
         public static final int about_projectUrl = 0x7f040018;
+        public static final int about_projectUrl_complete = 0x7f040019;
         /**
          * AboutActivity
          */
@@ -126,15 +127,15 @@ public final class R {
         public static final int chooseGame_title = 0x7f040012;
         public static final int chooseLooser = 0x7f040007;
         public static final int chooseLoosers = 0x7f040008;
-        public static final int choosePlayersMenuItem_deleteAll = 0x7f040021;
-        public static final int choosePlayers_makeTeams = 0x7f04001f;
-        public static final int choosePlayers_newPlayer = 0x7f04001b;
-        public static final int choosePlayers_playerAlreadyExists = 0x7f040020;
-        public static final int choosePlayers_selected = 0x7f04001c;
+        public static final int choosePlayersMenuItem_deleteAll = 0x7f040022;
+        public static final int choosePlayers_makeTeams = 0x7f040020;
+        public static final int choosePlayers_newPlayer = 0x7f04001c;
+        public static final int choosePlayers_playerAlreadyExists = 0x7f040021;
+        public static final int choosePlayers_selected = 0x7f04001d;
         /**
          * ChoosePlayersActivity
          */
-        public static final int choosePlayers_title = 0x7f04001a;
+        public static final int choosePlayers_title = 0x7f04001b;
         public static final int commonLabel_OK = 0x7f040005;
         public static final int commonLabel_accept = 0x7f040004;
         public static final int commonLabel_someoneLost = 0x7f040006;
@@ -144,53 +145,53 @@ public final class R {
         /**
          * GenericAnnotatorActivity
          */
-        public static final int genericannotator_scores = 0x7f040023;
-        public static final int marketAnnotatorMenuItem_checkAllItems = 0x7f040039;
-        public static final int marketAnnotatorMenuItem_deleteAll = 0x7f040038;
-        public static final int marketAnnotatorMenuItem_uncheckAllItems = 0x7f04003a;
-        public static final int marketAnnotatorMenu_updateQuantitiesToZero = 0x7f040037;
+        public static final int genericannotator_scores = 0x7f040024;
+        public static final int marketAnnotatorMenuItem_checkAllItems = 0x7f04003a;
+        public static final int marketAnnotatorMenuItem_deleteAll = 0x7f040039;
+        public static final int marketAnnotatorMenuItem_uncheckAllItems = 0x7f04003b;
+        public static final int marketAnnotatorMenu_updateQuantitiesToZero = 0x7f040038;
         /**
          * MarketAnnotatorActivity
          */
-        public static final int marketAnnotator_myMarketList = 0x7f040035;
-        public static final int marketAnnotator_whatDoYouNeed = 0x7f040036;
+        public static final int marketAnnotator_myMarketList = 0x7f040036;
+        public static final int marketAnnotator_whatDoYouNeed = 0x7f040037;
         public static final int marketItem_initialNumberOfItems = 0x7f04000c;
         public static final int mustSelectAtLeastOne = 0x7f040011;
-        public static final int newplayer_createPlayer = 0x7f04001d;
-        public static final int newplayer_enterNickName = 0x7f04001e;
+        public static final int newplayer_createPlayer = 0x7f04001e;
+        public static final int newplayer_enterNickName = 0x7f04001f;
         public static final int play = 0x7f04000f;
         public static final int player = 0x7f040010;
         public static final int plus = 0x7f04000d;
         public static final int substract = 0x7f04000e;
-        public static final int trucoAnnotator_annotateNow = 0x7f040026;
+        public static final int trucoAnnotator_annotateNow = 0x7f040027;
         /**
          * TrucoAnnotatorActivity
          */
-        public static final int trucoAnnotator_doYouWannaThrowKings = 0x7f040024;
-        public static final int trucoAnnotator_labelDoTapOnYourTeamToAddScore = 0x7f04002b;
-        public static final int trucoAnnotator_labelNewGame = 0x7f040029;
-        public static final int trucoAnnotator_labelResult = 0x7f04002a;
-        public static final int trucoAnnotator_theyWin = 0x7f040028;
-        public static final int trucoAnnotator_throwKings = 0x7f040025;
-        public static final int trucoAnnotator_youWin = 0x7f040027;
+        public static final int trucoAnnotator_doYouWannaThrowKings = 0x7f040025;
+        public static final int trucoAnnotator_labelDoTapOnYourTeamToAddScore = 0x7f04002c;
+        public static final int trucoAnnotator_labelNewGame = 0x7f04002a;
+        public static final int trucoAnnotator_labelResult = 0x7f04002b;
+        public static final int trucoAnnotator_theyWin = 0x7f040029;
+        public static final int trucoAnnotator_throwKings = 0x7f040026;
+        public static final int trucoAnnotator_youWin = 0x7f040028;
         /**
          * Truco
          */
-        public static final int truco_team1_we = 0x7f040033;
-        public static final int truco_team2_them = 0x7f040034;
+        public static final int truco_team1_we = 0x7f040034;
+        public static final int truco_team2_them = 0x7f040035;
         /**
          * TutePartialResultsActivity
          */
-        public static final int tutePartialResults_addCapote = 0x7f04002c;
-        public static final int tutePartialResults_addTute = 0x7f04002d;
-        public static final int tutePartialResults_capotes = 0x7f040031;
-        public static final int tutePartialResults_lostHands = 0x7f04002f;
-        public static final int tutePartialResults_lostHands_short = 0x7f040030;
-        public static final int tutePartialResults_tutes = 0x7f040032;
-        public static final int tutePartialResults_whoDidThat = 0x7f04002e;
+        public static final int tutePartialResults_addCapote = 0x7f04002d;
+        public static final int tutePartialResults_addTute = 0x7f04002e;
+        public static final int tutePartialResults_capotes = 0x7f040032;
+        public static final int tutePartialResults_lostHands = 0x7f040030;
+        public static final int tutePartialResults_lostHands_short = 0x7f040031;
+        public static final int tutePartialResults_tutes = 0x7f040033;
+        public static final int tutePartialResults_whoDidThat = 0x7f04002f;
         /**
          * ViewTeamsActivity
          */
-        public static final int viewTeams_title = 0x7f040022;
+        public static final int viewTeams_title = 0x7f040023;
     }
 }

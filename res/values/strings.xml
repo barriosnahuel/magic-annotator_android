@@ -52,6 +52,7 @@
         saber cuáles son los anotadores que más se usan y mejorarlos, en ningún momento se leera información privada.
     </string>
     <string name="about_projectUrl">github.com/barriosnahuel/magicAnnotator</string>
+    <string name="about_projectUrl_complete">https://github.com/barriosnahuel/magicAnnotator</string>
     <string name="about_greetings">¡Espero les sea util!</string>
 
     <!-- ChoosePlayersActivity -->

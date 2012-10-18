@@ -43,7 +43,10 @@ public class ChooseGameActivity extends Activity {
 
     private Intent nextIntentToShow;
 
-    GoogleAnalyticsTracker tracker;
+    /**
+     * Google Analytics tracker used to track page views and events.
+     */
+    private GoogleAnalyticsTracker tracker;
 
     /**
      * Called when the activity is first created.
