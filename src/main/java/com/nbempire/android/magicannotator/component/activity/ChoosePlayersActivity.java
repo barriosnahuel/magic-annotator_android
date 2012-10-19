@@ -291,7 +291,7 @@ public class ChoosePlayersActivity extends Activity {
     /**
      * Creo la acción para el botón armar equipos.
      * <p/>
-     * TODO : Refactor : Sacar este método y dejar el nuevo.
+     * TODO : Refactor : Remove this method. Use the new one.
      *
      * @since 1
      */

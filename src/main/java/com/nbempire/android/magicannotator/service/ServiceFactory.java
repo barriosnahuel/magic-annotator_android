@@ -37,20 +37,24 @@ public abstract class ServiceFactory {
      */
     public static GameService getInstance(Game aGame) throws IllegalArgumentException {
         if (aGame == null) {
-            throw new IllegalArgumentException("El juego no puede ser null.");
-        } else {
-            Class<? extends Game> gameClass = aGame.getClass();
-            if (gameClass.equals(Chancho.class)) {
-                return new ChanchoServiceImpl();
-            } else if (gameClass.equals(Truco.class)) {
-                return new TrucoServiceImpl();
-            } else if (gameClass.equals(Tute.class)) {
-                return new TuteServiceImpl();
-            } else {
-                throw new IllegalArgumentException("El juego no existeo no esta configurado correctamente.");
-            }
-
+            throw new IllegalArgumentException("Game musn't be null.");
         }
+
+        GameService annotatorActivity;
+        if (aGame instanceof Truco) {
+            annotatorActivity = new TrucoServiceImpl();
+
+        } else if (aGame instanceof Chancho) {
+            annotatorActivity = new ChanchoServiceImpl();
+
+        } else if (aGame instanceof Tute) {
+            annotatorActivity = new TuteServiceImpl();
+
+        } else {
+            throw new IllegalArgumentException("There's no Service for the specified game: " + aGame.getClass().getSimpleName());
+        }
+
+        return annotatorActivity;
     }
 
 }

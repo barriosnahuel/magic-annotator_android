@@ -57,7 +57,7 @@ public class ServiceFactoryTest {
      * @version 1.0.
      * @since 24/03/2012, 09:13:02.
      */
-    public class InexistentGame extends Game {
+    private class InexistentGame extends Game {
 
         /**
          * The serialVersionUID of this type.
