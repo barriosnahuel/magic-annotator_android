@@ -61,7 +61,7 @@ public class ChooseAnnotatorActivity extends Activity {
 
         setUpAnalytics();
 
-        setContentView(R.layout.choosegame);
+        setContentView(R.layout.chooseannotator);
 
         ListView availableAnnotators = (ListView) findViewById(R.id.main_gamesListView);
         availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseAnnotator_annotatorsValues,
