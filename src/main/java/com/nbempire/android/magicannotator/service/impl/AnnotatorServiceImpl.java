@@ -38,7 +38,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
             annotatorId = R.string.annotator_chancho;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_MARKET)) {
-            annotatorId = R.string.gamename_market;
+            annotatorId = R.string.annotator_market;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_OTHER)) {
             annotatorId = R.string.gamename_otro;

@@ -42,7 +42,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withMarketInput_returnMarketId() {
-        Assert.assertEquals(R.string.gamename_market, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_MARKET));
+        Assert.assertEquals(R.string.annotator_market, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_MARKET));
     }
 
     @Test
@@ -95,7 +95,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorGame_withMarketInput_returnNull() {
-        Game aGame = annotatorService.getAnnotatorGame(R.string.gamename_market);
+        Game aGame = annotatorService.getAnnotatorGame(R.string.annotator_market);
         Assert.assertNull("Returned Game must be null.", aGame);
     }
 

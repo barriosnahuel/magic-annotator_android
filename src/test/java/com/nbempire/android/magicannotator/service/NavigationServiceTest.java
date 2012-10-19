@@ -43,7 +43,7 @@ public class NavigationServiceTest {
 
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithSuperMarketUserSelection_throwIllegalArgumentException() {
-        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_market);
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_market);
         Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
         Assert.assertEquals(MarketAnnotatorActivity.class.getSimpleName(), nextActivity.getSimpleName());
     }

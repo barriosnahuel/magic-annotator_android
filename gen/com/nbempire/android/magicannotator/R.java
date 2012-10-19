@@ -118,6 +118,7 @@ public final class R {
          */
         public static final int add = 0x7f040002;
         public static final int annotateHand = 0x7f040003;
+        public static final int annotator_chancho = 0x7f04000a;
         public static final int app_name = 0x7f040000;
         public static final int app_name_gui = 0x7f040001;
         public static final int chooseGame_about = 0x7f040016;
@@ -140,8 +141,7 @@ public final class R {
         public static final int commonLabel_accept = 0x7f040004;
         public static final int commonLabel_someoneLost = 0x7f040006;
         public static final int defaultInitialGameScore = 0x7f040009;
-        public static final int annotator_chancho = 0x7f04000a;
-        public static final int gamename_market = 0x7f04000b;
+        public static final int annotator_market = 0x7f04000b;
         public static final int gamename_otro = 0x7f04000e;
         public static final int gamename_truco = 0x7f04000c;
         public static final int gamename_tute = 0x7f04000d;
