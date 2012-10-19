@@ -21,6 +21,7 @@ import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.game.Game;
+import com.nbempire.android.magicannotator.domain.game.TuteScores;
 import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
 import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
@@ -159,11 +160,11 @@ public class TuteAnnotatorActivity extends Activity {
         }
         Collections.sort(possibleLoosers);
 
-        int temporalScoreToUpdate = AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE;
+        TuteScores temporalScoreToUpdate = TuteScores.CAPOTE;
         if (R.id.tutePartialResults_addTuteButton == view.getId()) {
-            temporalScoreToUpdate = AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_TUTE;
+            temporalScoreToUpdate = TuteScores.TUTE;
         }
-        final int scoreToUpdate = temporalScoreToUpdate;
+        final TuteScores scoreToUpdate = temporalScoreToUpdate;
 
         AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(theContext);
         selectPlayerDialog.setTitle(getText(R.string.tutePartialResults_whoDidThat));
@@ -230,13 +231,13 @@ public class TuteAnnotatorActivity extends Activity {
      *
      * @since 1
      */
-    private void addScoreFor(int scoreToUpdate, String selectedNickName) {
+    private void addScoreFor(TuteScores scoreToUpdate, String selectedNickName) {
         String scoreKey;
         switch (scoreToUpdate) {
-            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND:
+            case HAND:
                 scoreKey = AppParameter.TUTE_PLAYER_SCORE_LOST_HAND;
                 break;
-            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE:
+            case CAPOTE:
                 scoreKey = AppParameter.TUTE_PLAYER_SCORE_CAPOTE;
                 break;
             default:
@@ -258,7 +259,7 @@ public class TuteAnnotatorActivity extends Activity {
      */
     private void updateScoreFor(List<String> selectedLoosers) {
         for (String eachPlayerNickname : selectedLoosers) {
-            addScoreFor(AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND, eachPlayerNickname);
+            addScoreFor(TuteScores.HAND, eachPlayerNickname);
         }
     }
 

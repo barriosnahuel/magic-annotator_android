@@ -42,21 +42,6 @@ public abstract class AppParameter {
     public static final String TUTE_PLAYER_SCORE_TUTE = "tuteScoreTute";
 
     /**
-     * // TODO : JavaDoc : for ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND
-     */
-    public static final int ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND = 2;
-
-    /**
-     * // TODO : JavaDoc : for ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE
-     */
-    public static final int ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE = 3;
-
-    /**
-     * // TODO : JavaDoc : for ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_TUTE
-     */
-    public static final int ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_TUTE = 4;
-
-    /**
      * TODO : Javadoc for PLAYERS
      */
     public static final String PLAYERS = "players";
