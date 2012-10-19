@@ -47,7 +47,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withOtherInput_returnOtherId() {
-        Assert.assertEquals(R.string.gamename_otro, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_OTHER));
+        Assert.assertEquals(R.string.annotator_otro, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_OTHER));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void get_withOtroAnnotatorId_returnAnnotatorActivity() {
-        Class activity = annotatorService.get(R.string.gamename_otro);
+        Class activity = annotatorService.get(R.string.annotator_otro);
         Assert.assertNotNull("The returned annotator activity musn't be null.", activity);
 
         String suffix = "AnnotatorActivity";

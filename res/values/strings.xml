@@ -23,7 +23,7 @@
     <string name="annotator_market">Lista del supermercado</string>
     <string name="annotator_truco">Truco</string>
     <string name="annotator_tute">Tute</string>
-    <string name="gamename_otro">Otro</string>
+    <string name="annotator_otro">Otro</string>
 
     <string name="marketItem_initialNumberOfItems">1</string>
     <string name="plus">+</string>

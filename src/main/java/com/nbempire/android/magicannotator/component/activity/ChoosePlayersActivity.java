@@ -98,7 +98,7 @@ public class ChoosePlayersActivity extends Activity {
         } else {
             annotatorId = extras.getInt(AppParameter.GAME);
             switch (annotatorId) {
-                case R.string.gamename_otro:
+                case R.string.annotator_otro:
                     ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
                     break;
                 default:

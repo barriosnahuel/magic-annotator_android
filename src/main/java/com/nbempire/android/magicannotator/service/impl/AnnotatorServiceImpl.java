@@ -41,7 +41,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
             annotatorId = R.string.annotator_market;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_OTHER)) {
-            annotatorId = R.string.gamename_otro;
+            annotatorId = R.string.annotator_otro;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_TRUCO)) {
             annotatorId = R.string.annotator_truco;
@@ -79,7 +79,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
     public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException {
         Class<? extends Activity> annotator;
         switch (annotatorId) {
-            case R.string.gamename_otro:
+            case R.string.annotator_otro:
                 annotator = GenericAnnotatorActivity.class;
                 break;
             default:
