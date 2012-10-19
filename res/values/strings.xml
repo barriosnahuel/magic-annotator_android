@@ -18,8 +18,13 @@
     <string name="chooseLooser">¿Quién perdió?</string>
     <string name="chooseLoosers">¿Quiénes perdieron?</string>
     <string name="defaultInitialGameScore">0</string>
+
+    <string name="gamename_chancho">Chancho</string>
     <string name="gamename_market">Lista del supermercado</string>
+    <string name="gamename_truco">Truco</string>
+    <string name="gamename_tute">Tute</string>
     <string name="gamename_otro">Otro</string>
+
     <string name="marketItem_initialNumberOfItems">1</string>
     <string name="plus">+</string>
     <string name="substract">-</string>
