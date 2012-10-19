@@ -13,7 +13,7 @@ import com.nbempire.android.magicannotator.GUIKeys;
 import com.nbempire.android.magicannotator.service.GameService;
 
 /**
- * TODO : JavaDoc : for TuteServiceImpl.
+ * Implementation of GameService for the Tute game.
  *
  * @author Nahuel Barrios.
  * @since 1
