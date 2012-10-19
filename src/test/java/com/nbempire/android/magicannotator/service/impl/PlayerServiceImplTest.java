@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class PlayerServiceImplTest {
 
-    private PlayerServiceImpl playerServiceImpl = new PlayerServiceImpl();
+    private final PlayerServiceImpl playerServiceImpl = new PlayerServiceImpl();
 
     /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl#parsePlayers(java.util.List)} .

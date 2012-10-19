@@ -32,7 +32,7 @@ public abstract class DummyTeams {
         return teams;
     }
 
-    public static List<Team> withoutPlayers(String[] teamsLabel) {
+    private static List<Team> withoutPlayers(String[] teamsLabel) {
         List<Team> teams = new ArrayList<Team>();
 
         for (String string : teamsLabel) {

@@ -37,6 +37,7 @@ public class ViewsUtilTest {
      *
      * @since 14
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void generateViewId_withNull_throwIllegalArgumentException() throws Exception {
         String anObject = null;

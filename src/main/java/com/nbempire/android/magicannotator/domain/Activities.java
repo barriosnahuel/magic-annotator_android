@@ -25,7 +25,7 @@ public enum Activities {
     /**
      * The associated activity type simple name. It's without the packages as preffix.
      */
-    private String activityTypeName;
+    private final String activityTypeName;
 
     /**
      * Constructor for this enum.

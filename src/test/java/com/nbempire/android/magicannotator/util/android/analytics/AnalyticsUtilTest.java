@@ -41,6 +41,7 @@ public class AnalyticsUtilTest {
      *
      * @since 14
      */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void generatePageName_withNullActivityName_throwIllegalArgumentException() throws Exception {
         AnalyticsUtil.generatePageName(null);

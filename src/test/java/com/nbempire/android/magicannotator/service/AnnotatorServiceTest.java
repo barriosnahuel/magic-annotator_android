@@ -33,7 +33,7 @@ public class AnnotatorServiceTest {
     /**
      * The service to test.
      */
-    private AnnotatorService annotatorService = new AnnotatorServiceImpl();
+    private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     @Test
     public void getAnnotatorId_withChanchoInput_returnChanchoId() {

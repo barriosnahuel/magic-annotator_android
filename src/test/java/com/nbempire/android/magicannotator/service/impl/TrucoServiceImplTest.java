@@ -27,7 +27,7 @@ public class TrucoServiceImplTest {
     /**
      * The service to test.
      */
-    private TrucoServiceImpl trucoServiceImpl = new TrucoServiceImpl();
+    private final TrucoServiceImpl trucoServiceImpl = new TrucoServiceImpl();
 
     /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl#getFirstTeamLabel()} .
@@ -71,11 +71,13 @@ public class TrucoServiceImplTest {
 
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withValidSelectedPlayers_returnTrue() {
-        Assert.assertTrue("Con 2 jugadores seleccionados, deber�a haber retornado <true>",
+        Assert.assertTrue("With 2 selected players, must return <true>.",
                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(2));
-        Assert.assertTrue("Con 4 jugadores seleccionados, deber�a haber retornado <true>",
+
+        Assert.assertTrue("With 4 selected players, must return <true>.",
                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(4));
-        Assert.assertTrue("Con 6 jugadores seleccionados, deber�a haber retornado <true>",
+
+        Assert.assertTrue("With 6 selected players, must return <true>.",
                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(6));
     }
 

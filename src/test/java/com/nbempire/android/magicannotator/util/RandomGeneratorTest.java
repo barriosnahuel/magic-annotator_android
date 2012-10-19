@@ -59,8 +59,7 @@ public class RandomGeneratorTest {
     /**
      * @return {@link List} de {@link Integer} con valores Dummy para usar para testing.
      *
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     * @since 1
      */
     private List<Integer> dummyListOfNumbers() {
         List<Integer> numbers = new ArrayList<Integer>();
@@ -78,8 +77,7 @@ public class RandomGeneratorTest {
     /**
      * @return {@link List} de {@link Integer} con valores Dummy para usar para testing.
      *
-     * @author Nahuel Barrios.
-     * @since 22/03/2012.
+     * @since 1
      */
     private List<String> dummyListOfStrings() {
         List<String> strings = new ArrayList<String>();

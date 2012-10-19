@@ -15,8 +15,6 @@ package com.nbempire.android.magicannotator;
  */
 public abstract class Exceptions {
 
-    public static final String INVALID_GAME_KEY = "Inexistent game's key.";
-
     public static final String INVALID_NUMBER_SELECTED_PLAYERS_TUTE = "Se deben seleccionar entre 3 y 12 jugadores.";
 
     public static final String INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "Se deben seleccionar entre 3 y 12 jugadores.";

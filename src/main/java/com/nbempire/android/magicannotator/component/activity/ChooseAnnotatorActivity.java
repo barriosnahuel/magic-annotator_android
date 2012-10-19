@@ -45,12 +45,12 @@ public class ChooseAnnotatorActivity extends Activity {
     /**
      * Service for the annotators.
      */
-    private AnnotatorService annotatorService = new AnnotatorServiceImpl();
+    private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     /**
      * Service that controls the user's navigation flow.
      */
-    private NavigationService navigationService = new NavigationServiceImpl();
+    private final NavigationService navigationService = new NavigationServiceImpl();
 
     /**
      * Called when the activity is first created.

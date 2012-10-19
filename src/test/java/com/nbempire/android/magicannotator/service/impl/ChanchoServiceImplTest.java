@@ -16,7 +16,7 @@ import org.junit.Test;
  */
 public class ChanchoServiceImplTest {
 
-    private ChanchoServiceImpl chanchoServiceImpl = new ChanchoServiceImpl();
+    private final ChanchoServiceImpl chanchoServiceImpl = new ChanchoServiceImpl();
 
     /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.ChanchoServiceImpl#getFirstTeamLabel()} .

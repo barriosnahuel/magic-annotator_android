@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class TuteServiceImplTest {
 
-    private TuteServiceImpl instance = new TuteServiceImpl();
+    private final TuteServiceImpl instance = new TuteServiceImpl();
 
     /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getFirstTeamLabel()} .

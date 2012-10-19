@@ -24,7 +24,7 @@ import org.junit.Test;
  */
 public class NavigationServiceTest {
 
-    private NavigationService navigationService = new NavigationServiceImpl();
+    private final NavigationService navigationService = new NavigationServiceImpl();
 
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithChanchoUserSelection_returnChoosePlayersActivity() {

@@ -32,7 +32,7 @@ public class GameServiceImplTest {
     /**
      * The service that we are testing.
      */
-    private GameService gameService = new GameServiceTestImpl();
+    private final GameService gameService = new GameServiceTestImpl();
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = TeamShouldHasPlayersException.class)

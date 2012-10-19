@@ -20,8 +20,7 @@ import org.junit.Test;
  * This class is for test {@link ServiceFactoryTest} class using JUnit.
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 24/03/2012, 02:12:27.
+ * @since 1
  */
 public class ServiceFactoryTest {
 
@@ -34,27 +33,20 @@ public class ServiceFactoryTest {
         Assert.assertEquals(TrucoServiceImpl.class, ServiceFactory.getInstance(new Truco()).getClass());
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.GameFactory#getInstance(java.lang.String)} .
-     */
     @Test
     public final void testGetInstance_withExistentTuteInput_returnValidGameInstance() {
         Assert.assertEquals(TuteServiceImpl.class, ServiceFactory.getInstance(new Tute()).getClass());
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.GameFactory#getInstance(java.lang.String)} .
-     */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
-    public final void testGetInstance_withInexistentInput_returnIllegalArgumentException() {
+    public final void testGetInstance_withInexistentInput_throwIllegalArgumentException() {
         ServiceFactory.getInstance(new InexistentGame());
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.GameFactory#getInstance(java.lang.String)} .
-     */
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
-    public final void testGetInstance_withNullInput_returnIllegalArgumentException() {
+    public final void testGetInstance_withNullInput_throwIllegalArgumentException() {
         ServiceFactory.getInstance(null);
     }
 
@@ -68,10 +60,13 @@ public class ServiceFactoryTest {
     public class InexistentGame extends Game {
 
         /**
-         * @author Nahuel Barrios.
+         * The serialVersionUID of this type.
          */
         private static final long serialVersionUID = 6199586921004785003L;
 
+        /**
+         * Constructor method for this type.
+         */
         public InexistentGame() {
             super(2, 3);
         }
