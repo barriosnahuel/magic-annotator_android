@@ -37,6 +37,10 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
      * Tag for class' log.
      */
     private static final String LOG_TAG = "ViewTeamsActivity";
+
+    /**
+     * Service for the annotators.
+     */
     private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     @Override
@@ -74,7 +78,7 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
 
                 Intent nextIntentToShow = new Intent(view.getContext(), annotatorService.get(aGame));
                 nextIntentToShow.putExtra(AppParameter.GAME, aGame);
-                startActivityForResult(nextIntentToShow, 0);
+                startActivity(nextIntentToShow);
             }
         });
     }
