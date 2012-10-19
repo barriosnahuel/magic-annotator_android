@@ -60,4 +60,6 @@ public interface AnnotatorService {
      * @since 1
      */
     public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException;
+
+    public Class<? extends Activity> get(Game game) throws IllegalArgumentException;
 }

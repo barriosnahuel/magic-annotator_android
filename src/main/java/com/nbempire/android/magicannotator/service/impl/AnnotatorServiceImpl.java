@@ -12,7 +12,10 @@ package com.nbempire.android.magicannotator.service.impl;
 import android.app.Activity;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.component.activity.ChanchoAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.GenericAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.TrucoAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.TuteAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
@@ -86,5 +89,27 @@ public class AnnotatorServiceImpl implements AnnotatorService {
                 throw new IllegalArgumentException("The annotator activity doesn't exists.");
         }
         return annotator;
+    }
+
+    @Override
+    public Class<? extends Activity> get(Game game) throws IllegalArgumentException {
+        if (game == null) {
+            throw new IllegalArgumentException("Game musn't be null.");
+        }
+
+        Class<? extends Activity> annotatorActivity = null;
+        if (game instanceof Truco) {
+            annotatorActivity = TrucoAnnotatorActivity.class;
+
+        } else if (game instanceof Chancho) {
+            annotatorActivity = ChanchoAnnotatorActivity.class;
+
+        } else if (game instanceof Tute) {
+            annotatorActivity = TuteAnnotatorActivity.class;
+
+        } else {
+            throw new IllegalArgumentException("The specified Game is not a valid game.");
+        }
+        return annotatorActivity;
     }
 }

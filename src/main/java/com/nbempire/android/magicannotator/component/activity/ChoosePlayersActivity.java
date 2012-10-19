@@ -34,7 +34,6 @@ import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
-import com.nbempire.android.magicannotator.service.AnnotatorFactory;
 import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
@@ -308,7 +307,7 @@ public class ChoosePlayersActivity extends Activity {
                     if (teams.size() > 1) {
                         nextIntentToShow = new Intent(view.getContext(), ViewTeamsActivity.class);
                     } else {
-                        nextIntentToShow = new Intent(view.getContext(), AnnotatorFactory.getFor(aGame));
+                        nextIntentToShow = new Intent(view.getContext(), annotatorService.get(aGame));
                     }
 
                     nextIntentToShow.putExtra(AppParameter.GAME, aGame);

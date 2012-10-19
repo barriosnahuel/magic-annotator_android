@@ -9,6 +9,7 @@
  */
 package com.nbempire.android.magicannotator.service;
 
+import android.app.Activity;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
@@ -29,6 +30,10 @@ public class AnnotatorServiceTest {
 
     private static final String MUST_BE_INSTANCE_OF = "Must be an instance of ";
     private static final String RETURNED_GAME_MUST_NOT_BE_NULL = "Returned Game musn't be null.";
+    private static final String RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL = "The returned annotator activity musn't be null.";
+    private static final String ANNOTATOR_ACTIVITY_TYPE_SUFFIX = "AnnotatorActivity";
+    private static final String TYPE_NAME_MUST_HAVE_SUFFIX = "The type's simple name must ends with the suffix: " +
+                                                                     ANNOTATOR_ACTIVITY_TYPE_SUFFIX;
 
     /**
      * The service to test.
@@ -101,11 +106,44 @@ public class AnnotatorServiceTest {
 
     @Test
     public void get_withOtroAnnotatorId_returnAnnotatorActivity() {
-        Class activity = annotatorService.get(R.string.annotator_otro);
-        Assert.assertNotNull("The returned annotator activity musn't be null.", activity);
+        Class<? extends Activity> activity = annotatorService.get(R.string.annotator_otro);
+        Assert.assertNotNull(RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL, activity);
+        Assert.assertTrue(TYPE_NAME_MUST_HAVE_SUFFIX, activity.getSimpleName().endsWith(ANNOTATOR_ACTIVITY_TYPE_SUFFIX));
+    }
 
-        String suffix = "AnnotatorActivity";
-        Assert.assertTrue("The type's simple name must ends with the suffix: " + suffix, activity.getSimpleName().endsWith(suffix));
+    @Test
+    public void get_withTrucoGame_returnAnnotatorActivity() {
+        Class<? extends Activity> activity = annotatorService.get(new Truco());
+        Assert.assertNotNull(RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL, activity);
+        Assert.assertTrue(TYPE_NAME_MUST_HAVE_SUFFIX, activity.getSimpleName().endsWith(ANNOTATOR_ACTIVITY_TYPE_SUFFIX));
+    }
+
+    @Test
+    public void get_withChanchoGame_returnAnnotatorActivity() {
+        Class<? extends Activity> activity = annotatorService.get(new Chancho());
+        Assert.assertNotNull(RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL, activity);
+        Assert.assertTrue(TYPE_NAME_MUST_HAVE_SUFFIX, activity.getSimpleName().endsWith(ANNOTATOR_ACTIVITY_TYPE_SUFFIX));
+    }
+
+    @Test
+    public void get_withTuteGame_returnAnnotatorActivity() {
+        Class<? extends Activity> activity = annotatorService.get(new Tute());
+        Assert.assertNotNull(RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL, activity);
+        Assert.assertTrue(TYPE_NAME_MUST_HAVE_SUFFIX, activity.getSimpleName().endsWith(ANNOTATOR_ACTIVITY_TYPE_SUFFIX));
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Test(expected = IllegalArgumentException.class)
+    public void get_withInvalidGame_throwIllegalArgumentException() {
+        annotatorService.get(new Game(1, 2) {
+            private static final long serialVersionUID = 471756212507274824L;
+        });
+    }
+
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Test(expected = IllegalArgumentException.class)
+    public void get_withNullGame_throwIllegalArgumentException() {
+        annotatorService.get(null);
     }
 
 }

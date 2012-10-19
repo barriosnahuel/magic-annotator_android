@@ -18,8 +18,9 @@ import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
-import com.nbempire.android.magicannotator.service.AnnotatorFactory;
+import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
+import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActivity;
 import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
@@ -36,6 +37,7 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
      * Tag for class' log.
      */
     private static final String LOG_TAG = "ViewTeamsActivity";
+    private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -70,7 +72,7 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
             public void onClick(View view) {
                 Game aGame = (Game) getIntent().getExtras().getSerializable(AppParameter.GAME);
 
-                Intent nextIntentToShow = new Intent(view.getContext(), AnnotatorFactory.getFor(aGame));
+                Intent nextIntentToShow = new Intent(view.getContext(), annotatorService.get(aGame));
                 nextIntentToShow.putExtra(AppParameter.GAME, aGame);
                 startActivityForResult(nextIntentToShow, 0);
             }
