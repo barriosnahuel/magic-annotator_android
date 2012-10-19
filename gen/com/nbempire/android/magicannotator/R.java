@@ -9,7 +9,7 @@ package com.nbempire.android.magicannotator;
 
 public final class R {
     public static final class array {
-        public static final int chooseGame_gamesValues = 0x7f050000;
+        public static final int chooseAnnotator_annotatorsValues = 0x7f050000;
     }
 
     public static final class attr {
@@ -118,17 +118,21 @@ public final class R {
          */
         public static final int add = 0x7f040002;
         public static final int annotateHand = 0x7f040003;
-        public static final int annotator_chancho = 0x7f04000a;
-        public static final int annotator_market = 0x7f04000b;
-        public static final int annotator_truco = 0x7f04000c;
-        public static final int annotator_tute = 0x7f04000d;
+        /**
+         * Annotators ID. Must have the same value in the list
+         */
+        public static final int annotator_chancho = 0x7f040011;
+        public static final int annotator_market = 0x7f040012;
+        public static final int annotator_otro = 0x7f040015;
+        public static final int annotator_truco = 0x7f040013;
+        public static final int annotator_tute = 0x7f040014;
         public static final int app_name = 0x7f040000;
         public static final int app_name_gui = 0x7f040001;
-        public static final int chooseGame_about = 0x7f040016;
+        public static final int chooseAnnotator_about = 0x7f040016;
         /**
          * ChooseAnnotatorActivity
          */
-        public static final int chooseGame_title = 0x7f040015;
+        public static final int chooseAnnotator_title = 0x7f040010;
         public static final int chooseLooser = 0x7f040007;
         public static final int chooseLoosers = 0x7f040008;
         public static final int choosePlayersMenuItem_deleteAll = 0x7f040025;
@@ -144,7 +148,6 @@ public final class R {
         public static final int commonLabel_accept = 0x7f040004;
         public static final int commonLabel_someoneLost = 0x7f040006;
         public static final int defaultInitialGameScore = 0x7f040009;
-        public static final int annotator_otro = 0x7f04000e;
         /**
          * GenericAnnotatorActivity
          */
@@ -158,14 +161,14 @@ public final class R {
          */
         public static final int marketAnnotator_myMarketList = 0x7f040039;
         public static final int marketAnnotator_whatDoYouNeed = 0x7f04003a;
-        public static final int marketItem_initialNumberOfItems = 0x7f04000f;
-        public static final int mustSelectAtLeastOne = 0x7f040014;
+        public static final int marketItem_initialNumberOfItems = 0x7f04000a;
+        public static final int mustSelectAtLeastOne = 0x7f04000f;
         public static final int newplayer_createPlayer = 0x7f040021;
         public static final int newplayer_enterNickName = 0x7f040022;
-        public static final int play = 0x7f040012;
-        public static final int player = 0x7f040013;
-        public static final int plus = 0x7f040010;
-        public static final int substract = 0x7f040011;
+        public static final int play = 0x7f04000d;
+        public static final int player = 0x7f04000e;
+        public static final int plus = 0x7f04000b;
+        public static final int substract = 0x7f04000c;
         public static final int trucoAnnotator_annotateNow = 0x7f04002a;
         /**
          * TrucoAnnotatorActivity

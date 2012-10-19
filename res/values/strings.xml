@@ -18,13 +18,6 @@
     <string name="chooseLooser">¿Quién perdió?</string>
     <string name="chooseLoosers">¿Quiénes perdieron?</string>
     <string name="defaultInitialGameScore">0</string>
-
-    <string name="annotator_chancho">Chancho</string>
-    <string name="annotator_market">Lista del supermercado</string>
-    <string name="annotator_truco">Truco</string>
-    <string name="annotator_tute">Tute</string>
-    <string name="annotator_otro">Otro</string>
-
     <string name="marketItem_initialNumberOfItems">1</string>
     <string name="plus">+</string>
     <string name="substract">-</string>
@@ -33,9 +26,16 @@
     <string name="mustSelectAtLeastOne">Se debe seleccionar al menos 1</string>
 
     <!-- ChooseAnnotatorActivity -->
-    <string name="chooseGame_title">¿Qué vas a anotar?</string>
+    <string name="chooseAnnotator_title">¿Qué vas a anotar?</string>
 
-    <string-array name="chooseGame_gamesValues">
+    <!--Annotators ID. Must have the same value in the list-->
+    <string name="annotator_chancho">Chancho</string>
+    <string name="annotator_market">Lista del supermercado</string>
+    <string name="annotator_truco">Truco</string>
+    <string name="annotator_tute">Tute</string>
+    <string name="annotator_otro">Otro</string>
+
+    <string-array name="chooseAnnotator_annotatorsValues">
         <item>Chancho</item>
         <item>Lista del supermercado</item>
         <item>Truco</item>
@@ -43,7 +43,7 @@
         <item>Otro</item>
     </string-array>
 
-    <string name="chooseGame_about">Acerca de</string>
+    <string name="chooseAnnotator_about">Acerca de</string>
 
     <!-- AboutActivity -->
     <string name="about_title">Sobre esta aplicación:</string>

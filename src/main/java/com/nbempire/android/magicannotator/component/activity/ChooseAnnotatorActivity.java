@@ -64,7 +64,7 @@ public class ChooseAnnotatorActivity extends Activity {
         setContentView(R.layout.choosegame);
 
         ListView availableAnnotators = (ListView) findViewById(R.id.main_gamesListView);
-        availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseGame_gamesValues,
+        availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseAnnotator_annotatorsValues,
                                                                               android.R.layout.simple_list_item_1));
         availableAnnotators.setTextFilterEnabled(true);
 
