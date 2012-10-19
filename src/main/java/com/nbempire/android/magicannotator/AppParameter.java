@@ -27,21 +27,6 @@ public abstract class AppParameter {
     public static final String GAME = "game";
 
     /**
-     * // TODO : JavaDoc : for TUTE_PLAYER_SCORE_LOST_HAND
-     */
-    public static final String TUTE_PLAYER_SCORE_LOST_HAND = "tuteScoreLostHand";
-
-    /**
-     * // TODO : JavaDoc : for TUTE_PLAYER_SCORE_CAPOTE
-     */
-    public static final String TUTE_PLAYER_SCORE_CAPOTE = "tuteScoreCapote";
-
-    /**
-     * // TODO : JavaDoc : for TUTE_PLAYER_SCORE_TUTE
-     */
-    public static final String TUTE_PLAYER_SCORE_TUTE = "tuteScoreTute";
-
-    /**
      * TODO : Javadoc for PLAYERS
      */
     public static final String PLAYERS = "players";

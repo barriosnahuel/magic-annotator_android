@@ -13,6 +13,7 @@ package com.nbempire.android.magicannotator;
  */
 public abstract class GameKeys {
 
+    public static final int CHANCHO_MIN_PLAYERS = 2;
     public static final int CHANCHO_MAX_PLAYERS = 12;
 
     public static final String GAME_NAME_CHANCHO = "Chancho";

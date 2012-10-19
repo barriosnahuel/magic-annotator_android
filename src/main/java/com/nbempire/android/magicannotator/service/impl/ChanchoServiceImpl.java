@@ -20,12 +20,12 @@ public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected String getFirstTeamLabel() {
-        return GUIKeys.COMMON_SELECTED_PLAYERS;
+        return GUIKeys.GAME_TUTE_TEAM_LABEL_GROUP1;
     }
 
     @Override
     protected String getSecondTeamLabel() {
-        return "";
+        return GUIKeys.GAME_TUTE_TEAM_LABEL_GROUP2;
     }
 
     @Override
@@ -35,7 +35,7 @@ public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected boolean hasValidNumberOfSelectedPlayers(int numberOfPlayers) {
-        return numberOfPlayers > 2 && numberOfPlayers <= 12;
+        return numberOfPlayers > GameKeys.CHANCHO_MIN_PLAYERS && numberOfPlayers <= GameKeys.CHANCHO_MAX_PLAYERS;
     }
 
     @Override

@@ -26,7 +26,4 @@ public abstract class GUIKeys {
 
     public static final String GAME_TUTE_TEAM_LABEL_GROUP2 = "Grupo 2";
 
-    // Common labels
-    public static final String COMMON_SELECTED_PLAYERS = "Jugadores seleccionados";
-
 }

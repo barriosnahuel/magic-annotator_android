@@ -101,9 +101,9 @@ public class TuteAnnotatorActivity extends Activity {
         if (!forUpdate) {
             for (Player player : aGame.getTeams().get(0).getPlayers()) {
                 Bundle eachPlayerBundle = new Bundle();
-                eachPlayerBundle.putCharSequence(AppParameter.TUTE_PLAYER_SCORE_LOST_HAND, "0");
-                eachPlayerBundle.putCharSequence(AppParameter.TUTE_PLAYER_SCORE_CAPOTE, "0");
-                eachPlayerBundle.putCharSequence(AppParameter.TUTE_PLAYER_SCORE_TUTE, "0");
+                eachPlayerBundle.putCharSequence(TuteScores.HAND.toString(), "0");
+                eachPlayerBundle.putCharSequence(TuteScores.CAPOTE.toString(), "0");
+                eachPlayerBundle.putCharSequence(TuteScores.TUTE.toString(), "0");
                 scores.putBundle(player.getNickName(), eachPlayerBundle);
             }
         }
@@ -135,9 +135,9 @@ public class TuteAnnotatorActivity extends Activity {
 
         for (String eachPlayer : sortedSet) {
             result.add(eachPlayer);
-            result.add(playersScores.getBundle(eachPlayer).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_LOST_HAND));
-            result.add(playersScores.getBundle(eachPlayer).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_CAPOTE));
-            result.add(playersScores.getBundle(eachPlayer).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_TUTE));
+            result.add(playersScores.getBundle(eachPlayer).getCharSequence(TuteScores.HAND.toString()));
+            result.add(playersScores.getBundle(eachPlayer).getCharSequence(TuteScores.CAPOTE.toString()));
+            result.add(playersScores.getBundle(eachPlayer).getCharSequence(TuteScores.TUTE.toString()));
         }
 
         return result;
@@ -152,7 +152,7 @@ public class TuteAnnotatorActivity extends Activity {
      * @since 1
      */
     public void openPlayersSelector(View view) {
-        final Context theContext = view.getContext();
+        Context context = view.getContext();
 
         final List<String> possibleLoosers = new ArrayList<String>();
         for (Player eachPlayer : aGame.getTeams().get(0).getPlayers()) {
@@ -166,7 +166,7 @@ public class TuteAnnotatorActivity extends Activity {
         }
         final TuteScores scoreToUpdate = temporalScoreToUpdate;
 
-        AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(theContext);
+        AlertDialog.Builder selectPlayerDialog = new AlertDialog.Builder(context);
         selectPlayerDialog.setTitle(getText(R.string.tutePartialResults_whoDidThat));
         selectPlayerDialog.setSingleChoiceItems(ArrayUtil.toArray(possibleLoosers), -1, new DialogInterface.OnClickListener() {
 
@@ -193,7 +193,7 @@ public class TuteAnnotatorActivity extends Activity {
 
         final List<String> possibleLoosers = new ArrayList<String>();
         for (String playerNickname : scores.keySet()) {
-            if (!scores.getBundle(playerNickname).getCharSequence(AppParameter.TUTE_PLAYER_SCORE_LOST_HAND).equals("4")) {
+            if (!scores.getBundle(playerNickname).getCharSequence(TuteScores.HAND.toString()).equals("4")) {
                 possibleLoosers.add(playerNickname);
             }
         }
@@ -225,28 +225,15 @@ public class TuteAnnotatorActivity extends Activity {
      * Increment the specified score {@code scoreToUpdate} for the specified player in {@code selectedNickName}.
      *
      * @param scoreToUpdate
-     *         int value which specifies the sort of score to update. It has to be one of the declared constants in AppParameter.
+     *         int value which specifies the sort of score to update.
      * @param selectedNickName
      *         The nickname of the player whose score will be updated.
      *
      * @since 1
      */
     private void addScoreFor(TuteScores scoreToUpdate, String selectedNickName) {
-        String scoreKey;
-        switch (scoreToUpdate) {
-            case HAND:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_LOST_HAND;
-                break;
-            case CAPOTE:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_CAPOTE;
-                break;
-            default:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_TUTE;
-                break;
-        }
-
-        Integer updatedScore = Integer.parseInt(scores.getBundle(selectedNickName).getString(scoreKey)) + 1;
-        scores.getBundle(selectedNickName).putCharSequence(scoreKey, updatedScore.toString());
+        Integer updatedScore = Integer.parseInt(scores.getBundle(selectedNickName).getString(scoreToUpdate.toString())) + 1;
+        scores.getBundle(selectedNickName).putCharSequence(scoreToUpdate.toString(), updatedScore.toString());
     }
 
     /**
