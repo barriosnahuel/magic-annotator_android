@@ -17,7 +17,7 @@ import com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.TuteServiceImpl;
 
 /**
- * TODO : JavaDoc : for ServiceFactoryImpl.
+ * Abstract type to provide a factory of implementations of the GameService interface.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -25,14 +25,15 @@ import com.nbempire.android.magicannotator.service.impl.TuteServiceImpl;
 public abstract class ServiceFactory {
 
     /**
-     * TODO : JavaDoc : for ServiceFactory.getInstance()
+     * Gets the corresponding instance of a GameService for the specified {@code aGame} parameter.
      *
      * @param aGame
+     *         A Game associated with a particular instance of a GameService.
      *
-     * @return {@link GameService}.
+     * @return An instantiated GameService.
      *
      * @throws IllegalArgumentException
-     *         when there isn't any Service for the input {@link Game}.
+     *         When there isn't any Service for the input {@link Game}.
      * @since 1
      */
     public static GameService getInstance(Game aGame) throws IllegalArgumentException {
