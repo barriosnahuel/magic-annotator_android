@@ -20,10 +20,13 @@ import android.widget.TextView;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.domain.Activities;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
-import com.nbempire.android.magicannotator.service.GameFactory;
-import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
+import com.nbempire.android.magicannotator.service.AnnotatorService;
+import com.nbempire.android.magicannotator.service.NavigationService;
+import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
+import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
 import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
@@ -38,6 +41,16 @@ public class ChooseAnnotatorActivity extends Activity {
      * Tag for class' log.
      */
     private static final String LOG_TAG = "ChooseAnnotatorActivity";
+
+    /**
+     * Service for the annotators.
+     */
+    private AnnotatorService annotatorService = new AnnotatorServiceImpl();
+
+    /**
+     * Service that controls the user's navigation flow.
+     */
+    private NavigationService navigationService = new NavigationServiceImpl();
 
     /**
      * Called when the activity is first created.
@@ -72,25 +85,19 @@ public class ChooseAnnotatorActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemKey = ((TextView) parent.getChildAt(position)).getText().toString();
 
-                final Game aGame = GameFactory.getInstance(selectedItemKey);
-                final Context theContext = view.getContext();
+                int annotatorId = annotatorService.getAnnotatorId(selectedItemKey);
+                Game aGame = annotatorService.getAnnotatorGame(annotatorId);
 
-                if (aGame != null) {
-                    if (aGame.getClass().equals(Truco.class)) {
-                        addCustomNavigationFlowForTrucoAnnotator(theContext, aGame);
-                    } else {
-                        showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
-                    }
+                Context theContext = view.getContext();
+                if (aGame instanceof Truco) {
+                    addCustomNavigationFlowForTrucoAnnotator(theContext, aGame);
                 } else {
-                    // el juego es null, entonces estoy en Otro y tengo que hacerlo de la forma
-                    // correcta
-
-                    if (selectedItemKey.equals(getText(R.string.gamename_market))) {
-                        showNextActivity(theContext, MarketAnnotatorActivity.class);
+                    Class nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, annotatorId);
+                    if (aGame == null) {
+                        showNextActivity(theContext, nextActivity, annotatorId);
                     } else {
-                        showNextActivity(theContext, ChoosePlayersActivity.class, GamesActivitiesFactory.getGameKey(selectedItemKey));
+                        showNextActivity(theContext, nextActivity, aGame);
                     }
-
 
                 }
 
@@ -99,10 +106,12 @@ public class ChooseAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : Javadoc for addCustomNavigationFlowForTrucoAnnotator
+     * Let the user decide between throw kings to make the teams or go directly to the annotator and then show the next Activity.
      *
      * @param theContext
+     *         The context where the next Intent will be showed.
      * @param aGame
+     *         An instance of a Truco game to add as parameter to next Activity.
      *
      * @since 15
      */
@@ -142,52 +151,58 @@ public class ChooseAnnotatorActivity extends Activity {
     }
 
     /**
-     * Show {@code nextIntent} without setting any parameter to next activity.
+     * Show {@code nextActivity} to the user setting the {@code annotatoId} parameter as a parameter to the next activity.
      *
-     * @param theContext
-     *         The context.
-     * @param nextIntent
+     * @param context
+     *         The context where the next Intent will be showed.
+     * @param nextActivity
      *         Next activity to show to the user.
-     *
-     * @since 8
-     */
-    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent) {
-        showNextActivity(theContext, nextIntent, -1);
-    }
-
-    /**
-     * Show {@code nextIntent} to the user setting the {@code gameKey} parameter as a parameter to the next activity.
-     *
-     * @param theContext
-     *         The context.
-     * @param nextIntent
-     *         Next activity to show to the user.
-     * @param gameKey
-     *         Game's key parameter to the next activity.
+     * @param annotatoId
+     *         The Id of the annotator selected by the user.
      *
      * @since 1
      */
-    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, int gameKey) {
-        Intent nextIntentToShow = new Intent(theContext, nextIntent);
-        if (gameKey != -1) {
-            nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
-        }
-        startActivity(nextIntentToShow);
+    public <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, int annotatoId) {
+        showNextActivity(context, nextActivity, annotatoId, null);
     }
 
     /**
-     * Show {@code nextIntent} to the user setting the {@code aGame} parameter as a parameter to the next activity.
+     * Show {@code nextActivity} to the user setting the {@code aGame} parameter as a parameter to the next activity.
      *
-     * @param theContext
-     *         The context.
-     * @param nextIntent
+     * @param context
+     *         The context where the next Intent will be showed.
+     * @param nextActivity
      *         Next activity to show to the user.
      * @param aGame
      *         The Game to pass as parameter to the next activity.
      */
-    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, Game aGame) {
-        Intent nextIntentToShow = new Intent(theContext, nextIntent);
-        nextIntentToShow.putExtra(AppParameter.GAME, aGame);
+    public <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, Game aGame) {
+        showNextActivity(context, nextActivity, -1, aGame);
+    }
+
+    /**
+     * Show {@code nextActivity} to the user setting the {@code aGame} parameter or the {@code annotatorId} as a parameter to the next activity.
+     *
+     * @param theContext
+     *         The context where the next Intent will be showed.
+     * @param nextActivity
+     *         Next activity to show to the user.
+     * @param annotatorId
+     *         The Id of the annotator selected by the user.
+     * @param aGame
+     *         The Game to pass as parameter to the next activity.
+     *
+     * @since 15
+     */
+    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextActivity, int annotatorId, Game aGame) {
+        Intent nextIntentToShow = new Intent(theContext, nextActivity);
+
+        if (aGame != null) {
+            nextIntentToShow.putExtra(AppParameter.GAME, aGame);
+        } else {
+            nextIntentToShow.putExtra(AppParameter.GAME, annotatorId);
+        }
+
         startActivity(nextIntentToShow);
     }
 

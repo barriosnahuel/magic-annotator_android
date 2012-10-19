@@ -15,8 +15,11 @@ public abstract class GameKeys {
 
     public static final int CHANCHO_MAX_PLAYERS = 12;
 
-    public static final String GAME_NAME_OTHER = "Otro";
+    public static final String GAME_NAME_CHANCHO = "Chancho";
     public static final String GAME_NAME_MARKET = "Lista del supermercado";
+    public static final String GAME_NAME_OTHER = "Otro";
+    public static final String GAME_NAME_TRUCO = "Truco";
+    public static final String GAME_NAME_TUTE = "Tute";
 
     public static final int TRUCO_MAX_SCORE = 30;
     public static final int TRUCO_INCREMENT = 1;
