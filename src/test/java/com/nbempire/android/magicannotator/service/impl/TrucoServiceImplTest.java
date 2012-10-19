@@ -4,7 +4,7 @@
  */
 
 /**
- * TrucoServiceImplUnitarioTest.java Created by: Nahuel Barrios: 28/03/2012, 11:00:57.
+ * TrucoServiceImplTest.java Created by: Nahuel Barrios: 28/03/2012, 11:00:57.
  */
 package com.nbempire.android.magicannotator.service.impl;
 
@@ -22,7 +22,7 @@ import org.junit.Test;
  * @author Nahuel Barrios.
  * @since 1
  */
-public class TrucoServiceImplUnitarioTest {
+public class TrucoServiceImplTest {
 
     /**
      * The service to test.

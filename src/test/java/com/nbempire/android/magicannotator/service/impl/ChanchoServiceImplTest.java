@@ -14,7 +14,7 @@ import org.junit.Test;
  * @author Nahuel Barrios.
  * @since 1
  */
-public class ChanchoServiceImplUnitarioTest {
+public class ChanchoServiceImplTest {
 
     private ChanchoServiceImpl chanchoServiceImpl = new ChanchoServiceImpl();
 
