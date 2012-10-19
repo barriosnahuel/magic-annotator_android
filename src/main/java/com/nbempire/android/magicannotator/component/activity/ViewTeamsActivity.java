@@ -10,12 +10,14 @@ package com.nbempire.android.magicannotator.component.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
+import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
 import com.nbempire.android.magicannotator.service.AnnotatorFactory;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.util.ExpandableList;
@@ -40,7 +42,13 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
         GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
 
         Game aGame = (Game) this.getIntent().getExtras().getSerializable(AppParameter.GAME);
-        ExpandableList expandable = ServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
+        ExpandableList expandable = null;
+        try {
+            expandable = ServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
+        } catch (TeamShouldHasPlayersException e) {
+            //  TODO : Functionality : Return to last activity.
+            Log.e(LOG_TAG, e.getMessage());
+        }
 
         super.onCreate(savedInstanceState, expandable);
         setContentView(R.layout.viewteams);

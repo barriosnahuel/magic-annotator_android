@@ -13,6 +13,7 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
+import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 
 /**
@@ -38,14 +39,19 @@ public interface GameService {
     public abstract List<Team> makeTeams(List<Player> players) throws UserException;
 
     /**
-     * TODO : JavaDoc : for GameService.getExpandableTeams()
+     * Parse a list of teams and create an ExpandableList ready to show to the user.
+     * <p/>
+     * The ExpandableList will has one group per team, and each Player will be a subitem of a group.
      *
      * @param teams
+     *         A list of teams. The source for the ExpandableList.
      *
-     * @return
+     * @return An ExpandableList ready to show to the user
      *
+     * @throws com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException
+     *         When any of the specified teams hasn't got any players.
      * @since 1
      */
-    public abstract ExpandableList getExpandableTeams(List<Team> teams);
+    public abstract ExpandableList getExpandableTeams(List<Team> teams) throws TeamShouldHasPlayersException;
 
 }

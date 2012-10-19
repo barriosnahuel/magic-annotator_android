@@ -11,7 +11,7 @@ package com.nbempire.android.magicannotator.util;
 import java.util.List;
 
 /**
- * TODO : JavaDoc : for ExpandableList.
+ * Interface to work with expandable list of items where each item has a label and a list of subitems to show.
  *
  * @author Nahuel Barrios.
  * @since 1

@@ -15,6 +15,7 @@ import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.InvalidNumberOfSelectedPlayersException;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
+import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
 import com.nbempire.android.magicannotator.service.GameService;
 import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.util.ExpandableArrayList;
@@ -30,6 +31,9 @@ import com.nbempire.android.magicannotator.util.RandomGenerator;
  */
 public abstract class GameServiceImpl implements GameService {
 
+    /**
+     * Service for the Player entity.
+     */
     private final PlayerService playerService = new PlayerServiceImpl();
 
     public List<Team> makeTeams(List<Player> players) throws UserException {
@@ -40,8 +44,10 @@ public abstract class GameServiceImpl implements GameService {
         return this.makeRandomTeams(players);
     }
 
-    public ExpandableList getExpandableTeams(List<Team> teams) {
+    public ExpandableList getExpandableTeams(List<Team> teams) throws TeamShouldHasPlayersException {
         ExpandableList result = new ExpandableArrayList();
+
+        validateTeams(teams);
 
         for (Team eachTeam : teams) {
             result.add(new ExpandableGroup(eachTeam.getLabel(), playerService.getExpandablePlayers(eachTeam.getPlayers())));
@@ -51,11 +57,30 @@ public abstract class GameServiceImpl implements GameService {
     }
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.makeRandomTeams()
+     * Validate if each Team from the specified list of teams has at least one player.
+     *
+     * @param teams
+     *         The list of teams to validate.
+     *
+     * @throws com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException
+     *         When any of the specified teams hasn't got any players.
+     * @since 15
+     */
+    private void validateTeams(List<Team> teams) throws TeamShouldHasPlayersException {
+        for (Team eachTeam : teams) {
+            if (eachTeam.getPlayers().isEmpty()) {
+                throw new TeamShouldHasPlayersException();
+            }
+        }
+    }
+
+    /**
+     * Make a list of teams by selecting randomly each player from the specified list of players.
      *
      * @param players
+     *         The list of playes which the teams will be created.
      *
-     * @return
+     * @return The generated list of teams.
      *
      * @since 1
      */
@@ -88,49 +113,51 @@ public abstract class GameServiceImpl implements GameService {
     }
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.getFirstTeamLabel()
+     * Gets the label to show to the user for the first team.
      *
-     * @return
+     * @return String with the label to show to the user.
      *
      * @since 1
      */
     protected abstract String getFirstTeamLabel();
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.getSecondTeamLabel()
+     * Gets the label to show to the user for the second team.
      *
-     * @return
+     * @return String with the label to show to the user.
      *
      * @since 1
      */
     protected abstract String getSecondTeamLabel();
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.getTeamPlayersLimit()
+     * Calculates the maximum number of players per team based on the specified number of {@code selectedPlayers}.
      *
      * @param selectedPlayers
+     *         The number of players selected for the annotator.
      *
-     * @return
+     * @return An integer with the maximum number of players per team.
      *
      * @since 1
      */
     protected abstract int getTeamPlayersLimit(int selectedPlayers);
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.hasValidNumberOfSelectedPlayers()
+     * Validates for each specific game when the number of selected players is valid/invalid.
      *
      * @param numberOfPlayers
+     *         The current number of selected players.
      *
-     * @return
+     * @return {@code true} when the number of players is valid. Otherwise {@code false}.
      *
      * @since 1
      */
     protected abstract boolean hasValidNumberOfSelectedPlayers(int numberOfPlayers);
 
     /**
-     * TODO : JavaDoc : for GameServiceImpl.getInvalidNumberOfSelectedPlayersExceptionMessage()
+     * Gets the message to show to the user when the number of selected players is invalid.
      *
-     * @return
+     * @return String with the message to the user.
      *
      * @since 1
      */

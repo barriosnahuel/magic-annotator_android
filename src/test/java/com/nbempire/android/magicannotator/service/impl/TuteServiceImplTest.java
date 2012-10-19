@@ -14,10 +14,7 @@ import com.nbempire.android.magicannotator.DummyPlayers;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.exception.UserException;
 import junit.framework.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.junit.Assert.fail;
 
 /**
  * Tests TuteServiceImpl type.
@@ -200,15 +197,6 @@ public class TuteServiceImplTest {
         Team secondGroup = teams.get(1);
         Assert.assertEquals("Grupo 2", secondGroup.getLabel());
         Assert.assertEquals(4, secondGroup.getPlayers().size());
-    }
-
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.GameServiceImpl#getExpandableTeams(java.util.List)} .
-     */
-    @Test
-    @Ignore
-    public final void testGetExpandableTeams() {
-        fail("Not yet implemented");
     }
 
 }
