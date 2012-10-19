@@ -9,6 +9,7 @@
  */
 package com.nbempire.android.magicannotator.service;
 
+import android.app.Activity;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.component.activity.MarketAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.Activities;
@@ -28,7 +29,7 @@ public class NavigationServiceTest {
 
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithChanchoUserSelection_returnChoosePlayersActivity() {
-        Class nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_chancho);
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_chancho);
 
         Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
         Assert.assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());
@@ -42,7 +43,7 @@ public class NavigationServiceTest {
 
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithSuperMarketUserSelection_throwIllegalArgumentException() {
-        Class nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_market);
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_market);
         Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
         Assert.assertEquals(MarketAnnotatorActivity.class.getSimpleName(), nextActivity.getSimpleName());
     }

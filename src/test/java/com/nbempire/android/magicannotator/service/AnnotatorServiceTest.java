@@ -99,4 +99,13 @@ public class AnnotatorServiceTest {
         Assert.assertNull("Returned Game must be null.", aGame);
     }
 
+    @Test
+    public void get_withOtroAnnotatorId_returnAnnotatorActivity() {
+        Class activity = annotatorService.get(R.string.gamename_otro);
+        Assert.assertNotNull("The returned annotator activity musn't be null.", activity);
+
+        String suffix = "AnnotatorActivity";
+        Assert.assertTrue("The type's simple name must ends with the suffix: " + suffix, activity.getSimpleName().endsWith(suffix));
+    }
+
 }

@@ -9,6 +9,7 @@
  */
 package com.nbempire.android.magicannotator.service;
 
+import android.app.Activity;
 import com.nbempire.android.magicannotator.domain.Activities;
 
 /**
@@ -31,5 +32,5 @@ public interface NavigationService {
      *
      * @since 15
      */
-    Class getNextActivityType(Activities chooseAnnotator, int annotatorId);
+    Class<? extends Activity> getNextActivityType(Activities chooseAnnotator, int annotatorId);
 }

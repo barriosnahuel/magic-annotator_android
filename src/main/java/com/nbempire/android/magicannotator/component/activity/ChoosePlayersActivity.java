@@ -35,9 +35,10 @@ import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.service.AnnotatorFactory;
-import com.nbempire.android.magicannotator.service.GamesActivitiesFactory;
+import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.service.ServiceFactory;
+import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
 import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
@@ -68,12 +69,17 @@ public class ChoosePlayersActivity extends Activity {
 
     private Game aGame;
 
-    private int gameKey = -1;
+    private int annotatorId = -1;
 
     /**
      * The MagicAnnotator database.
      */
     private MagicAnnotatorDBHelper magicAnnotatorDBHelper;
+
+    /**
+     * Service for the annotators.
+     */
+    private AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +96,8 @@ public class ChoosePlayersActivity extends Activity {
                 ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
             }
         } else {
-            gameKey = extras.getInt(AppParameter.GAME);
-            switch (gameKey) {
+            annotatorId = extras.getInt(AppParameter.GAME);
+            switch (annotatorId) {
                 case R.string.gamename_otro:
                     ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
                     break;
@@ -272,9 +278,9 @@ public class ChoosePlayersActivity extends Activity {
                 if (selectedPlayers.isEmpty()) {
                     Toast.makeText(getApplicationContext(), getText(R.string.mustSelectAtLeastOne).toString(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent nextIntentToShow = new Intent(view.getContext(), GamesActivitiesFactory.getAnnotator(gameKey));
+                    Intent nextIntentToShow = new Intent(view.getContext(), annotatorService.get(annotatorId));
 
-                    nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
+                    nextIntentToShow.putExtra(AppParameter.GAME, annotatorId);
                     nextIntentToShow.putExtra(AppParameter.PLAYERS, selectedPlayers);
 
                     startActivity(nextIntentToShow);

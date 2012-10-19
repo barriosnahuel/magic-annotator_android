@@ -9,8 +9,10 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
+import android.app.Activity;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.component.activity.GenericAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
@@ -71,5 +73,18 @@ public class AnnotatorServiceImpl implements AnnotatorService {
         }
 
         return aGame;
+    }
+
+    @Override
+    public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException {
+        Class<? extends Activity> annotator;
+        switch (annotatorId) {
+            case R.string.gamename_otro:
+                annotator = GenericAnnotatorActivity.class;
+                break;
+            default:
+                throw new IllegalArgumentException("The annotator activity doesn't exists.");
+        }
+        return annotator;
     }
 }

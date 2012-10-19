@@ -92,7 +92,7 @@ public class ChooseAnnotatorActivity extends Activity {
                 if (aGame instanceof Truco) {
                     addCustomNavigationFlowForTrucoAnnotator(theContext, aGame);
                 } else {
-                    Class nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, annotatorId);
+                    Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, annotatorId);
                     if (aGame == null) {
                         showNextActivity(theContext, nextActivity, annotatorId);
                     } else {

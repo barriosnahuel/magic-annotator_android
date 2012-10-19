@@ -9,6 +9,7 @@
  */
 package com.nbempire.android.magicannotator.service;
 
+import android.app.Activity;
 import com.nbempire.android.magicannotator.domain.game.Game;
 
 /**
@@ -45,4 +46,18 @@ public interface AnnotatorService {
      * @since 1
      */
     Game getAnnotatorGame(int annotatorId);
+
+    /**
+     * Inspect which annotator activity has to return based on the specified {@code aGame} parameter.
+     *
+     * @param annotatorId
+     *         An annotator Id.
+     *
+     * @return The corresponding annotator activity for the specified {@code annotatorId}.
+     *
+     * @throws IllegalArgumentException
+     *         When there isn't any Activity for the specified {@code annotatorId}.
+     * @since 1
+     */
+    public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException;
 }
