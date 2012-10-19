@@ -97,7 +97,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
             throw new IllegalArgumentException("Game musn't be null.");
         }
 
-        Class<? extends Activity> annotatorActivity = null;
+        Class<? extends Activity> annotatorActivity;
         if (game instanceof Truco) {
             annotatorActivity = TrucoAnnotatorActivity.class;
 
