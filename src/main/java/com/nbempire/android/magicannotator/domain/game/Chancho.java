@@ -18,11 +18,4 @@ public class Chancho extends Game {
      */
     private static final long serialVersionUID = 4057818107839653410L;
 
-    /**
-     * Constructor for Chancho game.
-     */
-    public Chancho() {
-        super(3, 12);
-    }
-
 }

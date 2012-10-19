@@ -14,7 +14,7 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.Team;
 
 /**
- * TODO : JavaDoc : for Game.
+ * Abstract type to generalize a Game. All games should extend this type.
  *
  * @author Nahuel Barrios.
  * @since 1
@@ -26,25 +26,10 @@ public abstract class Game implements Serializable {
      */
     private static final long serialVersionUID = 4849356274653494152L;
 
-    protected List<Team> teams;
-
-    protected Integer minimumTeams;
-
-    protected Integer maximumTeams;
-
     /**
-     * A constructor method for the Game type.
-     *
-     * @param minimumTeams
-     * @param maximumTeams
-     *
-     * @since 1
+     * The list of teams that has this Game.
      */
-    public Game(Integer minimumTeams, Integer maximumTeams) {
-        super();
-        this.minimumTeams = minimumTeams;
-        this.maximumTeams = maximumTeams;
-    }
+    protected List<Team> teams;
 
     /**
      * Accessor for the attribute of the entity.
