@@ -18,7 +18,7 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
 import com.nbempire.android.magicannotator.service.AnnotatorService;
 
 /**
- * TODO : Javadoc for new type.
+ * Implementation of the AnnotatorService.
  *
  * @author Nahuel Barrios.
  * @since 15

@@ -20,24 +20,27 @@ import com.nbempire.android.magicannotator.domain.game.Game;
 public interface AnnotatorService {
 
     /**
-     * Inspect which game key has to return based on the specified {@code gameName} parameter. TODO : Javadoc for AnnotatorService
+     * Get the associated annotator Id for the specified {@code userSelection}.
      *
      * @param userSelection
      *         The name of one game. It has to be unique for the app.
      *
-     * @return {@link Integer} -1 if there is no game that matchs the current gameName
+     * @return The Id of the annotator that matchs the specified {@code userSelection}.
      *
+     * @throws IllegalArgumentException
+     *         when the {@code userSelection} is {@code null} or if there isn't any annotator that matches the specified {@code userSelection}.
      * @since 1
      */
     int getAnnotatorId(String userSelection);
 
     /**
-     * Creates an instance of games based on a specific gameKey.
+     * Creates an instance of games based on a specific {@code annotatorId}.
      *
      * @param annotatorId
      *         the annotator id
      *
-     * @return An instance of Game based on the specified gameKey.
+     * @return An instance of Game based on the specified {@code annotatorId}. {@code null} when there isn't any Game for the specified {@code
+     *         annotatorId}.
      *
      * @since 1
      */

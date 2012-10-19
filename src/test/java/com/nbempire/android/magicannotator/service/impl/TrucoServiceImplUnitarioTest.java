@@ -20,11 +20,10 @@ import org.junit.Test;
 import static org.junit.Assert.fail;
 
 /**
- * TODO : JavaDoc : for TrucoServiceImplUnitarioTest.
+ * Tests the TrucoServiceImpl type that implements the GameService interface.
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 28/03/2012, 11:00:57.
+ * @since 1
  */
 public class TrucoServiceImplUnitarioTest {
 
@@ -70,9 +69,6 @@ public class TrucoServiceImplUnitarioTest {
         Assert.assertEquals(3, instance.getTeamPlayersLimit(6));
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl#hasValidNumberOfSelectedPlayers()} .
-     */
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withValidSelectedPlayers_returnTrue() {
         Assert.assertTrue("Con 2 jugadores seleccionados, deber�a haber retornado <true>",
@@ -83,9 +79,6 @@ public class TrucoServiceImplUnitarioTest {
                                  instance.hasValidNumberOfSelectedPlayers(6));
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl#hasValidNumberOfSelectedPlayers()} .
-     */
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withInvalidSelectedPlayers_returnFalse() {
         Assert.assertFalse("Con 1 jugadores seleccionados, deber�a haber retornado <false>",
@@ -98,10 +91,6 @@ public class TrucoServiceImplUnitarioTest {
                                   instance.hasValidNumberOfSelectedPlayers(7));
     }
 
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl#getInvalidNumberOfSelectedPlayersExceptionMessage(com.nbempire.android.magicannotator.domain.game.Game)}
-     * .
-     */
     @Test
     public final void testGetInvalidNumberOfTeamsExceptionMessage() {
         Assert.assertEquals("La cantidad de jugadores debe ser 2, 4 o 6.",
@@ -112,23 +101,18 @@ public class TrucoServiceImplUnitarioTest {
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.GameServiceImpl#makeTeams(java.util.List)} .
      */
     @Test
-    public final void testMakeTeams_with4SelectedPlayers() {
+    public final void testMakeTeams_with4SelectedPlayers() throws UserException {
         List<Team> teams;
-        try {
-            teams = instance.makeTeams(DummyPlayers.forTruco4());
-            Assert.assertEquals(2, teams.size());
+        teams = instance.makeTeams(DummyPlayers.forTruco4());
+        Assert.assertEquals(2, teams.size());
 
-            Team we = teams.get(0);
-            Assert.assertEquals("Nosotros", we.getLabel());
-            Assert.assertEquals(2, we.getPlayers().size());
+        Team we = teams.get(0);
+        Assert.assertEquals("Nosotros", we.getLabel());
+        Assert.assertEquals(2, we.getPlayers().size());
 
-            Team them = teams.get(1);
-            Assert.assertEquals("Ellos", them.getLabel());
-            Assert.assertEquals(2, them.getPlayers().size());
-        } catch (UserException userException) {
-            // TODO : Exception : Terminate this exception log.
-            userException.printStackTrace();
-        }
+        Team them = teams.get(1);
+        Assert.assertEquals("Ellos", them.getLabel());
+        Assert.assertEquals(2, them.getPlayers().size());
 
     }
 
@@ -136,23 +120,18 @@ public class TrucoServiceImplUnitarioTest {
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.GameServiceImpl#makeTeams(java.util.List)} .
      */
     @Test
-    public final void testMakeTeams_with6SelectedPlayers() {
+    public final void makeTeams_with6SelectedPlayers() throws UserException {
         List<Team> teams;
-        try {
-            teams = instance.makeTeams(DummyPlayers.forTruco6());
-            Assert.assertEquals(2, teams.size());
+        teams = instance.makeTeams(DummyPlayers.forTruco6());
+        Assert.assertEquals(2, teams.size());
 
-            Team we = teams.get(0);
-            Assert.assertEquals("Nosotros", we.getLabel());
-            Assert.assertEquals(3, we.getPlayers().size());
+        Team we = teams.get(0);
+        Assert.assertEquals("Nosotros", we.getLabel());
+        Assert.assertEquals(3, we.getPlayers().size());
 
-            Team them = teams.get(1);
-            Assert.assertEquals("Ellos", them.getLabel());
-            Assert.assertEquals(3, them.getPlayers().size());
-        } catch (UserException userException) {
-            // TODO : Exception : Terminate this exception log.
-            userException.printStackTrace();
-        }
+        Team them = teams.get(1);
+        Assert.assertEquals("Ellos", them.getLabel());
+        Assert.assertEquals(3, them.getPlayers().size());
 
     }
 
@@ -161,7 +140,7 @@ public class TrucoServiceImplUnitarioTest {
      */
     @Test
     @Ignore
-    public final void testGetExpandableTeams() {
+    public final void getExpandableTeams() {
         fail("Not yet implemented");
     }
 

@@ -13,7 +13,7 @@ import com.nbempire.android.magicannotator.component.activity.ChooseAnnotatorAct
 import com.nbempire.android.magicannotator.component.activity.ChoosePlayersActivity;
 
 /**
- * TODO : Javadoc for Activities
+ * Enum containing all activities that can has more than one next activity to show depending on user actions.
  *
  * @author Nahuel Barrios.
  * @since 15
@@ -30,18 +30,19 @@ public enum Activities {
     /**
      * Constructor for this enum.
      *
-     * @param name
+     * @param typeName
+     *         The type's name.
      *
      * @since 15
      */
-    private Activities(String name) {
-        this.activityTypeName = name;
+    private Activities(String typeName) {
+        this.activityTypeName = typeName;
     }
 
     /**
      * Accesor for the activityTypeName for this enum constant.
      *
-     * @return
+     * @return String with the activityTypeName.
      *
      * @since 15
      */

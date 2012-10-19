@@ -14,11 +14,12 @@ import java.util.List;
 import com.nbempire.android.magicannotator.domain.Player;
 
 /**
- * TODO : JavaDoc : for DummyPlayers.
+ * Abstract type to generate lists of players for different tests.
+ * <p/>
+ * <b>Important: It's only for test.</b>
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 16/03/2012, 04:51:22.
+ * @since 1
  */
 public abstract class DummyPlayers {
 

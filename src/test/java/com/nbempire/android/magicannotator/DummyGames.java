@@ -12,11 +12,12 @@ import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.domain.game.Truco;
 
 /**
- * TODO : JavaDoc : for DummyGames.
+ * Abstract type to generate new instances of different games.
+ * <p/>
+ * <b>Important: It's only for test.</b>
  *
  * @author Nahuel Barrios.
- * @version 1.0.
- * @since 17/03/2012, 11:33:47.
+ * @since 1
  */
 public abstract class DummyGames {
 

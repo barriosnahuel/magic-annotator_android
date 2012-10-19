@@ -10,7 +10,7 @@
 package com.nbempire.android.magicannotator.util.android.analytics;
 
 /**
- * TODO : Javadoc for AnalyticsUtil
+ * Utility type containing statics methods to help developer when working with Google Analytics.
  *
  * @author Nahuel Barrios.
  * @since 14
@@ -18,11 +18,12 @@ package com.nbempire.android.magicannotator.util.android.analytics;
 public abstract class AnalyticsUtil {
 
     /**
-     * TODO : Javadoc for generatePageName
+     * Generates the page name for the specified {@code activityName} by adding the preffix "/".
      *
      * @param activityName
+     *         The name of the activity to track its page view.
      *
-     * @return
+     * @return String with the activity name ready to track the page view.
      *
      * @since 14
      */

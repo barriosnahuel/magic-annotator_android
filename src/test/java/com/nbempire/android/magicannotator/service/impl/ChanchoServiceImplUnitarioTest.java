@@ -9,9 +9,10 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 /**
- * TODO : JavaDoc : for ChanchoServiceImplTest.
+ * Tests the ChanchoServiceImpl type that implements the GameService interface.
  *
- * @author Thales - PNT Equipo 6.
+ * @author Nahuel Barrios.
+ * @since 1
  */
 public class ChanchoServiceImplUnitarioTest {
 
