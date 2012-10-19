@@ -262,7 +262,7 @@ public class MarketAnnotatorActivity extends Activity {
      *
      * @since 9
      */
-    public void resetAnnotator() {
+    private void resetAnnotator() {
         items.clear();
         marketItemService.deleteAll();
         onCreate(null);
