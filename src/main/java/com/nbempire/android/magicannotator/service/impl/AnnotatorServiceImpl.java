@@ -44,7 +44,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
             annotatorId = R.string.gamename_otro;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_TRUCO)) {
-            annotatorId = R.string.gamename_truco;
+            annotatorId = R.string.annotator_truco;
 
         } else if (userSelection.equals(GameKeys.GAME_NAME_TUTE)) {
             annotatorId = R.string.gamename_tute;
@@ -64,7 +64,7 @@ public class AnnotatorServiceImpl implements AnnotatorService {
             case R.string.annotator_chancho:
                 aGame = new Chancho();
                 break;
-            case R.string.gamename_truco:
+            case R.string.annotator_truco:
                 aGame = new Truco();
                 break;
             case R.string.gamename_tute:

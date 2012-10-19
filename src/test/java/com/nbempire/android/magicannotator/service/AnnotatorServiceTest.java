@@ -52,7 +52,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withTrucoInput_returnTrucoId() {
-        Assert.assertEquals(R.string.gamename_truco, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TRUCO));
+        Assert.assertEquals(R.string.annotator_truco, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TRUCO));
     }
 
     @Test
@@ -81,7 +81,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorGame_withTrucoInput_returnTrucoGame() {
-        Game aGame = annotatorService.getAnnotatorGame(R.string.gamename_truco);
+        Game aGame = annotatorService.getAnnotatorGame(R.string.annotator_truco);
         Assert.assertNotNull(RETURNED_GAME_MUST_NOT_BE_NULL);
         Assert.assertTrue(MUST_BE_INSTANCE_OF + Truco.class.getSimpleName(), aGame instanceof Truco);
     }

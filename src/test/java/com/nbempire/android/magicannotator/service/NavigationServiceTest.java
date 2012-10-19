@@ -38,7 +38,7 @@ public class NavigationServiceTest {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void getNextActivityType_fromChooseAnnotatorWithTrucoUserSelection_throwIllegalArgumentException() {
-        navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_truco);
+        navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_truco);
     }
 
     @Test

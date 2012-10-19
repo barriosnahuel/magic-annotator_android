@@ -29,7 +29,7 @@ public class NavigationServiceImpl implements NavigationService {
         Class<? extends Activity> nextActivity = ChoosePlayersActivity.class;
 
         switch (annotatorId) {
-            case R.string.gamename_truco:
+            case R.string.annotator_truco:
                 throw new IllegalArgumentException("Caller activity must define navigation flow for Truco annotator.");
             case R.string.annotator_market:
                 nextActivity = MarketAnnotatorActivity.class;
