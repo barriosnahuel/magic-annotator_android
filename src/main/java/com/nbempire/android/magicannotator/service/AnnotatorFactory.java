@@ -23,7 +23,7 @@ import com.nbempire.android.magicannotator.domain.game.Tute;
  * @author Nahuel Barrios.
  * @since 1
  */
-public class AnnotatorFactory {
+public abstract class AnnotatorFactory {
 
     /**
      * Inspect which annotator activity has to return based on the specified {@code aGame} parameter.
