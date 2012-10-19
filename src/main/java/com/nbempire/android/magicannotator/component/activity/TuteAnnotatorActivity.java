@@ -180,35 +180,6 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for TutePartialResultsActivity.addScoreFor()
-     *
-     * @param scoreToUpdate
-     * @param selectedNickName
-     *
-     * @return
-     *
-     * @since 1
-     */
-    private int addScoreFor(int scoreToUpdate, String selectedNickName) {
-        String scoreKey;
-        switch (scoreToUpdate) {
-            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_LOST_HAND;
-                break;
-            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_CAPOTE;
-                break;
-            default:
-                scoreKey = AppParameter.TUTE_PLAYER_SCORE_TUTE;
-                break;
-        }
-
-        Integer updatedScore = Integer.parseInt(scores.getBundle(selectedNickName).getString(scoreKey)) + 1;
-        scores.getBundle(selectedNickName).putCharSequence(scoreKey, updatedScore.toString());
-        return updatedScore;
-    }
-
-    /**
      * Method executed from the layout definition and it shows to the user the {@link AlertDialog} to select which players lost one hand.
      *
      * @param callerView
@@ -250,25 +221,45 @@ public class TuteAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : JavaDoc : for TuteAnnotatorActivity.updateScoreFor().
+     * Increment the specified score {@code scoreToUpdate} for the specified player in {@code selectedNickName}.
      *
-     * @param selectedLoosers
-     *
-     * @return
+     * @param scoreToUpdate
+     *         int value which specifies the sort of score to update. It has to be one of the declared constants in AppParameter.
+     * @param selectedNickName
+     *         The nickname of the player whose score will be updated.
      *
      * @since 1
      */
-    private List<String> updateScoreFor(List<String> selectedLoosers) {
-        List<String> lostUsers = new ArrayList<String>();
-        for (String eachPlayerNickname : selectedLoosers) {
-            int updatedScore = this.addScoreFor(AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND,
-                                                       eachPlayerNickname);
-            if (updatedScore == 4) {
-                lostUsers.add(eachPlayerNickname);
-            }
+    private void addScoreFor(int scoreToUpdate, String selectedNickName) {
+        String scoreKey;
+        switch (scoreToUpdate) {
+            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND:
+                scoreKey = AppParameter.TUTE_PLAYER_SCORE_LOST_HAND;
+                break;
+            case AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_CAPOTE:
+                scoreKey = AppParameter.TUTE_PLAYER_SCORE_CAPOTE;
+                break;
+            default:
+                scoreKey = AppParameter.TUTE_PLAYER_SCORE_TUTE;
+                break;
         }
-        Collections.sort(lostUsers);
-        return lostUsers;
+
+        Integer updatedScore = Integer.parseInt(scores.getBundle(selectedNickName).getString(scoreKey)) + 1;
+        scores.getBundle(selectedNickName).putCharSequence(scoreKey, updatedScore.toString());
+    }
+
+    /**
+     * Increment the score of lost hands for each player in the {@code selectedLoosers} list.
+     *
+     * @param selectedLoosers
+     *         List with player's nicknames.
+     *
+     * @since 1
+     */
+    private void updateScoreFor(List<String> selectedLoosers) {
+        for (String eachPlayerNickname : selectedLoosers) {
+            addScoreFor(AppParameter.ACTIVITY_RESULT_TUTE_CHOOSEN_PLAYER_FOR_ADD_LOST_HAND, eachPlayerNickname);
+        }
     }
 
 }

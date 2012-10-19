@@ -78,7 +78,7 @@ public class ChoosePlayersActivity extends Activity {
     /**
      * Service for the annotators.
      */
-    private AnnotatorService annotatorService = new AnnotatorServiceImpl();
+    private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

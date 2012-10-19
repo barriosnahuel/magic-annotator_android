@@ -162,7 +162,7 @@ public class ChooseAnnotatorActivity extends Activity {
      *
      * @since 1
      */
-    public <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, int annotatoId) {
+    private <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, int annotatoId) {
         showNextActivity(context, nextActivity, annotatoId, null);
     }
 
@@ -176,7 +176,7 @@ public class ChooseAnnotatorActivity extends Activity {
      * @param aGame
      *         The Game to pass as parameter to the next activity.
      */
-    public <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, Game aGame) {
+    private <T extends Activity> void showNextActivity(Context context, Class<T> nextActivity, Game aGame) {
         showNextActivity(context, nextActivity, -1, aGame);
     }
 
@@ -194,7 +194,7 @@ public class ChooseAnnotatorActivity extends Activity {
      *
      * @since 15
      */
-    public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextActivity, int annotatorId, Game aGame) {
+    private <T extends Activity> void showNextActivity(Context theContext, Class<T> nextActivity, int annotatorId, Game aGame) {
         Intent nextIntentToShow = new Intent(theContext, nextActivity);
 
         if (aGame != null) {
