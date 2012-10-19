@@ -57,7 +57,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withTuteInput_returnTuteId() {
-        Assert.assertEquals(R.string.gamename_tute, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TUTE));
+        Assert.assertEquals(R.string.annotator_tute, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TUTE));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -88,7 +88,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorGame_withTuteInput_returnTuteGame() {
-        Game aGame = annotatorService.getAnnotatorGame(R.string.gamename_tute);
+        Game aGame = annotatorService.getAnnotatorGame(R.string.annotator_tute);
         Assert.assertNotNull(RETURNED_GAME_MUST_NOT_BE_NULL);
         Assert.assertTrue(MUST_BE_INSTANCE_OF + Tute.class.getSimpleName(), aGame instanceof Tute);
     }
