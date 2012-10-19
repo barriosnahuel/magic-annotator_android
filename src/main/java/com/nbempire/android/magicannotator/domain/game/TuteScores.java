@@ -10,7 +10,7 @@
 package com.nbempire.android.magicannotator.domain.game;
 
 /**
- * TODO : Javadoc for new type.
+ * Enum to handle the different sort of scores that has the Tute Game.
  *
  * @author Nahuel Barrios.
  * @since 15

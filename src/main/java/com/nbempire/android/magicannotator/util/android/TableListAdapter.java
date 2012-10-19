@@ -13,17 +13,16 @@ import java.util.List;
 import android.app.Activity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : JavaDoc : for TableListAdapter.
+ * Helper type that extends SimpleListAdapter to work easier with Android adapters but particulary to make tables.
  *
  * @author Nahuel Barrios.
  * @since 1
  */
-public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
+public class TableListAdapter extends SimpleListAdapter {
 
     /**
      * Number of columns of the table.
@@ -34,7 +33,9 @@ public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
      * A constructor method for the type.
      *
      * @param activity
+     *         The activity where this adapter has to create its {@link View}s.
      * @param values
+     *         {@link List} of {@link String}s to show in the grid.
      *
      * @since 1
      */
@@ -43,6 +44,7 @@ public class TableListAdapter extends SimpleListAdapter implements ListAdapter {
         this.numberOfColumns = numberOfColumns;
     }
 
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView = this.getActivity().getLayoutInflater().inflate(R.layout.gridview_table, null);
 

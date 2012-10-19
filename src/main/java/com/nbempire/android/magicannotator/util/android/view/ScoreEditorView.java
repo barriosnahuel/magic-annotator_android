@@ -88,7 +88,7 @@ public class ScoreEditorView extends RelativeLayout {
     /**
      * Listener that implements {@link OnTouchListener} to do the functionality to add/substract score.
      * <p/>
-     * TODO : Refactor : Esta clase afuera y que el Truco use esta con algún validador.
+     * TODO : Refactor : Move this type outside to re-use it.
      *
      * @author Nahuel Barrios.
      * @since 1

@@ -64,13 +64,6 @@ public class ServiceFactoryTest {
          */
         private static final long serialVersionUID = 6199586921004785003L;
 
-        /**
-         * Constructor method for this type.
-         */
-        public InexistentGame() {
-            super(2, 3);
-        }
-
     }
 
 }

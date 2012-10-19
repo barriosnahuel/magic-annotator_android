@@ -26,9 +26,6 @@ public abstract class AppParameter {
      */
     public static final String GAME = "game";
 
-    /**
-     * TODO : Javadoc for PLAYERS
-     */
     public static final String PLAYERS = "players";
 
 }

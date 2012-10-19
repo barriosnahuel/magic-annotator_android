@@ -135,7 +135,7 @@ public class AnnotatorServiceTest {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void get_withInvalidGame_throwIllegalArgumentException() {
-        annotatorService.get(new Game(1, 2) {
+        annotatorService.get(new Game() {
             private static final long serialVersionUID = 471756212507274824L;
         });
     }

@@ -25,7 +25,7 @@ public class ChanchoServiceImplTest {
     public void testGetFirstTeamLabel() {
         String value = chanchoServiceImpl.getFirstTeamLabel();
         Assert.assertNotNull(value);
-        Assert.assertEquals("Jugadores seleccionados", value);
+        Assert.assertEquals("Grupo 1", value);
     }
 
     /**
@@ -34,7 +34,7 @@ public class ChanchoServiceImplTest {
     @Test
     public void testGetSecondTeamLabel() {
         String value = chanchoServiceImpl.getSecondTeamLabel();
-        Assert.assertEquals("", value);
+        Assert.assertEquals("Grupo 2", value);
     }
 
     /**

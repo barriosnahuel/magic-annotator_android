@@ -99,7 +99,7 @@ public class ChanchoAnnotatorActivity extends Activity {
             }
         }
 
-        gridView.setAdapter(new TableListAdapter(this, this.getValuesForGrid(scores), 2));
+        gridView.setAdapter(new TableListAdapter(this, getValuesForGrid(scores), 2));
     }
 
     /**
@@ -112,8 +112,8 @@ public class ChanchoAnnotatorActivity extends Activity {
      */
     private List<CharSequence> getValuesForGrid(Bundle playersScores) {
         List<CharSequence> result = new ArrayList<CharSequence>();
-        result.add(this.getText(R.string.player).toString());
-        result.add(this.getText(R.string.tutePartialResults_lostHands));
+        result.add(getText(R.string.player).toString());
+        result.add(getText(R.string.tutePartialResults_lostHands));
 
         SortedSet<String> sortedSet = new TreeSet<String>();
         for (String eachPlayerNickname : playersScores.keySet()) {
