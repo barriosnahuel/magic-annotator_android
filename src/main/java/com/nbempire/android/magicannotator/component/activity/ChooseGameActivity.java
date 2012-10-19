@@ -55,12 +55,7 @@ public class ChooseGameActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        tracker = GoogleAnalyticsTracker.getInstance();
-
-        // Start the tracker with a dispatch interval (in seconds).
-        tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
-
-        tracker.trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        setUpAnalytics();
 
         setContentView(R.layout.choosegame);
 
@@ -114,6 +109,20 @@ public class ChooseGameActivity extends Activity {
 
             }
         });
+    }
+
+    /**
+     * Setups the GoogleAnalyticsTracker and starts a new session. For this land-activity, it also tracks the page view.
+     *
+     * @since 15
+     */
+    private void setUpAnalytics() {
+        tracker = GoogleAnalyticsTracker.getInstance();
+
+        // Start the tracker with a dispatch interval (in seconds).
+        tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
+
+        tracker.trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
     }
 
     /**
