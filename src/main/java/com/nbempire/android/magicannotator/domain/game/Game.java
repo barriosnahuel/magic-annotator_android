@@ -29,7 +29,7 @@ public abstract class Game implements Serializable {
     /**
      * The list of teams that has this Game.
      */
-    protected List<Team> teams;
+    private List<Team> teams;
 
     /**
      * Accessor for the attribute of the entity.
