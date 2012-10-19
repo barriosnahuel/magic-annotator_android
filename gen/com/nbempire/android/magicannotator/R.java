@@ -122,7 +122,7 @@ public final class R {
         public static final int app_name_gui = 0x7f040001;
         public static final int chooseGame_about = 0x7f040013;
         /**
-         * ChooseGameActivity
+         * ChooseAnnotatorActivity
          */
         public static final int chooseGame_title = 0x7f040012;
         public static final int chooseLooser = 0x7f040007;

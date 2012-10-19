@@ -27,7 +27,7 @@
     <string name="player">Jugador</string>
     <string name="mustSelectAtLeastOne">Se debe seleccionar al menos 1</string>
 
-    <!-- ChooseGameActivity -->
+    <!-- ChooseAnnotatorActivity -->
     <string name="chooseGame_title">¿Qué vas a anotar?</string>
 
     <string-array name="chooseGame_gamesValues">

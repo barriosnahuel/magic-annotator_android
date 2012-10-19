@@ -28,18 +28,16 @@ import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
 
 /**
  * Android Activity to let user choose the annotator to use.
- * <p/>
- * TODO : Refactor :  Rename type ChooseGameActivity because there isn't only games.
  *
  * @author Nahuel Barrios.
  * @since 1
  */
-public class ChooseGameActivity extends Activity {
+public class ChooseAnnotatorActivity extends Activity {
 
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "ChooseGameActivity";
+    private static final String LOG_TAG = "ChooseAnnotatorActivity";
 
     private Intent nextIntentToShow;
 
