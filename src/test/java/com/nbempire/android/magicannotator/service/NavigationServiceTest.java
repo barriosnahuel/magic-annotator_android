@@ -29,7 +29,7 @@ public class NavigationServiceTest {
 
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithChanchoUserSelection_returnChoosePlayersActivity() {
-        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.gamename_chancho);
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_chancho);
 
         Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
         Assert.assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());

@@ -140,7 +140,7 @@ public final class R {
         public static final int commonLabel_accept = 0x7f040004;
         public static final int commonLabel_someoneLost = 0x7f040006;
         public static final int defaultInitialGameScore = 0x7f040009;
-        public static final int gamename_chancho = 0x7f04000a;
+        public static final int annotator_chancho = 0x7f04000a;
         public static final int gamename_market = 0x7f04000b;
         public static final int gamename_otro = 0x7f04000e;
         public static final int gamename_truco = 0x7f04000c;

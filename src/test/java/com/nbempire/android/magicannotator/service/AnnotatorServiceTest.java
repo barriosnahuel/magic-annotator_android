@@ -37,7 +37,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withChanchoInput_returnChanchoId() {
-        Assert.assertEquals(R.string.gamename_chancho, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_CHANCHO));
+        Assert.assertEquals(R.string.annotator_chancho, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_CHANCHO));
     }
 
     @Test
@@ -74,7 +74,7 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorGame_withChanchoInput_returnChanchoGame() {
-        Game aGame = annotatorService.getAnnotatorGame(R.string.gamename_chancho);
+        Game aGame = annotatorService.getAnnotatorGame(R.string.annotator_chancho);
         Assert.assertNotNull("Returned Game musn't be null.");
         Assert.assertTrue(MUST_BE_INSTANCE_OF + Chancho.class.getSimpleName(), aGame instanceof Chancho);
     }
