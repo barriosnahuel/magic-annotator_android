@@ -39,13 +39,6 @@ public class ChooseAnnotatorActivity extends Activity {
      */
     private static final String LOG_TAG = "ChooseAnnotatorActivity";
 
-    private Intent nextIntentToShow;
-
-    /**
-     * Google Analytics tracker used to track page views and events.
-     */
-    private GoogleAnalyticsTracker tracker;
-
     /**
      * Called when the activity is first created.
      */
@@ -57,38 +50,34 @@ public class ChooseAnnotatorActivity extends Activity {
 
         setContentView(R.layout.choosegame);
 
-        ListView games = (ListView) findViewById(R.id.main_gamesListView);
-        games.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseGame_gamesValues,
-                                                                android.R.layout.simple_list_item_1));
-        games.setTextFilterEnabled(true);
+        ListView availableAnnotators = (ListView) findViewById(R.id.main_gamesListView);
+        availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseGame_gamesValues,
+                                                                              android.R.layout.simple_list_item_1));
+        availableAnnotators.setTextFilterEnabled(true);
 
-        games.setOnItemClickListener(new OnItemClickListener() {
+        addOnItemClickActionForAnnotatorsList(availableAnnotators);
+    }
+
+    /**
+     * Adds the onItemClickListener to the specified ListView to create the functionality to take the user to the next Activity.
+     *
+     * @param annotators
+     *         The ListView from the GUI with all available annotators.
+     *
+     * @since 15
+     */
+    private void addOnItemClickActionForAnnotatorsList(ListView annotators) {
+        annotators.setOnItemClickListener(new OnItemClickListener() {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemKey = ((TextView) parent.getChildAt(position)).getText().toString();
+
                 final Game aGame = GameFactory.getInstance(selectedItemKey);
                 final Context theContext = view.getContext();
+
                 if (aGame != null) {
-
                     if (aGame.getClass().equals(Truco.class)) {
-                        AlertDialog.Builder builder = new AlertDialog.Builder(theContext);
-                        builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
-                                .setCancelable(false)
-                                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
-                                                          new DialogInterface.OnClickListener() {
-
-                                                              public void onClick(DialogInterface dialog, int id) {
-                                                                  showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
-                                                              }
-                                                          })
-                                .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
-                                                          new DialogInterface.OnClickListener() {
-
-                                                              public void onClick(DialogInterface dialog, int id) {
-                                                                  showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
-                                                              }
-                                                          });
-                        builder.show();
+                        addCustomNavigationFlowForTrucoAnnotator(theContext, aGame);
                     } else {
                         showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
                     }
@@ -110,12 +99,41 @@ public class ChooseAnnotatorActivity extends Activity {
     }
 
     /**
+     * TODO : Javadoc for addCustomNavigationFlowForTrucoAnnotator
+     *
+     * @param theContext
+     * @param aGame
+     *
+     * @since 15
+     */
+    private void addCustomNavigationFlowForTrucoAnnotator(final Context theContext, final Game aGame) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(theContext);
+        builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
+                .setCancelable(false)
+                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
+                                          new DialogInterface.OnClickListener() {
+
+                                              public void onClick(DialogInterface dialog, int id) {
+                                                  showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
+                                              }
+                                          })
+                .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
+                                          new DialogInterface.OnClickListener() {
+
+                                              public void onClick(DialogInterface dialog, int id) {
+                                                  showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
+                                              }
+                                          });
+        builder.show();
+    }
+
+    /**
      * Setups the GoogleAnalyticsTracker and starts a new session. For this land-activity, it also tracks the page view.
      *
      * @since 15
      */
     private void setUpAnalytics() {
-        tracker = GoogleAnalyticsTracker.getInstance();
+        GoogleAnalyticsTracker tracker = GoogleAnalyticsTracker.getInstance();
 
         // Start the tracker with a dispatch interval (in seconds).
         tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
@@ -150,7 +168,7 @@ public class ChooseAnnotatorActivity extends Activity {
      * @since 1
      */
     public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, int gameKey) {
-        nextIntentToShow = new Intent(theContext, nextIntent);
+        Intent nextIntentToShow = new Intent(theContext, nextIntent);
         if (gameKey != -1) {
             nextIntentToShow.putExtra(AppParameter.GAME, gameKey);
         }
@@ -168,9 +186,9 @@ public class ChooseAnnotatorActivity extends Activity {
      *         The Game to pass as parameter to the next activity.
      */
     public <T extends Activity> void showNextActivity(Context theContext, Class<T> nextIntent, Game aGame) {
-        nextIntentToShow = new Intent(theContext, nextIntent);
+        Intent nextIntentToShow = new Intent(theContext, nextIntent);
         nextIntentToShow.putExtra(AppParameter.GAME, aGame);
-        startActivityForResult(nextIntentToShow, 0);
+        startActivity(nextIntentToShow);
     }
 
     /**
