@@ -101,9 +101,9 @@ public class ChoosePlayersActivity extends Activity {
         }
 
         if (parameter instanceof Game) {
-            addOnClickActionForMakeTeamsButtonForGames();
+            addOnClickActionForMakeTeamsButtonForOldGames();
         } else {
-            addOnClickActionForMakeTeamsButtonForNoGames();
+            addOnClickActionForMakeTeamsButtonForNewGames();
         }
 
         initializeDependencies(this);
@@ -265,7 +265,7 @@ public class ChoosePlayersActivity extends Activity {
      *
      * @since 1
      */
-    private void addOnClickActionForMakeTeamsButtonForNoGames() {
+    private void addOnClickActionForMakeTeamsButtonForNewGames() {
         findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
@@ -290,7 +290,7 @@ public class ChoosePlayersActivity extends Activity {
      *
      * @since 1
      */
-    private void addOnClickActionForMakeTeamsButtonForGames() {
+    private void addOnClickActionForMakeTeamsButtonForOldGames() {
         findViewById(R.id.choosePlayers_button_makeTeams).setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
