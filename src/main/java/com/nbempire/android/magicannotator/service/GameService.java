@@ -12,8 +12,8 @@ import java.util.List;
 
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.Team;
-import com.nbempire.android.magicannotator.domain.exception.UserException;
 import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
+import com.nbempire.android.magicannotator.exception.UserException;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 
 /**

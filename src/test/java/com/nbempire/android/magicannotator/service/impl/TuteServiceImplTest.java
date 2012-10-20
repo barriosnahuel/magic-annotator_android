@@ -12,7 +12,7 @@ import java.util.List;
 
 import com.nbempire.android.magicannotator.DummyPlayers;
 import com.nbempire.android.magicannotator.domain.Team;
-import com.nbempire.android.magicannotator.domain.exception.UserException;
+import com.nbempire.android.magicannotator.exception.UserException;
 import junit.framework.Assert;
 import org.junit.Test;
 
