@@ -31,4 +31,15 @@ public abstract class SQLiteUtil {
         return value != 0;
     }
 
+    /**
+     * Creates a drop script for the specified {@code tableName}.
+     *
+     * @param tableName
+     *         The name of the table to drop.
+     *
+     * @return SQLite script ready to execute.
+     */
+    public static String getDropTableScript(String tableName) {
+        return "DROP TABLE IF EXISTS " + tableName + ";";
+    }
 }

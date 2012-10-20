@@ -9,6 +9,8 @@
  */
 package com.nbempire.android.magicannotator.storage.schema;
 
+import com.nbempire.android.magicannotator.util.android.database.SQLiteUtil;
+
 /**
  * @author Nahuel Barrios.
  * @since 13
@@ -51,6 +53,6 @@ public abstract class PlayerTable {
      * @since 13
      */
     public static String getDropScript() {
-        return "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+        return SQLiteUtil.getDropTableScript(TABLE_NAME);
     }
 }

@@ -20,6 +20,8 @@ import org.junit.Test;
  */
 public class SQLiteUtilTest {
 
+    private static final String RETURNED_VALUE_SHOULD_BE = "Returned value should be ";
+
     /**
      * Test method for getBooleanValue.
      *
@@ -27,7 +29,7 @@ public class SQLiteUtilTest {
      */
     @Test
     public void getBooleanValue_with1_returnTrue() throws Exception {
-        Assert.assertTrue("Returned value should be true.", SQLiteUtil.getBooleanValue(1));
+        Assert.assertTrue(RETURNED_VALUE_SHOULD_BE + "true.", SQLiteUtil.getBooleanValue(1));
     }
 
     /**
@@ -37,7 +39,7 @@ public class SQLiteUtilTest {
      */
     @Test
     public void getBooleanValue_withNegative1_returnTrue() throws Exception {
-        Assert.assertTrue("Returned value should be true.", SQLiteUtil.getBooleanValue(-1));
+        Assert.assertTrue(RETURNED_VALUE_SHOULD_BE + "true.", SQLiteUtil.getBooleanValue(-1));
     }
 
     /**
@@ -47,7 +49,15 @@ public class SQLiteUtilTest {
      */
     @Test
     public void getBooleanValue_with0_returnFalse() throws Exception {
-        Assert.assertFalse("Returned value should be false.", SQLiteUtil.getBooleanValue(0));
+        Assert.assertFalse(RETURNED_VALUE_SHOULD_BE + "false.", SQLiteUtil.getBooleanValue(0));
+    }
+
+    @Test
+    public void getDropScript_withValidTableName_returnDropScript() {
+        String tableName = "aTableName";
+        String dropTableScript = SQLiteUtil.getDropTableScript(tableName);
+        Assert.assertNotNull("Drop script musn't be null.", dropTableScript);
+        Assert.assertEquals("DROP TABLE IF EXISTS " + tableName + ";", dropTableScript);
     }
 
 }

@@ -9,6 +9,8 @@
  */
 package com.nbempire.android.magicannotator.storage.schema;
 
+import com.nbempire.android.magicannotator.util.android.database.SQLiteUtil;
+
 /**
  * @author Nahuel Barrios.
  * @since 10
@@ -55,6 +57,6 @@ public abstract class MarketItemTable {
      * @since 10
      */
     public static String getDropScript() {
-        return "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+        return SQLiteUtil.getDropTableScript(TABLE_NAME);
     }
 }
