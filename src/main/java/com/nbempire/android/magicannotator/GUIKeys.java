@@ -26,4 +26,16 @@ public abstract class GUIKeys {
 
     public static final String GAME_TUTE_TEAM_LABEL_GROUP2 = "Grupo 2";
 
+    /**
+     * @author Nahuel Barrios.
+     * @since 9
+     */
+    public abstract static class Exceptions {
+
+        public static final String INVALID_NUMBER_SELECTED_PLAYERS_TUTE = "Se deben seleccionar entre 3 y 12 jugadores.";
+
+        public static final String INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO = "Se deben seleccionar entre 3 y 12 jugadores.";
+
+        public static final String INVALID_NUMBER_SELECTED_PLAYERS_TRUCO = "La cantidad de jugadores debe ser 2, 4 o 6.";
+    }
 }

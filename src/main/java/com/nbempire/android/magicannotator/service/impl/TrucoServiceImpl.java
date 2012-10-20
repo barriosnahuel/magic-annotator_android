@@ -8,7 +8,6 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
-import com.nbempire.android.magicannotator.Exceptions;
 import com.nbempire.android.magicannotator.GUIKeys;
 
 /**
@@ -26,7 +25,7 @@ public class TrucoServiceImpl extends GameServiceImpl {
 
     @Override
     protected String getInvalidNumberOfSelectedPlayersExceptionMessage() {
-        return Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_TRUCO;
+        return GUIKeys.Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_TRUCO;
     }
 
     @Override
