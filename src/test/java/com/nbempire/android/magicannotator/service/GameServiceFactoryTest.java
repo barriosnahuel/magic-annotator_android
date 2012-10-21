@@ -4,7 +4,7 @@
  */
 
 /**
- * ServiceFactoryTest.java Created by: Nahuel Barrios: 24/03/2012, 02:12:27.
+ * GameServiceFactoryTest.java Created by: Nahuel Barrios: 24/03/2012, 02:12:27.
  */
 package com.nbempire.android.magicannotator.service;
 
@@ -17,37 +17,36 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 /**
- * This class is for test {@link ServiceFactoryTest} class using JUnit.
+ * This class is for test {@link GameServiceFactoryTest} class using JUnit.
  *
  * @author Nahuel Barrios.
  * @since 1
  */
-public class ServiceFactoryTest {
+public class GameServiceFactoryTest {
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.ServiceFactory#getInstance(com.nbempire.android.magicannotator.domain.game.Game)}
-     * .
+     * Test method for {@link GameServiceFactory#getInstance(com.nbempire.android.magicannotator.domain.game.Game)} .
      */
     @Test
     public final void testGetInstance_withExistentTrucoInput_returnValidServiceInstance() {
-        Assert.assertEquals(TrucoServiceImpl.class, ServiceFactory.getInstance(new Truco()).getClass());
+        Assert.assertEquals(TrucoServiceImpl.class, GameServiceFactory.getInstance(new Truco()).getClass());
     }
 
     @Test
     public final void testGetInstance_withExistentTuteInput_returnValidGameInstance() {
-        Assert.assertEquals(TuteServiceImpl.class, ServiceFactory.getInstance(new Tute()).getClass());
+        Assert.assertEquals(TuteServiceImpl.class, GameServiceFactory.getInstance(new Tute()).getClass());
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public final void testGetInstance_withInexistentInput_throwIllegalArgumentException() {
-        ServiceFactory.getInstance(new InexistentGame());
+        GameServiceFactory.getInstance(new InexistentGame());
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public final void testGetInstance_withNullInput_throwIllegalArgumentException() {
-        ServiceFactory.getInstance(null);
+        GameServiceFactory.getInstance(null);
     }
 
     /**

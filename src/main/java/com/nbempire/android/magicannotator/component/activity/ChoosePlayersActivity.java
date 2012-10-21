@@ -35,8 +35,8 @@ import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.exception.UserException;
 import com.nbempire.android.magicannotator.service.AnnotatorService;
+import com.nbempire.android.magicannotator.service.GameServiceFactory;
 import com.nbempire.android.magicannotator.service.PlayerService;
-import com.nbempire.android.magicannotator.service.ServiceFactory;
 import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
@@ -300,7 +300,7 @@ public class ChoosePlayersActivity extends Activity {
 
             public void onClick(View view) {
                 try {
-                    List<Team> teams = ServiceFactory.getInstance(aGame).makeTeams(playerService.createPlayers(selectedPlayers));
+                    List<Team> teams = GameServiceFactory.getInstance(aGame).makeTeams(playerService.createPlayers(selectedPlayers));
                     aGame.setTeams(teams);
 
                     Intent nextIntentToShow;

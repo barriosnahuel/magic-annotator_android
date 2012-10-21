@@ -22,7 +22,7 @@ import com.nbempire.android.magicannotator.service.impl.TuteServiceImpl;
  * @author Nahuel Barrios.
  * @since 1
  */
-public abstract class ServiceFactory {
+public abstract class GameServiceFactory {
 
     /**
      * Gets the corresponding instance of a GameService for the specified {@code aGame} parameter.

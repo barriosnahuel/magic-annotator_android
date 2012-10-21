@@ -19,7 +19,7 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.exception.TeamShouldHasPlayersException;
 import com.nbempire.android.magicannotator.service.AnnotatorService;
-import com.nbempire.android.magicannotator.service.ServiceFactory;
+import com.nbempire.android.magicannotator.service.GameServiceFactory;
 import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.util.ExpandableList;
 import com.nbempire.android.magicannotator.util.android.SimpleExpandableListActivity;
@@ -50,7 +50,7 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
         Game aGame = (Game) this.getIntent().getExtras().getSerializable(AppParameter.GAME);
         ExpandableList expandable = null;
         try {
-            expandable = ServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
+            expandable = GameServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
         } catch (TeamShouldHasPlayersException e) {
             //  TODO : Functionality : Return to last activity.
             Log.e(LOG_TAG, e.getMessage());
