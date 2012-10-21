@@ -98,9 +98,7 @@ public class ChooseAnnotatorActivity extends Activity {
                     } else {
                         showNextActivity(theContext, nextActivity, aGame);
                     }
-
                 }
-
             }
         });
     }

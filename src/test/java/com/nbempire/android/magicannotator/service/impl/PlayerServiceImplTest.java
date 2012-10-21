@@ -27,7 +27,7 @@ public class PlayerServiceImplTest {
     private final PlayerServiceImpl playerServiceImpl = new PlayerServiceImpl();
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl#parsePlayers(java.util.List)} .
+     * Test method for {@link com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl#createPlayers(java.util.List)} .
      */
     @Test
     public final void testParsePlayers_withValidPlayers_returnParsedPlayersList() {
@@ -36,7 +36,7 @@ public class PlayerServiceImplTest {
         playersToParse.add("Pedro");
         playersToParse.add("Raul");
 
-        List<Player> parsedPlayers = playerServiceImpl.parsePlayers(playersToParse);
+        List<Player> parsedPlayers = playerServiceImpl.createPlayers(playersToParse);
         Assert.assertEquals(playersToParse.size(), parsedPlayers.size());
         Assert.assertEquals("Juan", parsedPlayers.get(0).getNickName());
         Assert.assertEquals("Pedro", parsedPlayers.get(1).getNickName());
@@ -44,7 +44,7 @@ public class PlayerServiceImplTest {
     }
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl#parsePlayers(java.util.List)} .
+     * Test method for {@link com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl#createPlayers(java.util.List)} .
      */
     @Test
     public final void testGetExpandablePlayers_withValidPlayers_returnExpandablePlayersList() {

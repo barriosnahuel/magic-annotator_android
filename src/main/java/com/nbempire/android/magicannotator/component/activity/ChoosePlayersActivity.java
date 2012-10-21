@@ -300,7 +300,7 @@ public class ChoosePlayersActivity extends Activity {
 
             public void onClick(View view) {
                 try {
-                    List<Team> teams = ServiceFactory.getInstance(aGame).makeTeams(playerService.parsePlayers(selectedPlayers));
+                    List<Team> teams = ServiceFactory.getInstance(aGame).makeTeams(playerService.createPlayers(selectedPlayers));
                     aGame.setTeams(teams);
 
                     Intent nextIntentToShow;

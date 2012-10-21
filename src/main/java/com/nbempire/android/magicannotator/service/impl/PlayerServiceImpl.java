@@ -51,7 +51,7 @@ public class PlayerServiceImpl implements PlayerService {
         //  Do nothing.
     }
 
-    public List<Player> parsePlayers(List<String> playersToParse) {
+    public List<Player> createPlayers(List<String> playersToParse) {
         List<Player> players = new ArrayList<Player>(playersToParse.size());
         for (String eachPlayerNickName : playersToParse) {
             players.add(new Player(eachPlayerNickName));

@@ -30,7 +30,7 @@ public interface PlayerService {
      *
      * @since 1
      */
-    public List<Player> parsePlayers(List<String> playersToParse);
+    public List<Player> createPlayers(List<String> playersToParse);
 
     /**
      * Creates a List of Strings based on {@code players} parameter. It will use the player's nickname attribute.
