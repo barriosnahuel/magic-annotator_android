@@ -48,7 +48,7 @@ public interface AnnotatorService {
     Game getAnnotatorGame(int annotatorId);
 
     /**
-     * Inspect which annotator activity has to return based on the specified {@code aGame} parameter.
+     * Inspect which annotator activity has to return based on the specified {@code annotatorId} parameter.
      *
      * @param annotatorId
      *         An annotator Id.
@@ -61,5 +61,17 @@ public interface AnnotatorService {
      */
     public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException;
 
+    /**
+     * Inspect which annotator activity has to return based on the specified {@code game} parameter.
+     *
+     * @param game
+     *         A Game associated with some annotator Activity.
+     *
+     * @return The corresponding annotator activity for the specified {@code game}.
+     *
+     * @throws IllegalArgumentException
+     *         When there isn't any Activity for the specified {@code game}.
+     * @since 1
+     */
     public Class<? extends Activity> get(Game game) throws IllegalArgumentException;
 }
