@@ -33,7 +33,7 @@ import com.nbempire.android.magicannotator.domain.MarketItem;
 import com.nbempire.android.magicannotator.service.MarketItemService;
 import com.nbempire.android.magicannotator.service.impl.MarketItemServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 import com.nbempire.android.magicannotator.util.android.view.MarketItemView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
@@ -68,7 +68,7 @@ public class MarketAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.marketannotator);
     }
 

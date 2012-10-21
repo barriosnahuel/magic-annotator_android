@@ -22,7 +22,7 @@ import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 
 /**
  * {@link Activity} para anotar un partido de {@link Chancho}.
@@ -56,7 +56,7 @@ public class ChanchoAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.chanchoannotator);
 
         aGame = (Game) getIntent().getExtras().getSerializable(AppParameter.GAME);

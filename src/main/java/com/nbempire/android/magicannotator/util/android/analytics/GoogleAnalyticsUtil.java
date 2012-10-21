@@ -15,7 +15,7 @@ package com.nbempire.android.magicannotator.util.android.analytics;
  * @author Nahuel Barrios.
  * @since 14
  */
-public abstract class AnalyticsUtil {
+public abstract class GoogleAnalyticsUtil {
 
     /**
      * Generates the page name for the specified {@code activityName} by adding the preffix "/".

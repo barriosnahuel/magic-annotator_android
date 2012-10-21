@@ -17,7 +17,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 
 /**
  * Activity to prepare the about section. It only loads the layout.
@@ -41,7 +41,7 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tracker = GoogleAnalyticsTracker.getInstance();
-        tracker.trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
 
         setContentView(R.layout.about);
 

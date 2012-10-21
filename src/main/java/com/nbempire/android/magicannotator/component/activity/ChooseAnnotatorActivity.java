@@ -27,7 +27,7 @@ import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.NavigationService;
 import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 
 /**
  * Android Activity to let user choose the annotator to use.
@@ -147,7 +147,7 @@ public class ChooseAnnotatorActivity extends Activity {
         // Start the tracker with a dispatch interval (in seconds).
         tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
 
-        tracker.trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
     }
 
     /**

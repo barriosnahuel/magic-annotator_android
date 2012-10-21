@@ -20,7 +20,7 @@ import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 
 /**
  * {@link Activity} To annotate the score of a Truco game.
@@ -50,7 +50,7 @@ public class TrucoAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
         setContentView(R.layout.trucoannotator);
 
         // Setteo las acciones para los elementos del equipo "nosotros"

@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.util.android.analytics.AnalyticsUtil;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
 
 /**
@@ -31,7 +31,7 @@ public class GenericAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GoogleAnalyticsTracker.getInstance().trackPageView(AnalyticsUtil.generatePageName(LOG_TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
         this.setContentView(R.layout.basescrollview);
 
         TableLayout layout = (TableLayout) this.findViewById(R.id.basescrollview_tableLayout);

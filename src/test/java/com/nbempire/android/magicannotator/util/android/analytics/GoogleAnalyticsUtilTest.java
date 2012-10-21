@@ -16,12 +16,12 @@ import org.junit.Test;
  * @author Nahuel Barrios.
  * @since 14
  */
-public class AnalyticsUtilTest {
+public class GoogleAnalyticsUtilTest {
 
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "AnalyticsUtilTest";
+    private static final String LOG_TAG = "GoogleAnalyticsUtilTest";
 
     /**
      * Test method for generatePageName.
@@ -30,7 +30,7 @@ public class AnalyticsUtilTest {
      */
     @Test
     public void generatePageName_withValidActivityName_returnValidPageName() throws Exception {
-        String pageName = AnalyticsUtil.generatePageName(LOG_TAG);
+        String pageName = GoogleAnalyticsUtil.generatePageName(LOG_TAG);
 
         Assert.assertNotNull("Returned value shouldn't be null.", pageName);
         Assert.assertEquals("/" + LOG_TAG, pageName);
@@ -44,7 +44,7 @@ public class AnalyticsUtilTest {
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Test(expected = IllegalArgumentException.class)
     public void generatePageName_withNullActivityName_throwIllegalArgumentException() throws Exception {
-        AnalyticsUtil.generatePageName(null);
+        GoogleAnalyticsUtil.generatePageName(null);
         Assert.fail("Should throw an exception.");
     }
 
