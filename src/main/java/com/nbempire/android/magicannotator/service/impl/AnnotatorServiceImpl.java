@@ -93,11 +93,8 @@ public class AnnotatorServiceImpl implements AnnotatorService {
 
     @Override
     public Class<? extends Activity> get(Game game) throws IllegalArgumentException {
-        if (game == null) {
-            throw new IllegalArgumentException("Game musn't be null.");
-        }
-
         Class<? extends Activity> annotatorActivity;
+
         if (game instanceof Truco) {
             annotatorActivity = TrucoAnnotatorActivity.class;
 
