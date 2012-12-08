@@ -214,6 +214,11 @@ public final class R {
          * Base application theme for API 11+. This theme completely replaces AppBaseTheme from res/values/styles.xml on API 11+ devices.
          * <p/>
          * API 11 theme customizations can go here.
+         * <p/>
+         * Base application theme for API 14+. This theme completely replaces AppBaseTheme from BOTH res/values/styles.xml and
+         * res/values-v11/styles.xml on API 14+ devices.
+         * <p/>
+         * API 14 theme customizations can go here.
          */
         public static final int AppBaseTheme = 0x7f060000;
         /**
