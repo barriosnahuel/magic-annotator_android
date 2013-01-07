@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
  * No se reconocerá ningún tipo de garantía.
  */
 
@@ -23,9 +23,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
+import android.widget.Toast;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;

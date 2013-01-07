@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
   ~ No se reconocerá ningún tipo de garantía.
   -->
 
@@ -10,7 +10,7 @@
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme"
-           parent="android:Theme.Light">
+        parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -20,7 +20,7 @@
 
     <!-- Application theme. -->
     <style name="AppTheme"
-           parent="AppBaseTheme">
+        parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 

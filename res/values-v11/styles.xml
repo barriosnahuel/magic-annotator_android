@@ -1,5 +1,5 @@
 <!--
-  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
   ~ No se reconocerá ningún tipo de garantía.
   -->
 
@@ -10,7 +10,7 @@
         AppBaseTheme from res/values/styles.xml on API 11+ devices.
     -->
     <style name="AppBaseTheme"
-           parent="android:Theme.Holo.Light">
+        parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
     </style>
 

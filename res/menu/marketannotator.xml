@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
   ~ No se reconocerá ningún tipo de garantía.
   -->
 
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/marketAnnotatorMenuItem_checkAllItems"
-          android:title="@string/marketAnnotatorMenuItem_checkAllItems" />
+        android:title="@string/marketAnnotatorMenuItem_checkAllItems" />
     <item android:id="@+id/marketAnnotatorMenuItem_uncheckAllItems"
-          android:title="@string/marketAnnotatorMenuItem_uncheckAllItems" />
+        android:title="@string/marketAnnotatorMenuItem_uncheckAllItems" />
     <item android:id="@+id/marketAnnotatorMenuItem_updateQuantitiesToZero"
-          android:title="@string/marketAnnotatorMenu_updateQuantitiesToZero" />
+        android:title="@string/marketAnnotatorMenu_updateQuantitiesToZero" />
     <item android:id="@+id/marketAnnotatorMenuItem_deleteAll"
-          android:title="@string/marketAnnotatorMenuItem_deleteAll" />
+        android:title="@string/marketAnnotatorMenuItem_deleteAll" />
 
 </menu>

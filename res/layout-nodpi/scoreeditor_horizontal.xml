@@ -1,45 +1,39 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
   ~ No se reconocerá ningún tipo de garantía.
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
-    <TextView
-            android:id="@+id/playerNickname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium">
-    </TextView>
+    <TextView android:id="@+id/playerNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
 
-    <EditText
-            android:id="@+id/score"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dip"
-            android:layout_marginTop="1dip"
-            android:ems="4"
-            android:inputType="number"
-            android:maxLength="4"
-            android:text="@string/defaultInitialGameScore" />
+    <EditText android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:layout_marginTop="1dip"
+        android:ems="4"
+        android:inputType="number"
+        android:maxLength="4"
+        android:text="@string/defaultInitialGameScore" />
 
-    <Button
-            android:id="@+id/plusButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dip"
-            android:ems="3"
-            android:text="@string/plus" />
+    <Button android:id="@+id/plusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:ems="3"
+        android:text="@string/plus" />
 
-    <Button
-            android:id="@+id/substractButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="3"
-            android:text="@string/substract" />
+    <Button android:id="@+id/substractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:text="@string/substract" />
 
 </LinearLayout>

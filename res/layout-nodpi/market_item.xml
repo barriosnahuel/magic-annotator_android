@@ -1,44 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
   ~ No se reconocerá ningún tipo de garantía.
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-              android:orientation="horizontal">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
 
-    <CheckBox
-            android:id="@+id/marketItem_itemName"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_weight="1"
-            />
+    <CheckBox android:id="@+id/marketItem_itemName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_weight="1" />
 
-    <TextView
-            android:id="@+id/marketItem_itemCount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginLeft="10dp"
-            android:text="@string/marketItem_initialNumberOfItems"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView android:id="@+id/marketItem_itemCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"
+        android:text="@string/marketItem_initialNumberOfItems"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-            android:id="@+id/marketItem_addButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dip"
-            android:ems="3"
-            android:text="@string/plus" />
+    <Button android:id="@+id/marketItem_addButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dip"
+        android:ems="3"
+        android:text="@string/plus" />
 
-    <Button
-            android:id="@+id/marketItem_substractButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="3"
-            android:text="@string/substract" />
+    <Button android:id="@+id/marketItem_substractButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="3"
+        android:text="@string/substract" />
 
 </LinearLayout>

@@ -1,11 +1,15 @@
 /*
- * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
  * No se reconocerá ningún tipo de garantía.
  */
 
 package com.nbempire.android.magicannotator.component.activity;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import android.app.Activity;
 import android.app.AlertDialog;

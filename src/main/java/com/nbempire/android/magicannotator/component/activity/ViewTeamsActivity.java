@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
  * No se reconocerá ningún tipo de garantía.
  */
 
@@ -51,9 +51,9 @@ public class ViewTeamsActivity extends SimpleExpandableListActivity {
         ExpandableList expandable = null;
         try {
             expandable = GameServiceFactory.getInstance(aGame).getExpandableTeams(aGame.getTeams());
-        } catch (TeamShouldHasPlayersException e) {
+        } catch (TeamShouldHasPlayersException teamShouldHasPlayersException) {
             //  TODO : Functionality : Return to last activity.
-            Log.e(LOG_TAG, e.getMessage());
+            Log.e(LOG_TAG, teamShouldHasPlayersException.getMessage());
         }
 
         super.onCreate(savedInstanceState, expandable);
