@@ -13,4 +13,4 @@ There you also can check some of the application screens, take a look!
 
 #####Please visit my <a href="https://sites.google.com/site/nbempire/">web site</a> too.
 
-####Copyright (c) 2012 Nahuel Barrios <barrios.nahuel@gmail.com>
+####Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>
