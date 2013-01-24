@@ -1,6 +1,19 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Magic Annotator - The only thing you need to write down whatever you want.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.nbempire.android.magicannotator.component.activity;
@@ -65,7 +78,7 @@ public class ChooseAnnotatorActivity extends Activity {
 
         ListView availableAnnotators = (ListView) findViewById(R.id.main_gamesListView);
         availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseAnnotator_annotatorsValues,
-                                                                              android.R.layout.simple_list_item_1));
+                                                                       android.R.layout.simple_list_item_1));
         availableAnnotators.setTextFilterEnabled(true);
 
         addOnItemClickActionForAnnotatorsList(availableAnnotators);
@@ -116,21 +129,21 @@ public class ChooseAnnotatorActivity extends Activity {
     private void addCustomNavigationFlowForTrucoAnnotator(final Context theContext, final Game aGame) {
         AlertDialog.Builder builder = new AlertDialog.Builder(theContext);
         builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
-                .setCancelable(false)
-                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
-                                          new DialogInterface.OnClickListener() {
+               .setCancelable(false)
+               .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
+                                  new DialogInterface.OnClickListener() {
 
-                                              public void onClick(DialogInterface dialog, int id) {
-                                                  showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
-                                              }
-                                          })
-                .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
-                                          new DialogInterface.OnClickListener() {
+                                      public void onClick(DialogInterface dialog, int id) {
+                                          showNextActivity(theContext, ChoosePlayersActivity.class, aGame);
+                                      }
+                                  })
+               .setNegativeButton(getText(R.string.trucoAnnotator_annotateNow),
+                                  new DialogInterface.OnClickListener() {
 
-                                              public void onClick(DialogInterface dialog, int id) {
-                                                  showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
-                                              }
-                                          });
+                                      public void onClick(DialogInterface dialog, int id) {
+                                          showNextActivity(theContext, TrucoAnnotatorActivity.class, aGame);
+                                      }
+                                  });
         builder.show();
     }
 

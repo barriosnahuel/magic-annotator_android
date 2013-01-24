@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
-  ~ No se reconocerá ningún tipo de garantía.
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout android:id="@+id/linearLayout1"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/viewteams_button_play"
@@ -15,13 +29,15 @@
         android:layout_centerHorizontal="true"
         android:orientation="vertical">
 
-        <TextView android:id="@+id/viewTeams_title"
+        <TextView
+            android:id="@+id/viewTeams_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/viewTeams_title"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView android:id="@+id/whileLine1"
+        <TextView
+            android:id="@+id/whileLine1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -31,12 +47,14 @@
          Caused by: java.lang.RuntimeException: Your content must have a ExpandableListView whose id attribute is 'android.R.id.list'
         -->
 
-        <ExpandableListView android:id="@android:id/list"
+        <ExpandableListView
+            android:id="@android:id/list"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"></ExpandableListView>
     </LinearLayout>
 
-    <Button android:id="@+id/viewteams_button_play"
+    <Button
+        android:id="@+id/viewteams_button_play"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

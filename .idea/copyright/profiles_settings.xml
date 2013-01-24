@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="Nahuel Barrios">
+  <settings default="">
     <module2copyright>
-      <element module="Java files" copyright="Nahuel Barrios" />
+      <element module="Production" copyright="Nahuel Barrios Magic Annotator GPL (2013)" />
     </module2copyright>
   </settings>
 </component>

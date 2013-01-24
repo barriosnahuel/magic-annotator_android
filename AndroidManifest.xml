@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
-  ~ No se reconocerá ningún tipo de garantía.
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -8,7 +21,8 @@
     android:versionCode="15"
     android:versionName="1.6">
 
-    <uses-sdk android:minSdkVersion="7"
+    <uses-sdk
+        android:minSdkVersion="7"
         android:targetSdkVersion="16" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,10 +35,12 @@
 				high quality (hdpi): tamaño, 72x72 px; resolución, 71 ppp; profundidad en bits, 32.
 
     -->
-    <application android:icon="@drawable/icon"
+    <application
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".component.activity.ChooseAnnotatorActivity"
+        <activity
+            android:name=".component.activity.ChooseAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,49 +48,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.AboutActivity"
+        <activity
+            android:name=".component.activity.AboutActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.ChoosePlayersActivity"
+        <activity
+            android:name=".component.activity.ChoosePlayersActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.ViewTeamsActivity"
+        <activity
+            android:name=".component.activity.ViewTeamsActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.ChanchoAnnotatorActivity"
+        <activity
+            android:name=".component.activity.ChanchoAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.TrucoAnnotatorActivity"
+        <activity
+            android:name=".component.activity.TrucoAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.TuteAnnotatorActivity"
+        <activity
+            android:name=".component.activity.TuteAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.GenericAnnotatorActivity"
+        <activity
+            android:name=".component.activity.GenericAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
-        <activity android:name=".component.activity.MarketAnnotatorActivity"
+        <activity
+            android:name=".component.activity.MarketAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

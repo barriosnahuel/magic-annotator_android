@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
-  ~ No se reconocerá ningún tipo de garantía.
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content">
 
-    <TextView android:id="@+id/textView1"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/choosePlayers_title"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button android:id="@+id/choosePlayers_newPlayer_button"
+    <Button
+        android:id="@+id/choosePlayers_newPlayer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -21,19 +36,22 @@
         android:onClick="openPlayerCreator"
         android:text="@string/choosePlayers_newPlayer" />
 
-    <ScrollView android:id="@+id/scrollView1"
+    <ScrollView
+        android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/choosePlayers_button_makeTeams"
         android:layout_below="@+id/choosePlayers_newPlayer_button"
         android:layout_centerHorizontal="true">
 
-        <TableLayout android:id="@+id/choosePlayers_playersLayout"
+        <TableLayout
+            android:id="@+id/choosePlayers_playersLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"></TableLayout>
     </ScrollView>
 
-    <Button android:id="@+id/choosePlayers_button_makeTeams"
+    <Button
+        android:id="@+id/choosePlayers_button_makeTeams"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

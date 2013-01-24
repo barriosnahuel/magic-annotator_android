@@ -1,15 +1,22 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Magic Annotator - The only thing you need to write down whatever you want.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 package com.nbempire.android.magicannotator.component.activity;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -29,6 +36,12 @@ import com.nbempire.android.magicannotator.domain.game.TuteScores;
 import com.nbempire.android.magicannotator.util.ArrayUtil;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Android Activity for the Tute annotator.
@@ -96,8 +109,7 @@ public class TuteAnnotatorActivity extends Activity {
      * @param gridView
      *         {@link GridView} que se va a actualizar.
      * @param forUpdate
-     *         {@link Boolean} indicando en {@code true} que la grilla es la primera vez que se completa. {@code false} cuando sea una
-     *         actualización.
+     *         {@link Boolean} indicando en {@code true} que la grilla es la primera vez que se completa. {@code false} cuando sea una actualización.
      *
      * @since 1
      */

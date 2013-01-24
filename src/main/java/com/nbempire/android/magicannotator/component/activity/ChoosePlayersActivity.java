@@ -1,17 +1,25 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Magic Annotator - The only thing you need to write down whatever you want.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * ChoosePlayersActivity.java Created by: Nahuel Barrios: 29/02/2012, 09:22:36.
  */
 package com.nbempire.android.magicannotator.component.activity;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -47,6 +55,11 @@ import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  * Activity to let users select which players are going to play.
@@ -234,16 +247,15 @@ public class ChoosePlayersActivity extends Activity {
                     selectedPlayers.remove(buttonView.getText().toString());
                 }
                 Toast.makeText(getApplicationContext(),
-                                      getText(R.string.choosePlayers_selected).toString() + " " + selectedPlayers.size(),
-                                      Toast.LENGTH_SHORT).show();
+                               getText(R.string.choosePlayers_selected).toString() + " " + selectedPlayers.size(),
+                               Toast.LENGTH_SHORT).show();
             }
         });
         return checkBox;
     }
 
     /**
-     * Método llamado desde la definición del layout para permitir al usuario crear un jugador nuevo, y de crearlo, agregarlo al listado ya
-     * tildado.
+     * Método llamado desde la definición del layout para permitir al usuario crear un jugador nuevo, y de crearlo, agregarlo al listado ya tildado.
      *
      * @param view
      *         {@link View} desde la cuál se llamó a este método.
@@ -254,21 +266,21 @@ public class ChoosePlayersActivity extends Activity {
         final EditText input = new EditText(view.getContext());
 
         new AlertDialog.Builder(this).setTitle(R.string.newplayer_enterNickName).setView(input)
-                .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {
+                                     .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {
 
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        String newPlayerNickname = input.getText().toString();
-                        if (newPlayerNickname.length() > 0) {
-                            if (addCheckedDynamicPlayer(newPlayerNickname)) {
-                                Toast.makeText(getApplicationContext(),
-                                                      newPlayerNickname
-                                                              + " "
-                                                              + getText(R.string.choosePlayers_playerAlreadyExists).toString(),
-                                                      Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    }
-                }).show();
+                                         public void onClick(DialogInterface dialog, int whichButton) {
+                                             String newPlayerNickname = input.getText().toString();
+                                             if (newPlayerNickname.length() > 0) {
+                                                 if (addCheckedDynamicPlayer(newPlayerNickname)) {
+                                                     Toast.makeText(getApplicationContext(),
+                                                                    newPlayerNickname
+                                                                    + " "
+                                                                    + getText(R.string.choosePlayers_playerAlreadyExists).toString(),
+                                                                    Toast.LENGTH_SHORT).show();
+                                                 }
+                                             }
+                                         }
+                                     }).show();
     }
 
     /**

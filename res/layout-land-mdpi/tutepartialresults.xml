@@ -1,44 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
-  ~ No se reconocerá ningún tipo de garantía.
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout android:id="@+id/linearLayout1"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
-        <Button android:id="@+id/button1"
+        <Button
+            android:id="@+id/button1"
             android:layout_width="213dip"
             android:layout_height="wrap_content"
             android:onClick="openPlayersSelector"
             android:text="@string/tutePartialResults_addCapote" />
 
-        <Button android:id="@+id/tutePartialResults_addTuteButton"
+        <Button
+            android:id="@+id/tutePartialResults_addTuteButton"
             android:layout_width="213dip"
             android:layout_height="wrap_content"
             android:onClick="openPlayersSelector"
             android:text="@string/tutePartialResults_addTute" />
     </LinearLayout>
 
-    <GridView android:id="@+id/tuteAnnotator_partialResults_gridView"
+    <GridView
+        android:id="@+id/tuteAnnotator_partialResults_gridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout1"
         android:layout_toLeftOf="@+id/linearLayout3"
         android:numColumns="4"></GridView>
 
-    <LinearLayout android:id="@+id/linearLayout3"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_alignParentRight="true">
 
-        <Button android:id="@+id/button3"
+        <Button
+            android:id="@+id/button3"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
             android:onClick="playAnotherHand"

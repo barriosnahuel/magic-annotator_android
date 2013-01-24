@@ -1,51 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?><!--
-  ~ Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
-  ~ No se reconocerá ningún tipo de garantía.
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <TextView android:id="@+id/about_title"
+        <TextView
+            android:id="@+id/about_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/about_title"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView android:id="@+id/about_introduction"
+        <TextView
+            android:id="@+id/about_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dip"
             android:text="@string/about_introduction"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView android:id="@+id/about_permissions"
+        <TextView
+            android:id="@+id/about_permissions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
             android:text="@string/about_permissions"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView android:id="@+id/about_contact"
+        <TextView
+            android:id="@+id/about_contact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dip"
             android:text="@string/about_contact"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
-        <TextView android:id="@+id/about_projectUrl"
+        <TextView
+            android:id="@+id/about_projectUrl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dip"
             android:text="@string/about_projectUrl"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
-        <TextView android:id="@+id/about_greetings"
+        <TextView
+            android:id="@+id/about_greetings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dip"

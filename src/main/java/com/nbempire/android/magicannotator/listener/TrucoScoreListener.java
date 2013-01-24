@@ -1,14 +1,25 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Magic Annotator - The only thing you need to write down whatever you want.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * TrucoScoreListener.java Created by: Nahuel Barrios: 01/03/2012, 08:56:40.
  */
 package com.nbempire.android.magicannotator.listener;
-
-import java.util.List;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,6 +30,8 @@ import android.view.View.OnTouchListener;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
+
+import java.util.List;
 
 /**
  * Listener class to update scores of a Truco game.
@@ -87,12 +100,12 @@ public class TrucoScoreListener implements OnTouchListener {
         AlertDialog winMessageAlertDialog = new AlertDialog.Builder(context).create();
         winMessageAlertDialog.setTitle(winMessageText);
         winMessageAlertDialog.setButton(context.getText(R.string.commonLabel_OK),
-                                               new DialogInterface.OnClickListener() {
+                                        new DialogInterface.OnClickListener() {
 
-                                                   public void onClick(DialogInterface dialog, int which) {
-                                                       //  Do nothing.
-                                                   }
-                                               });
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                //  Do nothing.
+                                            }
+                                        });
         winMessageAlertDialog.show();
     }
 

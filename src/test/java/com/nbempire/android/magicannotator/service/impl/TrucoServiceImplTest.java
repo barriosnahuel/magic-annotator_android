@@ -1,6 +1,18 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -8,13 +20,13 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
-import java.util.List;
-
 import com.nbempire.android.magicannotator.DummyPlayers;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.exception.UserException;
 import junit.framework.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Tests the TrucoServiceImpl type that implements the GameService interface.
@@ -72,31 +84,31 @@ public class TrucoServiceImplTest {
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withValidSelectedPlayers_returnTrue() {
         Assert.assertTrue("With 2 selected players, must return <true>.",
-                                 trucoServiceImpl.hasValidNumberOfSelectedPlayers(2));
+                          trucoServiceImpl.hasValidNumberOfSelectedPlayers(2));
 
         Assert.assertTrue("With 4 selected players, must return <true>.",
-                                 trucoServiceImpl.hasValidNumberOfSelectedPlayers(4));
+                          trucoServiceImpl.hasValidNumberOfSelectedPlayers(4));
 
         Assert.assertTrue("With 6 selected players, must return <true>.",
-                                 trucoServiceImpl.hasValidNumberOfSelectedPlayers(6));
+                          trucoServiceImpl.hasValidNumberOfSelectedPlayers(6));
     }
 
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withInvalidSelectedPlayers_returnFalse() {
         Assert.assertFalse("Con 1 jugadores seleccionados, deber�a haber retornado <false>",
-                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(1));
+                           trucoServiceImpl.hasValidNumberOfSelectedPlayers(1));
         Assert.assertFalse("Con 3 jugadores seleccionados, deber�a haber retornado <false>",
-                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(3));
+                           trucoServiceImpl.hasValidNumberOfSelectedPlayers(3));
         Assert.assertFalse("Con 5 jugadores seleccionados, deber�a haber retornado <false>",
-                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(5));
+                           trucoServiceImpl.hasValidNumberOfSelectedPlayers(5));
         Assert.assertFalse("Con 7 jugadores seleccionados, deber�a haber retornado <false>",
-                                  trucoServiceImpl.hasValidNumberOfSelectedPlayers(7));
+                           trucoServiceImpl.hasValidNumberOfSelectedPlayers(7));
     }
 
     @Test
     public final void testGetInvalidNumberOfTeamsExceptionMessage() {
         Assert.assertEquals("La cantidad de jugadores debe ser 2, 4 o 6.",
-                                   trucoServiceImpl.getInvalidNumberOfSelectedPlayersExceptionMessage());
+                            trucoServiceImpl.getInvalidNumberOfSelectedPlayersExceptionMessage());
     }
 
     /**

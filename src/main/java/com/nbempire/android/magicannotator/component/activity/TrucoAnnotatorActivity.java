@@ -1,15 +1,25 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Magic Annotator - The only thing you need to write down whatever you want.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
  * TrucoAnnotatorActivity.java Created by: Nahuel Barrios: 01/03/2012, 05:55:58.
  */
 package com.nbempire.android.magicannotator.component.activity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -21,6 +31,9 @@ import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.listener.TrucoScoreListener;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * {@link Activity} To annotate the score of a Truco game.
@@ -59,7 +72,7 @@ public class TrucoAnnotatorActivity extends Activity {
         viewsToDisable.add(R.id.trucoAnnotator_scoreTeam2);
         viewsToDisable.add(R.id.trucoAnnotator_substractButtonTeam2);
         setActions(R.id.trucoAnnotator_scoreTeam1, R.string.trucoAnnotator_youWin,
-                          R.id.trucoAnnotator_labelTeam1, viewsToDisable);
+                   R.id.trucoAnnotator_labelTeam1, viewsToDisable);
 
         // Setteo las acciones para los elementos del equipo "ellos"
         viewsToDisable.clear();
@@ -67,7 +80,7 @@ public class TrucoAnnotatorActivity extends Activity {
         viewsToDisable.add(R.id.trucoAnnotator_scoreTeam1);
         viewsToDisable.add(R.id.trucoAnnotator_substractButtonTeam1);
         setActions(R.id.trucoAnnotator_scoreTeam2, R.string.trucoAnnotator_theyWin,
-                          R.id.trucoAnnotator_labelTeam2, viewsToDisable);
+                   R.id.trucoAnnotator_labelTeam2, viewsToDisable);
     }
 
     @Override

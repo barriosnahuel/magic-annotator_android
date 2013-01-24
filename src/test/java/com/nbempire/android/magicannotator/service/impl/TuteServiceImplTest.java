@@ -1,6 +1,18 @@
 /*
- * Copyright (c) 2012-2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
- * No se reconocerá ningún tipo de garantía.
+ * Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
 /**
@@ -8,13 +20,13 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
-import java.util.List;
-
 import com.nbempire.android.magicannotator.DummyPlayers;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.exception.UserException;
 import junit.framework.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 /**
  * Tests TuteServiceImpl type.
@@ -88,15 +100,15 @@ public class TuteServiceImplTest {
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withValidSelectedPlayers_returnTrue() {
         Assert.assertTrue("Con 3 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(3));
+                          instance.hasValidNumberOfSelectedPlayers(3));
         Assert.assertTrue("Con 6 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(6));
+                          instance.hasValidNumberOfSelectedPlayers(6));
         Assert.assertTrue("Con 7 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(7));
+                          instance.hasValidNumberOfSelectedPlayers(7));
         Assert.assertTrue("Con 8 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(8));
+                          instance.hasValidNumberOfSelectedPlayers(8));
         Assert.assertTrue("Con 12 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(12));
+                          instance.hasValidNumberOfSelectedPlayers(12));
     }
 
     /**
@@ -105,33 +117,32 @@ public class TuteServiceImplTest {
     @Test
     public final void testHasValidNumberOfSelectedPlayers_withInvalidSelectedPlayers_returnFalse() {
         Assert.assertFalse("Con 1 jugadores seleccionados, deber�a haber retornado <false>",
-                                  instance.hasValidNumberOfSelectedPlayers(1));
+                           instance.hasValidNumberOfSelectedPlayers(1));
         Assert.assertFalse("Con 2 jugadores seleccionados, deber�a haber retornado <false>",
-                                  instance.hasValidNumberOfSelectedPlayers(2));
+                           instance.hasValidNumberOfSelectedPlayers(2));
         Assert.assertFalse("Con 13 jugadores seleccionados, deber�a haber retornado <false>",
-                                  instance.hasValidNumberOfSelectedPlayers(13));
+                           instance.hasValidNumberOfSelectedPlayers(13));
     }
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getInvalidNumberOfSelectedPlayersExceptionMessage()}
-     * .
+     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getInvalidNumberOfSelectedPlayersExceptionMessage()} .
      */
     @Test
     public final void testGetInvalidNumberOfSelectedPlayersExceptionMessage() {
         Assert.assertFalse("Con 2 jugadores seleccionados, deber�a haber retornado <false>",
-                                  instance.hasValidNumberOfSelectedPlayers(2));
+                           instance.hasValidNumberOfSelectedPlayers(2));
         Assert.assertTrue("Con 3 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(3));
+                          instance.hasValidNumberOfSelectedPlayers(3));
         Assert.assertTrue("Con 6 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(6));
+                          instance.hasValidNumberOfSelectedPlayers(6));
         Assert.assertTrue("Con 7 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(7));
+                          instance.hasValidNumberOfSelectedPlayers(7));
         Assert.assertTrue("Con 8 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(8));
+                          instance.hasValidNumberOfSelectedPlayers(8));
         Assert.assertTrue("Con 12 jugadores seleccionados, deber�a haber retornado <true>",
-                                 instance.hasValidNumberOfSelectedPlayers(12));
+                          instance.hasValidNumberOfSelectedPlayers(12));
         Assert.assertFalse("Con 13 jugadores seleccionados, deber�a haber retornado <false>",
-                                  instance.hasValidNumberOfSelectedPlayers(13));
+                           instance.hasValidNumberOfSelectedPlayers(13));
     }
 
     /**
