@@ -15,8 +15,8 @@ There you also can check some of the application screens, take a look!
 
 ####License
 
- Magic Annotator - The only thing you need to write down whatever you want.
- Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+     Magic Annotator - The only thing you need to write down whatever you want.
+     Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
 
      This program is free software: you can redistribute it and/or modify
      it under the terms of the GNU General Public License as published by
