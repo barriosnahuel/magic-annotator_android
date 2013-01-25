@@ -33,23 +33,15 @@
         android:id="@+id/main_gamesListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/main_bottomToolbarLayout"
-        android:layout_below="@+id/main_title"></ListView>
+        android:layout_above="@+id/main_about"
+        android:layout_below="@+id/main_title" />
 
-    <LinearLayout
-        android:id="@+id/main_bottomToolbarLayout"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/main_about"
+        android:layout_width="160dip"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-
-        <Button
-            android:id="@+id/main_button1"
-            android:layout_width="160dip"
-            android:layout_height="wrap_content"
-            android:onClick="openAboutActivity"
-            android:text="@string/chooseAnnotator_about" />
-
-    </LinearLayout>
-
+        android:onClick="openAboutActivity"
+        android:text="@string/chooseAnnotator_about"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true" />
 </RelativeLayout>
