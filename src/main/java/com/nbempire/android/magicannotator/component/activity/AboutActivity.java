@@ -98,14 +98,17 @@ public class AboutActivity extends Activity {
         dialogBuilder.setTitle(R.string.about_license);
 
         ScrollView scrollView = new ScrollView(this);
+
+
+        TextView licenseTextView = new TextView(scrollView.getContext());
+        licenseTextView.setTextColor(Color.WHITE);
+        licenseTextView.setText(R.string.app_license);
+
         int padding = 10;
         int topPadding = 5;
-        scrollView.setPadding(padding, topPadding, padding, padding);
+        licenseTextView.setPadding(padding, topPadding, padding, padding);
 
-        TextView aView = new TextView(scrollView.getContext());
-        aView.setTextColor(Color.WHITE);
-        aView.setText(R.string.app_license);
-        scrollView.addView(aView);
+        scrollView.addView(licenseTextView);
 
         dialogBuilder.setView(scrollView);
 
