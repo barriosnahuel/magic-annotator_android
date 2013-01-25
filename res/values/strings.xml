@@ -20,6 +20,16 @@
 
     <string name="app_name">MagicAnnotator</string>
     <string name="app_name_gui">Magic Annotator</string>
+    <string name="app_license">Magic Annotator - The only thing you need to write down whatever you want.\n\nCopyright (C) 2013 Nahuel Barrios &lt;barrios.nahuel@gmail.com&gt;.\n\nThis
+        program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+        GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License
+        along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+    </string>
 
     <!-- Commons -->
     <string name="add">"Agregar"</string>
@@ -71,6 +81,8 @@
     <string name="about_projectUrl">github.com/barriosnahuel/magicAnnotator</string>
     <string name="about_projectUrl_complete">https://github.com/barriosnahuel/magicAnnotator</string>
     <string name="about_greetings">¡Espero les sea util!</string>
+    <string name="about_viewLicense">Ver licencia</string>
+    <string name="about_license">Licencia</string>
 
     <!-- ChoosePlayersActivity -->
     <string name="choosePlayers_title">¿Quién juega?</string>

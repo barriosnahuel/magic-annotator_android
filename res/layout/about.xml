@@ -71,6 +71,14 @@
             android:layout_marginTop="30dip"
             android:text="@string/about_greetings"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/about_viewLicense"
+            android:id="@+id/button"
+            android:onClick="showLicense"
+            android:layout_gravity="center" />
     </LinearLayout>
 
 </ScrollView>

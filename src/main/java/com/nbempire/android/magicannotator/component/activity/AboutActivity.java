@@ -22,12 +22,16 @@
 package com.nbempire.android.magicannotator.component.activity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ScrollView;
+import android.widget.TextView;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
@@ -43,7 +47,7 @@ public class AboutActivity extends Activity {
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "AboutActivity";
+    private static final String TAG = "AboutActivity";
 
     /**
      * Google Analytics tracker used to track page views and events.
@@ -54,7 +58,7 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         tracker = GoogleAnalyticsTracker.getInstance();
-        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
+        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
 
         setContentView(R.layout.about);
 
@@ -72,13 +76,41 @@ public class AboutActivity extends Activity {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 String projectURL = getText(R.string.about_projectUrl_complete).toString();
 
-                Log.i(LOG_TAG, "Opening browser to show the project URL: " + projectURL);
+                Log.i(TAG, "Opening browser to show the project URL: " + projectURL);
                 tracker.trackPageView(projectURL);
 
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(projectURL)));
                 return true;
             }
         });
+    }
+
+    /**
+     * Display the license information to the user.
+     *
+     * @param callerView
+     *         The view that called this method.
+     */
+    public void showLicense(View callerView) {
+        Log.i(TAG, "Showing license information.");
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle(R.string.about_license);
+
+        ScrollView scrollView = new ScrollView(this);
+        int padding = 10;
+        int topPadding = 5;
+        scrollView.setPadding(padding, topPadding, padding, padding);
+
+        TextView aView = new TextView(scrollView.getContext());
+        aView.setTextColor(Color.WHITE);
+        aView.setText(R.string.app_license);
+        scrollView.addView(aView);
+
+        dialogBuilder.setView(scrollView);
+
+        tracker.trackPageView("/License");
+        dialogBuilder.show();
     }
 
 }
