@@ -26,4 +26,8 @@
         <!-- API 11 theme customizations can go here. -->
     </style>
 
+    <style name="licenseTextColor">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
 </resources>

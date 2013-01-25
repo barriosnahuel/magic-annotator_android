@@ -24,7 +24,6 @@ package com.nbempire.android.magicannotator.component.activity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -99,9 +98,8 @@ public class AboutActivity extends Activity {
 
         ScrollView scrollView = new ScrollView(this);
 
-
         TextView licenseTextView = new TextView(scrollView.getContext());
-        licenseTextView.setTextColor(Color.WHITE);
+        licenseTextView.setTextAppearance(this, R.style.licenseTextColor);
         licenseTextView.setText(R.string.app_license);
 
         int padding = 10;
