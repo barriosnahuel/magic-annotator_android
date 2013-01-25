@@ -264,6 +264,7 @@ public class ChoosePlayersActivity extends Activity {
      */
     public void openPlayerCreator(View view) {
         final EditText input = new EditText(view.getContext());
+        input.setLines(1);
 
         new AlertDialog.Builder(this).setTitle(R.string.newplayer_enterNickName).setView(input)
                                      .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {
