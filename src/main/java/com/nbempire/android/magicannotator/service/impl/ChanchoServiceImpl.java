@@ -18,8 +18,9 @@
 
 package com.nbempire.android.magicannotator.service.impl;
 
-import com.nbempire.android.magicannotator.GUIKeys;
 import com.nbempire.android.magicannotator.GameKeys;
+import com.nbempire.android.magicannotator.MagicAnnotatorApp;
+import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.service.GameService;
 
 /**
@@ -32,12 +33,12 @@ public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected String getFirstTeamLabel() {
-        return GUIKeys.GAME_TUTE_TEAM_LABEL_GROUP1;
+        return MagicAnnotatorApp.getContext().getText(R.string.group_one).toString();
     }
 
     @Override
     protected String getSecondTeamLabel() {
-        return GUIKeys.GAME_TUTE_TEAM_LABEL_GROUP2;
+        return MagicAnnotatorApp.getContext().getText(R.string.group_two).toString();
     }
 
     @Override
@@ -52,7 +53,7 @@ public class ChanchoServiceImpl extends GameServiceImpl implements GameService {
 
     @Override
     protected String getInvalidNumberOfSelectedPlayersExceptionMessage() {
-        return GUIKeys.Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_CHANCHO;
+        return MagicAnnotatorApp.getContext().getText(R.string.message_must_select_between_3_and_12_players).toString();
     }
 
 }

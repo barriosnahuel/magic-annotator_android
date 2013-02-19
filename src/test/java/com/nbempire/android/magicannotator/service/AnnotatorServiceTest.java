@@ -22,7 +22,6 @@
 package com.nbempire.android.magicannotator.service;
 
 import android.app.Activity;
-import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
 import com.nbempire.android.magicannotator.domain.game.Game;
@@ -41,9 +40,13 @@ import org.junit.Test;
 public class AnnotatorServiceTest {
 
     private static final String MUST_BE_INSTANCE_OF = "Must be an instance of ";
+
     private static final String RETURNED_GAME_MUST_NOT_BE_NULL = "Returned Game musn't be null.";
+
     private static final String RETURNED_ANNOTATOR_ACTIVITY_MUST_NOT_BE_NULL = "The returned annotator activity musn't be null.";
+
     private static final String ANNOTATOR_ACTIVITY_TYPE_SUFFIX = "AnnotatorActivity";
+
     private static final String TYPE_NAME_MUST_HAVE_SUFFIX = "The type's simple name must ends with the suffix: " +
                                                              ANNOTATOR_ACTIVITY_TYPE_SUFFIX;
 
@@ -54,27 +57,27 @@ public class AnnotatorServiceTest {
 
     @Test
     public void getAnnotatorId_withChanchoInput_returnChanchoId() {
-        Assert.assertEquals(R.string.annotator_chancho, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_CHANCHO));
+        Assert.assertEquals(R.string.annotator_chancho, annotatorService.getAnnotatorId("Chancho"));
     }
 
     @Test
     public void getAnnotatorId_withMarketInput_returnMarketId() {
-        Assert.assertEquals(R.string.annotator_market, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_MARKET));
+        Assert.assertEquals(R.string.annotator_market, annotatorService.getAnnotatorId("Lista del supermercado"));
     }
 
     @Test
     public void getAnnotatorId_withOtherInput_returnOtherId() {
-        Assert.assertEquals(R.string.annotator_otro, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_OTHER));
+        Assert.assertEquals(R.string.annotator_otro, annotatorService.getAnnotatorId("Otro"));
     }
 
     @Test
     public void getAnnotatorId_withTrucoInput_returnTrucoId() {
-        Assert.assertEquals(R.string.annotator_truco, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TRUCO));
+        Assert.assertEquals(R.string.annotator_truco, annotatorService.getAnnotatorId("Truco"));
     }
 
     @Test
     public void getAnnotatorId_withTuteInput_returnTuteId() {
-        Assert.assertEquals(R.string.annotator_tute, annotatorService.getAnnotatorId(GameKeys.GAME_NAME_TUTE));
+        Assert.assertEquals(R.string.annotator_tute, annotatorService.getAnnotatorId("Tute"));
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")

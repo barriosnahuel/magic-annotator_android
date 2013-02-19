@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Magic Annotator - The only thing you need to write down whatever you want.
+  ~ Copyright (C) 2013 Nahuel Barrios <barrios.nahuel@gmail.com>.
+  ~
+  ~     This program is free software: you can redistribute it and/or modify
+  ~     it under the terms of the GNU General Public License as published by
+  ~     the Free Software Foundation, either version 3 of the License, or
+  ~     (at your option) any later version.
+  ~
+  ~     This program is distributed in the hope that it will be useful,
+  ~     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~     GNU General Public License for more details.
+  ~
+  ~     You should have received a copy of the GNU General Public License
+  ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <string name="app_name">MagicAnnotator</string>
+    <string name="app_name_gui">Magic Annotator</string>
+    <string name="app_license">Magic Annotator - The only thing you need to write down whatever you want.\n\nCopyright (C) 2013 Nahuel Barrios &lt;barrios.nahuel@gmail.com&gt;.\n\nThis
+        program is free software: you can redistribute it and/or modify
+        it under the terms of the GNU General Public License as published by
+        the Free Software Foundation, either version 3 of the License, or
+        (at your option) any later version.\n\nThis program is distributed in the hope that it will be useful,
+        but WITHOUT ANY WARRANTY; without even the implied warranty of
+        MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+        GNU General Public License for more details.\n\nYou should have received a copy of the GNU General Public License
+        along with this program. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+    </string>
+
+    <!-- Commons -->
+    <string name="add">"Agregar"</string>
+    <string name="annotateHand">¡Anotar mano!</string>
+    <string name="commonLabel_accept">Aceptar</string>
+    <string name="commonLabel_OK">OK</string>
+    <string name="commonLabel_someoneLost">perdió :(</string>
+    <string name="chooseLooser">¿Quién perdió?</string>
+    <string name="chooseLoosers">¿Quiénes perdieron?</string>
+    <string name="defaultInitialGameScore">0</string>
+    <string name="marketItem_initialNumberOfItems">1</string>
+    <string name="plus">+</string>
+    <string name="substract">-</string>
+    <string name="play">Jugar!</string>
+    <string name="player">Jugador</string>
+    <string name="mustSelectAtLeastOne">Se debe seleccionar al menos 1</string>
+    <string name="we">Nosotros</string>
+    <string name="they">Ellos</string>
+    <string name="message_must_select_between_3_and_12_players">Se deben seleccionar entre 3 y 12 jugadores.</string>
+    <string name="message_truco_invalid_number_of_selected_players">La cantidad de jugadores debe ser 2, 4 o 6.</string>
+
+    <!-- ChooseAnnotatorActivity -->
+    <string name="chooseAnnotator_title">¿Qué vas a anotar?</string>
+
+    <!--Annotators ID. Must have the same value in the list-->
+    <string name="annotator_chancho">Chancho</string>
+    <string name="annotator_market">Lista del supermercado</string>
+    <string name="annotator_truco">Truco</string>
+    <string name="annotator_tute">Tute</string>
+    <string name="annotator_otro">Otro</string>
+
+    <string-array name="chooseAnnotator_annotatorsValues">
+        <item>Chancho</item>
+        <item>Lista del supermercado</item>
+        <item>Truco</item>
+        <item>Tute</item>
+        <item>Otro</item>
+    </string-array>
+
+    <string name="chooseAnnotator_about">Acerca de</string>
+
+    <!-- AboutActivity -->
+    <string name="about_title">Sobre esta aplicación:</string>
+    <string name="about_introduction">Esta aplicación fue creada con la idea de facilitar al usuario de manera sencilla y efectiva la tarea de
+        anotar un partido de truco, de chancho, tute, la lista de cosas que uno tiene que comprar cuando va al supermercado, o cualquier otro tipo de
+        anotación básica.
+    </string>
+    <string name="about_contact">Pueden contactarme por cualquier duda o para reportar algun error, a travez del sitio web del proyecto:
+    </string>
+    <string name="about_permissions">Los permisos de acceso a internet son únicamente para recuperar información de uso de la aplicación para
+        saber cuáles son los anotadores que más se usan y mejorarlos, en ningún momento se leera información privada.
+    </string>
+    <string name="about_projectUrl">github.com/barriosnahuel/magicAnnotator</string>
+    <string name="about_projectUrl_complete">https://github.com/barriosnahuel/magicAnnotator</string>
+    <string name="about_greetings">¡Espero les sea util!</string>
+    <string name="about_viewLicense">Ver licencia</string>
+    <string name="about_license">Licencia</string>
+
+    <!-- ChoosePlayersActivity -->
+    <string name="choosePlayers_title">¿Quién juega?</string>
+    <string name="choosePlayers_newPlayer">Nuevo jugador</string>
+    <string name="choosePlayers_selected">Seleccionados:</string>
+    <string name="newplayer_createPlayer">¡Crear!</string>
+    <string name="newplayer_enterNickName">Introduzca el apodo:</string>
+    <string name="choosePlayers_makeTeams">Armar equipos</string>
+    <string name="choosePlayers_playerAlreadyExists">ya está creado!</string>
+    <string name="choosePlayersMenuItem_deleteAll">Borrar todos</string>
+
+    <!-- ViewTeamsActivity -->
+    <string name="viewTeams_title">Equipos:</string>
+
+    <!-- GenericAnnotatorActivity -->
+    <string name="genericannotator_scores">Puntajes</string>
+
+    <!-- TrucoAnnotatorActivity -->
+    <string name="trucoAnnotator_doYouWannaThrowKings">¿Queres tirar los reyes?</string>
+    <string name="trucoAnnotator_throwKings">Tirar reyes</string>
+    <string name="trucoAnnotator_annotateNow">¡Anotar ahora!</string>
+    <string name="trucoAnnotator_youWin">¡Ganamos!</string>
+    <string name="trucoAnnotator_theyWin">Ganaron ellos :(</string>
+    <string name="trucoAnnotator_labelNewGame">Nuevo partido</string>
+    <string name="trucoAnnotator_labelResult">Resultado</string>
+    <string name="trucoAnnotator_labelDoTapOnYourTeamToAddScore">Haz tap sobre tu equipo para anotar puntos</string>
+
+    <!-- TutePartialResultsActivity -->
+    <string name="tutePartialResults_addCapote">Agregar capote</string>
+    <string name="tutePartialResults_addTute">Agregar tute</string>
+    <string name="tutePartialResults_whoDidThat">¿Quién lo hizo?</string>
+    <string name="tutePartialResults_lostHands">Manos Perdidas</string>
+    <string name="tutePartialResults_lostHands_short">MP</string>
+    <string name="tutePartialResults_capotes">Capotes</string>
+    <string name="tutePartialResults_tutes">Tutes</string>
+
+    <!-- Truco -->
+    <string name="truco_team1_we">Nosotros</string>
+    <string name="truco_team2_them">Ellos</string>
+
+    <!-- MarketAnnotatorActivity -->
+    <string name="marketAnnotator_myMarketList">Mi lista del super</string>
+    <string name="marketAnnotator_whatDoYouNeed">"Qué necesitas?"</string>
+    <string name="marketAnnotatorMenu_updateQuantitiesToZero">Poner cantidades en 0</string>
+    <string name="marketAnnotatorMenuItem_deleteAll">Borrar lista</string>
+    <string name="marketAnnotatorMenuItem_checkAllItems">Seleccionar todo</string>
+    <string name="marketAnnotatorMenuItem_uncheckAllItems">No seleccionar nada</string>
+    <string name="group_one">Grupo 1</string>
+    <string name="group_two">Grupo 2</string>
+
+</resources>

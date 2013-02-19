@@ -23,7 +23,7 @@
 package com.nbempire.android.magicannotator.service.impl;
 
 import android.app.Activity;
-import com.nbempire.android.magicannotator.GameKeys;
+import com.nbempire.android.magicannotator.MagicAnnotatorApp;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.component.activity.ChanchoAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.GenericAnnotatorActivity;
@@ -50,19 +50,19 @@ public class AnnotatorServiceImpl implements AnnotatorService {
         }
 
         int annotatorId;
-        if (userSelection.equals(GameKeys.GAME_NAME_CHANCHO)) {
+        if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_chancho))) {
             annotatorId = R.string.annotator_chancho;
 
-        } else if (userSelection.equals(GameKeys.GAME_NAME_MARKET)) {
+        } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_market))) {
             annotatorId = R.string.annotator_market;
 
-        } else if (userSelection.equals(GameKeys.GAME_NAME_OTHER)) {
+        } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_otro))) {
             annotatorId = R.string.annotator_otro;
 
-        } else if (userSelection.equals(GameKeys.GAME_NAME_TRUCO)) {
+        } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_truco))) {
             annotatorId = R.string.annotator_truco;
 
-        } else if (userSelection.equals(GameKeys.GAME_NAME_TUTE)) {
+        } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_tute))) {
             annotatorId = R.string.annotator_tute;
 
         } else {

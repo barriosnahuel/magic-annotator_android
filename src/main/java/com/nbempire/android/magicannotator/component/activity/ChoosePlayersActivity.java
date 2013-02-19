@@ -212,7 +212,7 @@ public class ChoosePlayersActivity extends Activity {
 
         for (CharSequence eachPlayer : players) {
             TableRow tableRow = new TableRow(this);
-            tableRow.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+            tableRow.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 
             String playerName = eachPlayer.toString();
             tableRow.addView(preparePlayerSelector(playerName, selectedPlayersList.contains(playerName)));
@@ -264,7 +264,6 @@ public class ChoosePlayersActivity extends Activity {
      */
     public void openPlayerCreator(View view) {
         final EditText input = new EditText(view.getContext());
-        input.setLines(1);
 
         new AlertDialog.Builder(this).setTitle(R.string.newplayer_enterNickName).setView(input)
                                      .setPositiveButton(R.string.newplayer_createPlayer, new DialogInterface.OnClickListener() {

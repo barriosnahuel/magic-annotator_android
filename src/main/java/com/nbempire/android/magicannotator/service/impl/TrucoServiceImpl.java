@@ -21,7 +21,8 @@
  */
 package com.nbempire.android.magicannotator.service.impl;
 
-import com.nbempire.android.magicannotator.GUIKeys;
+import com.nbempire.android.magicannotator.MagicAnnotatorApp;
+import com.nbempire.android.magicannotator.R;
 
 /**
  * Implementation of GameServiceImpl for Truco game.
@@ -38,17 +39,17 @@ public class TrucoServiceImpl extends GameServiceImpl {
 
     @Override
     protected String getInvalidNumberOfSelectedPlayersExceptionMessage() {
-        return GUIKeys.Exceptions.INVALID_NUMBER_SELECTED_PLAYERS_TRUCO;
+        return MagicAnnotatorApp.getContext().getText(R.string.message_truco_invalid_number_of_selected_players).toString();
     }
 
     @Override
     protected String getFirstTeamLabel() {
-        return GUIKeys.GAME_TRUCO_TEAM_LABEL_WE;
+        return MagicAnnotatorApp.getContext().getText(R.string.we).toString();
     }
 
     @Override
     protected String getSecondTeamLabel() {
-        return GUIKeys.GAME_TRUCO_TEAM_LABEL_THEM;
+        return MagicAnnotatorApp.getContext().getText(R.string.they).toString();
     }
 
     @Override
