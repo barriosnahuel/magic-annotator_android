@@ -129,7 +129,6 @@ public class ChooseAnnotatorActivity extends Activity {
     private void addCustomNavigationFlowForTrucoAnnotator(final Context theContext, final Game aGame) {
         AlertDialog.Builder builder = new AlertDialog.Builder(theContext);
         builder.setMessage(getText(R.string.trucoAnnotator_doYouWannaThrowKings))
-               .setCancelable(false)
                .setPositiveButton(getText(R.string.trucoAnnotator_throwKings),
                                   new DialogInterface.OnClickListener() {
 
