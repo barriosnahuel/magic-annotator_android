@@ -59,7 +59,7 @@
             android:id="@+id/trucoAnnotator_scoreTeam1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="95dp"
+            android:layout_marginLeft="129dp"
             android:layout_marginTop="8dp"
             android:text="@string/defaultInitialGameScore"
             android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -86,16 +86,16 @@
             android:id="@+id/trucoAnnotator_labelTeam2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="31dp"
             android:layout_marginTop="8dp"
             android:text="@string/truco_team2_them"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:layout_marginLeft="10dp" />
 
         <TextView
             android:id="@+id/trucoAnnotator_scoreTeam2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="122dp"
+            android:layout_marginLeft="112dp"
             android:layout_marginTop="8dp"
             android:text="@string/defaultInitialGameScore"
             android:textAppearance="?android:attr/textAppearanceMedium" />

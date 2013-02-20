@@ -226,7 +226,7 @@ public class TuteAnnotatorActivity extends Activity {
                     selectedLoosers.remove(value);
                 }
             }
-        }).setPositiveButton(this.getText(R.string.commonLabel_accept), new OnClickListener() {
+        }).setPositiveButton(this.getText(R.string.commonLabel_done), new OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
                 updateScoreFor(selectedLoosers);

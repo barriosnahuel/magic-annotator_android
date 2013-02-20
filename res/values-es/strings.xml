@@ -34,7 +34,7 @@
     <!-- Commons -->
     <string name="add">"Agregar"</string>
     <string name="annotateHand">¡Anotar mano!</string>
-    <string name="commonLabel_accept">Aceptar</string>
+    <string name="commonLabel_done">Aceptar</string>
     <string name="commonLabel_OK">OK</string>
     <string name="commonLabel_someoneLost">perdió :(</string>
     <string name="chooseLooser">¿Quién perdió?</string>
