@@ -57,7 +57,9 @@ public class TrucoAnnotatorActivity extends Activity {
      * Key para el score del equipo "Ellos", para controlar el giro del telefono.
      */
     private static final String SCORE_TEAM_2 = "scoreTeam2";
+
     private static final String TEAM_1_STATUS = "team1Status";
+
     private static final String TEAM_2_STATUS = "team2Status";
 
     @Override
@@ -119,7 +121,7 @@ public class TrucoAnnotatorActivity extends Activity {
     }
 
     /**
-     * Setteo las acciones para todo un equipo, ya sea nosotros o ellos, dependiendo de los ID de los resources.
+     * Setteo las acciones para un equipo, ya sea nosotros o ellos, dependiendo de los ID de los resources.
      *
      * @param teamScoreId
      *         El ID del {@link TextView} donde se anotar� el score.

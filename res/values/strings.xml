@@ -72,7 +72,6 @@
     <string name="chooseAnnotator_about">About</string>
 
     <!-- AboutActivity -->
-    <!-- TODO : Translate it -->
     <string name="about_title">About this application:</string>
 
     <string name="about_introduction">This application was created with the idea of ​​facilitating the user in a simple and effective task scoring a

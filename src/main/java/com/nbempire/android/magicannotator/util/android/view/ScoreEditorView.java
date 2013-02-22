@@ -22,6 +22,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -137,7 +138,9 @@ public class ScoreEditorView extends RelativeLayout {
             this.forSubstract = forSubstract;
         }
 
-        public boolean onTouch(View v, MotionEvent event) {
+        public boolean onTouch(View callerView, MotionEvent event) {
+
+            hideSoftKeyboard(callerView);
 
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
@@ -152,6 +155,18 @@ public class ScoreEditorView extends RelativeLayout {
                     break;
             }
             return false;
+        }
+
+        /**
+         * Hide digital keyboard.
+         *
+         * @param callerView
+         *         The caller view that called this listener.
+         */
+        private void hideSoftKeyboard(View callerView) {
+            InputMethodManager inputMethodManager = (InputMethodManager) callerView.getContext().getSystemService(
+                    Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(callerView.getWindowToken(), 0);
         }
 
     }
