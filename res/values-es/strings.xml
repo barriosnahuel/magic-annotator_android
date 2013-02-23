@@ -136,5 +136,7 @@
     <string name="marketAnnotatorMenuItem_uncheckAllItems">No seleccionar nada</string>
     <string name="group_one">Grupo 1</string>
     <string name="group_two">Grupo 2</string>
+    <string name="by_nahuel_barrios">Por Nahuel Barrios.</string>
+    <string name="start_up_image_content_description">El logo de la aplicación.</string>
 
 </resources>

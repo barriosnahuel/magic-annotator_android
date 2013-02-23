@@ -41,12 +41,18 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".component.activity.ChooseAnnotatorActivity"
+            android:name=".component.activity.StartUpActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".component.activity.ChooseAnnotatorActivity"
+            android:label="@string/app_name_gui">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
