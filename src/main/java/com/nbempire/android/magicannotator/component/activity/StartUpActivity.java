@@ -38,8 +38,7 @@ public class StartUpActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_up);
 
-        Handler hdl = new Handler();
-        hdl.postDelayed(new StartUpImageHandler(), 2000);
+        new Handler().postDelayed(new StartUpImageHandler(), 1250);
     }
 
     /**
