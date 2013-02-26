@@ -122,6 +122,7 @@ public class ChoosePlayersActivity extends Activity {
             annotatorId = extras.getInt(AppParameter.GAME);
             switch (annotatorId) {
                 case R.string.annotator_otro:
+                case R.string.annotator_golf:
                     ((Button) findViewById(R.id.choosePlayers_button_makeTeams)).setText(R.string.play);
                     break;
                 default:
