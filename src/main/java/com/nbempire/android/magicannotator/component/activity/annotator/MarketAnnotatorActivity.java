@@ -60,7 +60,7 @@ public class MarketAnnotatorActivity extends Activity {
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "MarketAnnotatorActivity";
+    private static final String TAG = "MarketAnnotatorActivity";
 
     /**
      * The items that are in the GUI.
@@ -80,7 +80,7 @@ public class MarketAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
         setContentView(R.layout.marketannotator);
     }
 
@@ -104,7 +104,7 @@ public class MarketAnnotatorActivity extends Activity {
             marketItemService.saveOrUpdate(eachItem);
         }
 
-        Log.i(LOG_TAG, "Closing MagicAnnotatorDBHelper...");
+        Log.i(TAG, "Closing MagicAnnotatorDBHelper...");
         //  Close the DBHelper in onPause because of the Activities lifecycle and the OS may find a memory leak if it's not closed.
         magicAnnotatorDBHelper.close();
     }
@@ -137,15 +137,15 @@ public class MarketAnnotatorActivity extends Activity {
             }
 
             if (numberOfItems == checkedItems) {
-                Log.i(LOG_TAG, "Hide check");
+                Log.i(TAG, "Hide check");
                 menu.getItem(checkAllIndex).setVisible(false);
                 menu.getItem(uncheckAllIndex).setVisible(true);
             } else if (numberOfItems == -checkedItems) {
-                Log.i(LOG_TAG, "Hide uncheck");
+                Log.i(TAG, "Hide uncheck");
                 menu.getItem(checkAllIndex).setVisible(true);
                 menu.getItem(uncheckAllIndex).setVisible(false);
             } else {
-                Log.i(LOG_TAG, "Don't hide nothing");
+                Log.i(TAG, "Don't hide nothing");
                 menu.getItem(checkAllIndex).setVisible(true);
                 menu.getItem(uncheckAllIndex).setVisible(true);
             }
@@ -156,24 +156,24 @@ public class MarketAnnotatorActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.i(LOG_TAG, "User selected " + item.getTitle() + " option from the menu.");
+        Log.i(TAG, "User selected " + item.getTitle() + " option from the menu.");
 
         boolean showMenu = false;
         boolean updateGUI = true;
 
         switch (item.getItemId()) {
             case R.id.marketAnnotatorMenuItem_updateQuantitiesToZero:
-                Log.i(LOG_TAG, "Updating all quantities to 0.");
+                Log.i(TAG, "Updating all quantities to 0.");
                 updateItems(items, 0);
                 showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_checkAllItems:
-                Log.i(LOG_TAG, "Checking all items.");
+                Log.i(TAG, "Checking all items.");
                 updateItems(items, true);
                 showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_uncheckAllItems:
-                Log.i(LOG_TAG, "Unchecking all items.");
+                Log.i(TAG, "Unchecking all items.");
                 updateItems(items, false);
                 showMenu = true;
                 break;
@@ -183,7 +183,7 @@ public class MarketAnnotatorActivity extends Activity {
                 updateGUI = false;
                 break;
             default:
-                Log.e(LOG_TAG, "The menu item " + item.getTitle() + " has no action attached.");
+                Log.e(TAG, "The menu item " + item.getTitle() + " has no action attached.");
                 break;
         }
 
@@ -226,7 +226,7 @@ public class MarketAnnotatorActivity extends Activity {
 
                                          public void onClick(DialogInterface dialog, int whichButton) {
                                              String item = input.getText().toString();
-                                             Log.d(LOG_TAG, "User input: " + item);
+                                             Log.d(TAG, "User input: " + item);
                                              if (item.length() > 0) {
                                                  addItemToView(item);
                                                  items.add(new MarketItem(item));
@@ -247,7 +247,7 @@ public class MarketAnnotatorActivity extends Activity {
         TableLayout layout = (TableLayout) findViewById(R.id.marketAnnotator_itemsLayout);
 
         for (MarketItem eachItem : items) {
-            Log.i(LOG_TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
+            Log.i(TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
             layout.addView(new MarketItemView(layout.getContext(), eachItem.getDescription()));
         }
     }
@@ -303,7 +303,7 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private void updateGUI(List<MarketItem> items) {
         for (MarketItem eachItem : items) {
-            Log.i(LOG_TAG, "Updating item attributes for: " + eachItem.getDescription());
+            Log.i(TAG, "Updating item attributes for: " + eachItem.getDescription());
 
             TextView numberOfItems =
                     (TextView) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
