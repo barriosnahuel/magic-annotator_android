@@ -24,6 +24,7 @@ package com.nbempire.android.magicannotator.domain;
 
 import com.nbempire.android.magicannotator.component.activity.ChooseAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.ChoosePlayersActivity;
+import com.nbempire.android.magicannotator.component.activity.annotator.GolfAnnotatorActivity;
 
 /**
  * Enum containing all activities that can has more than one next activity to show depending on user actions.
@@ -33,7 +34,9 @@ import com.nbempire.android.magicannotator.component.activity.ChoosePlayersActiv
  */
 public enum Activities {
 
-    CHOOSE_ANNOTATOR(ChooseAnnotatorActivity.class.getSimpleName()), CHOOSE_PLAYERS(ChoosePlayersActivity.class.getSimpleName());
+    CHOOSE_ANNOTATOR(ChooseAnnotatorActivity.class.getSimpleName()),
+    CHOOSE_PLAYERS(ChoosePlayersActivity.class.getSimpleName()),
+    GOLF_ANNOTATOR(GolfAnnotatorActivity.class.getSimpleName());
 
     /**
      * The associated activity type simple name. It's without the packages as preffix.

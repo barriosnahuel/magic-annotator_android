@@ -31,25 +31,6 @@ public class ChanchoServiceImplTest {
     private final ChanchoServiceImpl chanchoServiceImpl = new ChanchoServiceImpl();
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.ChanchoServiceImpl#getFirstTeamLabel()} .
-     */
-    @Test
-    public void testGetFirstTeamLabel() {
-        String value = chanchoServiceImpl.getFirstTeamLabel();
-        Assert.assertNotNull(value);
-        Assert.assertEquals("Grupo 1", value);
-    }
-
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.ChanchoServiceImpl#getSecondTeamLabel()} .
-     */
-    @Test
-    public void testGetSecondTeamLabel() {
-        String value = chanchoServiceImpl.getSecondTeamLabel();
-        Assert.assertEquals("Grupo 2", value);
-    }
-
-    /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.ChanchoServiceImpl#getTeamPlayersLimit(int)} .
      */
     @Test
@@ -71,17 +52,6 @@ public class ChanchoServiceImplTest {
     @Test
     public void testHasValidNumberOfSelectedPlayers_with5SelectedPlayers_returnTrue() {
         Assert.assertTrue(chanchoServiceImpl.hasValidNumberOfSelectedPlayers(5));
-    }
-
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.ChanchoServiceImpl#getInvalidNumberOfSelectedPlayersExceptionMessage()}
-     * .
-     */
-    @Test
-    public void testGetInvalidNumberOfSelectedPlayersExceptionMessage() {
-        String message = chanchoServiceImpl.getInvalidNumberOfSelectedPlayersExceptionMessage();
-        Assert.assertNotNull(message);
-        Assert.assertEquals("Se deben seleccionar entre 3 y 12 jugadores.", message);
     }
 
 }

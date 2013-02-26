@@ -45,7 +45,7 @@
     <string name="substract">-</string>
     <string name="play">Play!</string>
     <string name="player">Player</string>
-    <string name="mustSelectAtLeastOne">You must select at least one</string>
+    <string name="mustSelectAtLeastOne">You must select at least 1.</string>
     <string name="we">We</string>
     <string name="they">They</string>
     <string name="message_must_select_between_3_and_12_players">Must select between 3 and 12 players.</string>
@@ -56,6 +56,7 @@
 
     <!--Annotators ID. Must have the same value in the list-->
     <string name="annotator_chancho">Chancho</string>
+    <string name="annotator_golf">Golf</string>
     <string name="annotator_market">Supermarket list</string>
     <string name="annotator_truco">Truco</string>
     <string name="annotator_tute">Tute</string>
@@ -63,6 +64,7 @@
 
     <string-array name="chooseAnnotator_annotatorsValues">
         <item>Chancho</item>
+        <!--<item>Golf</item>-->
         <item>Supermarket list</item>
         <item>Truco</item>
         <item>Tute</item>

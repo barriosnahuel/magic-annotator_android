@@ -25,6 +25,8 @@ package com.nbempire.android.magicannotator.service.impl;
 import android.app.Activity;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.component.activity.ChoosePlayersActivity;
+import com.nbempire.android.magicannotator.component.activity.annotator.GenericAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.annotator.GolfAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.annotator.MarketAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.Activities;
 import com.nbempire.android.magicannotator.service.NavigationService;
@@ -38,7 +40,29 @@ import com.nbempire.android.magicannotator.service.NavigationService;
 public class NavigationServiceImpl implements NavigationService {
 
     @Override
-    public Class<? extends Activity> getNextActivityType(Activities chooseAnnotator, int annotatorId) {
+    public Class<? extends Activity> getNextActivityType(Activities fromActivity, int annotatorId) {
+        Class<? extends Activity> nextActivity = ChoosePlayersActivity.class;
+
+        switch (fromActivity) {
+            case CHOOSE_ANNOTATOR:
+                nextActivity = handleNavigationFromChooseAnnotatorActivity(annotatorId);
+                break;
+            case CHOOSE_PLAYERS:
+                nextActivity = handleNavigationFromChoosePlayersActivity(annotatorId);
+        }
+
+        return nextActivity;
+    }
+
+    /**
+     * Handle navigation flow for user selections into the {@link com.nbempire.android.magicannotator.component.activity.ChooseAnnotatorActivity}.
+     *
+     * @param annotatorId
+     *         The ID of the annotator that the user has selected.
+     *
+     * @return The next {@link Activity} for the specified {@code annotatorId}.
+     */
+    private Class<? extends Activity> handleNavigationFromChooseAnnotatorActivity(int annotatorId) {
         Class<? extends Activity> nextActivity = ChoosePlayersActivity.class;
 
         switch (annotatorId) {
@@ -48,6 +72,27 @@ public class NavigationServiceImpl implements NavigationService {
                 nextActivity = MarketAnnotatorActivity.class;
         }
 
+        return nextActivity;
+    }
+
+    /**
+     * Handle navigation flow for user selections into the {@link com.nbempire.android.magicannotator.component.activity.ChoosePlayersActivity}.
+     *
+     * @param annotatorId
+     *         The ID of the annotator that the user has selected.
+     *
+     * @return The next {@link Activity} for the specified {@code annotatorId}.
+     */
+    private Class<? extends Activity> handleNavigationFromChoosePlayersActivity(int annotatorId) {
+        Class<? extends Activity> nextActivity = ChoosePlayersActivity.class;
+
+        switch (annotatorId) {
+            case R.string.annotator_otro:
+                nextActivity = GenericAnnotatorActivity.class;
+                break;
+            case R.string.annotator_golf:
+                nextActivity = GolfAnnotatorActivity.class;
+        }
         return nextActivity;
     }
 

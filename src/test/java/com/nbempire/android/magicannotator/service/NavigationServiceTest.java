@@ -26,8 +26,9 @@ import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.component.activity.annotator.MarketAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.Activities;
 import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
-import junit.framework.Assert;
 import org.junit.Test;
+
+import static junit.framework.Assert.*;
 
 /**
  * Tests the NavigationService interface.
@@ -43,8 +44,24 @@ public class NavigationServiceTest {
     public void getNextActivityType_fromChooseAnnotatorWithChanchoUserSelection_returnChoosePlayersActivity() {
         Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_chancho);
 
-        Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
-        Assert.assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());
+        assertNotNull("The nextActivity musn't be null.", nextActivity);
+        assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());
+    }
+
+    @Test
+    public void getNextActivityType_fromChooseAnnotatorWithGolfUserSelection_returnChoosePlayersActivity() {
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_golf);
+
+        assertNotNull("The nextActivity musn't be null.", nextActivity);
+        assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());
+    }
+
+    @Test
+    public void getNextActivityType_fromChoosePlayersWithGolfUserSelection_returnAnnotatorActivity() {
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_PLAYERS, R.string.annotator_golf);
+
+        assertNotNull("The nextActivity musn't be null.", nextActivity);
+        assertEquals(Activities.GOLF_ANNOTATOR.getActivityTypeName(), nextActivity.getSimpleName());
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -56,8 +73,16 @@ public class NavigationServiceTest {
     @Test
     public void getNextActivityType_fromChooseAnnotatorWithSuperMarketUserSelection_throwIllegalArgumentException() {
         Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_market);
-        Assert.assertNotNull("The nextActivity musn't be null.", nextActivity);
-        Assert.assertEquals(MarketAnnotatorActivity.class.getSimpleName(), nextActivity.getSimpleName());
+        assertNotNull("The nextActivity musn't be null.", nextActivity);
+        assertEquals(MarketAnnotatorActivity.class.getSimpleName(), nextActivity.getSimpleName());
+    }
+
+    @Test
+    public void getNextActivityType_fromChooseAnnotatorWithOtherUserSelection_returnGenericAnnotatorActivity() {
+        Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_ANNOTATOR, R.string.annotator_otro);
+
+        assertNotNull("The nextActivity musn't be null.", nextActivity);
+        assertEquals(Activities.CHOOSE_PLAYERS.getActivityTypeName(), nextActivity.getSimpleName());
     }
 
 }

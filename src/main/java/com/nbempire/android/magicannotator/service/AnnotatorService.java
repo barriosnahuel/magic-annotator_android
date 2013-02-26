@@ -61,20 +61,6 @@ public interface AnnotatorService {
     Game getAnnotatorGame(int annotatorId);
 
     /**
-     * Inspect which annotator activity has to return based on the specified {@code annotatorId} parameter.
-     *
-     * @param annotatorId
-     *         An annotator Id.
-     *
-     * @return The corresponding annotator activity for the specified {@code annotatorId}.
-     *
-     * @throws IllegalArgumentException
-     *         When there isn't any Activity for the specified {@code annotatorId}.
-     * @since 1
-     */
-    public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException;
-
-    /**
      * Inspect which annotator activity has to return based on the specified {@code game} parameter.
      *
      * @param game

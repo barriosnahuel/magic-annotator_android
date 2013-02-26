@@ -25,8 +25,9 @@ import com.nbempire.android.magicannotator.domain.game.Truco;
 import com.nbempire.android.magicannotator.domain.game.Tute;
 import com.nbempire.android.magicannotator.service.impl.TrucoServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.TuteServiceImpl;
-import junit.framework.Assert;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * This class is for test {@link GameServiceFactoryTest} class using JUnit.
@@ -41,12 +42,12 @@ public class GameServiceFactoryTest {
      */
     @Test
     public final void testGetInstance_withExistentTrucoInput_returnValidServiceInstance() {
-        Assert.assertEquals(TrucoServiceImpl.class, GameServiceFactory.getInstance(new Truco()).getClass());
+        assertEquals(TrucoServiceImpl.class, GameServiceFactory.getInstance(new Truco()).getClass());
     }
 
     @Test
     public final void testGetInstance_withExistentTuteInput_returnValidGameInstance() {
-        Assert.assertEquals(TuteServiceImpl.class, GameServiceFactory.getInstance(new Tute()).getClass());
+        assertEquals(TuteServiceImpl.class, GameServiceFactory.getInstance(new Tute()).getClass());
     }
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -62,7 +63,7 @@ public class GameServiceFactoryTest {
     }
 
     /**
-     * Es una clase de prueba que hereda de Game para poder utilizarla, pero no existe como un juego registrado en la app.
+     * This is a test type that inherits from {@link Game} to use it in a test case. It isn't a real game.
      *
      * @author Nahuel Barrios.
      * @version 1.0.

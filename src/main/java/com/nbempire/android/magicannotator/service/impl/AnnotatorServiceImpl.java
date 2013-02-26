@@ -26,7 +26,6 @@ import android.app.Activity;
 import com.nbempire.android.magicannotator.MagicAnnotatorApp;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.component.activity.annotator.ChanchoAnnotatorActivity;
-import com.nbempire.android.magicannotator.component.activity.annotator.GenericAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.annotator.TrucoAnnotatorActivity;
 import com.nbempire.android.magicannotator.component.activity.annotator.TuteAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
@@ -52,6 +51,9 @@ public class AnnotatorServiceImpl implements AnnotatorService {
         int annotatorId;
         if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_chancho))) {
             annotatorId = R.string.annotator_chancho;
+
+        } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_golf))) {
+            annotatorId = R.string.annotator_golf;
 
         } else if (userSelection.equals(MagicAnnotatorApp.getContext().getText(R.string.annotator_market))) {
             annotatorId = R.string.annotator_market;
@@ -89,19 +91,6 @@ public class AnnotatorServiceImpl implements AnnotatorService {
         }
 
         return aGame;
-    }
-
-    @Override
-    public Class<? extends Activity> get(int annotatorId) throws IllegalArgumentException {
-        Class<? extends Activity> annotator;
-        switch (annotatorId) {
-            case R.string.annotator_otro:
-                annotator = GenericAnnotatorActivity.class;
-                break;
-            default:
-                throw new IllegalArgumentException("The annotator activity doesn't exists.");
-        }
-        return annotator;
     }
 
     @Override

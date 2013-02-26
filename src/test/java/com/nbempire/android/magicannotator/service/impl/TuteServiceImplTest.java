@@ -28,6 +28,8 @@ import org.junit.Test;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 /**
  * Tests TuteServiceImpl type.
  *
@@ -39,27 +41,11 @@ public class TuteServiceImplTest {
     private final TuteServiceImpl instance = new TuteServiceImpl();
 
     /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getFirstTeamLabel()} .
-     */
-    @Test
-    public final void testGetFirstTeamLabel() {
-        Assert.assertEquals("Grupo 1", instance.getFirstTeamLabel());
-    }
-
-    /**
-     * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getSecondTeamLabel()} .
-     */
-    @Test
-    public final void testGetSecondTeamLabel() {
-        Assert.assertEquals("Grupo 2", instance.getSecondTeamLabel());
-    }
-
-    /**
      * Test method for {@link com.nbempire.android.magicannotator.service.impl.TuteServiceImpl#getTeamPlayersLimit(int)} .
      */
     @Test
     public final void testGetTeamPlayersLimit_with3Players_returnLimitOf6PlayersForEachGroup() {
-        Assert.assertEquals(6, instance.getTeamPlayersLimit(3));
+        assertEquals(6, instance.getTeamPlayersLimit(3));
     }
 
     /**
@@ -67,7 +53,7 @@ public class TuteServiceImplTest {
      */
     @Test
     public final void testGetTeamPlayersLimit_with6Players_returnLimitOf6PlayersForEachGroup() {
-        Assert.assertEquals(6, instance.getTeamPlayersLimit(6));
+        assertEquals(6, instance.getTeamPlayersLimit(6));
     }
 
     /**
@@ -75,7 +61,7 @@ public class TuteServiceImplTest {
      */
     @Test
     public final void testGetTeamPlayersLimit_with7Players_returnLimitOf4PlayersForEachGroup() {
-        Assert.assertEquals(4, instance.getTeamPlayersLimit(7));
+        assertEquals(4, instance.getTeamPlayersLimit(7));
     }
 
     /**
@@ -83,7 +69,7 @@ public class TuteServiceImplTest {
      */
     @Test
     public final void testGetTeamPlayersLimit_with8Players_returnLimitOf4PlayersForEachGroup() {
-        Assert.assertEquals(4, instance.getTeamPlayersLimit(8));
+        assertEquals(4, instance.getTeamPlayersLimit(8));
     }
 
     /**
@@ -91,7 +77,7 @@ public class TuteServiceImplTest {
      */
     @Test
     public final void testGetTeamPlayersLimit_with9Players_returnLimitOf5PlayersForEachGroup() {
-        Assert.assertEquals(5, instance.getTeamPlayersLimit(9));
+        assertEquals(5, instance.getTeamPlayersLimit(9));
     }
 
     /**
@@ -152,11 +138,11 @@ public class TuteServiceImplTest {
     public final void testMakeTeams_with3SelectedPlayers_return1Group() throws UserException {
         List<Team> teams;
         teams = instance.makeTeams(DummyPlayers.forTute3());
-        Assert.assertEquals(1, teams.size());
+        assertEquals(1, teams.size());
 
         Team we = teams.get(0);
-        Assert.assertEquals("Grupo 1", we.getLabel());
-        Assert.assertEquals(3, we.getPlayers().size());
+        assertEquals("Grupo 1", we.getLabel());
+        assertEquals(3, we.getPlayers().size());
     }
 
     /**
@@ -166,11 +152,11 @@ public class TuteServiceImplTest {
     public final void testMakeTeams_with6SelectedPlayers_return1Group() throws UserException {
         List<Team> teams;
         teams = instance.makeTeams(DummyPlayers.forTute6());
-        Assert.assertEquals(1, teams.size());
+        assertEquals(1, teams.size());
 
         Team we = teams.get(0);
-        Assert.assertEquals("Grupo 1", we.getLabel());
-        Assert.assertEquals(6, we.getPlayers().size());
+        assertEquals("Grupo 1", we.getLabel());
+        assertEquals(6, we.getPlayers().size());
 
     }
 
@@ -181,15 +167,15 @@ public class TuteServiceImplTest {
     public final void testMakeTeams_with7SelectedPlayers_return2Groups() throws UserException {
         List<Team> teams;
         teams = instance.makeTeams(DummyPlayers.forTute7());
-        Assert.assertEquals(2, teams.size());
+        assertEquals(2, teams.size());
 
         Team firstGroup = teams.get(0);
-        Assert.assertEquals("Grupo 1", firstGroup.getLabel());
-        Assert.assertEquals(4, firstGroup.getPlayers().size());
+        assertEquals("Grupo 1", firstGroup.getLabel());
+        assertEquals(4, firstGroup.getPlayers().size());
 
         Team secondGroup = teams.get(1);
-        Assert.assertEquals("Grupo 2", secondGroup.getLabel());
-        Assert.assertEquals(3, secondGroup.getPlayers().size());
+        assertEquals("Grupo 2", secondGroup.getLabel());
+        assertEquals(3, secondGroup.getPlayers().size());
     }
 
     /**
@@ -199,15 +185,15 @@ public class TuteServiceImplTest {
     public final void testMakeTeams_with8SelectedPlayers_return2Groups() throws UserException {
         List<Team> teams;
         teams = instance.makeTeams(DummyPlayers.forTute8());
-        Assert.assertEquals(2, teams.size());
+        assertEquals(2, teams.size());
 
         Team firstGroup = teams.get(0);
-        Assert.assertEquals("Grupo 1", firstGroup.getLabel());
-        Assert.assertEquals(4, firstGroup.getPlayers().size());
+        assertEquals("Grupo 1", firstGroup.getLabel());
+        assertEquals(4, firstGroup.getPlayers().size());
 
         Team secondGroup = teams.get(1);
-        Assert.assertEquals("Grupo 2", secondGroup.getLabel());
-        Assert.assertEquals(4, secondGroup.getPlayers().size());
+        assertEquals("Grupo 2", secondGroup.getLabel());
+        assertEquals(4, secondGroup.getPlayers().size());
     }
 
 }

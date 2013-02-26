@@ -43,6 +43,7 @@ import android.widget.Toast;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.domain.Activities;
 import com.nbempire.android.magicannotator.domain.Player;
 import com.nbempire.android.magicannotator.domain.Team;
 import com.nbempire.android.magicannotator.domain.game.Chancho;
@@ -50,8 +51,10 @@ import com.nbempire.android.magicannotator.domain.game.Game;
 import com.nbempire.android.magicannotator.exception.UserException;
 import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.GameServiceFactory;
+import com.nbempire.android.magicannotator.service.NavigationService;
 import com.nbempire.android.magicannotator.service.PlayerService;
 import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
+import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.PlayerServiceImpl;
 import com.nbempire.android.magicannotator.storage.MagicAnnotatorDBHelper;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
@@ -98,6 +101,8 @@ public class ChoosePlayersActivity extends Activity {
      * Service for the annotators.
      */
     private final AnnotatorService annotatorService = new AnnotatorServiceImpl();
+
+    private final NavigationService navigationService = new NavigationServiceImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -295,7 +300,10 @@ public class ChoosePlayersActivity extends Activity {
                 if (selectedPlayers.isEmpty()) {
                     Toast.makeText(getApplicationContext(), getText(R.string.mustSelectAtLeastOne).toString(), Toast.LENGTH_SHORT).show();
                 } else {
-                    Intent nextIntentToShow = new Intent(view.getContext(), annotatorService.get(annotatorId));
+
+                    Class<? extends Activity> nextActivity = navigationService.getNextActivityType(Activities.CHOOSE_PLAYERS, annotatorId);
+
+                    Intent nextIntentToShow = new Intent(view.getContext(), nextActivity);
 
                     nextIntentToShow.putExtra(AppParameter.GAME, annotatorId);
                     nextIntentToShow.putExtra(AppParameter.PLAYERS, selectedPlayers);
