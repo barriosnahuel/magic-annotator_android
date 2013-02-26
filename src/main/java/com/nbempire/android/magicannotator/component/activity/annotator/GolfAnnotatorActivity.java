@@ -19,8 +19,17 @@
 package com.nbempire.android.magicannotator.component.activity.annotator;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
+
+import java.util.List;
 
 /**
  * Activity that represents the annotator for a golf match.
@@ -32,10 +41,57 @@ import com.nbempire.android.magicannotator.R;
  */
 public class GolfAnnotatorActivity extends Activity {
 
+    /**
+     * Tag for class' log.
+     */
+    private static final String TAG = "GolfAnnotatorActivity";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //  TODO : Functionality : Uncomment GoogleAnalyticsTracker from GolfAnnotatorActivity.
+//        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
         setContentView(R.layout.golfannotator);
+
+        renderPlayers(getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS));
+//        openNumberOfHolesChooser();
+    }
+
+    private void renderPlayers(List<String> playersName) {
+        LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
+
+        for (String eachPlayerName : playersName) {
+            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName));
+        }
+    }
+
+    /**
+     * TODO : Javadoc for openNumberOfHolesChooser
+     */
+    private void openNumberOfHolesChooser() {
+        final CharSequence[] charSequences = {"3", "6", "9"};
+
+        new AlertDialog.Builder(this).setTitle(getText(R.string.golfAnnotator_selectNumberOfHoles))
+                                     .setCancelable(false)
+                                     .setSingleChoiceItems(charSequences, 0, new DialogInterface.OnClickListener() {
+                                         @Override
+                                         public void onClick(DialogInterface dialog, int which) {
+                                             Log.i(TAG, "User is gonna to play " + charSequences[which] + " holes.");
+                                             //  TODO : Log to Analytics the number of holes that user is gonna play to determine which is the best default selection.
+
+                                             //  TODO : Functionality : Do something with selected number of holes.
+                                             dialog.dismiss();
+                                         }
+                                     }).show();
+    }
+
+    /**
+     * TODO : Javadoc for openHoleSelector
+     *
+     * @param callerView
+     */
+    private void openHoleSelector(View callerView) {
+        //  TODO : Functionality : openHoleSelector method.
     }
 
 }

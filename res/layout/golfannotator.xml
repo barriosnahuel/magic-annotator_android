@@ -20,13 +20,49 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Test!"
+        android:visibility="invisible"
+        android:text="@string/golfAnnotator_holeNumber"
+        android:id="@+id/golfAnnotator_holeNumberTextView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignBaseline="@+id/golfAnnotator_holeNumberButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:text="1"
+        android:id="@+id/golfAnnotator_holeNumberButton"
+        android:layout_toRightOf="@+id/golfAnnotator_holeNumberTextView"
+        android:onClick="openHoleSelector" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hits"
         android:id="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_alignBaseline="@+id/golfAnnotator_holeNumberButton" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/golfAnnotator_playersScrollView"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/golfAnnotator_holeNumberButton">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/golfAnnotator_playersLinearLayout" />
+
+    </ScrollView>
+
 </RelativeLayout>
