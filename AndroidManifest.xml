@@ -77,35 +77,35 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".component.activity.ChanchoAnnotatorActivity"
+            android:name=".component.activity.annotator.ChanchoAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".component.activity.TrucoAnnotatorActivity"
+            android:name=".component.activity.annotator.TrucoAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".component.activity.TuteAnnotatorActivity"
+            android:name=".component.activity.annotator.TuteAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".component.activity.GenericAnnotatorActivity"
+            android:name=".component.activity.annotator.GenericAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".component.activity.MarketAnnotatorActivity"
+            android:name=".component.activity.annotator.MarketAnnotatorActivity"
             android:label="@string/app_name_gui">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

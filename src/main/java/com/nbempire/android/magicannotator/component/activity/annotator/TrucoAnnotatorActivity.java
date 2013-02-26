@@ -19,7 +19,7 @@
 /**
  * TrucoAnnotatorActivity.java Created by: Nahuel Barrios: 01/03/2012, 05:55:58.
  */
-package com.nbempire.android.magicannotator.component.activity;
+package com.nbempire.android.magicannotator.component.activity.annotator;
 
 import android.app.Activity;
 import android.os.Bundle;

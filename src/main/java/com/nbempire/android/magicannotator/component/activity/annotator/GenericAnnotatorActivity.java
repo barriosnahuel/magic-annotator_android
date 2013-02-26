@@ -16,7 +16,7 @@
  *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.nbempire.android.magicannotator.component.activity;
+package com.nbempire.android.magicannotator.component.activity.annotator;
 
 import android.app.Activity;
 import android.os.Bundle;

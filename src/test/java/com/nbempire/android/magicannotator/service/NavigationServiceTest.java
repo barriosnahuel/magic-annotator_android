@@ -23,7 +23,7 @@ package com.nbempire.android.magicannotator.service;
 
 import android.app.Activity;
 import com.nbempire.android.magicannotator.R;
-import com.nbempire.android.magicannotator.component.activity.MarketAnnotatorActivity;
+import com.nbempire.android.magicannotator.component.activity.annotator.MarketAnnotatorActivity;
 import com.nbempire.android.magicannotator.domain.Activities;
 import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
 import junit.framework.Assert;
