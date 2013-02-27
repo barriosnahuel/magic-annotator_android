@@ -109,6 +109,35 @@ public class MarketAnnotatorActivity extends Activity {
         magicAnnotatorDBHelper.close();
     }
 
+    /**
+     * Update a MarketItem from GUI's values or from the specified {@code checked} and {@code quantity} parameters. Parameters have more priority than
+     * GUI's values.
+     *
+     * @param item
+     *         The MarketItem to update.
+     * @param checked
+     *         Value to update the {@code item}. If {@code null} then this parameter will not be used and GUI's values will be used instead.
+     * @param quantity
+     *         Value to update the {@code item}. If {@code -1} then this parameter will not be used and GUI's values will be used instead.
+     *
+     * @since 12
+     */
+    private void updateItem(MarketItem item, Boolean checked, int quantity) {
+        CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(item.getDescription() + MarketItemView.CHECK_BOX_ID_SUFFIX));
+        if (checked != null) {
+            item.setChecked(checked);
+        } else {
+            item.setChecked(checkBox.isChecked());
+        }
+
+        TextView itemCount = (TextView) findViewById(ViewsUtil.generateId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+        if (quantity != -1) {
+            item.setQuantity(String.valueOf(quantity));
+        } else {
+            item.setQuantity(itemCount.getText().toString());
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.marketannotator, menu);
@@ -126,7 +155,7 @@ public class MarketAnnotatorActivity extends Activity {
 
             int checkedItems = 0;
             for (MarketItem eachItem : items) {
-                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
+                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView
                         .CHECK_BOX_ID_SUFFIX));
 
                 if (checkBox.isChecked()) {
@@ -236,6 +265,20 @@ public class MarketAnnotatorActivity extends Activity {
     }
 
     /**
+     * Add the specified {@code item} to the GUI into the corresponding {@code MarketItemView}.
+     *
+     * @param item
+     *         The item to add to the GUI.
+     *
+     * @since 8
+     */
+    private void addItemToView(String item) {
+        List<MarketItem> itemsList = new ArrayList<MarketItem>();
+        itemsList.add(new MarketItem(item));
+        addItemsToGUI(itemsList);
+    }
+
+    /**
      * Add the specified {@code items} to the GUI into the corresponding {@code MarketItemView}.
      *
      * @param items
@@ -250,20 +293,6 @@ public class MarketAnnotatorActivity extends Activity {
             Log.i(TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
             layout.addView(new MarketItemView(layout.getContext(), eachItem.getDescription()));
         }
-    }
-
-    /**
-     * Add the specified {@code item} to the GUI into the corresponding {@code MarketItemView}.
-     *
-     * @param item
-     *         The item to add to the GUI.
-     *
-     * @since 8
-     */
-    private void addItemToView(String item) {
-        List<MarketItem> itemsList = new ArrayList<MarketItem>();
-        itemsList.add(new MarketItem(item));
-        addItemsToGUI(itemsList);
     }
 
     /**
@@ -305,11 +334,10 @@ public class MarketAnnotatorActivity extends Activity {
         for (MarketItem eachItem : items) {
             Log.i(TAG, "Updating item attributes for: " + eachItem.getDescription());
 
-            TextView numberOfItems =
-                    (TextView) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(eachItem.getQuantity());
 
-            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(eachItem.getDescription() + MarketItemView
+            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView
                     .CHECK_BOX_ID_SUFFIX));
             checkBox.setChecked(eachItem.isChecked());
         }
@@ -331,35 +359,6 @@ public class MarketAnnotatorActivity extends Activity {
     private void updateItems(List<MarketItem> items, Boolean checked, int quantity) {
         for (MarketItem eachItem : items) {
             updateItem(eachItem, checked, quantity);
-        }
-    }
-
-    /**
-     * Update a MarketItem from GUI's values or from the specified {@code checked} and {@code quantity} parameters. Parameters have more priority than
-     * GUI's values.
-     *
-     * @param item
-     *         The MarketItem to update.
-     * @param checked
-     *         Value to update the {@code item}. If {@code null} then this parameter will not be used and GUI's values will be used instead.
-     * @param quantity
-     *         Value to update the {@code item}. If {@code -1} then this parameter will not be used and GUI's values will be used instead.
-     *
-     * @since 12
-     */
-    private void updateItem(MarketItem item, Boolean checked, int quantity) {
-        CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.CHECK_BOX_ID_SUFFIX));
-        if (checked != null) {
-            item.setChecked(checked);
-        } else {
-            item.setChecked(checkBox.isChecked());
-        }
-
-        TextView itemCount = (TextView) findViewById(ViewsUtil.generateViewId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
-        if (quantity != -1) {
-            item.setQuantity(String.valueOf(quantity));
-        } else {
-            item.setQuantity(itemCount.getText().toString());
         }
     }
 

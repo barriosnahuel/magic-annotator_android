@@ -143,5 +143,6 @@
     <string name="golfAnnotator_selectNumberOfHoles">¿Cuántos hoyos vas a jugar?</string>
     <string name="golfAnnotator_holeNumber">Hoyo número:</string>
     <string name="hits">Golpes</string>
+    <string name="golfAnnotator_defaultHitsPerHole">¿Cantidad media de golpes para este hoyo?</string>
 
 </resources>

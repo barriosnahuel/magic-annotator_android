@@ -53,7 +53,7 @@ public class ScoreEditorView extends RelativeLayout {
     private static final int DEFAULT_INCREMENT = 1;
 
     /**
-     * A constructor method for the type.
+     * A constructor method for the type. Creates the view with an initial score of {@code 0}.
      *
      * @param context
      *         The view's context.
@@ -61,9 +61,7 @@ public class ScoreEditorView extends RelativeLayout {
      *         The name of the player linked with this ScoreEditorView.
      */
     public ScoreEditorView(Context context, String playerNickname) {
-        super(context);
-        this.playerNickname = playerNickname;
-        initializeView(context);
+        this(context, playerNickname, 0);
     }
 
     /**
@@ -71,16 +69,35 @@ public class ScoreEditorView extends RelativeLayout {
      *
      * @param context
      *         The view's context.
+     * @param playerNickname
+     *         The name of the player linked with this ScoreEditorView.
+     * @param currentScore
+     *         The initial score for the view.
      */
-    private void initializeView(Context context) {
+    public ScoreEditorView(Context context, String playerNickname, int currentScore) {
+        super(context);
+        this.playerNickname = playerNickname;
+        initializeView(context, String.valueOf(currentScore));
+    }
+
+    /**
+     * A constructor method for the type.
+     *
+     * @param context
+     *         The view's context.
+     * @param score
+     *         The initial score for this View.
+     */
+    private void initializeView(Context context, String score) {
         LayoutInflater.from(context).inflate(R.layout.scoreeditor_horizontal, this, true);
 
-        TextView textView = (TextView) findViewById(R.id.playerNickname);
-        textView.setEms(3);
-        textView.setText(playerNickname);
+        TextView playerNameTextView = (TextView) findViewById(R.id.playerNickname);
+        playerNameTextView.setEms(3);
+        playerNameTextView.setText(playerNickname);
 
-        EditText editText = (EditText) findViewById(R.id.score);
-        editText.setId(ViewsUtil.generateViewId(playerNickname));
+        EditText scoreEditText = (EditText) findViewById(R.id.score);
+        scoreEditText.setId(ViewsUtil.generateId(playerNickname));
+        scoreEditText.setText(score);
 
         addOnTouchActions(DEFAULT_INCREMENT);
     }
@@ -149,7 +166,7 @@ public class ScoreEditorView extends RelativeLayout {
                         newValue = increment * -1;
                     }
 
-                    updateScore((EditText) findViewById(ViewsUtil.generateViewId(playerNickname)), newValue);
+                    updateScore((EditText) findViewById(ViewsUtil.generateId(playerNickname)), newValue);
                     break;
                 default:
                     break;

@@ -33,7 +33,7 @@ import org.junit.Test;
 public class ViewsUtilTest {
 
     /**
-     * Test method for generateViewId.
+     * Test method for generateId.
      *
      * @since 14
      */
@@ -41,11 +41,11 @@ public class ViewsUtilTest {
     public void generateViewId_withValidString_returnViewId() throws Exception {
         String anObject = "A name!";
 
-        Assert.assertEquals(Math.abs(anObject.hashCode()), ViewsUtil.generateViewId(anObject));
+        Assert.assertEquals(Math.abs(anObject.hashCode()), ViewsUtil.generateId(anObject));
     }
 
     /**
-     * Test method for generateViewId.
+     * Test method for generateId.
      *
      * @since 14
      */
@@ -54,7 +54,7 @@ public class ViewsUtilTest {
     public void generateViewId_withNull_throwIllegalArgumentException() throws Exception {
         String anObject = null;
 
-        ViewsUtil.generateViewId(anObject);
+        ViewsUtil.generateId(anObject);
         Assert.fail("Must throw an IllegalArgumentException.");
     }
 }

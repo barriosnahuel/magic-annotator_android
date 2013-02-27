@@ -46,6 +46,7 @@ public class MarketItemView extends RelativeLayout {
     private static final String LOG_TAG = "MarketItemView";
 
     public static final String TEXT_VIEW_ID_SUFFIX = "-textView";
+
     public static final String CHECK_BOX_ID_SUFFIX = "-checkBox";
 
     /**
@@ -84,10 +85,10 @@ public class MarketItemView extends RelativeLayout {
         CheckBox checkBox = (CheckBox) findViewById(R.id.marketItem_itemName);
         checkBox.setText(itemName);
         //  Sets an ID to let the OS save itself the view's state. E.g. the label and the checked (or not checked) status.
-        checkBox.setId(ViewsUtil.generateViewId(itemName + CHECK_BOX_ID_SUFFIX));
+        checkBox.setId(ViewsUtil.generateId(itemName + CHECK_BOX_ID_SUFFIX));
 
         TextView itemCount = (TextView) findViewById(R.id.marketItem_itemCount);
-        final int textViewId = ViewsUtil.generateViewId(itemName + TEXT_VIEW_ID_SUFFIX);
+        final int textViewId = ViewsUtil.generateId(itemName + TEXT_VIEW_ID_SUFFIX);
         itemCount.setId(textViewId);
 
         Button addButton = (Button) findViewById(R.id.marketItem_addButton);

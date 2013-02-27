@@ -24,38 +24,35 @@
     android:paddingLeft="2dp"
     android:paddingRight="2dp">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:text="@string/golfAnnotator_holeNumber"
-        android:id="@+id/golfAnnotator_holeNumberTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignBaseline="@+id/golfAnnotator_holeNumberButton" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:text="1"
-        android:id="@+id/golfAnnotator_holeNumberButton"
-        android:layout_toRightOf="@+id/golfAnnotator_holeNumberTextView"
-        android:onClick="openHoleSelector" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hits"
-        android:id="@+id/textView"
+        android:id="@+id/golfAnnotator_headerLayout"
         android:layout_centerHorizontal="true"
-        android:layout_alignBaseline="@+id/golfAnnotator_holeNumberButton" />
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/golfAnnotator_holeNumber"
+            android:id="@+id/golfAnnotator_holeNumberTextView"
+            android:layout_gravity="center" />
+
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/golfAnnotator_holeSelector"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/golfAnnotator_playersScrollView"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/golfAnnotator_holeNumberButton">
+        android:layout_below="@+id/golfAnnotator_headerLayout">
 
         <LinearLayout
             android:orientation="vertical"

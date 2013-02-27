@@ -143,5 +143,6 @@
     <string name="golfAnnotator_selectNumberOfHoles">How many holes are you gonna play?</string>
     <string name="golfAnnotator_holeNumber">Hole number:</string>
     <string name="hits">Hits</string>
+    <string name="golfAnnotator_defaultHitsPerHole">Default number of hits?</string>
 
 </resources>

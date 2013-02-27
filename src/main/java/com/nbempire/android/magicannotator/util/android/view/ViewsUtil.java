@@ -40,7 +40,7 @@ public abstract class ViewsUtil {
      *
      * @since 1
      */
-    public static int generateViewId(Object anObject) {
+    public static int generateId(Object anObject) {
         if (anObject == null) {
             throw new IllegalArgumentException("parameter musn't be null to generate an id.");
         }
