@@ -61,7 +61,7 @@ public class ScoreEditorView extends RelativeLayout {
      *         The name of the player linked with this ScoreEditorView.
      */
     public ScoreEditorView(Context context, String playerNickname) {
-        this(context, playerNickname, 0);
+        this(context, playerNickname, 0, 4);
     }
 
     /**
@@ -74,10 +74,10 @@ public class ScoreEditorView extends RelativeLayout {
      * @param currentScore
      *         The initial score for the view.
      */
-    public ScoreEditorView(Context context, String playerNickname, int currentScore) {
+    public ScoreEditorView(Context context, String playerNickname, int currentScore, int emsForPlayerNickname) {
         super(context);
         this.playerNickname = playerNickname;
-        initializeView(context, String.valueOf(currentScore));
+        initializeView(context, String.valueOf(currentScore), emsForPlayerNickname);
     }
 
     /**
@@ -86,13 +86,13 @@ public class ScoreEditorView extends RelativeLayout {
      * @param context
      *         The view's context.
      * @param score
-     *         The initial score for this View.
+     * @param emsForPlayerNickname
      */
-    private void initializeView(Context context, String score) {
+    private void initializeView(Context context, String score, int emsForPlayerNickname) {
         LayoutInflater.from(context).inflate(R.layout.scoreeditor_horizontal, this, true);
 
         TextView playerNameTextView = (TextView) findViewById(R.id.playerNickname);
-        playerNameTextView.setEms(3);
+        playerNameTextView.setEms(emsForPlayerNickname);
         playerNameTextView.setText(playerNickname);
 
         EditText scoreEditText = (EditText) findViewById(R.id.score);

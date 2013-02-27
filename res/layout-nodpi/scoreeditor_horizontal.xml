@@ -34,7 +34,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dip"
         android:layout_marginTop="1dip"
-        android:ems="4"
         android:inputType="number"
         android:maxLength="4" />
 

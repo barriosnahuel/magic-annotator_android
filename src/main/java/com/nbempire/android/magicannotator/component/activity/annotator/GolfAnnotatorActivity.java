@@ -152,7 +152,7 @@ public class GolfAnnotatorActivity extends Activity {
         Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + selectedHole);
         for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             int currentScore = playersAndScores.getInt(eachPlayerName);
-            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore));
+            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
         }
     }
 
