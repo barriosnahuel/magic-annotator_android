@@ -51,6 +51,10 @@ public class GolfAnnotatorActivity extends Activity {
 
     private static final String HOLE_NUMBER_KEY_PREFFIX = "holeNumber";
 
+    private static final String KEY_HOLES = "holes";
+
+    private static final String KEY_CURRENT_HOLE = "currentScore";
+
     private int numberOfHoles;
 
     private int currentHole;
@@ -64,7 +68,24 @@ public class GolfAnnotatorActivity extends Activity {
 //        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
         setContentView(R.layout.golfannotator);
 
-        openNumberOfHolesChooser();
+        if (savedInstanceState == null) {
+            openNumberOfHolesChooser();
+        } else {
+            holes = savedInstanceState.getBundle(KEY_HOLES);
+            numberOfHoles = holes.keySet().size();
+            currentHole = savedInstanceState.getInt(KEY_CURRENT_HOLE);
+
+            initializeHoleSelector();
+            renderPlayersAndScores(currentHole);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putBundle(KEY_HOLES, holes);
+        outState.putInt(KEY_CURRENT_HOLE, currentHole);
     }
 
     /**
@@ -83,9 +104,9 @@ public class GolfAnnotatorActivity extends Activity {
                                              dialog.dismiss();
                                              numberOfHoles = Integer.parseInt(charSequences[which].toString());
 
+                                             //  TODO : Performance : Try putting these 3 calls after if-else in onCreate. Check for race-condition.
                                              initializeHoleSelector();
                                              preparePlayersAndScoresForFirstTime();
-
                                              renderPlayersAndScores(1);
 
                                              //  TODO : Functionality : Uncomment call to openDefaultHitsForHoleDialog to let user set default number of hits per hole.
@@ -97,6 +118,26 @@ public class GolfAnnotatorActivity extends Activity {
                 //  TODO : Functionality : Do shomething when user cancels (press back button) this AlertDialog.
             }
         }).show();
+    }
+
+    /**
+     * TODO : Javadoc for renderPlayersAndScores
+     *
+     * @param selectedHole
+     *         The hole that will be displayed to the user.
+     */
+    private void renderPlayersAndScores(int selectedHole) {
+        Log.i(TAG, "Loading hole " + selectedHole);
+
+        currentHole = selectedHole;
+        LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
+        playersLayout.removeAllViews();
+
+        Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
+        for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
+            int currentScore = playersAndScores.getInt(eachPlayerName);
+            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
+        }
     }
 
     /**
@@ -116,9 +157,8 @@ public class GolfAnnotatorActivity extends Activity {
         holeSelectorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.i(TAG, "Showing hole " + position++);
                 saveCurrentSores();
-                renderPlayersAndScores(position);
+                renderPlayersAndScores(++position);
             }
 
             @Override
@@ -144,6 +184,7 @@ public class GolfAnnotatorActivity extends Activity {
         }
     }
 
+
     /**
      * TODO : Javadoc for saveCurrentSores
      */
@@ -158,23 +199,6 @@ public class GolfAnnotatorActivity extends Activity {
         }
     }
 
-    /**
-     * TODO : Javadoc for renderPlayersAndScores
-     *
-     * @param selectedHole
-     *         The hole that will be displayed to the user.
-     */
-    private void renderPlayersAndScores(int selectedHole) {
-        currentHole = selectedHole;
-        LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
-        playersLayout.removeAllViews();
-
-        Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
-        for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
-            int currentScore = playersAndScores.getInt(eachPlayerName);
-            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
-        }
-    }
 
 //    /**
 //     * TODO : Javadoc for openDefaultHitsForHoleDialog
