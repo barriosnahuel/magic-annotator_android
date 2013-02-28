@@ -49,16 +49,34 @@ public class GolfAnnotatorActivity extends Activity {
      */
     private static final String TAG = "GolfAnnotatorActivity";
 
-    private static final String HOLE_NUMBER_KEY_PREFFIX = "holeNumber";
+    /**
+     * Bundle key to use as preffix for each hole.
+     */
+    private static final String KEY_HOLE_NUMBER_PREFFIX = "holeNumber";
 
+    /**
+     * Bundle key to get the holes Bundle.
+     */
     private static final String KEY_HOLES = "holes";
 
+    /**
+     * Bundle key to get the current hole that user is playing.
+     */
     private static final String KEY_CURRENT_HOLE = "currentScore";
 
+    /**
+     * Indicate how many holes user is playing.
+     */
     private int numberOfHoles;
 
+    /**
+     * Indicate the current hole that the user is annotating.
+     */
     private int currentHole;
 
+    /**
+     * Contains a pair holeNumber-scores where to save player's scores.
+     */
     private Bundle holes;
 
     @Override
@@ -89,7 +107,8 @@ public class GolfAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : Javadoc for openNumberOfHolesChooser
+     * Opens dialog to let user choose how many holes is gonna annotate. After user selection, it initializes the hole selector, prepare the holes
+     * Bundle for first time and finally render players and scores for the first hole.
      */
     private void openNumberOfHolesChooser() {
         final CharSequence[] charSequences = {"6", "9", "18"};
@@ -121,27 +140,10 @@ public class GolfAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : Javadoc for renderPlayersAndScores
-     *
-     * @param selectedHole
-     *         The hole that will be displayed to the user.
-     */
-    private void renderPlayersAndScores(int selectedHole) {
-        Log.i(TAG, "Loading hole " + selectedHole);
-
-        currentHole = selectedHole;
-        LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
-        playersLayout.removeAllViews();
-
-        Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
-        for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
-            int currentScore = playersAndScores.getInt(eachPlayerName);
-            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
-        }
-    }
-
-    /**
-     * TODO : Javadoc for initializeHoleSelector
+     * Initialize the hole selector by setting the values that the user will be able to choose.
+     * <p/>
+     * It also sets the functionality for when the user selects some hole. First of all saves scores for the current hole and then render players and
+     * scores for the selected hole number.
      */
     private void initializeHoleSelector() {
         String[] holes = new String[numberOfHoles];
@@ -169,7 +171,8 @@ public class GolfAnnotatorActivity extends Activity {
     }
 
     /**
-     * TODO : Javadoc for preparePlayersAndScoresForFirstTime
+     * Prepare the {@link #holes} Bundle creating one {@link Bundle} for each hole. Each hole Bundle will contain an entry for each player with his
+     * number of hits for that hole.
      */
     private void preparePlayersAndScoresForFirstTime() {
         holes = new Bundle(numberOfHoles);
@@ -180,18 +183,38 @@ public class GolfAnnotatorActivity extends Activity {
             for (String player : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
                 eachHole.putInt(player, 0);
             }
-            holes.putBundle(HOLE_NUMBER_KEY_PREFFIX + index, eachHole);
+            holes.putBundle(KEY_HOLE_NUMBER_PREFFIX + index, eachHole);
+        }
+    }
+
+    /**
+     * Update layout by loading the {@code selectedHole} with its players and scores.
+     *
+     * @param selectedHole
+     *         The hole that will be rendered.
+     */
+    private void renderPlayersAndScores(int selectedHole) {
+        Log.i(TAG, "Loading hole " + selectedHole);
+
+        currentHole = selectedHole;
+        LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
+        playersLayout.removeAllViews();
+
+        Bundle playersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
+        for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
+            int currentScore = playersAndScores.getInt(eachPlayerName);
+            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
         }
     }
 
 
     /**
-     * TODO : Javadoc for saveCurrentSores
+     * Saves scores from {@link #currentHole} into {@link #holes} Bundle.
      */
     private void saveCurrentSores() {
         Log.i(TAG, "Saving scores from hole: " + currentHole);
 
-        Bundle currentPlayersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
+        Bundle currentPlayersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
         for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             String currentScore = ((EditText) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
             Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
