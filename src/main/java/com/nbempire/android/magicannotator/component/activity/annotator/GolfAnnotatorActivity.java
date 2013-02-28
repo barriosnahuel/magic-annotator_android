@@ -152,6 +152,7 @@ public class GolfAnnotatorActivity extends Activity {
         }
 
         Spinner holeSelectorSpinner = (Spinner) findViewById(R.id.golfAnnotator_holeSelector);
+
         ArrayAdapter<String> holeSelectorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, holes);
         holeSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         holeSelectorSpinner.setAdapter(holeSelectorAdapter);
@@ -165,7 +166,7 @@ public class GolfAnnotatorActivity extends Activity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                Log.i(TAG, "Nothing selected...");
+                Log.w(TAG, "Nothing was selected in golfAnnotator_holeSelector Spinner.");
             }
         });
     }
