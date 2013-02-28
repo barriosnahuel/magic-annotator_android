@@ -26,11 +26,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
+import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
 /**
  * Activity that represents the annotator for a golf match.
@@ -50,6 +52,8 @@ public class GolfAnnotatorActivity extends Activity {
     private static final String HOLE_NUMBER_KEY_PREFFIX = "holeNumber";
 
     private int numberOfHoles;
+
+    private int currentHole;
 
     private Bundle holes;
 
@@ -113,6 +117,7 @@ public class GolfAnnotatorActivity extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.i(TAG, "Showing hole " + position++);
+                saveCurrentSores();
                 renderPlayersAndScores(position);
             }
 
@@ -140,16 +145,31 @@ public class GolfAnnotatorActivity extends Activity {
     }
 
     /**
+     * TODO : Javadoc for saveCurrentSores
+     */
+    private void saveCurrentSores() {
+        Log.i(TAG, "Saving scores from hole: " + currentHole);
+
+        Bundle currentPlayersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
+        for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
+            String currentScore = ((EditText) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
+            Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
+            currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
+        }
+    }
+
+    /**
      * TODO : Javadoc for renderPlayersAndScores
      *
      * @param selectedHole
      *         The hole that will be displayed to the user.
      */
     private void renderPlayersAndScores(int selectedHole) {
+        currentHole = selectedHole;
         LinearLayout playersLayout = (LinearLayout) findViewById(R.id.golfAnnotator_playersLinearLayout);
         playersLayout.removeAllViews();
 
-        Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + selectedHole);
+        Bundle playersAndScores = holes.getBundle(HOLE_NUMBER_KEY_PREFFIX + currentHole);
         for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             int currentScore = playersAndScores.getInt(eachPlayerName);
             playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
