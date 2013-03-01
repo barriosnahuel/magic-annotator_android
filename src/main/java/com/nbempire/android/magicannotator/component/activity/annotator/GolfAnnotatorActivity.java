@@ -27,12 +27,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
+import com.nbempire.android.magicannotator.util.android.TableListAdapter;
 import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 /**
  * Activity that represents the annotator for a golf match.
@@ -62,7 +69,7 @@ public class GolfAnnotatorActivity extends Activity {
     /**
      * Bundle key to get the current hole that user is playing.
      */
-    private static final String KEY_CURRENT_HOLE = "currentScore";
+    private static final String KEY_CURRENT_HOLE = "currentHole";
 
     /**
      * Indicate how many holes user is playing.
@@ -220,6 +227,82 @@ public class GolfAnnotatorActivity extends Activity {
             Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
             currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
         }
+    }
+
+    /**
+     * Display final scores for each user.
+     *
+     * @param callerView
+     *         The view that has called this method.
+     */
+    public void displayFinalResult(View callerView) {
+        saveCurrentSores();
+
+        int numberOfColumns = 2;
+        TableListAdapter tableListAdapter = new TableListAdapter(this, getValuesForGrid(), numberOfColumns);
+        tableListAdapter.setTextAppearanceResourceId(R.style.alertDialogColor);
+
+        GridView finalResultGridView = new GridView(callerView.getContext());
+        finalResultGridView.setNumColumns(numberOfColumns);
+        finalResultGridView.setAdapter(tableListAdapter);
+
+        new AlertDialog.Builder(callerView.getContext()).setTitle(R.string.final_result).setView(finalResultGridView)
+                                                        .setPositiveButton(R.string.commonLabel_done, new DialogInterface.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(DialogInterface dialog, int which) {
+                                                                dialog.dismiss();
+                                                            }
+                                                        }).show();
+    }
+
+    /**
+     * TODO : Refactor : Try to extract this duplicated method. First usage it's in {@link TuteAnnotatorActivity}.
+     * <p/>
+     * Prepara la lista necesaria de nombre de jugadores-puntajes para utilizar un {@link TableListAdapter}.
+     *
+     * @return {@link java.util.List} de {@link CharSequence} con el resultado final.
+     */
+    private List<CharSequence> getValuesForGrid() {
+        List<CharSequence> result = new ArrayList<CharSequence>();
+        result.add(getText(R.string.player).toString());
+        result.add(getText(R.string.golfAnnotator_totalHits).toString());
+
+        Bundle playersAndScores = getTotalScores();
+        SortedSet<String> sortedSet = new TreeSet<String>();
+        for (String eachPlayerNickname : playersAndScores.keySet()) {
+            sortedSet.add(eachPlayerNickname);
+        }
+
+        for (String eachPlayer : sortedSet) {
+            result.add(eachPlayer);
+            result.add(String.valueOf(playersAndScores.getInt(eachPlayer)));
+        }
+
+        return result;
+    }
+
+    /**
+     * Get total scores for each player from their partial scores from each hole.
+     *
+     * @return Bundle containing the pair player nickname-total score.
+     */
+    private Bundle getTotalScores() {
+        Bundle playersAndScores = new Bundle();
+        for (String holeNumber : holes.keySet()) {
+            Bundle eachHole = holes.getBundle(holeNumber);
+
+            for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
+                int score = eachHole.getInt(eachPlayer);
+
+                if (playersAndScores.containsKey(eachPlayer)) {
+                    score += playersAndScores.getInt(eachPlayer);
+                }
+
+                playersAndScores.putInt(eachPlayer, score);
+            }
+        }
+
+        return playersAndScores;
     }
 
 //    /**

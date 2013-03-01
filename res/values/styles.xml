@@ -30,12 +30,11 @@
         -->
     </style>
 
-    <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <!-- Application theme. --><style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="licenseTextColor">
+    <style name="alertDialogColor">
         <item name="android:textColor">@android:color/white</item>
     </style>
 

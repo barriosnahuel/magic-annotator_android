@@ -43,6 +43,11 @@ public class TableListAdapter extends SimpleListAdapter {
     private final int numberOfColumns;
 
     /**
+     * The resource ID of any defined style in styles.xml.
+     */
+    private int textAppearanceResourceId;
+
+    /**
      * A constructor method for the type.
      *
      * @param activity
@@ -67,9 +72,20 @@ public class TableListAdapter extends SimpleListAdapter {
         } else {
             text = (TextView) convertView.findViewById(R.id.gridView_cell_valuesMedium);
         }
+
         text.setText(this.getItem(position).toString());
+        text.setTextAppearance(text.getContext(), textAppearanceResourceId);
 
         return convertView;
     }
 
+    /**
+     * Setter for type attribute: {@link #textAppearanceResourceId}.
+     *
+     * @param resourceId
+     *         The ID of some style resource for TextView text appearance.
+     */
+    public void setTextAppearanceResourceId(int resourceId) {
+        this.textAppearanceResourceId = resourceId;
+    }
 }

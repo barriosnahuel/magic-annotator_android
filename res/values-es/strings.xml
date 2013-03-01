@@ -144,5 +144,7 @@
     <string name="golfAnnotator_holeNumber">Hoyo número:</string>
     <string name="hits">Golpes</string>
     <string name="golfAnnotator_defaultHitsPerHole">¿Cantidad media de golpes para este hoyo?</string>
+    <string name="final_result">Resultado final</string>
+    <string name="golfAnnotator_totalHits">Cantidad total de golpes</string>
 
 </resources>

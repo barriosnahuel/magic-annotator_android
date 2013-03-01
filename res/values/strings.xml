@@ -144,5 +144,7 @@
     <string name="golfAnnotator_holeNumber">Hole number:</string>
     <string name="hits">Hits</string>
     <string name="golfAnnotator_defaultHitsPerHole">Default number of hits?</string>
+    <string name="final_result">Final result</string>
+    <string name="golfAnnotator_totalHits">Total hits</string>
 
 </resources>

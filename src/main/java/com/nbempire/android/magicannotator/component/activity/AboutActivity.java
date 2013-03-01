@@ -99,7 +99,7 @@ public class AboutActivity extends Activity {
         ScrollView scrollView = new ScrollView(this);
 
         TextView licenseTextView = new TextView(scrollView.getContext());
-        licenseTextView.setTextAppearance(this, R.style.licenseTextColor);
+        licenseTextView.setTextAppearance(this, R.style.alertDialogColor);
         licenseTextView.setText(R.string.app_license);
 
         int padding = 10;

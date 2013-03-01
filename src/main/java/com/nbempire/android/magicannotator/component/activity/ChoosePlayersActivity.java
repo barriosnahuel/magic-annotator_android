@@ -307,7 +307,7 @@ public class ChoosePlayersActivity extends Activity {
                     Intent nextIntentToShow = new Intent(view.getContext(), nextActivity);
 
                     nextIntentToShow.putExtra(AppParameter.GAME, annotatorId);
-                    nextIntentToShow.putExtra(AppParameter.PLAYERS, selectedPlayers);
+                    nextIntentToShow.putExtra(AppParameter.PLAYERS, new ArrayList<String>(new TreeSet<String>(selectedPlayers)));
 
                     startActivity(nextIntentToShow);
                 }
@@ -327,7 +327,8 @@ public class ChoosePlayersActivity extends Activity {
 
             public void onClick(View view) {
                 try {
-                    List<Team> teams = GameServiceFactory.getInstance(aGame).makeTeams(playerService.createPlayers(selectedPlayers));
+                    List<Team> teams = GameServiceFactory.getInstance(aGame).makeTeams(
+                            playerService.createPlayers(new ArrayList<String>(new TreeSet<String>(selectedPlayers))));
                     aGame.setTeams(teams);
 
                     Intent nextIntentToShow;
