@@ -2,7 +2,7 @@
 
 It's an Android application to help users every time they have to write down something. 
 
-It lets you take notes about some game's scores like Truco, Chancho and so on, but it also lets you write down the list for the market with those things you have to buy.
+It lets you take notes about some game's scores like Truco, Chancho or a golf match, but it also lets you write down the list for the market with those things you have to buy.
 
 The MagicAnnotator also provides functionality to generate random teams when the selected number of players accept that.
 
