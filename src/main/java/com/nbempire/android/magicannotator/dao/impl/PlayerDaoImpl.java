@@ -73,7 +73,7 @@ public class PlayerDaoImpl implements PlayerDao {
             Player player = new Player(cursor.getString(cursor.getColumnIndex(PlayerTable.NICKNAME)));
             player.setId(cursor.getInt(cursor.getColumnIndex(PlayerTable.ID)));
 
-            Log.i(LOG_TAG, "Getting " + player.getNickName() + "\twith ID: " + player.getId() + "\tfrom DB.");
+            Log.d(LOG_TAG, "Getting " + player.getNickName() + "\twith ID: " + player.getId() + "\tfrom DB.");
             players.add(player);
         }
 
