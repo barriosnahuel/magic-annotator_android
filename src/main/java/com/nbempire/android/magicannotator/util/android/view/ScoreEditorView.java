@@ -61,7 +61,7 @@ public class ScoreEditorView extends RelativeLayout {
      *         The name of the player linked with this ScoreEditorView.
      */
     public ScoreEditorView(Context context, String playerNickname) {
-        this(context, playerNickname, 0, 4);
+        this(context, playerNickname, 0, 3);
     }
 
     /**
@@ -92,11 +92,11 @@ public class ScoreEditorView extends RelativeLayout {
         LayoutInflater.from(context).inflate(R.layout.scoreeditor_horizontal, this, true);
 
         TextView playerNameTextView = (TextView) findViewById(R.id.playerNickname);
-        playerNameTextView.setEms(emsForPlayerNickname);
         playerNameTextView.setText(playerNickname);
 
         EditText scoreEditText = (EditText) findViewById(R.id.score);
         scoreEditText.setId(ViewsUtil.generateId(playerNickname));
+        scoreEditText.setEms(emsForPlayerNickname);
         scoreEditText.setText(score);
 
         addOnTouchActions(DEFAULT_INCREMENT);
