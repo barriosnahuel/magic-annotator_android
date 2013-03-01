@@ -208,7 +208,6 @@ public class GolfAnnotatorActivity extends Activity {
         }
     }
 
-
     /**
      * Saves scores from {@link #currentHole} into {@link #holes} Bundle.
      */
@@ -222,7 +221,6 @@ public class GolfAnnotatorActivity extends Activity {
             currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
         }
     }
-
 
 //    /**
 //     * TODO : Javadoc for openDefaultHitsForHoleDialog
