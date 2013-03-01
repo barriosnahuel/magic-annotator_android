@@ -30,9 +30,11 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 import com.nbempire.android.magicannotator.util.android.TableListAdapter;
+import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 import com.nbempire.android.magicannotator.util.android.view.ScoreEditorView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
@@ -89,8 +91,7 @@ public class GolfAnnotatorActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //  TODO : Functionality : Uncomment GoogleAnalyticsTracker from GolfAnnotatorActivity.
-//        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
+        GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
         setContentView(R.layout.golfannotator);
 
         if (savedInstanceState == null) {
