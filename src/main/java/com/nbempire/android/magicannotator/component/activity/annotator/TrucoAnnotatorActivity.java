@@ -25,7 +25,10 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
@@ -88,8 +91,8 @@ public class TrucoAnnotatorActivity extends Activity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putCharSequence(SCORE_TEAM_1, ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam1)).getText());
-        outState.putCharSequence(SCORE_TEAM_2, ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam2)).getText());
+        outState.putCharSequence(SCORE_TEAM_1, ((TextView) ((TextSwitcher) findViewById(R.id.trucoAnnotator_scoreTeam1)).getCurrentView()).getText());
+        outState.putCharSequence(SCORE_TEAM_2, ((TextView) ((TextSwitcher) findViewById(R.id.trucoAnnotator_scoreTeam2)).getCurrentView()).getText());
 
         outState.putBoolean(TEAM_1_STATUS, findViewById(R.id.trucoAnnotator_scoreTeam1).isEnabled());
         outState.putBoolean(TEAM_2_STATUS, findViewById(R.id.trucoAnnotator_scoreTeam2).isEnabled());
@@ -98,8 +101,8 @@ public class TrucoAnnotatorActivity extends Activity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam1)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_1));
-        ((TextView) findViewById(R.id.trucoAnnotator_scoreTeam2)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_2));
+        ((TextSwitcher) findViewById(R.id.trucoAnnotator_scoreTeam1)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_1));
+        ((TextSwitcher) findViewById(R.id.trucoAnnotator_scoreTeam2)).setText(savedInstanceState.getCharSequence(SCORE_TEAM_2));
 
         boolean isTeamEnabled = savedInstanceState.getBoolean(TEAM_1_STATUS);
         if (!isTeamEnabled) {
@@ -141,9 +144,9 @@ public class TrucoAnnotatorActivity extends Activity {
             viewsToDisable.add(findViewById(eachViewId));
         }
 
-        TextView teamScore = (TextView) findViewById(teamScoreId);
+        TextSwitcher teamScore = (TextSwitcher) findViewById(teamScoreId);
         TrucoScoreListener listener = new TrucoScoreListener(teamScore, getText(labelForWinnerTeamId), viewsToDisable);
-        teamScore.setOnTouchListener(listener);
+        initializeTextSwitcher(teamScore, listener);
 
         TextView teamLabel = (TextView) findViewById(teamLabelId);
         teamLabel.setOnTouchListener(listener);
@@ -183,14 +186,19 @@ public class TrucoAnnotatorActivity extends Activity {
         }
 
         if (teamScoreToSubstractId != -1) {
-            TextView textView = (TextView) findViewById(teamScoreToSubstractId);
-            int currentScore = Integer.parseInt(textView.getText().toString());
+            TextSwitcher scoreToUpdate = (TextSwitcher) findViewById(teamScoreToSubstractId);
+            String currentValueString = ((TextView) scoreToUpdate.getCurrentView()).getText().toString();
+
+            int currentScore = 0;
+            if (!currentValueString.equals("")) {
+                currentScore = Integer.valueOf(currentValueString);
+            }
 
             if (currentScore != Integer.parseInt(getText(R.string.defaultInitialGameScore).toString())) {
                 int updatedScore = currentScore - GameKeys.TRUCO_INCREMENT;
 
                 Log.i(LOG_TAG, "Updating score to: " + updatedScore);
-                textView.setText(String.valueOf(updatedScore));
+                scoreToUpdate.setText(String.valueOf(updatedScore));
 
                 if (updatedScore == GameKeys.TRUCO_MAX_SCORE_WITHOUT_WIN) {
                     enableAllControls();
@@ -254,6 +262,29 @@ public class TrucoAnnotatorActivity extends Activity {
      */
     private void resetScoreFor(int teamScoreId) {
         ((TextView) findViewById(teamScoreId)).setText(this.getText(R.string.defaultInitialGameScore));
+    }
+
+    /**
+     * Initializes the score TextSwitcher for the specified {@code textSwitcher}. It also sets the {@code listener}.
+     *
+     * @param listener
+     *         The listener which will update the text.
+     */
+    private void initializeTextSwitcher(final TextSwitcher textSwitcher, View.OnTouchListener listener) {
+        textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView = new TextView(textSwitcher.getContext());
+                textView.setTextSize(36);
+                return textView;
+            }
+        });
+
+        textSwitcher.setOnTouchListener(listener);
+        textSwitcher.setInAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_in));
+        textSwitcher.setOutAnimation(AnimationUtils.loadAnimation(this, android.R.anim.fade_out));
+
+        textSwitcher.setText(getText(R.string.defaultInitialGameScore));
     }
 
 }

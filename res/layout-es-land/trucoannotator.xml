@@ -44,13 +44,12 @@
             android:text="@string/truco_team1_we"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
+        <TextSwitcher
             android:id="@+id/trucoAnnotator_scoreTeam1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="120dp"
             android:layout_marginTop="8dp"
-            android:text="@string/defaultInitialGameScore"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button
@@ -80,13 +79,12 @@
             android:text="@string/truco_team2_them"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextView
+        <TextSwitcher
             android:id="@+id/trucoAnnotator_scoreTeam2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="142dp"
             android:layout_marginTop="8dp"
-            android:text="@string/defaultInitialGameScore"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <Button

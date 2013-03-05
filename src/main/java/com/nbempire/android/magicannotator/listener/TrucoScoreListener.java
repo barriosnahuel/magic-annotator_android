@@ -27,6 +27,7 @@ import android.content.DialogInterface;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 import com.nbempire.android.magicannotator.GameKeys;
 import com.nbempire.android.magicannotator.R;
@@ -49,7 +50,7 @@ public class TrucoScoreListener implements OnTouchListener {
     /**
      * The TextView to update.
      */
-    private final TextView scoreToUpdate;
+    private final TextSwitcher scoreToUpdate;
 
     /**
      * List of Views to disable when one team wins.
@@ -68,14 +69,19 @@ public class TrucoScoreListener implements OnTouchListener {
      *
      * @since 1
      */
-    public TrucoScoreListener(TextView scoreToUpdate, CharSequence winMessageText, List<View> viewsToDisable) {
+    public TrucoScoreListener(TextSwitcher scoreToUpdate, CharSequence winMessageText, List<View> viewsToDisable) {
         this.scoreToUpdate = scoreToUpdate;
         this.winMessageText = winMessageText.toString();
         this.viewsToDisable = viewsToDisable;
     }
 
     public boolean onTouch(View view, MotionEvent event) {
-        int currentValue = Integer.valueOf(scoreToUpdate.getText().toString());
+        String currentValueString = ((TextView) scoreToUpdate.getCurrentView()).getText().toString();
+
+        int currentValue = 0;
+        if (!currentValueString.equals("")) {
+            currentValue = Integer.valueOf(currentValueString);
+        }
 
         if (currentValue < GameKeys.TRUCO_MAX_SCORE) {
             int updatedValue = currentValue + GameKeys.TRUCO_INCREMENT;
