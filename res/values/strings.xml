@@ -114,7 +114,7 @@
     <string name="trucoAnnotator_theyWin">They win :(</string>
     <string name="trucoAnnotator_labelNewGame">New game</string>
     <string name="trucoAnnotator_labelResult">Score</string>
-    <string name="trucoAnnotator_labelDoTapOnYourTeamToAddScore">Tap over your device to add points</string>
+    <string name="trucoAnnotator_labelDoTapOnYourTeamToAddScore">Tap over your device to add points.</string>
 
     <!-- TutePartialResultsActivity -->
     <string name="tutePartialResults_addCapote">Add capote</string>

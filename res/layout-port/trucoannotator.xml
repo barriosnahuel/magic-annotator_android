@@ -15,10 +15,10 @@
   ~     You should have received a copy of the GNU General Public License
   ~     along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
 
     <TextView
         android:id="@+id/trucoAnnotator_labelResult"
@@ -33,89 +33,99 @@
         android:id="@+id/trucoAnnotator_labelDoTap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/trucoAnnotator_layoutTeam1"
         android:layout_alignParentLeft="true"
-        android:layout_marginBottom="59dp"
+        android:layout_above="@+id/trucoAnnotator_teamsLayout"
+        android:layout_marginBottom="10dp"
         android:text="@string/trucoAnnotator_labelDoTapOnYourTeamToAddScore"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <LinearLayout
-        android:id="@+id/trucoAnnotator_layoutTeam1"
-        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="125dp">
+        android:layout_centerVertical="true"
+        android:id="@+id/trucoAnnotator_teamsLayout"
+        android:layout_marginLeft="15dp">
 
-        <TextView
-            android:id="@+id/trucoAnnotator_labelTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/truco_team1_we"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <TextSwitcher
-            android:id="@+id/trucoAnnotator_scoreTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="129dp"
-            android:layout_marginTop="8dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <Button
-            android:id="@+id/trucoAnnotator_substractButtonTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:ems="2"
-            android:text="@string/substract"
-            android:onClick="substractScore" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/trucoAnnotator_layoutTeam2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/trucoAnnotator_layoutTeam1"
-        android:layout_marginTop="40dp">
+       <TextView
+           android:id="@+id/trucoAnnotator_labelTeam1"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/truco_team1_we"
+           android:layout_marginBottom="16dp"
+           android:layout_gravity="center_horizontal"
+           android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:id="@+id/trucoAnnotator_labelTeam2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:text="@string/truco_team2_them"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:layout_marginLeft="10dp" />
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <TextSwitcher
-            android:id="@+id/trucoAnnotator_scoreTeam2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="112dp"
-            android:layout_marginTop="8dp"
-            android:text="@string/defaultInitialGameScore"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+          </LinearLayout>
+
+ <LinearLayout
+     android:orientation="vertical"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_centerHorizontal="true"
+     android:layout_centerVertical="true"
+     android:id="@+id/linearLayout">
+
+  <TextSwitcher
+      android:id="@+id/trucoAnnotator_scoreTeam1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:textAppearance="?android:attr/textAppearanceMedium" />
+
+         <TextSwitcher
+             android:id="@+id/trucoAnnotator_scoreTeam2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/defaultInitialGameScore"
+             android:layout_gravity="center_horizontal"
+             android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+     <LinearLayout
+         android:orientation="vertical"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_centerVertical="true"
+         android:layout_alignParentRight="true"
+         android:layout_marginRight="15dp">
+
+         <Button
+             android:id="@+id/trucoAnnotator_substractButtonTeam1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:ems="2"
+             android:text="@string/substract"
+             android:onClick="substractScore" />
 
         <Button
             android:id="@+id/trucoAnnotator_substractButtonTeam2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="57dp"
             android:ems="2"
             android:text="@string/substract"
             android:onClick="substractScore" />
-    </LinearLayout>
+          </LinearLayout>
 
-    <Button
-        android:id="@+id/trucoAnnotator_buttonNewGame"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="resetGame"
-        android:text="@string/trucoAnnotator_labelNewGame" />
+
+     <Button
+         android:id="@+id/trucoAnnotator_buttonNewGame"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:onClick="resetGame"
+         android:text="@string/trucoAnnotator_labelNewGame" />
 
 </RelativeLayout>
