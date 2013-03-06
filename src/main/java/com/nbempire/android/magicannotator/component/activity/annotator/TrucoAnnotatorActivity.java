@@ -261,7 +261,7 @@ public class TrucoAnnotatorActivity extends Activity {
      * @since 1
      */
     private void resetScoreFor(int teamScoreId) {
-        ((TextView) findViewById(teamScoreId)).setText(this.getText(R.string.defaultInitialGameScore));
+        ((TextSwitcher) findViewById(teamScoreId)).setText(this.getText(R.string.defaultInitialGameScore));
     }
 
     /**
