@@ -17,8 +17,8 @@
   -->
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -29,15 +29,17 @@
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="160dip"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="openPlayersSelector"
             android:text="@string/tutePartialResults_addCapote" />
 
         <Button
             android:id="@+id/tutePartialResults_addTuteButton"
-            android:layout_width="160dip"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:onClick="openPlayersSelector"
             android:text="@string/tutePartialResults_addTute" />
     </LinearLayout>
@@ -48,21 +50,13 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:numColumns="4"></GridView>
+        android:numColumns="4" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:onClick="playAnotherHand"
-            android:text="@string/annotateHand" />
-    </LinearLayout>
+        android:onClick="playAnotherHand"
+        android:text="@string/annotateHand" />
 
 </RelativeLayout>
