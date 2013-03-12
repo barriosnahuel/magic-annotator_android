@@ -26,10 +26,13 @@ import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RelativeLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 import com.nbempire.android.magicannotator.R;
 
 /**
@@ -87,17 +90,18 @@ public class MarketItemView extends RelativeLayout {
         //  Sets an ID to let the OS save itself the view's state. E.g. the label and the checked (or not checked) status.
         checkBox.setId(ViewsUtil.generateId(itemName + CHECK_BOX_ID_SUFFIX));
 
-        TextView itemCount = (TextView) findViewById(R.id.marketItem_itemCount);
+        TextSwitcher itemCount = (TextSwitcher) findViewById(R.id.marketItem_itemCount);
         final int textViewId = ViewsUtil.generateId(itemName + TEXT_VIEW_ID_SUFFIX);
         itemCount.setId(textViewId);
+        initializeTextSwitcher(itemCount);
 
         Button addButton = (Button) findViewById(R.id.marketItem_addButton);
         addButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(LOG_TAG, "Adding number of items, for item: " + itemName);
-                TextView itemCount = (TextView) findViewById(textViewId);
-                itemCount.setText(String.valueOf(Integer.parseInt(itemCount.getText().toString()) + 1));
+                TextSwitcher itemCount = (TextSwitcher) findViewById(textViewId);
+                itemCount.setText(String.valueOf(Integer.parseInt(((TextView) itemCount.getCurrentView()).getText().toString()) + 1));
             }
         });
 
@@ -106,14 +110,31 @@ public class MarketItemView extends RelativeLayout {
             @Override
             public void onClick(View view) {
                 Log.d(LOG_TAG, "Substracting number of items, for item: " + itemName);
-                TextView itemCount = (TextView) findViewById(textViewId);
-                int currentValue = Integer.parseInt(itemCount.getText().toString());
+                TextSwitcher itemCount = (TextSwitcher) findViewById(textViewId);
+                int currentValue = Integer.parseInt(((TextView) itemCount.getCurrentView()).getText().toString());
                 if (currentValue > 0) {
                     itemCount.setText(String.valueOf(currentValue - 1));
                 }
-
             }
         });
+    }
+
+    /**
+     * Initializes the score TextSwitcher for the specified {@code textSwitcher}. It also sets the {@code listener}.
+     */
+    private void initializeTextSwitcher(final TextSwitcher textSwitcher) {
+        textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
+            @Override
+            public View makeView() {
+                TextView textView = new TextView(textSwitcher.getContext());
+                textView.setTextSize(26);
+                return textView;
+            }
+        });
+
+        textSwitcher.setInAnimation(AnimationUtils.loadAnimation(textSwitcher.getContext(), android.R.anim.fade_in));
+        textSwitcher.setOutAnimation(AnimationUtils.loadAnimation(textSwitcher.getContext(), android.R.anim.fade_out));
+        textSwitcher.setText(textSwitcher.getContext().getText(R.string.defaultInitialGameScore));
     }
 
 }

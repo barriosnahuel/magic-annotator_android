@@ -35,6 +35,7 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TableLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.R;
@@ -130,11 +131,11 @@ public class MarketAnnotatorActivity extends Activity {
             item.setChecked(checkBox.isChecked());
         }
 
-        TextView itemCount = (TextView) findViewById(ViewsUtil.generateId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+        TextSwitcher itemCount = (TextSwitcher) findViewById(ViewsUtil.generateId(item.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
         if (quantity != -1) {
             item.setQuantity(String.valueOf(quantity));
         } else {
-            item.setQuantity(itemCount.getText().toString());
+            item.setQuantity(((TextView) itemCount.getCurrentView()).getText().toString());
         }
     }
 
@@ -334,7 +335,8 @@ public class MarketAnnotatorActivity extends Activity {
         for (MarketItem eachItem : items) {
             Log.i(TAG, "Updating item attributes for: " + eachItem.getDescription());
 
-            TextView numberOfItems = (TextView) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+            TextSwitcher numberOfItems =
+                    (TextSwitcher) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
             numberOfItems.setText(eachItem.getQuantity());
 
             CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView
