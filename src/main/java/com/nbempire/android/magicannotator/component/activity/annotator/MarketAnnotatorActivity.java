@@ -33,6 +33,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -190,40 +191,30 @@ public class MarketAnnotatorActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.i(TAG, "User selected " + item.getTitle() + " option from the menu.");
 
-        boolean showMenu = false;
-        boolean updateGUI = true;
-
         switch (item.getItemId()) {
             case R.id.marketAnnotatorMenuItem_updateQuantitiesToZero:
                 Log.i(TAG, "Updating all quantities to 0.");
                 updateItems(items, 0);
-                showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_checkAllItems:
                 Log.i(TAG, "Checking all items.");
                 updateItems(items, true);
-                showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_uncheckAllItems:
                 Log.i(TAG, "Unchecking all items.");
                 updateItems(items, false);
-                showMenu = true;
                 break;
             case R.id.marketAnnotatorMenuItem_deleteAll:
                 resetAnnotator();
-                showMenu = true;
-                updateGUI = false;
                 break;
             default:
                 Log.e(TAG, "The menu item " + item.getTitle() + " has no action attached.");
                 break;
         }
 
-        if (showMenu && updateGUI) {
-            updateGUI(items);
-        }
+        updateGUI(items);
 
-        return showMenu;
+        return true;
     }
 
     /**
@@ -296,6 +287,9 @@ public class MarketAnnotatorActivity extends Activity {
             Log.i(TAG, "Adding item: " + eachItem.getDescription() + " to the GUI.");
             layout.addView(new MarketItemView(layout.getContext(), eachItem.getDescription()));
         }
+
+        Button shareButton = (Button) findViewById(R.id.marketAnnotator_share);
+        shareButton.setEnabled(true);
     }
 
     /**
@@ -321,7 +315,6 @@ public class MarketAnnotatorActivity extends Activity {
 
         if (!items.isEmpty()) {
             addItemsToGUI(items);
-            updateGUI(items);
         }
     }
 
@@ -334,16 +327,23 @@ public class MarketAnnotatorActivity extends Activity {
      * @since 10
      */
     private void updateGUI(List<MarketItem> items) {
-        for (MarketItem eachItem : items) {
-            Log.i(TAG, "Updating item attributes for: " + eachItem.getDescription());
+        Button shareButton = (Button) findViewById(R.id.marketAnnotator_share);
+        if (items.isEmpty()) {
+            shareButton.setEnabled(false);
+        } else {
+            shareButton.setEnabled(true);
 
-            TextSwitcher numberOfItems =
-                    (TextSwitcher) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
-            numberOfItems.setText(eachItem.getQuantity());
+            for (MarketItem eachItem : items) {
+                Log.i(TAG, "Updating item attributes for: " + eachItem.getDescription());
 
-            CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView
-                    .CHECK_BOX_ID_SUFFIX));
-            checkBox.setChecked(eachItem.isChecked());
+                TextSwitcher numberOfItems =
+                        (TextSwitcher) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView.TEXT_VIEW_ID_SUFFIX));
+                numberOfItems.setText(eachItem.getQuantity());
+
+                CheckBox checkBox = (CheckBox) findViewById(ViewsUtil.generateId(eachItem.getDescription() + MarketItemView
+                        .CHECK_BOX_ID_SUFFIX));
+                checkBox.setChecked(eachItem.isChecked());
+            }
         }
     }
 
@@ -418,7 +418,6 @@ public class MarketAnnotatorActivity extends Activity {
      * @return Message ready to share.
      */
     private String generateSharingText() {
-        //  TODO : Disable share button if items.isEmpty()
         StringBuilder text = new StringBuilder(getText(R.string.need_you_to_buy_theese_things));
         text.append(" ");
 
