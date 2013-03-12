@@ -33,7 +33,7 @@
 
     <ScrollView
         android:id="@+id/marketAnnotator_scrollView"
-        android:layout_above="@+id/marketAnnotator_addButton"
+        android:layout_above="@+id/marketAnnotator_bottomToolbar"
         android:layout_below="@+id/marketAnnotator_headerText"
         android:layout_marginTop="9dp"
         android:layout_width="fill_parent"
@@ -49,13 +49,29 @@
 
     </ScrollView>
 
-    <Button
-        android:id="@+id/marketAnnotator_addButton"
+    <LinearLayout
+        android:id="@+id/marketAnnotator_bottomToolbar"
+        android:orientation="horizontal"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/plus"
-        android:onClick="openMarketItemCreator" />
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/marketAnnotator_addButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:onClick="openMarketItemCreator"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/marketAnnotator_share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:onClick="shareList"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </RelativeLayout>
 

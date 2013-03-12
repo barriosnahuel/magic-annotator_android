@@ -26,6 +26,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Log;
@@ -48,6 +49,7 @@ import com.nbempire.android.magicannotator.util.android.view.MarketItemView;
 import com.nbempire.android.magicannotator.util.android.view.ViewsUtil;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -393,6 +395,45 @@ public class MarketAnnotatorActivity extends Activity {
      */
     private void updateItems(List<MarketItem> items, int quantity) {
         updateItems(items, null, quantity);
+    }
+
+    /**
+     * Opens chooser for sharing this list leting user choose the application.
+     *
+     * @param callerView
+     *         The view that called this method.
+     */
+    public void shareList(View callerView) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, generateSharingText());
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, getText(R.string.things_to_buy));
+        sendIntent.setType("text/plain");
+        startActivity(Intent.createChooser(sendIntent, getText(R.string.share_by)));
+    }
+
+    /**
+     * Generates the text for sharing the current list to some contact.
+     *
+     * @return Message ready to share.
+     */
+    private String generateSharingText() {
+        //  TODO : Disable share button if items.isEmpty()
+        StringBuilder text = new StringBuilder(getText(R.string.need_you_to_buy_theese_things));
+        text.append(" ");
+
+        Iterator<MarketItem> iterator = items.iterator();
+        while (iterator.hasNext()) {
+            MarketItem eachItem = iterator.next();
+            text.append(eachItem.getDescription()).append(" (").append(eachItem.getQuantity()).append(")");
+            if (iterator.hasNext()) {
+                text.append(", ");
+            } else {
+                text.append(".");
+            }
+        }
+
+        return text.toString();
     }
 
 }

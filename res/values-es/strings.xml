@@ -146,5 +146,9 @@
     <string name="golfAnnotator_defaultHitsPerHole">¿Cantidad media de golpes para este hoyo?</string>
     <string name="final_result">Resultado final</string>
     <string name="golfAnnotator_totalHits">Cantidad total de golpes</string>
+    <string name="share">Compartir</string>
+    <string name="share_by">Compartir por…</string>
+    <string name="need_you_to_buy_theese_things">Necesito que me compres las siguientes cosas:</string>
+    <string name="things_to_buy">Cosas para comprar en el supermercado</string>
 
 </resources>
