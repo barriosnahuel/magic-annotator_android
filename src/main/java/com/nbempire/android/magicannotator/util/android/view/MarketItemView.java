@@ -120,7 +120,7 @@ public class MarketItemView extends RelativeLayout {
     }
 
     /**
-     * Initializes the score TextSwitcher for the specified {@code textSwitcher}. It also sets the {@code listener}.
+     * Initializes the score TextSwitcher for the specified {@code textSwitcher}.
      */
     private void initializeTextSwitcher(final TextSwitcher textSwitcher) {
         textSwitcher.setFactory(new ViewSwitcher.ViewFactory() {
