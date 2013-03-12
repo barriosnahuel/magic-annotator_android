@@ -26,10 +26,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import com.google.android.apps.analytics.GoogleAnalyticsTracker;
 import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
@@ -212,7 +212,7 @@ public class GolfAnnotatorActivity extends Activity {
         Bundle playersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
         for (String eachPlayerName : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             int currentScore = playersAndScores.getInt(eachPlayerName);
-            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2));
+            playersLayout.addView(new ScoreEditorView(playersLayout.getContext(), eachPlayerName, currentScore, 2, false));
         }
     }
 
@@ -224,7 +224,7 @@ public class GolfAnnotatorActivity extends Activity {
 
         Bundle currentPlayersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
         for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
-            String currentScore = ((EditText) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
+            String currentScore = ((TextView) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
             Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
             currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
         }

@@ -17,10 +17,10 @@
   -->
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:orientation="horizontal"
-              android:layout_gravity="center_horizontal">
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_horizontal">
 
     <TextView
         android:id="@+id/playerNickname"
@@ -29,14 +29,12 @@
         android:layout_weight="1"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <EditText
+    <TextSwitcher
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dip"
-        android:layout_marginTop="1dip"
-        android:inputType="number"
-        android:maxLength="4" />
+        android:layout_marginTop="1dip" />
 
     <Button
         android:id="@+id/plusButton"

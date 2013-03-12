@@ -19,6 +19,8 @@
 package com.nbempire.android.magicannotator.util.android.view;
 
 import android.content.Context;
+import android.text.InputFilter;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -26,7 +28,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
+import android.widget.TextSwitcher;
 import android.widget.TextView;
+import android.widget.ViewSwitcher;
 import com.nbempire.android.magicannotator.R;
 
 /**
@@ -51,18 +55,7 @@ public class ScoreEditorView extends RelativeLayout {
      * The default increment used to add/substract scores.
      */
     private static final int DEFAULT_INCREMENT = 1;
-
-    /**
-     * A constructor method for the type. Creates the view with an initial score of {@code 0}.
-     *
-     * @param context
-     *         The view's context.
-     * @param playerNickname
-     *         The name of the player linked with this ScoreEditorView.
-     */
-    public ScoreEditorView(Context context, String playerNickname) {
-        this(context, playerNickname, 0, 3);
-    }
+    private final boolean editable;
 
     /**
      * A constructor method for the type.
@@ -76,9 +69,10 @@ public class ScoreEditorView extends RelativeLayout {
      * @param emsForPlayerScore
      *         Number of EMS for player score EditText.
      */
-    public ScoreEditorView(Context context, String playerNickname, int currentScore, int emsForPlayerScore) {
+    public ScoreEditorView(Context context, String playerNickname, int currentScore, int emsForPlayerScore, boolean editable) {
         super(context);
         this.playerNickname = playerNickname;
+        this.editable = editable;
         initializeView(context, String.valueOf(currentScore), emsForPlayerScore);
     }
 
@@ -92,16 +86,35 @@ public class ScoreEditorView extends RelativeLayout {
      * @param emsForPlayerScore
      *         Number of EMS for player score EditText.
      */
-    private void initializeView(Context context, String currentScore, int emsForPlayerScore) {
+    private void initializeView(final Context context, final String currentScore, final int emsForPlayerScore) {
         LayoutInflater.from(context).inflate(R.layout.scoreeditor_horizontal, this, true);
 
         TextView playerNameTextView = (TextView) findViewById(R.id.playerNickname);
         playerNameTextView.setText(playerNickname);
 
-        EditText scoreEditText = (EditText) findViewById(R.id.score);
-        scoreEditText.setId(ViewsUtil.generateId(playerNickname));
-        scoreEditText.setEms(emsForPlayerScore);
-        scoreEditText.setText(currentScore);
+        TextSwitcher score = (TextSwitcher) findViewById(R.id.score);
+        score.setFactory(new ViewSwitcher.ViewFactory() {
+
+            @Override
+            public View makeView() {
+                View scoreEditText;
+                if (editable) {
+                    scoreEditText = new EditText(context);
+                    ((EditText) scoreEditText).setInputType(InputType.TYPE_CLASS_NUMBER);
+                    ((EditText) scoreEditText).setFilters(new InputFilter[]{new InputFilter.LengthFilter(4)});
+                } else {
+                    scoreEditText = new TextView(context);
+                }
+
+                ((TextView) scoreEditText).setEms(emsForPlayerScore);
+                ((TextView) scoreEditText).setTextSize(26);
+                ((TextView) scoreEditText).setText(currentScore);
+
+                scoreEditText.setId(ViewsUtil.generateId(playerNickname));
+
+                return scoreEditText;
+            }
+        });
 
         addOnTouchActions(DEFAULT_INCREMENT);
     }
@@ -170,7 +183,7 @@ public class ScoreEditorView extends RelativeLayout {
                         newValue = increment * -1;
                     }
 
-                    updateScore((EditText) findViewById(ViewsUtil.generateId(playerNickname)), newValue);
+                    updateScore((TextView) findViewById(ViewsUtil.generateId(playerNickname)), newValue);
                     break;
                 default:
                     break;
@@ -193,19 +206,19 @@ public class ScoreEditorView extends RelativeLayout {
     }
 
     /**
-     * Add value of {@code increment} to the current value of the specified {@code editText}.
+     * Add value of {@code increment} to the current value of the specified {@code score}.
      * <p/>
      * Please note that this method always add the {@code increment} value to the current value, so if you want to substract you will transform {@code
      * increment} to the negative form.
      *
-     * @param editText
-     *         The editText to update.
+     * @param score
+     *         The score to update.
      * @param increment
      *         The increment used to add scores.
      */
-    private void updateScore(EditText editText, int increment) {
-        String currentValue = editText.getText().toString();
-        editText.setText(Integer.toString(Integer.parseInt(currentValue) + increment));
+    private void updateScore(TextView score, int increment) {
+        String currentValue = score.getText().toString();
+        score.setText(Integer.toString(Integer.parseInt(currentValue) + increment));
     }
 
 }

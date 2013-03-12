@@ -55,7 +55,7 @@ public class GenericAnnotatorActivity extends Activity {
         TableRow tableRow;
         for (String eachPlayer : this.getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             tableRow = new TableRow(layout.getContext());
-            ScoreEditorView scoreEditor = new ScoreEditorView(layout.getContext(), eachPlayer);
+            ScoreEditorView scoreEditor = new ScoreEditorView(layout.getContext(), eachPlayer, 0, 3, true);
             tableRow.addView(scoreEditor);
 
             layout.addView(tableRow);

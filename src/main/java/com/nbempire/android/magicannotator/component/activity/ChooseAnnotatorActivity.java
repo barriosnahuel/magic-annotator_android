@@ -222,8 +222,6 @@ public class ChooseAnnotatorActivity extends Activity {
      *
      * @param callerView
      *         View that called this method.
-     *
-     * @since 1
      */
     public void openAboutActivity(View callerView) {
         startActivity(new Intent(callerView.getContext(), AboutActivity.class));
