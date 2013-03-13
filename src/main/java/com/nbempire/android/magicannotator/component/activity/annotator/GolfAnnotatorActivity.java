@@ -110,6 +110,7 @@ public class GolfAnnotatorActivity extends Activity {
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
 
+        saveCurrentSores();
         outState.putBundle(KEY_HOLES, holes);
         outState.putInt(KEY_CURRENT_HOLE, currentHole);
     }
