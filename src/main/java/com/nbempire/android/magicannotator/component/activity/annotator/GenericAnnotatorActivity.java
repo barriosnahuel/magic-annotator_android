@@ -20,7 +20,6 @@ package com.nbempire.android.magicannotator.component.activity.annotator;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -54,7 +53,6 @@ public class GenericAnnotatorActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate");
         GoogleAnalyticsTracker.getInstance().trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
 
         this.setContentView(R.layout.basescrollview);
@@ -79,14 +77,12 @@ public class GenericAnnotatorActivity extends Activity {
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        Log.d(TAG, "onRestore");
         playersAndScores = savedInstanceState.getBundle("playersAndScores");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume");
         for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             ((EditText) findViewById(ViewsUtil.generateId(eachPlayer))).setText(playersAndScores.getString(eachPlayer));
         }
@@ -95,8 +91,6 @@ public class GenericAnnotatorActivity extends Activity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        Log.d(TAG, "onSave");
-
         for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
             playersAndScores.putString(eachPlayer, ((EditText) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString());
         }
