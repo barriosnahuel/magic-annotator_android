@@ -108,17 +108,7 @@ public class MarketItemView extends RelativeLayout {
         itemCount.setId(textViewId);
         initializeTextSwitcher(itemCount);
 
-        Button addButton = (Button) findViewById(R.id.marketItem_addButton);
-        addButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(LOG_TAG, "Adding number of items, for item: " + itemName);
-                TextSwitcher itemCount = (TextSwitcher) findViewById(textViewId);
-                itemCount.setText(String.valueOf(Integer.parseInt(((TextView) itemCount.getCurrentView()).getText().toString()) + 1));
-            }
-        });
-
-        Button substractButton = (Button) findViewById(R.id.marketItem_substractButton);
+        final Button substractButton = (Button) findViewById(R.id.marketItem_substractButton);
         substractButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -126,7 +116,26 @@ public class MarketItemView extends RelativeLayout {
                 TextSwitcher itemCount = (TextSwitcher) findViewById(textViewId);
                 int currentValue = Integer.parseInt(((TextView) itemCount.getCurrentView()).getText().toString());
                 if (currentValue > 0) {
-                    itemCount.setText(String.valueOf(currentValue - 1));
+                    int updatedValue = currentValue - 1;
+                    itemCount.setText(String.valueOf(updatedValue));
+
+                    if (updatedValue == 0) {
+                        substractButton.setEnabled(false);
+                    }
+                }
+            }
+        });
+
+        Button addButton = (Button) findViewById(R.id.marketItem_addButton);
+        addButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(LOG_TAG, "Adding number of items, for item: " + itemName);
+                TextSwitcher itemCount = (TextSwitcher) findViewById(textViewId);
+                int updatedValue = Integer.parseInt(((TextView) itemCount.getCurrentView()).getText().toString()) + 1;
+                itemCount.setText(String.valueOf(updatedValue));
+                if (updatedValue > 0) {
+                    substractButton.setEnabled(true);
                 }
             }
         });
@@ -147,7 +156,7 @@ public class MarketItemView extends RelativeLayout {
 
         textSwitcher.setInAnimation(AnimationUtils.loadAnimation(textSwitcher.getContext(), android.R.anim.fade_in));
         textSwitcher.setOutAnimation(AnimationUtils.loadAnimation(textSwitcher.getContext(), android.R.anim.fade_out));
-        textSwitcher.setText(textSwitcher.getContext().getText(R.string.defaultInitialGameScore));
+        textSwitcher.setText("1");
     }
 
 }
