@@ -23,12 +23,14 @@
 package com.nbempire.android.magicannotator.util.android.view;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
@@ -85,10 +87,21 @@ public class MarketItemView extends RelativeLayout {
     private void initializeView(Context context, final String itemName) {
         LayoutInflater.from(context).inflate(R.layout.market_item, this, true);
 
-        CheckBox checkBox = (CheckBox) findViewById(R.id.marketItem_itemName);
+        final CheckBox checkBox = (CheckBox) findViewById(R.id.marketItem_itemName);
         checkBox.setText(itemName);
         //  Sets an ID to let the OS save itself the view's state. E.g. the label and the checked (or not checked) status.
         checkBox.setId(ViewsUtil.generateId(itemName + CHECK_BOX_ID_SUFFIX));
+
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    checkBox.setPaintFlags(checkBox.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                } else {
+                    checkBox.setPaintFlags(checkBox.getPaintFlags() - Paint.STRIKE_THRU_TEXT_FLAG);
+                }
+            }
+        });
 
         TextSwitcher itemCount = (TextSwitcher) findViewById(R.id.marketItem_itemCount);
         final int textViewId = ViewsUtil.generateId(itemName + TEXT_VIEW_ID_SUFFIX);
