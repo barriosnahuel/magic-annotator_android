@@ -88,6 +88,11 @@ public class GolfAnnotatorActivity extends Activity {
      */
     private Bundle holes;
 
+    /**
+     * Boolean indicating with {@code true} that is the first running so the application must NOT save scores to load starting hole.
+     */
+    private boolean isFirstRunning;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +100,7 @@ public class GolfAnnotatorActivity extends Activity {
         setContentView(R.layout.golfannotator);
 
         if (savedInstanceState == null) {
+            isFirstRunning = true;
             openNumberOfHolesChooser();
         } else {
             holes = savedInstanceState.getBundle(KEY_HOLES);
@@ -116,36 +122,54 @@ public class GolfAnnotatorActivity extends Activity {
     }
 
     /**
-     * Opens dialog to let user choose how many holes is gonna annotate. After user selection, it initializes the hole selector, prepare the holes
-     * Bundle for first time and finally render players and scores for the first hole.
+     * Opens dialog to let user choose how many holes is gonna annotate. After user selection, call {@link #openInitialHoleSelector()}.
      */
     private void openNumberOfHolesChooser() {
         final CharSequence[] charSequences = {"6", "9", "18"};
 
         new AlertDialog.Builder(this).setTitle(getText(R.string.golfAnnotator_selectNumberOfHoles))
+                                     .setCancelable(false)
                                      .setSingleChoiceItems(charSequences, 0, new DialogInterface.OnClickListener() {
                                          @Override
                                          public void onClick(DialogInterface dialog, int which) {
-                                             Log.i(TAG, "User is gonna play " + charSequences[which] + " holes.");
-                                             //  TODO : Log to Analytics the number of holes that user is gonna play to determine which is the best default selection.
+                                             String selectedNumberOfHoles = charSequences[which].toString();
+                                             Log.i(TAG, "User is gonna play " + selectedNumberOfHoles + " holes.");
+
+                                             numberOfHoles = Integer.parseInt(selectedNumberOfHoles);
 
                                              dialog.dismiss();
-                                             numberOfHoles = Integer.parseInt(charSequences[which].toString());
 
-                                             //  TODO : Performance : Try putting these 3 calls after if-else in onCreate. Check for race-condition.
+                                             openInitialHoleSelector();
+                                         }
+                                     }).show();
+    }
+
+    /**
+     * Opens dialog to let user choose the starting hole. After user selection, it initializes the hole selector, prepare the holes Bundle for first
+     * time and finally render players and scores for the selected hole.
+     */
+    private void openInitialHoleSelector() {
+        String[] holesArray = new String[numberOfHoles];
+        for (int index = 0; index < numberOfHoles; ) {
+            holesArray[index] = String.valueOf(++index);
+        }
+
+        new AlertDialog.Builder(this).setTitle(getText(R.string.golfAnnotator_selectStartingHole))
+                                     .setCancelable(false)
+                                     .setItems(holesArray, new DialogInterface.OnClickListener() {
+                                         @Override
+                                         public void onClick(DialogInterface dialog, int which) {
+                                             currentHole = which + 1;
+
+                                             Log.i(TAG, "User is starting from hole number: " + currentHole);
+
+                                             //  TODO : Performance : Try putting these 2 calls after if-else in onCreate. Check for race-condition.
                                              initializeHoleSelector();
                                              preparePlayersAndScoresForFirstTime();
-                                             renderPlayersAndScores(1);
 
-                                             //  TODO : Functionality : Uncomment call to openDefaultHitsForHoleDialog to let user set default number of hits per hole.
-//                                             openDefaultHitsForHoleDialog();
+                                             ((Spinner) findViewById(R.id.golfAnnotator_holeSelector)).setSelection(which);
                                          }
-                                     }).setOnCancelListener(new DialogInterface.OnCancelListener() {
-            @Override
-            public void onCancel(DialogInterface dialogInterface) {
-                //  TODO : Functionality : Do shomething when user cancels (press back button) this AlertDialog.
-            }
-        }).show();
+                                     }).show();
     }
 
     /**
@@ -155,15 +179,14 @@ public class GolfAnnotatorActivity extends Activity {
      * scores for the selected hole number.
      */
     private void initializeHoleSelector() {
-        String[] holes = new String[numberOfHoles];
+        String[] holesArray = new String[numberOfHoles];
         for (int index = 0; index < numberOfHoles; ) {
-            holes[index] = String.valueOf(++index);
+            holesArray[index] = String.valueOf(++index);
         }
+        ArrayAdapter<String> holeSelectorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, holesArray);
+        holeSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Spinner holeSelectorSpinner = (Spinner) findViewById(R.id.golfAnnotator_holeSelector);
-
-        ArrayAdapter<String> holeSelectorAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, holes);
-        holeSelectorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         holeSelectorSpinner.setAdapter(holeSelectorAdapter);
 
         holeSelectorSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -221,13 +244,17 @@ public class GolfAnnotatorActivity extends Activity {
      * Saves scores from {@link #currentHole} into {@link #holes} Bundle.
      */
     private void saveCurrentSores() {
-        Log.i(TAG, "Saving scores from hole: " + currentHole);
+        if (!isFirstRunning) {
+            Log.i(TAG, "Saving scores from hole: " + currentHole);
 
-        Bundle currentPlayersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
-        for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
-            String currentScore = ((TextView) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
-            Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
-            currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
+            Bundle currentPlayersAndScores = holes.getBundle(KEY_HOLE_NUMBER_PREFFIX + currentHole);
+            for (String eachPlayer : getIntent().getExtras().getStringArrayList(AppParameter.PLAYERS)) {
+                String currentScore = ((TextView) findViewById(ViewsUtil.generateId(eachPlayer))).getText().toString();
+                Log.d(TAG, "Player " + eachPlayer + " now has got: " + currentScore);
+                currentPlayersAndScores.putInt(eachPlayer, Integer.parseInt(currentScore));
+            }
+        } else {
+            isFirstRunning = false;
         }
     }
 
@@ -310,6 +337,7 @@ public class GolfAnnotatorActivity extends Activity {
     /**
      * Sets next hole as selected in the holeSelector so then it saves current scores and render next hole.
      */
+    @SuppressWarnings("UnusedParameters")
     public void renderNextHole(View callerView) {
         int nextHole;
         if (currentHole < numberOfHoles) {
@@ -320,23 +348,5 @@ public class GolfAnnotatorActivity extends Activity {
         ((Spinner) findViewById(R.id.golfAnnotator_holeSelector)).setSelection(nextHole);
 
     }
-
-//    /**
-//     * TODO : Javadoc for openDefaultHitsForHoleDialog
-//     */
-//    private void openDefaultHitsForHoleDialog() {
-//        EditText editText = new EditText(this, null);
-//        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
-//        editText.setText(R.string.defaultInitialGameScore);
-//
-//        new AlertDialog.Builder(this).setTitle(R.string.golfAnnotator_defaultHitsPerHole)
-//                                     .setView(editText)
-//                                     .setPositiveButton(R.string.commonLabel_done, new DialogInterface.OnClickListener() {
-//                                         @Override
-//                                         public void onClick(DialogInterface dialog, int which) {
-//                                             dialog.dismiss();
-//                                         }
-//                                     }).show();
-//    }
 
 }
