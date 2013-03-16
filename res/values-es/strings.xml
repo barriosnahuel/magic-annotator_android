@@ -150,5 +150,6 @@
     <string name="share_by">Compartir por…</string>
     <string name="need_you_to_buy_theese_things">Necesito que me compres las siguientes cosas:</string>
     <string name="things_to_buy">Cosas para comprar en el supermercado</string>
+    <string name="golfAnnotator_nextHole">Siguiente hoyo</string>
 
 </resources>

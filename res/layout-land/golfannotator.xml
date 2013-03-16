@@ -29,6 +29,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/golfAnnotator_headerLayout"
+        android:layout_toLeftOf="@+id/golfAnnotator_nextHoleButton"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true">
 
@@ -50,7 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/final_result"
-            android:layout_weight="1"
+            android:layout_weight="1.3"
             android:id="@+id/golfAnnotator_finalResultButton"
             android:onClick="displayFinalResult" />
 
@@ -60,9 +61,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/golfAnnotator_playersScrollView"
-        android:layout_centerHorizontal="true"
         android:layout_below="@+id/golfAnnotator_headerLayout"
-        android:layout_above="@+id/golfAnnotator_finalResultButton">
+        android:layout_toLeftOf="@id/golfAnnotator_nextHoleButton">
 
         <LinearLayout
             android:orientation="vertical"
@@ -71,5 +71,13 @@
             android:id="@+id/golfAnnotator_playersLinearLayout" />
 
     </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:text="@string/golfAnnotator_nextHole"
+        android:id="@+id/golfAnnotator_nextHoleButton"
+        android:layout_alignParentRight="true"
+        android:onClick="renderNextHole" />
 
 </RelativeLayout>

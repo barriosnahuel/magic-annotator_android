@@ -307,6 +307,20 @@ public class GolfAnnotatorActivity extends Activity {
         return playersAndScores;
     }
 
+    /**
+     * Sets next hole as selected in the holeSelector so then it saves current scores and render next hole.
+     */
+    public void renderNextHole(View callerView) {
+        int nextHole;
+        if (currentHole < numberOfHoles) {
+            nextHole = currentHole;
+        } else {
+            nextHole = 0;
+        }
+        ((Spinner) findViewById(R.id.golfAnnotator_holeSelector)).setSelection(nextHole);
+
+    }
+
 //    /**
 //     * TODO : Javadoc for openDefaultHitsForHoleDialog
 //     */
