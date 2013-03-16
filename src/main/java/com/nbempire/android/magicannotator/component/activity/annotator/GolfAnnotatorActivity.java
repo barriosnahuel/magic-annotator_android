@@ -133,6 +133,9 @@ public class GolfAnnotatorActivity extends Activity {
                                          @Override
                                          public void onClick(DialogInterface dialog, int which) {
                                              String selectedNumberOfHoles = charSequences[which].toString();
+                                             GoogleAnalyticsTracker.getInstance()
+                                                                   .trackEvent(GoogleAnalyticsUtil.generatePageName(TAG), "Selected number of holes",
+                                                                               selectedNumberOfHoles, 0);
                                              Log.i(TAG, "User is gonna play " + selectedNumberOfHoles + " holes.");
 
                                              numberOfHoles = Integer.parseInt(selectedNumberOfHoles);
