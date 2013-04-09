@@ -32,6 +32,7 @@ import com.nbempire.android.magicannotator.domain.game.Game;
 public abstract class AppParameter {
 
     public static final String GA_KEY = "UA-35699309-1";
+
     public static final int GA_DISPATCH_INTERVAL = 5;
 
     /**
@@ -41,4 +42,5 @@ public abstract class AppParameter {
 
     public static final String PLAYERS = "players";
 
+    public static final String FIRST_RUN = "firstRun";
 }

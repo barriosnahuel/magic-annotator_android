@@ -54,7 +54,7 @@ public class ChooseAnnotatorActivity extends Activity {
     /**
      * Tag for class' log.
      */
-    private static final String LOG_TAG = "ChooseAnnotatorActivity";
+    private static final String TAG = "ChooseAnnotatorActivity";
 
     /**
      * Service for the annotators.
@@ -98,6 +98,11 @@ public class ChooseAnnotatorActivity extends Activity {
 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String selectedItemKey = ((TextView) parent.getChildAt(position)).getText().toString();
+
+                if (getIntent().getExtras().getBoolean(AppParameter.FIRST_RUN)) {
+                    GoogleAnalyticsTracker.getInstance().trackEvent(GoogleAnalyticsUtil.generatePageName(TAG), "Selected annotator on first run",
+                                                                    selectedItemKey, 0);
+                }
 
                 int annotatorId = annotatorService.getAnnotatorId(selectedItemKey);
                 Game aGame = annotatorService.getAnnotatorGame(annotatorId);
@@ -158,7 +163,7 @@ public class ChooseAnnotatorActivity extends Activity {
         // Start the tracker with a dispatch interval (in seconds).
         tracker.startNewSession(AppParameter.GA_KEY, AppParameter.GA_DISPATCH_INTERVAL, this);
 
-        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(LOG_TAG));
+        tracker.trackPageView(GoogleAnalyticsUtil.generatePageName(TAG));
     }
 
     /**

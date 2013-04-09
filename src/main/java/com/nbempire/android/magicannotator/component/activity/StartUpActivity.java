@@ -20,8 +20,11 @@ package com.nbempire.android.magicannotator.component.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+import com.nbempire.android.magicannotator.AppParameter;
 import com.nbempire.android.magicannotator.R;
 
 /**
@@ -34,6 +37,12 @@ import com.nbempire.android.magicannotator.R;
  */
 public class StartUpActivity extends Activity {
 
+    /**
+     * Tag for class' log.
+     */
+    private static final String TAG = "StartUpActivity";
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.start_up);
@@ -48,7 +57,17 @@ public class StartUpActivity extends Activity {
 
         @Override
         public void run() {
-            startActivity(new Intent(getApplication(), ChooseAnnotatorActivity.class));
+            SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+
+            boolean isFirstRun = preferences.getBoolean(AppParameter.FIRST_RUN, true);
+            if (isFirstRun) {
+                Log.i(TAG, "Running app for first time on this device.");
+                preferences.edit().putBoolean(AppParameter.FIRST_RUN, false).commit();
+            }
+
+            Intent anIntent = new Intent(getApplication(), ChooseAnnotatorActivity.class);
+            anIntent.putExtra(AppParameter.FIRST_RUN, isFirstRun);
+            startActivity(anIntent);
             finish();
         }
     }
