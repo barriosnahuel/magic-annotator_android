@@ -43,7 +43,7 @@ public abstract class AppParameter {
     /**
      * Number of days until next prompt for rating the application.
      */
-    public final static int DAYS_UNTIL_NEXT_PROMPT = 10;
+    public final static int DAYS_UNTIL_NEXT_PROMPT = 3;
 
     /**
      * The current {@link Game} that the user is creating.
