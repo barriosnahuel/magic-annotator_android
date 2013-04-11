@@ -41,6 +41,7 @@ import com.nbempire.android.magicannotator.service.AnnotatorService;
 import com.nbempire.android.magicannotator.service.NavigationService;
 import com.nbempire.android.magicannotator.service.impl.AnnotatorServiceImpl;
 import com.nbempire.android.magicannotator.service.impl.NavigationServiceImpl;
+import com.nbempire.android.magicannotator.util.android.AppRater;
 import com.nbempire.android.magicannotator.util.android.analytics.GoogleAnalyticsUtil;
 
 /**
@@ -78,11 +79,13 @@ public class ChooseAnnotatorActivity extends Activity {
         setContentView(R.layout.chooseannotator);
 
         ListView availableAnnotators = (ListView) findViewById(R.id.main_gamesListView);
-        availableAnnotators.setAdapter(ArrayAdapter.createFromResource(this, R.array.chooseAnnotator_annotatorsValues,
-                                                                       android.R.layout.simple_list_item_1));
+        availableAnnotators.setAdapter(
+                ArrayAdapter.createFromResource(this, R.array.chooseAnnotator_annotatorsValues, android.R.layout.simple_list_item_1));
         availableAnnotators.setTextFilterEnabled(true);
 
         addOnItemClickActionForAnnotatorsList(availableAnnotators);
+
+        AppRater.showRateDialogWhenCorresponding(this);
     }
 
     /**

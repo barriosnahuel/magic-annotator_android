@@ -31,9 +31,19 @@ import com.nbempire.android.magicannotator.domain.game.Game;
  */
 public abstract class AppParameter {
 
-    public static final String GA_KEY = "UA-35699309-1";
+    public static final String GA_KEY = "UA-3569";
 
     public static final int GA_DISPATCH_INTERVAL = 5;
+
+    /**
+     * The number of launches until display the for first time the dialog to let user rate the application.
+     */
+    public final static int LAUNCHES_UNTIL_FIRST_PROMPT_FOR_RATE_APP = 0;//2
+
+    /**
+     * Number of days until next prompt for rating the application.
+     */
+    public final static int DAYS_UNTIL_NEXT_PROMPT = 0;//10
 
     /**
      * The current {@link Game} that the user is creating.

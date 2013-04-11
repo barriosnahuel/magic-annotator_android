@@ -152,5 +152,9 @@
     <string name="things_to_buy">Things to buy at the market</string>
     <string name="golfAnnotator_nextHole">Next hole</string>
     <string name="golfAnnotator_selectStartingHole">Select starting hole</string>
+    <string name="rate">Rate Magic Annotator</string>
+    <string name="pleaseRateApp">Would you like to take a moment to rate Magic Annotator? Thanks for your support!</string>
+    <string name="remindMeLater">Remind me later</string>
+    <string name="noThanks">No, thanks</string>
 
 </resources>

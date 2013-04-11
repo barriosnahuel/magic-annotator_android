@@ -19,17 +19,21 @@
 package com.nbempire.android.magicannotator.util.android;
 
 import android.app.Dialog;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.nbempire.android.magicannotator.AppParameter;
+import com.nbempire.android.magicannotator.R;
 
 /**
- * TODO : Javadoc for
+ * TODO : Javadoc for AppRater
  * <p/>
  * Created on 4/9/13, at 8:47 PM.
  *
@@ -38,97 +42,116 @@ import android.widget.TextView;
  */
 public class AppRater {
 
-    private final static String APP_NAME = "Magic Annotator";
+    /**
+     * Tag for class' log.
+     */
+    private static final String TAG = "AppRater";
 
     private final static String APP_PACKAGE_NAME = "com.nbempire.android.magicannotator";
 
-    private final static int DAYS_UNTIL_PROMPT = 3;
+    private static final String DONT_SHOW_DIALOG_AGAIN = "dontShowDialogAgain";
 
-    private final static int LAUNCHES_UNTIL_PROMPT = 7;
+    private static Dialog dialog;
+
+    private static SharedPreferences.Editor preferencesEditor;
 
     /**
-     * @param mContext
+     * TODO : Javadoc for showRateDialogWhenCorresponding
+     *
+     * @param context
      */
-    public static void showRateDialogWhenCorrsponding(Context mContext) {
-        SharedPreferences prefs = mContext.getSharedPreferences("AppRater", 0);
-        if (prefs.getBoolean("dontShowAgain", false)) {
-            return;
-        }
+    public static void showRateDialogWhenCorresponding(Context context) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("AppRater", Context.MODE_PRIVATE);
 
-        SharedPreferences.Editor editor = prefs.edit();
+        boolean showDialog = !sharedPreferences.getBoolean(DONT_SHOW_DIALOG_AGAIN, false);
+        if (showDialog) {
+            preferencesEditor = sharedPreferences.edit();
 
-        // Increment launch counter
-        long appRunCounter = prefs.getLong("appRunCounter", 0) + 1;
-        editor.putLong("appRunCounter", appRunCounter);
+            // Increment launch counter
+            final String preferenceKeyAppRunCounter = "appRunCounter";
+            long appRunCounter = sharedPreferences.getLong(preferenceKeyAppRunCounter, 0) + 1;
+            preferencesEditor.putLong(preferenceKeyAppRunCounter, appRunCounter);
 
-        // Get date of first launch
-        Long date_firstLaunch = prefs.getLong("firstRunDate", 0);
-        if (date_firstLaunch == 0) {
-            date_firstLaunch = System.currentTimeMillis();
-            editor.putLong("firstRunDate", date_firstLaunch);
-        }
-
-        // Wait at least n days before opening
-        if (appRunCounter >= LAUNCHES_UNTIL_PROMPT) {
-            if (System.currentTimeMillis() >= date_firstLaunch + (DAYS_UNTIL_PROMPT * 24 * 60 * 60 * 1000)) {
-                showRateDialog(mContext, editor);
+            // Get date of app first launch
+            final String preferenceKeyFirstRunDate = "appRunCounter";
+            long firstLaunchDate = sharedPreferences.getLong(preferenceKeyFirstRunDate, 0);
+            long now = System.currentTimeMillis();
+            if (firstLaunchDate == 0) {
+                firstLaunchDate = now;
+                preferencesEditor.putLong(preferenceKeyFirstRunDate, firstLaunchDate);
             }
-        }
 
-        editor.commit();
+            // Wait at least LAUNCHES_UNTIL_FIRST_PROMPT_FOR_RATE_APP days before showing dialog.
+            if (appRunCounter >= AppParameter.LAUNCHES_UNTIL_FIRST_PROMPT_FOR_RATE_APP) {
+                if (now >= firstLaunchDate + (AppParameter.DAYS_UNTIL_NEXT_PROMPT * 86400000)) {    //1000 * 60 * 60 * 24
+                    showRateDialog(context, preferencesEditor);
+                }
+            }
+
+            preferencesEditor.commit();
+        }
     }
 
     /**
      * TODO : Javadoc for showRateDialog
+     * <p/>
+     * This method can be called from any Activity with {@code (this, null)} parameters to display dialog at any time.
      *
-     * @param mContext
-     * @param editor
+     * @param context
+     * @param preferencesEditor
      */
-    public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
-        final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle("Rate " + APP_NAME);
+    private static void showRateDialog(final Context context, final SharedPreferences.Editor preferencesEditor) {
+        dialog = new Dialog(context);
 
-        LinearLayout linearLayout = new LinearLayout(mContext);
+        CharSequence rateApp = context.getText(R.string.rate);
+        dialog.setTitle(rateApp);
+
+        LinearLayout linearLayout = new LinearLayout(context);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
-        TextView textView = new TextView(mContext);
-        textView.setText("If you enjoy using " + APP_NAME + ", please take a moment to rate it. Thanks for your support!");
-        textView.setWidth(240);
-        textView.setPadding(4, 0, 4, 10);
-        linearLayout.addView(textView);
+        TextView pleaseRateAppTextView = new TextView(context);
+        pleaseRateAppTextView.setText(context.getText(R.string.pleaseRateApp));
+        pleaseRateAppTextView.setWidth(240);
+        pleaseRateAppTextView.setPadding(4, 0, 4, 10);
+        linearLayout.addView(pleaseRateAppTextView);
 
-        Button button1 = new Button(mContext);
-        button1.setText("Rate " + APP_NAME);
-        button1.setOnClickListener(new View.OnClickListener() {
+        Button rateButton = new Button(context);
+        rateButton.setText(rateApp);
+        rateButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent anIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + APP_PACKAGE_NAME));
-                mContext.startActivity(anIntent);
+                try {
+                    context.startActivity(anIntent);
+                } catch (ActivityNotFoundException activityNotFoundException) {
+                    Log.e(TAG, "Can't open Play Store because it's not present on running device.");
+                }
+
                 dialog.dismiss();
             }
         });
-        linearLayout.addView(button1);
+        linearLayout.addView(rateButton);
 
-        Button button2 = new Button(mContext);
-        button2.setText("Remind me later");
-        button2.setOnClickListener(new View.OnClickListener() {
+        Button remindMeLaterButton = new Button(context);
+        remindMeLaterButton.setText(context.getText(R.string.remindMeLater));
+        remindMeLaterButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 dialog.dismiss();
             }
         });
-        linearLayout.addView(button2);
+        linearLayout.addView(remindMeLaterButton);
 
-        Button button3 = new Button(mContext);
-        button3.setText("No, thanks");
-        button3.setOnClickListener(new View.OnClickListener() {
+        Button noThanksButton = new Button(context);
+        noThanksButton.setText(context.getText(R.string.noThanks));
+        noThanksButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                if (editor != null) {
-                    editor.putBoolean("dontShowAgain", true);
-                    editor.commit();
+                if (preferencesEditor != null) {
+                    preferencesEditor.putBoolean(DONT_SHOW_DIALOG_AGAIN, true);
+                    preferencesEditor.commit();
                 }
                 dialog.dismiss();
             }
         });
-        linearLayout.addView(button3);
+        linearLayout.addView(noThanksButton);
 
         dialog.setContentView(linearLayout);
         dialog.show();

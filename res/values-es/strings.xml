@@ -152,5 +152,9 @@
     <string name="things_to_buy">Cosas para comprar en el supermercado</string>
     <string name="golfAnnotator_nextHole">Siguiente hoyo</string>
     <string name="golfAnnotator_selectStartingHole">Seleccionar hoyo de partida</string>
+    <string name="rate">Calificar Magic Annotator</string>
+    <string name="pleaseRateApp">¿Te molestaría tomarte un momento para calificar el Magic Annotator? ¡Gracias por el feedback!</string>
+    <string name="remindMeLater">Recordar más tarde</string>
+    <string name="noThanks">No, gracias</string>
 
 </resources>
