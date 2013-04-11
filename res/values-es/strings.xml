@@ -136,6 +136,7 @@
     <string name="marketAnnotatorMenuItem_deleteAll">Borrar lista</string>
     <string name="marketAnnotatorMenuItem_checkAllItems">Seleccionar todo</string>
     <string name="marketAnnotatorMenuItem_uncheckAllItems">No seleccionar nada</string>
+
     <string name="group_one">Grupo 1</string>
     <string name="group_two">Grupo 2</string>
     <string name="by_nahuel_barrios">Por Nahuel Barrios.</string>
@@ -153,8 +154,8 @@
     <string name="golfAnnotator_nextHole">Siguiente hoyo</string>
     <string name="golfAnnotator_selectStartingHole">Seleccionar hoyo de partida</string>
     <string name="rate">Calificar Magic Annotator</string>
-    <string name="pleaseRateApp">¿Te molestaría tomarte un momento para calificar el Magic Annotator? ¡Gracias por el feedback!</string>
+    <string name="pleaseRateApp">¿Te molestaría tomarte un momento para calificar el Magic Annotator?\n¡Gracias por el feedback!</string>
     <string name="remindMeLater">Recordar más tarde</string>
-    <string name="noThanks">No, gracias</string>
+    <string name="noThanks">No, ¡gracias!</string>
 
 </resources>
