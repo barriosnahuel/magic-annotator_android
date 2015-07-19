@@ -14,8 +14,6 @@ There you also can check some of the application screens, take a look!
 #####Usage example:
 In YouTube there's a video of the <a href="https://www.youtube.com/watch?v=EUuWwH37cNo" target="_blank">Magic Annotator usage example</a>.
 
-#####Please visit my <a href="https://sites.google.com/site/nbempire/">web site</a> too.
-
 ####License
 
      Magic Annotator - The only thing you need to write down whatever you want.
